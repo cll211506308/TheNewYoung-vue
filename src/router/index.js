@@ -22,13 +22,16 @@ export default new Router({
       name: 'index',
       component: index
     },
+
+
     {
       path: '/fit',
       name: 'fit',
       component: fit
     },
 
-    // children不加/
+
+    //这个是young友圈路由
     {
       path: '/friends',
       name: 'friends',
@@ -44,29 +47,40 @@ export default new Router({
           name: 'likeuser',
           component: likeuser
         },
-
       ]
     },
+
+
+    //这个是单个帖子路由
     {
       path: '/card/:id',
       name: 'card',
       component: card,
     },
+
+
     {
       path: '/users',
       name: 'users',
       component: users
     },
+
+
     {
       path: '/foods',
       name: 'foods',
       component: foods
     },
+
+
     {
       path: '/youngLife',
       name: 'youngLife',
       component: youngLife
     },
+
+
+    //这个在最后
     {
       path: '/*',
       name: 'my404',
