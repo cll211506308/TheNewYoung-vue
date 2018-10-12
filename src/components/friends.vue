@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>我是friends</h1>
+    <router-view></router-view>
   </div>
 </template>
 
