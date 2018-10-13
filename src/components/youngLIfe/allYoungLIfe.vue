@@ -1,13 +1,12 @@
 <template>
   <div>
-    <h1>我是foods</h1>
-    <router-view></router-view>
+    <h2>这是全部的养生堂文章</h2>
   </div>
 </template>
 
 <script>
     export default {
-        name: "foods"
+        name: "allYoungLIfe"
     }
 </script>
 

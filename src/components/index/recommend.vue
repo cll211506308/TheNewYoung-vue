@@ -1,13 +1,12 @@
 <template>
-  <div>
-    <h1>我是foods</h1>
-    <router-view></router-view>
-  </div>
+    <div>
+      <h3>这里是推荐的文章</h3>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "foods"
+        name: "recommend"
     }
 </script>
 

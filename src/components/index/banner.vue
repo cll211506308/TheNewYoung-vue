@@ -1,13 +1,12 @@
 <template>
-  <div>
-    <h1>我是foods</h1>
-    <router-view></router-view>
-  </div>
+    <div>
+      <h2>这里是轮播图</h2>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "foods"
+        name: "banner"
     }
 </script>
 

@@ -11,9 +11,13 @@ import my404 from '@/components/my404'
 import card from '@/components/card'
 import allcard from '@/components/friends/allcard'
 import likeuser from '@/components/friends/likeusercard'
-
-
-
+import artical from '@/components/artical'
+import allFit from '@/components/fit/allFit'
+import someFit from '@/components/fit/someFit'
+import allFoods from '@/components/foods/allFoods'
+import someFoods from '@/components/foods/someFoods'
+import allYoungLife from '@/components/youngLife/allYoungLife'
+import someYoungLife from '@/components/youngLife/someYoungLife'
 export default new Router({
   mode: 'history',
   routes: [
@@ -22,21 +26,28 @@ export default new Router({
       name: 'index',
       component: index
     },
-
-
     {
       path: '/fit',
       name: 'fit',
-      component: fit
+      component: fit,
+      children: [
+        {
+          path: '',
+          name: 'allFit',
+          component: allFit
+        },
+        {
+          path: 'someFit/:sort',
+          name: 'someFit',
+          component: someFit
+        }
+      ]
     },
-
-
-    //这个是young友圈路由
     {
       path: '/friends',
       name: 'friends',
       component: friends,
-      children:[
+      children: [
         {
           path: '',
           name: 'allcard',
@@ -46,41 +57,59 @@ export default new Router({
           path: 'likeuser/:id',
           name: 'likeuser',
           component: likeuser
-        },
+        }
       ]
     },
-
-
-    //这个是单个帖子路由
     {
       path: '/card/:id',
       name: 'card',
-      component: card,
+      component: card
     },
-
+    {
+      path: '/artical/:id',
+      name: 'artical',
+      component: artical
+    },
 
     {
       path: '/users',
       name: 'users',
       component: users
     },
-
-
     {
       path: '/foods',
       name: 'foods',
-      component: foods
+      component: foods,
+      children: [
+        {
+          path: '',
+          name: 'allFoods',
+          component: allFoods
+        },
+        {
+          path: 'someFoods/:sort',
+          name: 'someFoods',
+          component: someFoods
+        }
+      ]
     },
-
-
     {
       path: '/youngLife',
       name: 'youngLife',
-      component: youngLife
+      component: youngLife,
+      children: [
+        {
+          path: '',
+          name: 'allYoungLife',
+          component: allYoungLife
+        },
+        {
+          path: 'someYoungLife/:sort',
+          name: 'someYoungLife',
+          component: someYoungLife
+        }
+      ]
     },
-
-
-    //这个在最后
     {
       path: '/*',
       name: 'my404',

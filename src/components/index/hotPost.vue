@@ -1,13 +1,12 @@
 <template>
-  <div>
-    <h1>我是foods</h1>
-    <router-view></router-view>
-  </div>
+    <div>
+      <h3>这里是热门帖子 </h3>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "foods"
+        name: "hotPost"
     }
 </script>
 
