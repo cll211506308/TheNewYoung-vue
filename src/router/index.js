@@ -110,6 +110,32 @@ export default new Router({
         }
       ]
     },
+    // 个人中心界面
+    {
+      path: '/users',
+      name: 'users',
+      component: users
+    },
+    {
+      path: '/userpublish',
+      name: 'userpublish',
+      component: userdetails
+    },
+    {
+      path: '/usercollection',
+      name: 'usercollection',
+      component: userdetails
+    },
+    {
+      path: '/userbody',
+      name: 'userbody',
+      component: userdetails
+    },
+    {
+      path: '/useridentity',
+      name: 'useridentity',
+      component: userdetails
+    },
     {
       path: '/*',
       name: 'my404',
