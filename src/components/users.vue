@@ -1,13 +1,30 @@
 <template>
   <div>
-    <h1>我是users</h1>
+    <index-header>头</index-header>
+    <user-userdetails>用户详情</user-userdetails>
+    <user-userdiagram>用户折线图</user-userdiagram>
+    <router-view></router-view>
+    <user-userbody>用户体质类别</user-userbody>
+    <user-suggestions>建议</user-suggestions>
+    <index-footer>尾</index-footer>
   </div>
 </template>
 
 <script>
-    export default {
-        name: "users"
+  import header from './index/header.vue';
+  import footer from './index/footer.vue';
+  export default {
+    name: 'users',
+    components: {
+      'index-header': header,
+      // 'user-userdetails': userdetails,
+      // 'user-userdiagram':userdiagram,
+      // 'user-userbody':userbody,
+      // 'user-suggestions':suggestions,
+      'index-footer': footer
+
     }
+  }
 </script>
 
 <style scoped>

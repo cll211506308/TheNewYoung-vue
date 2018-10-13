@@ -18,6 +18,11 @@ import allFoods from '@/components/foods/allFoods'
 import someFoods from '@/components/foods/someFoods'
 import allYoungLife from '@/components/youngLife/allYoungLife'
 import someYoungLife from '@/components/youngLife/someYoungLife'
+import alldatas from '@/components/users/alldatas'
+import userbodydata from '@/components/users/userbodydata'
+import usercollections from '@/components/users/usercollections'
+import useridentity from '@/components/users/useridentity'
+import userpublish from '@/components/users/userpublish'
 export default new Router({
   mode: 'history',
   routes: [
@@ -114,28 +119,36 @@ export default new Router({
     {
       path: '/users',
       name: 'users',
-      component: users
+      component: users,
+      children: [
+        {
+          path: '',
+          name: 'alldatas',
+          component: alldatas
+        },
+        {
+          path: 'userpublish/:id',
+          name: 'userpublish',
+          component:userpublish,
+        },
+        {
+          path: 'usercollection/:id',
+          name: 'usercollection',
+          component:usercollections,
+        },
+        {
+          path: 'userbodydata:',
+          name: 'userbodydata',
+          component:userbodydata,
+        },
+        {
+          path: 'useridentity',
+          name: 'useridentity',
+          component:useridentity,
+        },
+      ]
     },
-    {
-      path: '/userpublish',
-      name: 'userpublish',
-      component: userdetails
-    },
-    {
-      path: '/usercollection',
-      name: 'usercollection',
-      component: userdetails
-    },
-    {
-      path: '/userbody',
-      name: 'userbody',
-      component: userdetails
-    },
-    {
-      path: '/useridentity',
-      name: 'useridentity',
-      component: userdetails
-    },
+
     {
       path: '/*',
       name: 'my404',
