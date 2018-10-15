@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
 import index from '@/components/index'
+import login from '@/components/login'
+import setUp from '@/components/setUp'
 import foods from '@/components/foods'
 import fit from '@/components/fit'
 import friends from '@/components/friends'
@@ -30,6 +32,16 @@ export default new Router({
       path: '/',
       name: 'index',
       component: index
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
+    },
+    {
+      path: '/setUp',
+      name: 'setUp',
+      component: setUp
     },
     {
       path: '/fit',

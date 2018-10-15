@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import header from './index/header'
+  import header from './index/topCon'
     export default {
         name: "artical",
       data(){

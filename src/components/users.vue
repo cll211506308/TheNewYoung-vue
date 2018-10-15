@@ -11,8 +11,8 @@
 </template>
 
 <script>
-  import header from './index/header.vue';
-  import footer from './index/footer.vue';
+  import header from './index/topCon.vue';
+  import footer from './index/bottomCon.vue';
   export default {
     name: 'users',
     components: {
