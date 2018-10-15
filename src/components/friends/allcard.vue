@@ -1,8 +1,7 @@
 <template>
-    <div>
-      {{ data }}
-      <h1>分割</h1>
-      {{shuzi}}
+    <div id="s1">
+      <!--{{ data }}-->
+      <div v-for="(u,i) in data">---{{u.postabel}}---索引：{{i}}</div>
     </div>
 </template>
 
@@ -18,15 +17,12 @@
         this.$axios.get('friends').then(
           ((res)=>{this.data = res.data.data})
         ).catch(err=>{console.log(err)})
-
-
-        this.$axios.get('friends/count').then(
-          ((res)=>{this.shuzi = res.data.data})
-        ).catch(err=>{console.log(err)})
       }
     }
 </script>
 
 <style scoped>
-
+    #s1{
+      border:1px solid red;
+    }
 </style>
