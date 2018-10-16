@@ -1,15 +1,39 @@
 <template>
   <div>
-    <h1>我是friends</h1>
+    <my-header></my-header>
     <router-link to="/friends">全部帖子</router-link>
-    <router-link to="/friends/likeuser/5">我的关注</router-link>
+    <router-link to="/friends/likeuser/5">我的关注
+    <span v-if="show1">还没登陆</span>
+    </router-link>
     <router-view class="card"></router-view>
   </div>
 </template>
 
 <script>
+  import header from './index/topCon'
     export default {
-        name: "friends"
+        name: "friends",
+      data(){
+          return{
+
+          }
+      },
+      methods:{
+
+      },
+      components:{
+          'my-header':header
+      },
+      computed:{
+        show1:function () {
+          if(this.$store.state.data1 === null){
+            return true
+          }
+          else {
+            return false
+          }
+        }
+      }
     }
 </script>
 

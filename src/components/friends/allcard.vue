@@ -2,12 +2,12 @@
     <div id="s1">
       <div v-for="u in showData">
         <div class="s1">
-          <router-link  :to="{ name: 'card', params: { id: u.postid }}">
+          <router-link tag="a" target="_blank"  :to="{ name: 'card', params: { id: u.postid }}">
             标题：{{u.title}}
             标签：{{u.postable}}
             内容：{{u.postcontent}}
           </router-link>
-          时间：{{u.time}}
+          {{u.time}}
           浏览量：{{u.pageviews}}
         </div>
       </div>
@@ -20,7 +20,6 @@
 </template>
 
 <script>
-    import axios from 'axios'
     export default {
       data () {
         return {
