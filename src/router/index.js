@@ -6,6 +6,7 @@ import login from '@/components/login'
 import setUp from '@/components/setUp'
 import foods from '@/components/foods'
 import fit from '@/components/fit'
+import search from '@/components/search'
 import friends from '@/components/friends'
 import users from '@/components/users'
 import youngLife from '@/components/youngLife'
@@ -21,12 +22,10 @@ import someFoods from '@/components/foods/someFoods'
 import allYoungLife from '@/components/youngLife/allYoungLife'
 import someYoungLife from '@/components/youngLife/someYoungLife'
 import alldatas from '@/components/users/alldatas'
-import usersarticals from '@/components/users/usersarticals'
-import userscards from '@/components/users/userscards'
+import userbodydata from '@/components/users/userbodydata'
 import usercollections from '@/components/users/usercollections'
-import userbodydata from '@/components/userbodydata'
-import useridentity from '@/components/useridentity'
-
+import useridentity from '@/components/users/useridentity'
+import userpublish from '@/components/users/userpublish'
 export default new Router({
   mode: 'history',
   routes: [
@@ -39,6 +38,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: login
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: search
     },
     {
       path: '/setUp',
@@ -91,6 +95,11 @@ export default new Router({
     },
 
     {
+      path: '/users',
+      name: 'users',
+      component: users
+    },
+    {
       path: '/foods',
       name: 'foods',
       component: foods,
@@ -131,36 +140,31 @@ export default new Router({
       component: users,
       children: [
         {
-          path: 'alldatas/:id',
+          path: '',
           name: 'alldatas',
-          component: alldatas,
+          component: alldatas
         },
         {
-          path: 'userscards/:id',
-          name: 'userscards',
-          component:userscards,
-        },
-        {
-          path: 'usersarticals/:id',
-          name: 'usersarticals',
-          component:usersarticals,
+          path: 'userpublish/:id',
+          name: 'userpublish',
+          component:userpublish,
         },
         {
           path: 'usercollection/:id',
           name: 'usercollection',
           component:usercollections,
         },
+        {
+          path: 'userbodydata:',
+          name: 'userbodydata',
+          component:userbodydata,
+        },
+        {
+          path: 'useridentity',
+          name: 'useridentity',
+          component:useridentity,
+        },
       ]
-    },
-    {
-      path: '/userbodydata',
-      name: 'userbodydata',
-      component:userbodydata,
-    },
-    {
-      path: '/useridentity',
-      name: 'useridentity',
-      component:useridentity,
     },
 
     {

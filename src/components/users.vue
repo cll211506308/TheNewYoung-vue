@@ -1,6 +1,5 @@
 <template>
   <div>
-    <index-header>头</index-header>
     <user-userdetails>用户详情</user-userdetails>
     <user-userdiagram>用户折线图</user-userdiagram>
     <router-view></router-view>
@@ -11,12 +10,10 @@
 </template>
 
 <script>
-  import header from './index/topCon.vue';
   import footer from './index/bottomCon.vue';
   export default {
     name: 'users',
     components: {
-      'index-header': header,
       // 'user-userdetails': userdetails,
       // 'user-userdiagram':userdiagram,
       // 'user-userbody':userbody,
