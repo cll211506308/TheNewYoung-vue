@@ -7,7 +7,7 @@
             标签：{{u.postable}}
             内容：{{u.postcontent}}
           </router-link>
-          {{u.time}}
+          {{(u.time.slice(0,19).replace(/T/, "  "))}}
           浏览量：{{u.pageviews}}
         </div>
       </div>
@@ -41,6 +41,7 @@
             this.pag--
           }
         },
+        //下一页
         next(){
           if(this.pag > this.data.length/this.tiao){
             alert('已经是最后一页了')
@@ -51,6 +52,7 @@
         }
       },
       computed:{
+        //数据分页
         showData:function () {
             return this.data.slice((this.pag-1)*this.tiao,(this.pag-1)*this.tiao+this.tiao)
         }

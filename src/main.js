@@ -5,10 +5,10 @@ import App from './App'
 import store from './store'
 import router from './router/index'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-import $ from 'jquery'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.min'
+// import 'element-ui/lib/theme-chalk/index.css'
+// import $ from 'jquery'
+// import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/js/bootstrap.min'
 
 //引入
 import Axios from 'axios';

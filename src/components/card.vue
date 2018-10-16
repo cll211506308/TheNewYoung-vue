@@ -1,7 +1,7 @@
 <template>
     <div>
       <h1>
-        这是帖子{{id}}的页面{{this.$store.state.data1}}
+        这是帖子{{id}}的页面
       </h1>
         <hr/>
       <div v-for="u in showData">
@@ -33,12 +33,20 @@
           }
       },
      created(){
+          //获取评论
         this.$axios.get('/friends/getCom/'+this.id).then(
           ((res)=>{
             this.data = res.data.data})
         ).catch(err=>{console.log(err)})
+
+
+       //更新浏览量
+       this.$axios.get('/friends/uppv/'+this.id).then(
+         ((res)=>{})
+       ).catch(err=>{console.log(err)})
       },
     methods:{
+          //上一页
       pre(){
         if(this.pag == 1){
           alert('已经是第一页了')

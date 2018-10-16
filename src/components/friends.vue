@@ -1,6 +1,5 @@
 <template>
   <div>
-    <my-header></my-header>
     <router-link to="/friends">全部帖子</router-link>
     <router-link to="/friends/likeuser/5">我的关注
     <span v-if="show1">还没登陆</span>
@@ -10,7 +9,6 @@
 </template>
 
 <script>
-  import header from './index/topCon'
     export default {
         name: "friends",
       data(){
@@ -22,7 +20,7 @@
 
       },
       components:{
-          'my-header':header
+
       },
       computed:{
         show1:function () {

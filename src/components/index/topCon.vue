@@ -9,7 +9,7 @@
           <router-link tag="li" to="/foods">营养饮食</router-link>
           <router-link tag="li" to="/fit">健身课堂</router-link>
           <router-link tag="li" to="/friends">Young友圈</router-link>
-          <router-link tag="li" to="/users">个人中心</router-link>
+          <!--<router-link tag="li" to="/users">个人中心</router-link>-->
         </div>
         <div class="col-sm-4">
           <div class="col-sm-10">
