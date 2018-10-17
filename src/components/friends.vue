@@ -5,6 +5,8 @@
     <span v-if="show1">还没登陆</span>
     </router-link>
     <router-view class="card"></router-view>
+
+
   </div>
 </template>
 
