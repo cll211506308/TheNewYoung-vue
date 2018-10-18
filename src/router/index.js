@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-Vue.use(Router)
+Vue.use(Router);
 import index from '@/components/index'
 import login from '@/components/login'
 import setUp from '@/components/setUp'

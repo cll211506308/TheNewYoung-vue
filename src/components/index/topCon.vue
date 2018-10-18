@@ -1,32 +1,26 @@
 <template>
-  <div class="container-fluid" style="background: black">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-7">
-          <li style="margin-right: 30px">LOGO</li>
-          <router-link tag="li" to="/">首 页</router-link>
-          <router-link tag="li" to="/youngLife">养生堂</router-link>
-          <router-link tag="li" to="/foods">营养饮食</router-link>
-          <router-link tag="li" to="/fit">健身课堂</router-link>
-          <router-link tag="li" to="/friends">Young友圈</router-link>
-          <!--<router-link tag="li" to="/users">个人中心</router-link>-->
-        </div>
-        <div class="col-sm-4">
-          <div class="col-sm-10">
-            <el-input v-model="input" placeholder="search for..." style="margin-top: 20px;"></el-input>
-          </div>
-          <div class="col-sm-2">
-            <li class="glyphicon glyphicon-search"></li>
-          </div>
-
-        </div>
-        <div class="col-sm-1">
-          <router-link tag="li" to="/login">login</router-link>
-        </div>
-      </div>
-
-    </div>
-  </div>
+  <el-menu
+    :default-active="activeIndex"
+    class="el-menu-demo"
+    mode="horizontal"
+    @select="handleSelect"
+    background-color="#000009">
+    <el-menu-item index="1">处理中心</el-menu-item>
+    <el-submenu index="2">
+      <template slot="title">我的工作台</template>
+      <el-menu-item index="2-1">选项1</el-menu-item>
+      <el-menu-item index="2-2">选项2</el-menu-item>
+      <el-menu-item index="2-3">选项3</el-menu-item>
+      <el-submenu index="2-4">
+        <template slot="title">选项4</template>
+        <el-menu-item index="2-4-1">选项1</el-menu-item>
+        <el-menu-item index="2-4-2">选项2</el-menu-item>
+        <el-menu-item index="2-4-3">选项3</el-menu-item>
+      </el-submenu>
+    </el-submenu>
+    <el-menu-item index="3" disabled>消息中心</el-menu-item>
+    <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+  </el-menu>
 </template>
 
 <script>
@@ -34,33 +28,16 @@
     name: "topCon",
     data() {
       return {
-        input: ''
-      }
+        activeIndex: '1'
+      };
     }
   }
 </script>
 
 <style scoped>
-  li {
+  el-menu {
     height: 80px;
-    color: #fff;
-    list-style: none;
-    float: left;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-right: 20px;
     line-height: 80px;
-  }
-
-  el-input {
-    margin-top: 22px;
-    height: 34px;
-    border-radius: 5px;
-  }
-
-  .container-fluid {
-    height: 80px;
   }
 
 </style>

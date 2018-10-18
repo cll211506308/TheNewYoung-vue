@@ -1,5 +1,7 @@
 <template>
-    <h2>Footer</h2>
+    <div class="container-fluid" style="background: black; height: 100px; margin-top: 40px">
+
+    </div>
 </template>
 
 <script>
