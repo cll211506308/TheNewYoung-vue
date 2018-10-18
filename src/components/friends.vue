@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="friends">
+    <div></div>
     <router-link to="/friends">全部帖子</router-link>
     <router-link to="/friends/likeuser/5">我的关注
     <span v-if="show1">还没登陆</span>
