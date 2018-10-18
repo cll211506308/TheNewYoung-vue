@@ -6,6 +6,7 @@ import login from '@/components/login'
 import setUp from '@/components/setUp'
 import foods from '@/components/foods'
 import fit from '@/components/fit'
+import search from '@/components/search'
 import friends from '@/components/friends'
 import users from '@/components/users'
 import youngLife from '@/components/youngLife'
@@ -35,6 +36,11 @@ export default new Router({
       path: '/',
       name: 'index',
       component: index
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: search
     },
     {
       path: '/login',

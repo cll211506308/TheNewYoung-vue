@@ -1,7 +1,9 @@
 <template>
-    <div class="container-fluid" style="background: black; height: 100px; margin-top: 40px">
+    <el-row style="height: 80px; background: #000009; margin-top: 20px">
+      <el-col :span="18" :offset="3">
 
-    </div>
+      </el-col>
+    </el-row>
 </template>
 
 <script>

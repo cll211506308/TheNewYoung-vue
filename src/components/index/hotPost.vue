@@ -1,22 +1,22 @@
 <template>
   <el-row>
     <el-col :span="18" :offset="3">
-      <div class="page-header">
-        <h3>热门帖子
+      <el-row style="margin-bottom: 20px">
+        <h2>热门帖子
           <small> Subtext for header</small>
-        </h3>
-      </div>
-      <div class="col-sm-12"
+        </h2>
+      </el-row>
+      <el-row
            style="background: url('../../../static/images/bg1.png'); width: 100%; height: 350px; background-size:100% 350px; ">
-        <div class="col-sm-offset-1 col-sm-10" style="margin-top: 35px">
-          <el-tabs :tab-position="bottom" style="height: 200px;">
-            <el-tab-pane label="用户管理">用户管理</el-tab-pane>
-            <el-tab-pane label="配置管理">配置管理</el-tab-pane>
-            <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-            <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+        <el-col :span="20" :offset="2" style="margin-top: 40px">
+          <el-tabs style="height: 200px;">
+            <el-tab-pane label="热 门" >热 门</el-tab-pane>
+            <el-tab-pane label="养 生">养 生</el-tab-pane>
+            <el-tab-pane label="美 食">美 食</el-tab-pane>
+            <el-tab-pane label="健 身">健 身</el-tab-pane>
           </el-tabs>
-        </div>
-      </div>
+        </el-col>
+      </el-row>
     </el-col>
   </el-row>
 
@@ -32,6 +32,10 @@
 </script>
 
 <style scoped>
+  el-tab-pane{
+    font-weight: bold;
+    font-size: 20px;
+  }
   h3 {
     font-weight: bold;
   }

@@ -32,7 +32,7 @@
                 }
                 else {
                   alert('登陆成功')
-                  sessionStorage.setItem('userid',data.data[0].userid);//设置session
+                  sessionStorage.setItem('userId',data.data[0].userId);//设置session
                   window.location.href = '/'
                 }
               })

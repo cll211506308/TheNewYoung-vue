@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 export default new Vuex.Store({
   state:{
-    data1: sessionStorage.getItem('userid')
+    data1: sessionStorage.getItem('userId'),
   }
 })
 
