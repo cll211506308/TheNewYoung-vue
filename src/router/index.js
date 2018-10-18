@@ -143,7 +143,7 @@ export default new Router({
           component: alldatas,
         },
         {
-          path: '/:id',
+          path: ':id',
           name: 'userhome',
           component: userhome,
         },

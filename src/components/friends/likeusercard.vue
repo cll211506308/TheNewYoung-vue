@@ -1,5 +1,5 @@
 <template>
-  <div id="s2">
+  <div>
     这是用户{{id}}关注人的帖子
   </div>
 </template>
@@ -16,7 +16,5 @@
 </script>
 
 <style scoped>
-  #s2{
-    border: 1px solid red;
-  }
+
 </style>

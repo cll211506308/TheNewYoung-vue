@@ -1,4 +1,6 @@
 <template>
+
+
     <div class="login">
       <div class="s1">
         <form action="" method="post" v-if="show1">

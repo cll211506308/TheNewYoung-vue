@@ -2,14 +2,14 @@
     <div id="s1">
       <div v-for="u in showData">
         <div class="s1">
-          <router-link tag="a" target="_blank"  :to="{ name: 'card', params: { id: u.postid }}">
+          <!--<router-link tag="a" target="_blank"  :to="{ name: 'card', params: { id: u.postLd }}">-->
             标题：{{u.title}}
-            标签：{{u.postable}}
-            内容：{{u.postcontent}}
+            标签：{{u.postLabl}}
+            内容：{{u.postContent}}
             作者：{{u.username}}
-          </router-link>
-          {{(u.time.slice(0,19).replace(/T/, "  "))}}
-          浏览量：{{u.pageviews}}
+          <!--</router-link>-->
+          {{(u.postTime.slice(0,19).replace(/T/, "  "))}}
+          浏览量：{{u.pageViews}}
         </div>
       </div>
       <el-row>
@@ -36,7 +36,7 @@
             this.data = res1.data.data;
             for (let i = 0; i < this.data.length; i++) {
 
-              this.$axios.get('users/username/' + res1.data.data[i].userid).then(
+              this.$axios.get('users/username/' + res1.data.data[i].userId).then(
                 ((res2)=>{
                    this.data[i].username = res2.data.data[0].username
                 })
@@ -84,9 +84,9 @@
 
 <style scoped>
   .s1{
-    border: 1px solid white;
-    border-bottom-color: #ccc;
+    border: 1px solid #dfeded;
     padding: 20px;
+    position: relative;
   }
   .s1:hover{
     border: 1px solid #ccc;
