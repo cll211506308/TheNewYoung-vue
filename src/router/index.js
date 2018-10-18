@@ -21,11 +21,12 @@ import someFoods from '@/components/foods/someFoods'
 import allYoungLife from '@/components/youngLife/allYoungLife'
 import someYoungLife from '@/components/youngLife/someYoungLife'
 import alldatas from '@/components/users/alldatas'
+import userhome from '@/components/users/userhome'
 import usersarticals from '@/components/users/usersarticals'
 import userscards from '@/components/users/userscards'
 import usercollections from '@/components/users/usercollections'
-import userbodydata from '@/components/userbodydata'
-import useridentity from '@/components/useridentity'
+import userbodydata from '@/components/users/userbodydata'
+import useridentity from '@/components/users/useridentity'
 
 export default new Router({
   mode: 'history',
@@ -41,7 +42,7 @@ export default new Router({
       component: login
     },
     {
-      path: 'setUp',
+      path: '/setUp',
       name: 'setUp',
       component: setUp
     },
@@ -136,6 +137,11 @@ export default new Router({
           component: alldatas,
         },
         {
+          path: '/:id',
+          name: 'userhome',
+          component: userhome,
+        },
+        {
           path: 'userscards/:id',
           name: 'userscards',
           component:userscards,
@@ -150,17 +156,17 @@ export default new Router({
           name: 'usercollection',
           component:usercollections,
         },
+        {
+          path: 'userbodydata',
+          name: 'userbodydata',
+          component:userbodydata,
+        },
+        {
+          path: 'useridentity',
+          name: 'useridentity',
+          component:useridentity,
+        }
       ]
-    },
-    {
-      path: '/userbodydata',
-      name: 'userbodydata',
-      component:userbodydata,
-    },
-    {
-      path: '/useridentity',
-      name: 'useridentity',
-      component:useridentity,
     },
 
     {

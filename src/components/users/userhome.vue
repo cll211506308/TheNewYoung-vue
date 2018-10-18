@@ -1,10 +1,11 @@
 <template>
-<h3>用户身份认证</h3>
+  <div>个人中心主页</div>
+
 </template>
 
 <script>
     export default {
-        name: "useridentity"
+        name: "userhome"
     }
 </script>
 

@@ -1,10 +1,10 @@
 <template>
-  <h3>这里是填写体质信息的界面</h3>
+    $END$
 </template>
 
 <script>
     export default {
-        name: "userbodydata"
+        name: "404"
     }
 </script>
 

@@ -12,11 +12,11 @@
         </div>
       </div>
       <div v-if="show">暂时还没有评论</div>
-      <el-button-group>
-        <el-button type="primary" @click="pre">上一页</el-button>
+      <el-row>
+        <el-button type="primary"  @click="pre" :disabled="dis1">上一页</el-button>
         <el-button type="primary">{{pag}}/{{ Math.ceil(data.length/tiao) }}</el-button>
-        <el-button type="primary" @click="next">下一页</el-button>
-      </el-button-group>
+        <el-button type="primary" @click="next" :disabled="dis2">下一页</el-button>
+      </el-row>
     </div>
 </template>
 
@@ -29,7 +29,8 @@
             data:[],
             pag:1,
             tiao:10,
-            show:false
+            dis1:false,
+            dis2:false
           }
       },
      created(){
@@ -49,18 +50,21 @@
           //上一页
       pre(){
         if(this.pag == 1){
-          alert('已经是第一页了')
+          this.dis1 = true
         }
         else {
           this.pag--
+          this.dis2 = false
         }
       },
+      //下一页
       next(){
         if(this.pag > this.data.length/this.tiao){
-          alert('已经是最后一页了')
+          this.dis2 = true
         }
         else {
           this.pag++
+          this.dis1 = false
         }
       }
     },
