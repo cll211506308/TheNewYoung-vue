@@ -11,8 +11,8 @@
           return {
             sort:this.$route.params.sort
           }
+        }
       }
-}
 </script>
 
 <style scoped>
