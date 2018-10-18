@@ -6,9 +6,6 @@ import store from './store'
 import router from './router/index'
 import $ from 'jquery'
 import ElementUI from 'element-ui'
-// import 'element-ui/lib/theme-chalk/index.css'
-// import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.min.js'
 
 //引入
 import Axios from 'axios';

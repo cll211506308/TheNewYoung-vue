@@ -1,7 +1,16 @@
 <template>
-  <div id="uc1">
-    <h3>用户{{id}}收藏的文章</h3>
-  </div>
+  <el-row type="flex" justify="center">
+    <el-col :span="22">
+      <div v-for="o in 4" :key="o">
+        <el-card class="box-card">
+          <div  class="text item">
+            {{'收藏内容'+o}}
+            <el-button style="float: right; padding: 3px 0" type="text" icon="el-icon-delete"></el-button>
+          </div>
+        </el-card>
+      </div>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
@@ -16,8 +25,15 @@
 </script>
 
 <style scoped>
-  #uc1{
-    border: 1px solid red;
+  .text {
+    font-size: 14px;
+  }
+
+  .item {
+    margin-bottom: 18px;
+  }
+  .box-card {
+    width: 100%;
   }
 </style>
 

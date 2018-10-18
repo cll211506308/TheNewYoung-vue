@@ -1,16 +1,28 @@
 <template>
-
-  <!--<div>
-           <ul class="nav nav-pills">
-             <router-link tag="li" active-class="active" role="presentation" to="/users/alldatas/2" exact><a>我的体质</a></router-link>
-             <router-link tag="li" active-class="active" role="presentation" to="/users/usersarticals/2" ><a>我的文章</a></router-link>
-             <router-link tag="li" active-class="active" role="presentation" to="/users/userscards/2" ><a>我的贴子</a></router-link>
-             <router-link tag="li" active-class="active" role="presentation" to="/users/usercollection/2" ><a>我的收藏</a></router-link>
-             <router-link tag="li" active-class="active" role="presentation" to="/userbodydata" ><a>体质数据填写</a></router-link>
-             <router-link tag="li" active-class="active" role="presentation" to="/useridentity" ><a>身份认证</a></router-link>
-           </ul>
-           <router-view class="myself"></router-view>
-         </div>-->
+  <div>
+    <el-button-group>
+      <router-link active-class="active" role="presentation" to="/users" exact>
+        <el-button type="primary" icon="el-icon-date">我的主页</el-button>
+      </router-link>
+      <router-link active-class="active" role="presentation" to="/users/usersarticals/2">
+        <el-button type="primary" icon="el-icon-tickets">我的文章</el-button>
+      </router-link>
+      <router-link active-class="active" role="presentation" to="/users/userscards/2">
+        <el-button type="primary" icon="el-icon-message">我的贴子</el-button>
+      </router-link>
+      <router-link active-class="active" role="presentation" to="/users/usercollection/2">
+        <el-button type="primary" icon="el-icon-star-on">我的收藏</el-button>
+      </router-link>
+      <router-link active-class="active" role="presentation" to="/users/userbodydata">
+        <el-button type="primary" icon="el-icon-edit">测试体质</el-button>
+      </router-link>
+      <router-link active-class="active" role="presentation" to="/users/useridentity">
+        <el-button type="primary" icon="el-icon-info">我的身份</el-button>
+      </router-link>
+    </el-button-group>
+    <div class="xian"></div>
+    <router-view class="myself"></router-view>
+  </div>
 
 </template>
 
@@ -18,8 +30,13 @@
     export default {
         name: "alldatas"
     }
+
+
 </script>
 
 <style scoped>
-
+.xian{
+  width: 100%;
+  height: 30px;
+}
 </style>
