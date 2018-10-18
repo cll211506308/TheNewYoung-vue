@@ -3,8 +3,7 @@
     <el-container>
       <el-aside width="20%" height="50%"><div class="userpic">头像</div></el-aside>
       <el-main>
-        <h3 class="username">{{username}}</h3>
-
+        <h3 class="username">用户名：{{username}}</h3>
       </el-main>
     </el-container>
   </div>

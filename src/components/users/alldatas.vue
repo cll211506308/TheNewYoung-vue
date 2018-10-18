@@ -20,6 +20,7 @@
         <el-button type="primary" icon="el-icon-info">我的身份</el-button>
       </router-link>
     </el-button-group>
+    <div class="xian"></div>
     <router-view class="myself"></router-view>
   </div>
 
@@ -34,5 +35,8 @@
 </script>
 
 <style scoped>
-
+.xian{
+  width: 100%;
+  height: 30px;
+}
 </style>
