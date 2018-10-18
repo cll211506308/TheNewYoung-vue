@@ -41,7 +41,7 @@ export default new Router({
       component: login
     },
     {
-      path: 'setUp',
+      path: '/setUp',
       name: 'setUp',
       component: setUp
     },
