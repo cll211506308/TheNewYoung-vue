@@ -2,12 +2,12 @@
     <div id="s1">
       <div v-for="u in showData">
         <div class="s1">
-          <!--<router-link tag="a" target="_blank"  :to="{ name: 'card', params: { id: u.postLd }}">-->
+          <router-link tag="a" target="_blank" :to="{name:'card',params: {id: u.postId}}">
             标题：{{u.title}}
             标签：{{u.postLabl}}
             内容：{{u.postContent}}
             作者：{{u.username}}
-          <!--</router-link>-->
+          </router-link>
           {{(u.postTime.slice(0,19).replace(/T/, "  "))}}
           浏览量：{{u.pageViews}}
         </div>
@@ -85,8 +85,6 @@
 <style scoped>
   .s1{
     border: 1px solid #dfeded;
-    padding: 20px;
-    position: relative;
   }
   .s1:hover{
     border: 1px solid #ccc;

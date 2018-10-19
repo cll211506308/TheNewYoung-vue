@@ -101,7 +101,7 @@
               this.$axios.get('users/judgeName/' + this.ruleForm2.age).then(
                 ((res)=>{
                   if(res.data.data.length != 0){
-                    alert('用户名已存在,请从新输入')
+                    this.$message.error('用户名已存在,请重新输入');
                   }
                   else {
                     $.post('http://127.0.0.1:3000/users/setUp',{userName:this.ruleForm2.age,userPwd:this.ruleForm2.pass},function(data2){

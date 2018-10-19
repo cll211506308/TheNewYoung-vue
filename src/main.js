@@ -7,7 +7,7 @@ import router from './router/index'
 import $ from 'jquery'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-
+import 'element-ui/lib/theme-chalk/display.css';
 
 //引入
 import Axios from 'axios';
