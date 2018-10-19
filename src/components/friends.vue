@@ -173,30 +173,18 @@
   .Publish,.Publish-1{
     display: inline-block;
   }
-.card{
-  width: 800px;
-  border: 1px solid white;
-}
-  .view-body{
-    width: 800px;
-    float: left;
-  }
   .tag{
-    float: right;
-    margin-right:100px;
     width: 200px;
     height: 300px;
     text-align: center;
-    padding-top: 50px;
   }
   .hot-tag{
     border: 1px solid #ccc;
+    border-radius: 5px;
   }
   .hot-s{
     border: 1px solid #ccc;
     margin-top: 20px;
-  }
-  .s1{
-    border: 1px solid red;
+    border-radius:5px;
   }
 </style>
