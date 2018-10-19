@@ -20,13 +20,13 @@
         <el-row :gutter="20">
           <el-col :span="6"><div>
             <el-radio-group v-model="tabPosition" style="margin-bottom: 30px;">
-              <el-radio-button label="top"><span @click="allCard">全部帖子</span></el-radio-button>
-              <el-radio-button label="right"><span @click="likeCard">我得关注</span></el-radio-button>
+              <span @click="allCard"><el-radio-button label="top">全部帖子</el-radio-button></span>
+              <span @click="likeCard"><el-radio-button label="right">我得关注</el-radio-button></span>
             </el-radio-group>
           </div></el-col>
           <el-col :span="12" :offset="4"><div>
             <div class="Publish">
-              <el-button type="primary" @click="dialogVisible = true">发表帖子</el-button>
+              <el-button type="primary" @click="publish">发表帖子</el-button>
             </div>
             <div class="Publish-1">
               <el-input v-model="input" placeholder="请输入内容"></el-input>
@@ -36,12 +36,11 @@
       </div></el-col>
 
       <el-col :offset="3" :span="18"><div>
-        <el-row :gutter="20">
-          <el-col :xs="24" :sm="24" :md="16" :lg="16" :xl="16"><div>
+        <el-row>
+          <el-col :xs="24" :sm="24" :md="17" :lg="17" :xl="17"><div>
             <router-view></router-view>
           </div></el-col>
-          <el-col class="hidden-sm-and-down"  :md="8" :lg="8" :xl="8"><div>
-
+          <el-col class="hidden-sm-and-down"  :md="7" :lg="7" :xl="7"><div>
             <div class="tag">
               <div class="hot-tag">热门标签<br/><br/>
                 <el-tag>标签一</el-tag>
@@ -58,7 +57,6 @@
                 <el-tag type="danger">标签五</el-tag>
               </div>
             </div>
-
           </div></el-col>
         </el-row>
       </div></el-col>
@@ -70,12 +68,32 @@
     <el-dialog
       title="发表帖子"
       :visible.sync="dialogVisible"
-      width="50%"
+      width="60%"
       :before-close="handleClose">
-      <span>发表帖子</span>
-      <span slot="footer" class="dialog-footer">
+
+      <el-form ref="form" :model="form" label-width="80px">
+        <el-form-item label="标题">
+          <el-input v-model="form.name"></el-input>
+        </el-form-item>
+        <el-form-item label="类别">
+          <el-select v-model="form.region" placeholder="请选择活动区域">
+            <el-option label="养胃" value="养胃"></el-option>
+            <el-option label="养肝" value="养肝"></el-option>
+            <el-option label="脱发" value="脱发"></el-option>
+            <el-option label="护肤" value="护肤"></el-option>
+            <el-option label="口腔" value="口腔"></el-option>
+            <el-option label="作息" value="作息"></el-option>
+            <el-option label="其他" value="其他"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="内容">
+          <el-input type="textarea" v-model="form.desc"></el-input>
+        </el-form-item>
+      </el-form>
+
+
     <el-button @click="dialogVisible = false">取 消</el-button>
-    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+    <el-button type="primary" @click="Submit">发 表</el-button>
   </span>
     </el-dialog>
 
@@ -92,7 +110,12 @@
             postCount:null,
             tabPosition: 'top',
             input:null,
-            dialogVisible: false
+            dialogVisible: false,
+            form: {
+              name: '',
+              region: '',
+              desc: ''
+            }
           }
       },
       created(){
@@ -121,6 +144,60 @@
               done();
             })
             .catch(_ => {});
+        },
+        publish(){
+            if(this.$store.state.data1 == null){
+              this.$message({
+                showClose: true,
+                message: '您还没登陆，请先登陆',
+                type: 'warning'
+              });
+            }
+            else {
+              this.dialogVisible = true
+            }
+        },
+        Submit() {
+            if(this.form.name == ''){
+              this.$message({
+                message: '标题不能为空，请输入',
+                type: 'warning'
+              });
+            }
+            else if(this.form.region == ''){
+              this.$message({
+                message: '请选择类别',
+                type: 'warning'
+              });
+            }
+            else if(this.form.desc == ''){
+              this.$message({
+                message: '内容不能为空，请输入',
+                type: 'warning'
+              });
+            }
+            else {
+              let that = this
+              this.$axios.get('/friends/submit', {
+                params: {
+                  userId:this.$store.state.data1,title:this.form.name,postLabel:this.form.region,postContent:this.form.desc
+                }
+              })
+                .then(function (response) {
+                  if(response.data.code == 200){
+                    that.$message({
+                      message: '恭喜你，发表成功',
+                      type: 'success'
+                    });
+                    window.location.href = '/friends'
+                  }
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
+
+            }
+
         }
       },
       components:{
@@ -174,6 +251,7 @@
     display: inline-block;
   }
   .tag{
+    float: right;
     width: 200px;
     height: 300px;
     text-align: center;
