@@ -4,19 +4,19 @@
     <el-col
       :span="18"
       :offset="3"
-      style="font-size: 20px; font-weight:bold; color:#fff">
+      style="font-size: 1.25em; font-weight:bold; color: whitesmoke">
       <el-row>
         <el-col :span="2">
           <li>LOGO</li>
         </el-col>
-        <el-col :span="12">
+        <el-col :md="16" :sm="20" class="hidden-sm-and-down">
           <router-link tag="li" to="/">首 页</router-link>
           <router-link tag="li" to="/youngLife">养生堂</router-link>
           <router-link tag="li" to="/foods">营养饮食</router-link>
           <router-link tag="li" to="/fit">健身课堂</router-link>
           <router-link tag="li" to="/friends">Young友圈</router-link>
         </el-col>
-        <el-col :span="6" style="position:absolute; left:61%; top: -2px;">
+        <el-col :md="5" style="position:absolute; left:61%; top: -2px;" class="hidden-md-and-down">
           <li>
             <el-input
               placeholder="search for..."
@@ -24,12 +24,10 @@
               clearable>
             </el-input>
           </li>
-        </el-col>
-        <el-col :span="2" :offset="6">
           <router-link tag="li" to="/search" class="header-icon el-icon-search"
-                       style="position:absolute;top:50%;margin-top: -9px;margin-left: 5px"></router-link>
+                       style="position:absolute;top:50%;margin-top: -9px;"></router-link>
         </el-col>
-        <el-col :span="2" :offset="8">
+        <el-col :md="1" :offset="4" class="hidden-sm-and-down">
           <div v-if="isLogin">
             <router-link tag="li" to="/login">Login</router-link>
           </div>
@@ -59,8 +57,21 @@
     data() {
       return {
         input10: '',
-        userName: this.$store.state.data1,
+        userName: '',
+        data: [],
+        userId :this.$store.state.data1
+
       };
+    },
+    created() {
+      this.$axios.get('users/username/'+this.userId).then(
+        ((res) => {
+          this.userName = res.data.data[0].username
+        })
+      ).catch(err => {
+        console.log(err)
+      })
+
     },
     methods: {
       tuichu() {
@@ -71,15 +82,15 @@
     },
     computed: {
       isLogin: function () {
-        if(this.$store.state.data1 === null) {
+        if (this.$store.state.data1 === null) {
           return true
         }
         else {
           return false
         }
-      }
-    }
+      },
 
+    },
 
   }
 </script>
@@ -93,11 +104,14 @@
   }
 
   li {
-    margin-right: 25px;
+    margin-right: 22px;
     text-align: center;
     list-style: none;
     float: left;
     cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   #dropdown {

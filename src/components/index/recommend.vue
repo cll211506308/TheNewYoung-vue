@@ -3,122 +3,59 @@
       <el-col :span="18" :offset="3">
         <el-collapse v-model="activeName" accordion>
           <el-collapse-item name="1">
-            <template slot="title" style="font-weight: bold; font-size: 20px">
-              养生堂
+            <template slot="title">
+              <h2>养生堂
+                <small> Health is not everything, no health, no everything</small></h2>
             </template>
             <el-row :gutter="20">
-              <el-col :span="8">
+              <el-col :span="8" v-for="item in oneYang">
                 <el-card shadow="hover">
-                  <img src="" class="image">
+                  <img src="../../../static/images/banner1.jpg" class="image" style="width: 100%;height: 250px;">
                   <div style="padding: 14px;">
-                    <span>好吃的汉堡</span>
+                    <span>{{item.title}}</span>
                     <div class="bottom clearfix">
-                      <time class="time">{{ currentDate }}</time>
-                      <el-button type="text" class="button">操作按钮</el-button>
-                    </div>
-                  </div>
-                </el-card>
-              </el-col>
-              <el-col :span="8">
-                <el-card shadow="hover">
-                  <img src="" class="image">
-                  <div style="padding: 14px;">
-                    <span>好吃的汉堡</span>
-                    <div class="bottom clearfix">
-                      <time class="time">{{ currentDate }}</time>
-                      <el-button type="text" class="button">操作按钮</el-button>
-                    </div>
-                  </div>
-                </el-card>
-              </el-col>
-              <el-col :span="8">
-                <el-card shadow="hover">
-                  <img src="" class="image">
-                  <div style="padding: 14px;">
-                    <span>好吃的汉堡</span>
-                    <div class="bottom clearfix">
-                      <time class="time">{{ currentDate }}</time>
-                      <el-button type="text" class="button">操作按钮</el-button>
+                      <!--<time class="time">{{ currentDate }}</time>-->
+                      <router-link :to="'/artical/'+item.articalId" target="_blank"><el-button type="primary" class="button">know more</el-button></router-link>
                     </div>
                   </div>
                 </el-card>
               </el-col>
             </el-row>
           </el-collapse-item>
-          <el-collapse-item title="营养饮食" name="2">
+          <el-collapse-item name="2">
+            <template slot="title">
+              <h2>营养饮食
+                <small>Radish and ginger keep away from doctor</small></h2>
+            </template>
             <el-row :gutter="20">
-              <el-col :span="8">
+              <el-col :span="8" v-for="item in oneDiet">
                 <el-card shadow="hover">
-                  <img src="" class="image">
+                  <img src="../../../static/images/banner1.jpg" class="image" style="width: 100%;height: 250px;">
                   <div style="padding: 14px;">
-                    <span>好吃的汉堡</span>
+                    <span>{{item.title}}</span>
                     <div class="bottom clearfix">
                       <time class="time">{{ currentDate }}</time>
-                      <el-button type="text" class="button">操作按钮</el-button>
-                    </div>
-                  </div>
-                </el-card>
-              </el-col>
-              <el-col :span="8">
-                <el-card shadow="hover">
-                  <img src="" class="image">
-                  <div style="padding: 14px;">
-                    <span>好吃的汉堡</span>
-                    <div class="bottom clearfix">
-                      <time class="time">{{ currentDate }}</time>
-                      <el-button type="text" class="button">操作按钮</el-button>
-                    </div>
-                  </div>
-                </el-card>
-              </el-col>
-              <el-col :span="8">
-                <el-card shadow="hover">
-                  <img src="" class="image">
-                  <div style="padding: 14px;">
-                    <span>好吃的汉堡</span>
-                    <div class="bottom clearfix">
-                      <time class="time">{{ currentDate }}</time>
-                      <el-button type="text" class="button">操作按钮</el-button>
+                      <router-link :to="'/artical/'+item.articalId" target="_blank"><el-button type="primary" class="button">know more</el-button></router-link>
                     </div>
                   </div>
                 </el-card>
               </el-col>
             </el-row>
           </el-collapse-item>
-          <el-collapse-item title="健身课堂" name="3">
+          <el-collapse-item name="3">
+            <template slot="title" >
+              <h2>健身课堂
+                <small>The power of the brain lies in the movement</small></h2>
+            </template>
             <el-row :gutter="20">
-              <el-col :span="8">
+              <el-col :span="8" v-for="item in oneFit">
                 <el-card shadow="hover">
-                  <img src="" class="image">
+                  <img src="../../../static/images/banner1.jpg" class="image" style="width: 100%;height: 250px;">
                   <div style="padding: 14px;">
-                    <span>好吃的汉堡</span>
+                    <span>{{item.title}}</span>
                     <div class="bottom clearfix">
                       <time class="time">{{ currentDate }}</time>
-                      <el-button type="text" class="button">操作按钮</el-button>
-                    </div>
-                  </div>
-                </el-card>
-              </el-col>
-              <el-col :span="8">
-                <el-card shadow="hover">
-                  <img src="" class="image">
-                  <div style="padding: 14px;">
-                    <span>好吃的汉堡</span>
-                    <div class="bottom clearfix">
-                      <time class="time">{{ currentDate }}</time>
-                      <el-button type="text" class="button">操作按钮</el-button>
-                    </div>
-                  </div>
-                </el-card>
-              </el-col>
-              <el-col :span="8">
-                <el-card shadow="hover">
-                  <img src="" class="image">
-                  <div style="padding: 14px;">
-                    <span>好吃的汉堡</span>
-                    <div class="bottom clearfix">
-                      <time class="time">{{ currentDate }}</time>
-                      <el-button type="text" class="button">操作按钮</el-button>
+                      <router-link :to="'/artical/'+item.articalId" target="_blank"><el-button type="primary" class="button">know more</el-button></router-link>
                     </div>
                   </div>
                 </el-card>
@@ -136,9 +73,34 @@
       data() {
         return {
           activeName: '1',
-          currentDate: new Date()
-        };
-      }
+          currentDate: new Date(),
+          Yang:[],
+          oneYang:[],
+          Diet:[],
+          oneDiet:[],
+          Fit:[],
+          oneFit:[]
+        }
+      },
+      created(){
+        //获取
+        this.$axios.get('/').then(
+          ((res)=>{
+            this.Yang = res.data.data.Yang;
+            for(let i =0; i<3;i++){
+              this.oneYang.push(this.Yang[i])
+            }
+            this.Diet = res.data.data.Diet;
+            for(let i =0; i<3;i++){
+              this.oneDiet.push(this.Diet[i])
+            }
+            this.Fit = res.data.data.Fit;
+            for(let i =0; i<3;i++){
+              this.oneFit.push(this.Fit[i])
+            }
+          })
+        ).catch(err=>{console.log(err)})
+      },
 
     }
 </script>
@@ -157,6 +119,8 @@
   .button {
     padding: 0;
     float: right;
+    height: 40px;
+    width: 85px;
   }
 
   .image {
@@ -172,5 +136,24 @@
 
   .clearfix:after {
     clear: both
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 22px;
+  }
+
+  small {
+    margin-left: 40px;
+    color:darkgray;
+  }
+
+  span{
+    font-size: 16px;
+    font-weight: 600;
+    color: #000009;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 </style>
