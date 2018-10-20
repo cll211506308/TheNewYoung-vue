@@ -10,19 +10,19 @@
 </template>
 
 <script>
-    export default {
-        name: "basicdata",
-      data(){
-          return {
-            username:null
-          }
-      },
-      created(){
-        this.$axios.get('users/username/1').then(
-          ((res)=>{this.username = res.data.data[0].username})
-        ).catch(err=>{console.log(err)})
+  export default {
+    name: "basicdata",
+    data(){
+      return {
+        username:null
       }
+    },
+    created(){
+      this.$axios.get('users/username/1').then(
+        ((res)=>{this.username = res.data.data[0].username})
+      ).catch(err=>{console.log(err)})
     }
+  }
 </script>
 
 <style scoped>
@@ -36,3 +36,4 @@
   }
 
 </style>
+

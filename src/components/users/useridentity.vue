@@ -1,5 +1,4 @@
 <template>
-  <div>
     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="150px" class="demo-ruleForm">
       <el-form-item label="真实姓名" prop="name">
         <el-input v-model="ruleForm.name"></el-input>
@@ -17,12 +16,11 @@
       <el-form-item label="工作经历" prop="desc">
         <el-input type="textarea" v-model="ruleForm.desc"></el-input>
       </el-form-item>
-      <el-form-item label="工作或身份证明" prop="desc">
+      <el-form-item label="工作或身份证明" prop="userupload">
       <el-upload
         class="upload-demo"
         action="https://jsonplaceholder.typicode.com/posts/"
-        :on-change="handleChange"
-        :file-list="fileList3">
+        :on-change="handleChange">
         <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
         <el-button size="small" >点击上传</el-button>
       </el-upload>
@@ -33,7 +31,6 @@
       </el-form-item>
     </el-form>
 
-  </div>
 </template>
 <script>
   export default {
@@ -63,6 +60,9 @@
           ],
           desc: [
             {required: true, message: '请填写工作经历', trigger: 'blur'}
+          ],
+          userupload: [
+            {required: true, message: '请上传身份证明', trigger: 'blur'}
           ]
         },
       };
@@ -88,5 +88,7 @@
   }
 </script>
 <style scoped>
-
+.demo-ruleForm{
+  width: 100%;
+}
 </style>

@@ -1,10 +1,11 @@
 <template>
   <el-row type="flex" justify="center">
-    <el-col :span="22">
-      <div v-for="o in 4" :key="o">
+    <el-col :span="24">
+      <div v-for="item in title1">
         <el-card class="box-card">
-          <div  class="text item">
-            {{'收藏内容'+o}}
+          <div class="text item">
+            {{item.title}}
+            {{item.colTime}}
             <el-button style="float: right; padding: 3px 0" type="text" icon="el-icon-delete"></el-button>
           </div>
         </el-card>
@@ -18,8 +19,15 @@
         name: "usercollections",
       data(){
         return {
-          id:this.$route.params.id
+          title1:[],
         }
+      },
+      created(){
+        this.$axios.get('users/collections/2').then(
+          ((res)=>{
+            this.title1 = res.data.data;
+          })
+        ).catch(err=>{console.log(err)})
       }
     }
 </script>
@@ -34,6 +42,7 @@
   }
   .box-card {
     width: 100%;
+    padding: 0;
   }
 </style>
 

@@ -28,7 +28,8 @@
 
 <script>
     export default {
-        name: "alldatas"
+        name: "alldatas",
+
     }
 
 
