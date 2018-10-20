@@ -1,20 +1,115 @@
 <template>
   <div>
-    这是用户{{id}}关注人的帖子
+    <el-row>
+      <el-col :span="24" v-for="u in showData" class="post">
+        <el-card shadow="always">
+
+          <el-row>
+            <el-col class="post-left" :xs="4" :sm="4" :md="6" :lg="6" :xl="6"><div>
+              <img src="../../../static/images/userPic2.jpg"/>
+              <div><button>取消关注</button></div>
+            </div></el-col>
+            <el-col class="post-right" :xs="20" :sm="20" :md="18" :lg="18" :xl="18"><div>
+              <div>
+                <router-link tag="a" target="_blank" :to="{name:'card',params: {id: u.postId}}">
+                  【{{u.postLabel}}】{{u.title}}
+                </router-link>
+              </div>
+              <div class="post-content">
+                <router-link tag="a" target="_blank" :to="{name:'card',params: {id: u.postId}}">
+                  {{u.postContent}}
+                </router-link>
+              </div>
+              <div class="post-bottom">
+                作者：{{u.userName}}&nbsp;&nbsp;&nbsp;浏览量：{{u.pageViews}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{(u.postTime.slice(0,19).replace(/T/, "  "))}}
+              </div>
+            </div></el-col>
+          </el-row>
+
+
+        </el-card>
+      </el-col>
+    </el-row>
+
+
+    <el-row>
+      <el-button type="primary"  @click="pre" :disabled="dis1">上一页</el-button>
+      <el-button type="primary">{{pag}}/{{ Math.ceil(data.length/tiao) }}</el-button>
+      <el-button type="primary" @click="next" :disabled="dis2">下一页</el-button>
+    </el-row>
   </div>
 </template>
 
 <script>
     export default {
-        name: "likeusercard",
-      data(){
-          return {
-            id:this.$route.params.id
+      data () {
+        return {
+          data: [],
+          pag:1,
+          tiao:5,
+          dis1:false,
+          dis2:false
+        }
+      },
+      created(){
+        this.$axios.get('friends/likeUser/'+this.$store.state.data1).then(
+          ((res)=>{
+            this.data = res.data.data;
+          })
+        ).catch(err=>{console.log(err)})
+      },
+      methods:{
+        pre(){
+          if(this.pag == 1){
+            this.dis1 = true
           }
+          else {
+            this.pag--
+            this.dis2 = false
+          }
+        },
+        //下一页
+        next(){
+          if(this.pag >= this.data.length/this.tiao){
+            this.dis2 = true
+          }
+          else {
+            this.pag++
+            this.dis1 = false
+          }
+        }
+      },
+      mounted(){
+
+      },
+      computed:{
+        //数据分页
+        showData:function() {
+          return this.data.slice((this.pag-1)*this.tiao,(this.pag-1)*this.tiao+this.tiao)
+        }
       }
     }
 </script>
 
 <style scoped>
+  .post a{
+    text-decoration: none;
+    color: black;
+  }
+  .post-left{
+    text-align: center;
+  }
+  .post-left img{
+    width: 75%;
+    height: 75%;
+  }
+  .post-content{
+    margin: 16px 0;
+    text-align: center;
+    background: #cdeddf;
 
+  }
+  .post-bottom{
+
+  }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin:0 5px">
     <el-row :gutter="10">
       <el-col :span="18" :offset="3" class="header"><div>
         <el-row :gutter="20">
@@ -76,7 +76,7 @@
           <el-input v-model="form.name"></el-input>
         </el-form-item>
         <el-form-item label="类别">
-          <el-select v-model="form.region" placeholder="请选择活动区域">
+          <el-select v-model="form.region" placeholder="请选择类别">
             <el-option label="养胃" value="养胃"></el-option>
             <el-option label="养肝" value="养肝"></el-option>
             <el-option label="脱发" value="脱发"></el-option>
@@ -94,7 +94,7 @@
 
     <el-button @click="dialogVisible = false">取 消</el-button>
     <el-button type="primary" @click="Submit">发 表</el-button>
-  </span>
+
     </el-dialog>
 
   </div>
@@ -111,6 +111,7 @@
             tabPosition: 'top',
             input:null,
             dialogVisible: false,
+            data2:'',
             form: {
               name: '',
               region: '',
@@ -130,13 +131,28 @@
             this.userCount = res.data.data[0].count
           })
         ).catch(err=>{console.log(err)})
+
+        this.$axios.get('users/username/'+this.$store.state.data1).then(
+          ((res)=>{
+            console.log(res.data.data[0])
+            this.data2 = res.data.data[0].username;
+          })
+        ).catch(err=>{console.log(err)})
       },
       methods:{
           allCard(){
             this.$router.push({ path:'/friends' })
           },
         likeCard(){
-          this.$router.push({ path:'/friends/likeuser/5' })
+            if(this.$store.state.data1 == null){
+              this.$message({
+                message: '您还没登陆，请先登陆',
+                type: 'warning'
+              });
+            }
+            else {
+              this.$router.push({ path:'/friends/likeuser/'+ this.$store.state.data1})
+            }
         },
         handleClose(done) {
           this.$confirm('确认关闭？')
@@ -189,7 +205,10 @@
                       message: '恭喜你，发表成功',
                       type: 'success'
                     });
-                    window.location.href = '/friends'
+                    setTimeout(() => {
+                      window.location.href = '/friends'
+                    }, 500)
+
                   }
                 })
                 .catch(function (error) {
@@ -217,7 +236,7 @@
             return '您好，请登录'
           }
           else {
-            return this.$store.state.data1
+            return this.data2
           }
         }
       }

@@ -1,17 +1,50 @@
 <template>
-    <div id="s1">
-      <div v-for="u in showData">
-        <div class="s1">
-          <router-link tag="a" target="_blank" :to="{name:'card',params: {id: u.postId}}">
-            标题：{{u.title}}
-            标签：{{u.postLabl}}
-            内容：{{u.postContent}}
-            作者：{{u.username}}
-          </router-link>
-          {{(u.postTime.slice(0,19).replace(/T/, "  "))}}
-          浏览量：{{u.pageViews}}
-        </div>
-      </div>
+    <div>
+      <el-row>
+        <el-col :span="24" v-for="u in showData" class="post">
+          <el-card shadow="always">
+
+            <el-row>
+              <el-col class="post-left" :xs="4" :sm="4" :md="6" :lg="6" :xl="6"><div>
+               <img src="../../../static/images/userPic2.jpg"/>
+                <div><button>关注此人</button></div>
+              </div></el-col>
+              <el-col class="post-right" :xs="20" :sm="20" :md="18" :lg="18" :xl="18"><div>
+                <div>
+                  <router-link tag="a" target="_blank" :to="{name:'card',params: {id: u.postId}}">
+                    【{{u.postLabel}}】{{u.title}}
+                  </router-link>
+                </div>
+                <div class="post-content">
+                  <router-link tag="a" target="_blank" :to="{name:'card',params: {id: u.postId}}">
+                    {{u.postContent}}
+                  </router-link>
+                </div>
+                <div class="post-bottom">
+                  作者：{{u.userName}}&nbsp;&nbsp;&nbsp;浏览量：{{u.pageViews}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{(u.postTime.slice(0,19).replace(/T/, "  "))}}
+                </div>
+              </div></el-col>
+            </el-row>
+
+
+          </el-card>
+        </el-col>
+      </el-row>
+
+
+
+      <!--<div v-for="u in showData">-->
+        <!--<div class="s1">-->
+          <!--<router-link tag="a" target="_blank" :to="{name:'card',params: {id: u.postId}}">-->
+            <!--标题：{{u.title}}-->
+            <!--标签：{{u.postLabl}}-->
+            <!--内容：{{u.postContent}}-->
+            <!--作者：{{u.userName}}-->
+          <!--</router-link>-->
+          <!--{{(u.postTime.slice(0,19).replace(/T/, "  "))}}-->
+          <!--浏览量：{{u.pageViews}}-->
+        <!--</div>-->
+      <!--</div>-->
       <el-row>
         <el-button type="primary"  @click="pre" :disabled="dis1">上一页</el-button>
         <el-button type="primary">{{pag}}/{{ Math.ceil(data.length/tiao) }}</el-button>
@@ -25,8 +58,8 @@
       data () {
         return {
           data: [],
-          pag:2,
-          tiao:3,
+          pag:1,
+          tiao:5,
           dis1:false,
           dis2:false
         }
@@ -34,20 +67,8 @@
         this.$axios.get('friends').then(
           ((res1)=>{
             this.data = res1.data.data;
-            for (let i = 0; i < this.data.length; i++) {
-
-              this.$axios.get('users/username/' + res1.data.data[i].userId).then(
-                ((res2)=>{
-                   this.data[i].username = res2.data.data[0].username
-                })
-              ).catch(err=>{console.log(err)})
-            }
           })
         ).catch(err=>{console.log(err)})
-
-        setTimeout(() => {
-          this.pag--
-        }, 500)
       },
       methods:{
         pre(){
@@ -61,7 +82,7 @@
         },
         //下一页
         next(){
-          if(this.pag > this.data.length/this.tiao){
+          if(this.pag >= this.data.length/this.tiao){
             this.dis2 = true
           }
           else {
@@ -83,10 +104,24 @@
 </script>
 
 <style scoped>
-  .s1{
-    border: 1px solid #dfeded;
+  .post a{
+    text-decoration: none;
+    color: black;
   }
-  .s1:hover{
-    border: 1px solid #ccc;
+  .post-left{
+    text-align: center;
+  }
+.post-left img{
+  width: 75%;
+  height: 75%;
+}
+  .post-content{
+    margin: 16px 0;
+    text-align: center;
+    background: #cdeddf;
+
+  }
+  .post-bottom{
+
   }
 </style>

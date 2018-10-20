@@ -1,6 +1,4 @@
 <template>
-
-
     <div class="login">
       <div class="s1">
         <form action="" method="post" v-if="show1">
@@ -11,7 +9,6 @@
         </form>
         <div v-if="show2" @click="tuichu">您已登陆,点击退出</div>
       </div>
-
     </div>
 </template>
 
