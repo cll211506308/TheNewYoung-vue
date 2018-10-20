@@ -1,10 +1,9 @@
 <template>
-  <div>
-    <h1>我是foods</h1>
-    <foods-intro></foods-intro>
-    <foods-rank></foods-rank>
-    <foods-class></foods-class>
-  </div>
+  <el-row>
+    <el-col :span="12" :offset="3"><foods-intro></foods-intro></el-col>
+    <el-col :span="6"><foods-rank></foods-rank>
+      <foods-class></foods-class></el-col>
+  </el-row>
 </template>
 
 <script>

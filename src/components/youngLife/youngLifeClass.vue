@@ -1,19 +1,28 @@
 <template>
   <div>
-    <el-row>
-      <el-button type="info" round="">减肥</el-button>
-      <el-button type="info" round="">丰胸</el-button>
-      <el-button type="info" round="">清真</el-button>
-      <el-button type="info" round="">补血</el-button>
-      <el-button type="info" round="">补钙</el-button>
-      <el-button type="info" round="">补维生素</el-button>
-      <el-button type="info" round="">食疗</el-button>
-      <el-button type="info" round="">烘焙</el-button>
-      <el-button type="info" round="">汤粥</el-button>
-      <el-button type="info" round="">甜品</el-button>
-      <el-button type="info" round="">火锅</el-button>
-      <el-button type="info" round="">烧烤</el-button>
-    </el-row>
+    <h2>热门标签</h2><br>
+    <div style="margin-left: 5px">
+      <el-row>
+        <el-button round>血糖</el-button>
+        <el-button round>血压</el-button>
+        <el-button round>血脂</el-button>
+      </el-row>
+      <el-row>
+        <el-button round>阴阳</el-button>
+        <el-button round>止咳</el-button>
+        <el-button round>消食</el-button>
+      </el-row>
+      <el-row>
+        <el-button round>防脱</el-button>
+        <el-button round>补气</el-button>
+        <el-button round>安神</el-button>
+      </el-row>
+      <el-row>
+        <el-button round>活血</el-button>
+        <el-button round>排毒</el-button>
+        <el-button round>清热</el-button>
+      </el-row>
+    </div>
   </div>
 </template>
 
@@ -24,5 +33,17 @@
 </script>
 
 <style scoped>
-
+  h2{
+    margin-top: 40px;
+    margin-left: 30px;
+  }
+  button{
+    width: 90px;
+    height: 40px;
+    color: cornflowerblue;
+    background-color: aliceblue;
+    float: left;
+    margin-top: 10px;
+    margin-left: 15px;
+  }
 </style>
