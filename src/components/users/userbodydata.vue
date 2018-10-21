@@ -42,8 +42,8 @@
   import ElementUI from 'element-ui'
   import 'element-ui/lib/theme-chalk/index.css'
   import Vue from 'vue'
-
   Vue.use(ElementUI)
+  import $ from 'jquery'
   export default {
     name: 'App',
     components: {},
@@ -55,7 +55,6 @@
           region: ''
         },
         total: 0,
-
         List: [
           //阳虚质
           {
@@ -65,7 +64,7 @@
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
           },
-          {
+         {
             title: '您胃脘部、背部或腰膝部怕冷吗？',
             category: 0,
             radio: '',
@@ -100,8 +99,7 @@
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
           },
-
-          //阴虚质
+         /* //阴虚质
           {
             title: '您感到手脚心发热吗？',
             category: 0,
@@ -144,7 +142,6 @@
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
           },
-
           //气虚质
           {
             title: '您活动量稍大就容易出虚汗吗？',
@@ -188,7 +185,6 @@
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
           },
-
           //平和质
           {
             title: '您精力充沛吗？',
@@ -231,46 +227,53 @@
             radio: '',
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-
-
+          },*/
         ]
       }
     },
     methods: {
       submit() {
-        console.log('submit!');
-        let submitContent = this.total >= 75 ? '平和体质' : '偏颇体质'
+        var submitContent;
+        var  bodyclassContent;
+        if(this.total>=75){
+             submitContent = '平和体质',
+            bodyclassContent = '平和体质是一种身体和谐、自稳能力强的体质。' +
+              '拥有这种体质的人，身体不一定结实强壮，甚至可能还有些气血不足、血压偏低，' +
+              '脉搏也不是很有力，但是脏腑、气血很和谐，七情适度。这种体质的人，多数生' +
+              '在长寿家族，比如五世同堂的大家族，而平常的人家四世同堂就不容易了。平' +
+              '和体质通常表现为情绪稳定，生活规律，体重波动小等；得病少，对于环境和气' +
+              '候的变化适应能力比较强；生病以后，对治疗的反应敏感，好治，自我康复能' +
+              '力强'
+        } else{
+           submitContent = '偏颇体质',
+            bodyclassContent = '《中医体质分类与判断》标准将人的体质分为平和质，气虚质，阳虚质，阴' +
+              '虚质，痰虚制，湿热质，血瘀质，抑郁质，特禀质等9种基本体质类型，除' +
+              '了平和体质，其他8种体质都存在偏颇的倾向。不同的身体状况，不同' +
+              '的疾病风险，对应着不同的体质，同时也有不同的生活方式。'
+        }
         let Arr = this.List.filter(item => item.score === 0)
         this.dataList = []
-        this.dataList.push({
-          userId: 1,
-          userHeight: this.formInline.user,
-          userWeight: this.formInline.region,
-          putTime: Date.now(),
-          userTotal: this.total,
-          bodyClass: submitContent
-        })
-        console.log('test', Arr, ...this.dataList)
-          if (Arr.length === 0) {
-           // 允许提交
-         this.$axios.get('users/insertbodydatas',{...this.dataList}).then(
-            res => {
-               console.log(res)
-              }
-            ).catch(
-              err => {
-                console.log(err)
-             }
-            )
-            this.$alert('提交成功', {
-              confirmButtonText: '确定'
-            })
-        } else {
-           this.$alert('您有未完成的题目，请检查！', {
-            confirmButtonText: '确定'
-            })}
+        this.dataList.push()
+        if (Arr.length === 0) {
+          //允许提交
+          $.post("http://127.0.0.1:3000/users/insertbodydatas",{
+            userId: 1,
+            userHeight: this.formInline.user,
+            userWeight: this.formInline.region,
+            putTime: Date.now(),
+            usertotal: this.total,
+            bodyClass: submitContent,
+            bodyclassContent : bodyclassContent,
+          } ,function () {
 
+          })
+          this.$alert('提交成功', {
+            confirmButtonText: '确定'
+          })
+        } else {
+          this.$alert('您有未完成的题目，请检查！', {
+            confirmButtonText: '确定'
+          })}
       },
       radioCClick() {
         // console.log(123)
@@ -320,27 +323,21 @@
     color: #2c3e50;
     margin-top: 60px;
   } */
-
   .text {
     font-size: 14px;
   }
-
   .item {
     margin-bottom: 18px;
   }
-
   .clearfix:before,
   .clearfix:after {
     display: table;
     content: "";
   }
-
   .clearfix:after {
     clear: both
   }
-
   .box-card {
     width: 100%;
   }
 </style>
-

@@ -6,7 +6,7 @@
           <div class="text item">
             {{item.title}}
             {{item.colTime}}
-            <el-button style="float: right; padding: 3px 0" type="text" icon="el-icon-delete"></el-button>
+            <el-button style="float: right; padding: 3px 0" type="text" icon="el-icon-delete" @click="del(item.collectionId)"></el-button>
           </div>
         </el-card>
       </div>
@@ -17,6 +17,16 @@
 <script>
     export default {
         name: "usercollections",
+      methods:{
+        del(colection){
+          this.$axios.get('users/collections/2').then(
+            ((res)=>{
+
+            })
+          ).catch(err=>{console.log(err)})
+        }
+
+      },
       data(){
         return {
           title1:[],

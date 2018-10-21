@@ -28,37 +28,43 @@
 
 <script>
     export default {
-        name: "userhome",
-      data(){
-        return {
-          bodyClass:null,
-          bodyclassContent:null,
-          sugcontent:[]
+      name: "userhome",
+
+        data() {
+          return {
+            bodyClass: null,
+            bodyclassContent: null,
+            sugcontent: []
+          }
+        },
+        mounted() {
+          let _this = this;
+          this.$axios.get('users/bodyclass/' + this.$store.state.data1).then(
+            ((res) => {
+              this.bodyClass = res.data.data[0].bodyclass
+            })
+          ).catch(err => {
+            console.log(err)
+          })
+
+          this.$axios.get('users/bodyclass/' + this.$store.state.data1).then(
+            ((res) => {
+              this.bodyclassContent = res.data.data[0].bodyclassContent
+            })
+          ).catch(err => {
+            console.log(err)
+          })
+
+          this.$axios.get('users/suggestion/getsuggestions/平和体质').then(
+            ((res) => {
+              _this.sugcontent = res.data.data;
+              // console.log(_this.sugcontent);
+              // /*this.sugcontent =res.data.data*/
+            })
+          ).catch(err => {
+            console.log(err)
+          })
         }
-      },
-      mounted(){
-        let _this = this;
-        this.$axios.get('users/bodyclass/2').then(
-          ((res)=>{
-            this.bodyClass = res.data.data[0].bodyclass
-          })
-        ).catch(err=>{console.log(err)})
-
-        this.$axios.get('users/bodyclass/2').then(
-          ((res)=>{
-            this.bodyclassContent =res.data.data[0].bodyclassContent
-          })
-        ).catch(err=>{console.log(err)})
-
-        this.$axios.get('users/suggestion/getsuggestions/平和体质').then(
-          ((res)=>{
-             _this.sugcontent= res.data.data;
-            // console.log(_this.sugcontent);
-            // /*this.sugcontent =res.data.data*/
-          })
-        ).catch(err=>{console.log(err)})
-      }
-
     }
 </script>
 
