@@ -1,13 +1,15 @@
 <template>
   <div>
     <el-row>
-      <el-col :span="24" v-for="u in showData" class="post">
+      <el-col :span="24" v-for="u in showData" class="post" :key="index">
         <el-card shadow="always">
 
           <el-row>
             <el-col class="post-left" :xs="4" :sm="4" :md="6" :lg="6" :xl="6"><div>
               <img src="../../../static/images/userPic2.jpg"/>
-              <div><button>取消关注</button></div>
+              <div>
+                <button @click="att(u.userId)">取消关注</button>
+              </div>
             </div></el-col>
             <el-col class="post-right" :xs="20" :sm="20" :md="18" :lg="18" :xl="18"><div>
               <div>
@@ -77,6 +79,26 @@
             this.pag++
             this.dis1 = false
           }
+        },
+        att(attid){
+          let that = this
+          this.$axios.get('/friends/delAttention', {
+            params: {
+              userId:this.$store.state.data1,attentioneduserid:attid
+            }
+          })
+            .then(function (response) {
+              if(response.data.code == 200){
+                that.$message({
+                  message: '恭喜你，取消关注成功',
+                  type: 'success'
+                });
+              }
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+
         }
       },
       mounted(){

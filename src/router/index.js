@@ -4,6 +4,7 @@ Vue.use(Router);
 import index from '@/components/index'
 import login from '@/components/login'
 import setUp from '@/components/setUp'
+import search from '@/components/search'
 import foods from '@/components/foods'
 import fit from '@/components/fit'
 import friends from '@/components/friends'
@@ -37,6 +38,11 @@ export default new Router({
       component: index
     },
     {
+      path: '/search/:keys',
+      name: 'search',
+      component: search
+    },
+    {
       path: '/login',
       name: 'login',
       component: login
@@ -57,7 +63,7 @@ export default new Router({
           component: allFit
         },
         {
-          path: 'someFit/:sort',
+          path: 'someFit',
           name: 'someFit',
           component: someFit
         }
@@ -102,7 +108,7 @@ export default new Router({
           component: allFoods
         },
         {
-          path: 'someFoods/:sort',
+          path: 'someFoods',
           name: 'someFoods',
           component: someFoods
         }
@@ -119,7 +125,7 @@ export default new Router({
           component: allYoungLife
         },
         {
-          path: 'someYoungLife/:sort',
+          path: 'someYoungLife',
           name: 'someYoungLife',
           component: someYoungLife
         }
@@ -145,30 +151,31 @@ export default new Router({
         {
           path: 'userscards/:id',
           name: 'userscards',
-          component:userscards,
+          component: userscards,
         },
         {
           path: 'usersarticals/:id',
           name: 'usersarticals',
-          component:usersarticals,
+          component: usersarticals,
         },
         {
           path: 'usercollection/:id',
           name: 'usercollection',
-          component:usercollections,
+          component: usercollections,
         },
         {
           path: 'userbodydata/:id',
           name: 'userbodydata',
-          component:userbodydata,
+          component: userbodydata,
         },
         {
           path: 'useridentity/:id',
           name: 'useridentity',
-          component:useridentity,
+          component: useridentity,
         }
       ]
     },
+
 
     {
       path: '/*',

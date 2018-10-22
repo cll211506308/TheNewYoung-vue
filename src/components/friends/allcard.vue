@@ -1,13 +1,15 @@
 <template>
     <div>
       <el-row>
-        <el-col :span="24" v-for="u in showData" class="post">
+        <el-col :span="24" v-for="(u,index) in showData" class="post" :key="index">
           <el-card shadow="always">
 
             <el-row>
               <el-col class="post-left" :xs="4" :sm="4" :md="6" :lg="6" :xl="6"><div>
                <img src="../../../static/images/userPic2.jpg"/>
-                <div><button>关注此人</button></div>
+                <div>
+                  <button @click="att(u.userId)">关注此人</button>
+                </div>
               </div></el-col>
               <el-col class="post-right" :xs="20" :sm="20" :md="18" :lg="18" :xl="18"><div>
                 <div>
@@ -25,26 +27,10 @@
                 </div>
               </div></el-col>
             </el-row>
-
-
           </el-card>
         </el-col>
       </el-row>
 
-
-
-      <!--<div v-for="u in showData">-->
-        <!--<div class="s1">-->
-          <!--<router-link tag="a" target="_blank" :to="{name:'card',params: {id: u.postId}}">-->
-            <!--标题：{{u.title}}-->
-            <!--标签：{{u.postLabl}}-->
-            <!--内容：{{u.postContent}}-->
-            <!--作者：{{u.userName}}-->
-          <!--</router-link>-->
-          <!--{{(u.postTime.slice(0,19).replace(/T/, "  "))}}-->
-          <!--浏览量：{{u.pageViews}}-->
-        <!--</div>-->
-      <!--</div>-->
       <el-row>
         <el-button type="primary"  @click="pre" :disabled="dis1">上一页</el-button>
         <el-button type="primary">{{pag}}/{{ Math.ceil(data.length/tiao) }}</el-button>
@@ -89,6 +75,53 @@
             this.pag++
             this.dis1 = false
           }
+        },
+        att(attId){
+          if(this.$store.state.data1 == null){
+            this.$message({
+              message: '您还没登陆，请先登陆',
+              type: 'warning'
+            });
+          }
+          else {
+            let that = this
+            this.$axios.get('/friends/getAtt', {
+              params: {
+                userId:this.$store.state.data1,attentioneduserid:attId
+              }
+            })
+              .then(function (response1) {
+                if(response1.data.data.length == 1){
+                  that.$message({
+                    message: '您已关注',
+                    type: 'success'
+                  });
+                }
+                else {
+                  that.$axios.get('/friends/attention', {
+                    params: {
+                      userId:that.$store.state.data1,attentioneduserid:attId
+                    }
+                  })
+                    .then(function (response2) {
+                      if(response2.data.code == 200){
+                        that.$message({
+                          message: '关注成功',
+                          type: 'success'
+                        });
+                      }
+                    })
+                    .catch(function (error) {
+                      console.log(error);
+                    });
+
+                }
+
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+          }
         }
       },
       mounted(){
@@ -119,9 +152,6 @@
     margin: 16px 0;
     text-align: center;
     background: #cdeddf;
-
   }
-  .post-bottom{
 
-  }
 </style>

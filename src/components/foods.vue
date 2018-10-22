@@ -10,14 +10,14 @@
   import foodsIntro from './foods/foodsIntro'
   import foodsRank from './foods/foodsRank'
   import foodsClass from './foods/foodsClass'
-    export default {
-        name: "foods",
-      components:{
-        'foods-intro':foodsIntro,
-        'foods-rank':foodsRank,
-        'foods-class':foodsClass
-      }
+  export default {
+    name: "foods",
+    components:{
+      'foods-intro':foodsIntro,
+      'foods-rank':foodsRank,
+      'foods-class':foodsClass
     }
+  }
 </script>
 
 <style scoped>

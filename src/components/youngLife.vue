@@ -10,14 +10,14 @@
   import youngLifeIntro from './youngLife/youngLifeIntro'
   import youngLifeRank from './youngLife/youngLifeRank'
   import youngLifeClass from './youngLife/youngLifeClass'
-    export default {
-        name: "youngLife",
-      components:{
-        'younglife-intro':youngLifeIntro,
-        'younglife-rank':youngLifeRank,
-        'younglife-class':youngLifeClass
-      }
+  export default {
+    name: "youngLife",
+    components:{
+      'younglife-intro':youngLifeIntro,
+      'younglife-rank':youngLifeRank,
+      'younglife-class':youngLifeClass
     }
+  }
 </script>
 
 <style scoped>

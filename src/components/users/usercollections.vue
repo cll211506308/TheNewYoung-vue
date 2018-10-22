@@ -15,31 +15,30 @@
 </template>
 
 <script>
-    export default {
-        name: "usercollections",
+  export default {
+    name: "usercollections",
+    methods:{
+      /* del(collection){
+         this.$axios.post('fit/delCol/'+ item.title1).then(
+        console.log
 
-      methods:{
-       /* del(collection){
-          this.$axios.post('fit/delCol/'+ item.title1).then(
-         console.log
+         ).catch(err=>{console.log(err)})
+       }*/
 
-          ).catch(err=>{console.log(err)})
-        }*/
-
-      },
-      data(){
-        return {
-          title1:[],
-        }
-      },
-      created(){
-        this.$axios.get('users/collections/'+this.$store.state.data1).then(
-          ((res)=>{
-            this.title1 = res.data.data;
-          })
-        ).catch(err=>{console.log(err)})
+    },
+    data(){
+      return {
+        title1:[],
       }
+    },
+    created(){
+      this.$axios.get('users/collections/'+this.$store.state.data1).then(
+        ((res)=>{
+          this.title1 = res.data.data;
+        })
+      ).catch(err=>{console.log(err)})
     }
+  }
 </script>
 
 <style scoped>

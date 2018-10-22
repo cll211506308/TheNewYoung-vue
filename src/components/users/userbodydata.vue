@@ -2,29 +2,12 @@
   <el-row type="flex" justify="center">
     <el-col :span="24">
       <div id="app">
-        <el-form :model="numberValidateForm1" ref="numberValidateForm1" label-width="100px" class="demo-ruleForm">
-          <el-form-item
-            label="身高"
-            prop="height"
-            :rules="[
-      { required: true, message: '身高不能为空'},
-      { type: 'number', message: '身高必须为数字值'}
-    ]"
-          >
-            <el-input type="age" v-model.number="numberValidateForm1.height" autocomplete="off"></el-input>
+        <el-form :inline="true" :model="formInline" class="demo-form-inline">
+          <el-form-item label="身高">
+            <el-input v-model="formInline.user" placeholder="身高"></el-input>
           </el-form-item>
-        </el-form>
-        <el-form :model="numberValidateForm2" ref="numberValidateForm2" label-width="100px" class="demo-ruleForm">
-          <el-form-item
-            label="体重"
-            prop="weight"
-            :rules="[
-      { required: true, message: '体重不能为空'},
-
-      { type: 'number', message: '体重必须为数字值'}
-    ]"
-          >
-            <el-input type="age" v-model.number="numberValidateForm2.weight" autocomplete="off"></el-input>
+          <el-form-item label="体重">
+            <el-input v-model="formInline.region" placeholder="体重"></el-input>
           </el-form-item>
         </el-form>
         <el-card class="box-card" v-for="(item,index) in List" :key="index">
@@ -71,12 +54,6 @@
           user: '',
           region: ''
         },
-        numberValidateForm1: {
-          height: ''
-        },
-        numberValidateForm2: {
-          weight: ''
-        },
         total: 0,
         List: [
           //阳虚质
@@ -87,7 +64,7 @@
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
           },
-         {
+          {
             title: '您胃脘部、背部或腰膝部怕冷吗？',
             category: 0,
             radio: '',
@@ -122,135 +99,135 @@
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
           },
-         /* //阴虚质
-          {
-            title: '您感到手脚心发热吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-          {
-            title: '您感觉身体、脸上发热吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-          {
-            title: '您皮肤或口唇干吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-          {
-            title: '您口唇的颜色比一般人红吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-          {
-            title: '您面部两潮红或偏红吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-          {
-            title: '您感到眼睛干涩吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-          //气虚质
-          {
-            title: '您活动量稍大就容易出虚汗吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-          {
-            title: '你容易疲乏吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-          {
-            title: '您容易气短（呼吸短促，接不上气吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-          {
-            title: '您容易心慌吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-          {
-            title: '您容易头晕或站起时晕眩吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-          {
-            title: '您比别人容易患感冒吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-          //平和质
-          {
-            title: '您精力充沛吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-          {
-            title: '您说话声音无力吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-          {
-            title: '您感到闷闷不乐吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-          {
-            title: '您能适应外界自然和社会环境的变化吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-          {
-            title: '您容易失眠吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
-          {
-            title: '您容易忘事（健忘）吗？',
-            category: 0,
-            radio: '',
-            score: 0,
-            data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },*/
+          /* //阴虚质
+           {
+             title: '您感到手脚心发热吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },
+           {
+             title: '您感觉身体、脸上发热吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },
+           {
+             title: '您皮肤或口唇干吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },
+           {
+             title: '您口唇的颜色比一般人红吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },
+           {
+             title: '您面部两潮红或偏红吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },
+           {
+             title: '您感到眼睛干涩吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },
+           //气虚质
+           {
+             title: '您活动量稍大就容易出虚汗吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },
+           {
+             title: '你容易疲乏吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },
+           {
+             title: '您容易气短（呼吸短促，接不上气吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },
+           {
+             title: '您容易心慌吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },
+           {
+             title: '您容易头晕或站起时晕眩吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },
+           {
+             title: '您比别人容易患感冒吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },
+           //平和质
+           {
+             title: '您精力充沛吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },
+           {
+             title: '您说话声音无力吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },
+           {
+             title: '您感到闷闷不乐吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },
+           {
+             title: '您能适应外界自然和社会环境的变化吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },
+           {
+             title: '您容易失眠吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },
+           {
+             title: '您容易忘事（健忘）吗？',
+             category: 0,
+             radio: '',
+             score: 0,
+             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
+           },*/
         ]
       }
     },
@@ -259,7 +236,7 @@
         var submitContent;
         var  bodyclassContent;
         if(this.total>=75){
-             submitContent = '平和体质',
+          submitContent = '平和体质',
             bodyclassContent = '平和体质是一种身体和谐、自稳能力强的体质。' +
               '拥有这种体质的人，身体不一定结实强壮，甚至可能还有些气血不足、血压偏低，' +
               '脉搏也不是很有力，但是脏腑、气血很和谐，七情适度。这种体质的人，多数生' +
@@ -268,7 +245,7 @@
               '候的变化适应能力比较强；生病以后，对治疗的反应敏感，好治，自我康复能' +
               '力强'
         } else{
-           submitContent = '偏颇体质',
+          submitContent = '偏颇体质',
             bodyclassContent = '《中医体质分类与判断》标准将人的体质分为平和质，气虚质，阳虚质，阴' +
               '虚质，痰虚制，湿热质，血瘀质，抑郁质，特禀质等9种基本体质类型，除' +
               '了平和体质，其他8种体质都存在偏颇的倾向。不同的身体状况，不同' +
@@ -280,7 +257,7 @@
         if (Arr.length === 0) {
           //允许提交
           $.post("http://127.0.0.1:3000/users/insertbodydatas",{
-            userId: this.$store.state.data1,
+            userId: 1,
             userHeight: this.formInline.user,
             userWeight: this.formInline.region,
             putTime: Date.now(),
