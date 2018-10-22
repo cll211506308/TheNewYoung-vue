@@ -55,7 +55,7 @@
 
 <script>
     export default {
-        name: "search",
+        name: "search1",
       data(){
         return {
           keys:this.$route.params.keys,
