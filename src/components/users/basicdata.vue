@@ -44,8 +44,8 @@
     background-image: url("../../../static/images/userbanner3.jpg");
   }
   .datas{
-      color: white;
-     }
+    color: white;
+  }
 
 
 </style>
