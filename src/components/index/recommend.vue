@@ -72,7 +72,7 @@
 
 <script>
     export default {
-        name: "recommend",
+        name: "recommend1",
       data() {
         return {
           activeName: '1',

@@ -73,7 +73,7 @@
 
 <script>
   export default {
-    name: "topCon",
+    name: "topCon1",
     data() {
       return {
         input10: '',

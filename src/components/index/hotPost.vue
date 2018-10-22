@@ -51,7 +51,7 @@
                       <div class="postCon animated slideInUp">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
                           id: {{item.postId}} <br>
-                          label: {{item.postLabel}} <br>
+                          label: {{item.postLabel}}  <br>
                           content: <br>
                           {{item.postContent.substr(0,75)}} ...
                         </div>
