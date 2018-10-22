@@ -5,6 +5,7 @@
   </div>
 
 </template>
+
 <script>
   import alldatas from './users/alldatas';
   import usercollections from './users/usercollections';

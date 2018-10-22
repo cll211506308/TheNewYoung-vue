@@ -20,6 +20,7 @@
             prop="weight"
             :rules="[
       { required: true, message: '体重不能为空'},
+
       { type: 'number', message: '体重必须为数字值'}
     ]"
           >

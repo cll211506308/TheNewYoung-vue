@@ -57,6 +57,7 @@
           })
 
           this.$axios.get('users/suggestion/getsuggestions/平和体质').then(
+
             ((res) => {
               _this.sugcontent = res.data.data;
               // console.log(_this.sugcontent);

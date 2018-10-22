@@ -6,7 +6,6 @@
         <el-button type="primary" icon="el-icon-message" @click="userscards">我的贴子</el-button>
         <el-button type="primary" icon="el-icon-star-on" @click="userscollections">我的收藏</el-button>
         <el-button type="primary" icon="el-icon-edit" @click="usersbodydata">测试体质</el-button>
-
     </el-button-group>
     <div class="xian"></div>
     <router-view class="myself"></router-view>

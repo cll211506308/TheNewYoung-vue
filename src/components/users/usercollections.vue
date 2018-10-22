@@ -17,6 +17,7 @@
 <script>
     export default {
         name: "usercollections",
+
       methods:{
        /* del(collection){
           this.$axios.post('fit/delCol/'+ item.title1).then(
