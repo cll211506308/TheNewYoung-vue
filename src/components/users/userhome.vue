@@ -45,6 +45,7 @@
             })
           ).catch(err => {
             console.log(err)
+
           })
 
           this.$axios.get('users/bodyclass/' + this.$store.state.data1).then(

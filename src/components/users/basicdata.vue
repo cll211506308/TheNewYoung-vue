@@ -23,7 +23,7 @@
         username:null
       }
     },
-    created(){
+    mounted(){
       this.$axios.get('users/username/'+this.$store.state.data1).then(
         ((res)=>{this.username = res.data.data[0].username})
       ).catch(err=>{console.log(err)})

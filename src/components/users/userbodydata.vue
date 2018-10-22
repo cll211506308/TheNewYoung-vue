@@ -2,12 +2,28 @@
   <el-row type="flex" justify="center">
     <el-col :span="24">
       <div id="app">
-        <el-form :inline="true" :model="formInline" class="demo-form-inline">
-          <el-form-item label="身高">
-            <el-input v-model="formInline.user" placeholder="身高"></el-input>
+        <el-form :model="numberValidateForm1" ref="numberValidateForm1" label-width="100px" class="demo-ruleForm">
+          <el-form-item
+            label="身高"
+            prop="height"
+            :rules="[
+      { required: true, message: '身高不能为空'},
+      { type: 'number', message: '身高必须为数字值'}
+    ]"
+          >
+            <el-input type="age" v-model.number="numberValidateForm1.height" autocomplete="off"></el-input>
           </el-form-item>
-          <el-form-item label="体重">
-            <el-input v-model="formInline.region" placeholder="体重"></el-input>
+        </el-form>
+        <el-form :model="numberValidateForm2" ref="numberValidateForm2" label-width="100px" class="demo-ruleForm">
+          <el-form-item
+            label="体重"
+            prop="weight"
+            :rules="[
+      { required: true, message: '体重不能为空'},
+      { type: 'number', message: '体重必须为数字值'}
+    ]"
+          >
+            <el-input type="age" v-model.number="numberValidateForm2.weight" autocomplete="off"></el-input>
           </el-form-item>
         </el-form>
         <el-card class="box-card" v-for="(item,index) in List" :key="index">
@@ -53,6 +69,12 @@
         formInline: {
           user: '',
           region: ''
+        },
+        numberValidateForm1: {
+          height: ''
+        },
+        numberValidateForm2: {
+          weight: ''
         },
         total: 0,
         List: [
@@ -257,7 +279,7 @@
         if (Arr.length === 0) {
           //允许提交
           $.post("http://127.0.0.1:3000/users/insertbodydatas",{
-            userId: 1,
+            userId: this.$store.state.data1,
             userHeight: this.formInline.user,
             userWeight: this.formInline.region,
             putTime: Date.now(),

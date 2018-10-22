@@ -6,7 +6,7 @@
           <div class="text item">
             {{item.title}}
             {{item.colTime}}
-            <el-button style="float: right; padding: 3px 0" type="text" icon="el-icon-delete"></el-button>
+            <!--<el-button style="float: right; padding: 3px 0" type="text" icon="el-icon-delete"></el-button>-->
           </div>
         </el-card>
       </div>
@@ -24,7 +24,7 @@
       }
     },
     created(){
-      this.$axios.get('users/publish/1').then(
+      this.$axios.get('/friends').then(
         ((res)=>{
           this.title1 = res.data.data;
         })
