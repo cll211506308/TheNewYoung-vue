@@ -132,15 +132,16 @@ export default new Router({
       component: users,
       children: [
         {
+          path: 'usershome/:id',
+          name: 'userhome',
+          component: userhome,
+        },
+        {
           path: 'alldatas/:id',
           name: 'alldatas',
           component: alldatas,
         },
-        {
-          path: '/:id',
-          name: 'userhome',
-          component: userhome,
-        },
+
         {
           path: 'userscards/:id',
           name: 'userscards',
@@ -157,12 +158,12 @@ export default new Router({
           component:usercollections,
         },
         {
-          path: 'userbodydata',
+          path: 'userbodydata/:id',
           name: 'userbodydata',
           component:userbodydata,
         },
         {
-          path: 'useridentity',
+          path: 'useridentity/:id',
           name: 'useridentity',
           component:useridentity,
         }
