@@ -6,7 +6,6 @@ import login from '@/components/login'
 import setUp from '@/components/setUp'
 import foods from '@/components/foods'
 import fit from '@/components/fit'
-import search from '@/components/search'
 import friends from '@/components/friends'
 import users from '@/components/users'
 import youngLife from '@/components/youngLife'
@@ -36,11 +35,6 @@ export default new Router({
       path: '/',
       name: 'index',
       component: index
-    },
-    {
-      path: '/search',
-      name: 'search',
-      component: search
     },
     {
       path: '/login',
@@ -138,15 +132,16 @@ export default new Router({
       component: users,
       children: [
         {
+          path: 'usershome/:id',
+          name: 'userhome',
+          component: userhome,
+        },
+        {
           path: 'alldatas/:id',
           name: 'alldatas',
           component: alldatas,
         },
-        {
-          path: ':id',
-          name: 'userhome',
-          component: userhome,
-        },
+
         {
           path: 'userscards/:id',
           name: 'userscards',
@@ -163,12 +158,12 @@ export default new Router({
           component:usercollections,
         },
         {
-          path: 'userbodydata',
+          path: 'userbodydata/:id',
           name: 'userbodydata',
           component:userbodydata,
         },
         {
-          path: 'useridentity',
+          path: 'useridentity/:id',
           name: 'useridentity',
           component:useridentity,
         }

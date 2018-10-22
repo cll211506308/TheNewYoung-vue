@@ -1,10 +1,9 @@
 <template>
-  <div>
-    <h1>我是fit</h1>
-    <fit-intro></fit-intro>
-    <fit-rank></fit-rank>
-    <sowing-map></sowing-map>
-  </div>
+  <el-row>
+    <el-col :span="12" :offset="3"><fit-intro></fit-intro></el-col>
+    <el-col :span="6"><fit-rank></fit-rank>
+      <sowing-map></sowing-map></el-col>
+  </el-row>
 </template>
 
 <script>

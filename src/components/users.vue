@@ -1,24 +1,9 @@
 <template>
-  <div>
-    <div class="userbg">
-      <div >
-        <el-row type="flex" justify="center">
-          <el-col :span="18">
-            <div class="basicdata">
-              <user-basicdata></user-basicdata>
-            </div>
-          </el-col>
-        </el-row>
-        <el-row type="flex" justify="center">
-          <el-col :span="18">
-            <div class="alldata">
-              <users-alldatas></users-alldatas>
-            </div>
-          </el-col>
-        </el-row>
-      </div>
-    </div>
+  <div class="bg">
+    <el-row type="flex" justify="center"><el-col :span="24"><user-basicdata></user-basicdata></el-col></el-row>
+    <el-row type="flex" justify="center"><el-col :span="18"><users-alldatas></users-alldatas></el-col></el-row>
   </div>
+
 </template>
 <script>
   import alldatas from './users/alldatas';
@@ -30,7 +15,6 @@
   export default {
     name: 'users',
     components: {
-
       'user-basicdata': basicdata,
       'users-alldatas': alldatas,
       'users-collections': usercollections,
@@ -41,31 +25,12 @@
 </script>
 
 <style scoped>
-  .userbg {
-    width: 100%;
-    height: 1200px;
-    overflow: hidden;
-    margin: 0 auto;
-    background-image: url("../../static/images/userbg.jpg");
-    background-position: center 0;
-    background-repeat: no-repeat;
-    position: relative;
-  }
-
-  .basicdata {
-    width:75%;
-    height: 100px;
+  .bg{
     background-color: whitesmoke;
-    position: absolute;
-    top: 300px;
+    min-height: 800px;
   }
-
-  .alldata {
-    width: 75%;
-    background: white;
-    position: absolute;
-    top: 400px;
-    border-top: gainsboro 2px solid;
+  .bannerimg img{
+    width: 100%;
+    height: 300px;
   }
-
 </style>

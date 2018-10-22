@@ -8,8 +8,8 @@
       </el-carousel>
     </el-col>
   </el-row>
-
 </template>
+
 <script>
     export default {
         name: "banner",
@@ -27,7 +27,5 @@
 </script>
 
 <style scoped>
-
-
 
 </style>

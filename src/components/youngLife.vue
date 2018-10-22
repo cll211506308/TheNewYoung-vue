@@ -1,10 +1,9 @@
 <template>
-  <div>
-    <h1>我是youngLife</h1>
-    <younglife-intro></younglife-intro>
-    <younglife-rank></younglife-rank>
-    <younglife-class></younglife-class>
-  </div>
+  <el-row>
+    <el-col :span="12" :offset="3"><younglife-intro></younglife-intro></el-col>
+    <el-col :span="6"><younglife-rank></younglife-rank>
+      <younglife-class></younglife-class></el-col>
+  </el-row>
 </template>
 
 <script>
