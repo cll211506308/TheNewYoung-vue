@@ -1,40 +1,12 @@
 <template>
   <div>
-    <router-link :to="'/artical/' + articalId">
-      <div class="content">
-        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
-        <p style="font-size: 13px">{{result[0].title}}</p><br>
-        <i class="el-icon-view">{{result[0].pageViews}}</i>
-      </div>
-    </router-link>
-    <router-link :to="'/artical/' + articalId">
-      <div class="content">
-        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
-        <p>{{result[1].title}}</p><br>
-        <i class="el-icon-view">{{result[1].pageViews}}</i>
-      </div>
-    </router-link>
-    <router-link :to="'/artical/' + articalId">
-      <div class="content">
-        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
-        <p>{{result[2].title}}</p><br>
-        <i class="el-icon-view">{{result[2].pageViews}}</i>
-      </div>
-    </router-link>
-    <router-link :to="'/artical/' + articalId">
-      <div class="content">
-        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
-        <p>{{result[3].title}}</p><br>
-        <i class="el-icon-view">{{result[3].pageViews}}</i>
-      </div>
-    </router-link>
-    <router-link :to="'/artical/' + articalId">
-      <div class="content">
-        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
-        <p>{{result[3].title}}</p><br>
-        <i class="el-icon-view">{{result[3].pageViews}}</i>
-      </div>
-    </router-link>
+    <div class="content" v-for="(item,index) in result" :key="index">
+      <router-link :to="{path:'/artical/' + item.articalId}">
+
+        <p>{{item.title}}</p><br>
+        <i class="el-icon-view">{{item.pageViews}}</i>
+      </router-link>
+    </div>
     <el-pagination class="page" background layout="prev, pager, next" :total="1000"></el-pagination>
   </div>
 </template>
@@ -43,19 +15,16 @@
     export default {
         name: "allYoungLife",
       data(){
-          return{
-            result:[]
-          }
-      },
-      created(){
-          this.$axios.get("http://localhost:3000/youngLife")
-            .then((res)=>{
-              console.log(res.data.data);
-              this.result=res.data.data;
-            })
-            .catch((err)=>{
-              console.log(err)
-            })
+        return{
+          result:[],
+        }
+      }, created(){
+        this.$axios.get("/youngLife")
+          .then((res) => {
+            this.result = res.data.data;
+          }).catch((err) => {
+          console.log(err)
+        })
       }
     }
 </script>
