@@ -1,10 +1,7 @@
 <template>
   <el-row>
-    <el-col :span="18" :offset="3">
+    <el-col :span="20" :offset="2">
       <el-row style="margin-bottom: 20px">
-        <!--<h2>热门帖子-->
-          <!--<small> Subtext for header</small>-->
-        <!--</h2>-->
       </el-row>
       <el-row
            style="background: url('../../../static/images/bg1.png'); width: 100%; height: 400px; background-size:100% 400px; ">
@@ -18,10 +15,11 @@
               </template>
               <el-row :gutter="20">
                 <el-col :span="6" v-for="item in oneRecommend">
-                  <router-link tag="div" target="_blank" to="" class="post" style="background: url('../../../static/images/abcd.png'); background-size: 100% 210px; background-repeat:no-repeat; ">
+                  <router-link :to="'/card/'+ item.postId" target="_blank">
+                    <div class="post" style="background: url('../../../static/images/abcd.png'); background-size: 100% 210px; background-repeat:no-repeat; ">
                     <div class="postTop">
-                        <p style="color:whitesmoke; margin: 15px; word-wrap:break-word; overflow:hidden;">
-                          title:{{item.title}}
+                        <p style="color:whitesmoke; margin: 15px; overflow:hidden; z-index:999">
+                          {{item.title.substr(0,12)}}
                         </p>
                     </div>
                     <div class="postCon animated slideInUp">
@@ -29,8 +27,9 @@
                             id: {{item.postId}} <br>
                             label: {{item.postLabel}} <br>
                             content: <br>
-                            kjhjadskfhlahflk;hjdklfhklhafdklhakdfhkldhflkahlkhklafkhjjgkjgljkgjkhjklhk
+                            {{item.postContent.substr(0,75)}} ...
                         </div>
+                    </div>
                     </div>
                   </router-link>
                 </el-col>
@@ -41,19 +40,21 @@
                 <h3> 养 生 </h3>
               </template>
               <el-row :gutter="20">
-                <el-col :span="6" v-for="item in oneRecommend">
-                  <router-link tag="div" target="_blank" to="" class="post" style="background: url('../../../static/images/banner1.jpg'); background-size: 100% 200px; background-repeat:no-repeat;">
-                    <div class="postTop">
-                      <p style="color:whitesmoke; margin: 15px; word-wrap:break-word; overflow:hidden;">
-                        title:{{item.title}}
-                      </p>
-                    </div>
-                    <div class="postCon animated slideInUp">
-                      <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
-                        id: {{item.postId}} <br>
-                        label: {{item.postLabel}} <br>
-                        content: <br>
-                        kjhjadskfhlahflk;hjdklfhklhafdklhakdfhkldhflkahlkhklafkhjjgkjgljkgjkhjklhk
+                <el-col :span="6" v-for="item in oneYang">
+                  <router-link :to="'/card/'+ item.postId" target="_blank">
+                    <div class="post" style="background: url('../../../static/images/banner1.jpg'); background-size: 100% 210px; background-repeat:no-repeat; ">
+                      <div class="postTop">
+                        <p style="color:whitesmoke; margin: 15px; word-wrap:break-word; overflow:hidden;">
+                          {{item.title.substr(0,12)}}
+                        </p>
+                      </div>
+                      <div class="postCon animated slideInUp">
+                        <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
+                          id: {{item.postId}} <br>
+                          label: {{item.postLabel}} <br>
+                          content: <br>
+                          {{item.postContent.substr(0,75)}} ...
+                        </div>
                       </div>
                     </div>
                   </router-link>
@@ -65,19 +66,21 @@
                 <h3> 美 食 </h3>
               </template>
               <el-row :gutter="20">
-                <el-col :span="6" v-for="item in oneRecommend">
-                  <router-link tag="div" target="_blank" to="" class="post" style="background: url('../../../static/images/banner4.jpg'); background-size: 100% 200px; background-repeat:no-repeat;">
-                    <div class="postTop">
-                      <p style="color:whitesmoke; margin: 15px; word-wrap:break-word; overflow:hidden;">
-                        title:{{item.title}}
-                      </p>
-                    </div>
-                    <div class="postCon animated slideInUp">
-                      <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
-                        id: {{item.postId}} <br>
-                        label: {{item.postLabel}} <br>
-                        content: <br>
-                        kjhjadskfhlahflk;hjdklfhklhafdklhakdfhkldhflkahlkhklafkhjjgkjgljkgjkhjklhk
+                <el-col :span="6" v-for="item in oneDiet">
+                  <router-link :to="'/card/'+ item.postId" target="_blank">
+                    <div class="post" style="background: url('../../../static/images/banner4.jpg'); background-size: 100% 210px; background-repeat:no-repeat; ">
+                      <div class="postTop">
+                        <p style="color:whitesmoke; margin: 15px; word-wrap:break-word; overflow:hidden;">
+                          {{item.title.substr(0,12)}}
+                        </p>
+                      </div>
+                      <div class="postCon animated slideInUp">
+                        <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
+                          id: {{item.postId}} <br>
+                          label: {{item.postLabel}} <br>
+                          content: <br>
+                          {{item.postContent.substr(0,75)}} ...
+                        </div>
                       </div>
                     </div>
                   </router-link>
@@ -89,19 +92,21 @@
                 <h3> 健 身 </h3>
               </template>
               <el-row :gutter="20">
-                <el-col :span="6" v-for="item in oneRecommend">
-                  <router-link tag="div" target="_blank" to="" class="post" style="background: url('../../../static/images/banner2.jpg'); background-size: 100% 200px; background-repeat:no-repeat;">
-                    <div class="postTop">
-                      <p style="color:whitesmoke; margin: 15px; word-wrap:break-word; overflow:hidden;">
-                        title:{{item.title}}
-                      </p>
-                    </div>
-                    <div class="postCon animated slideInUp">
-                      <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
-                        id: {{item.postId}} <br>
-                        label: {{item.postLabel}} <br>
-                        content: <br>
-                        kjhjadskfhlahflk;hjdklfhklhafdklhakdfhkldhflkahlkhklafkhjjgkjgljkgjkhjklhk
+                <el-col :span="6" v-for="item in oneFit">
+                  <router-link :to="'/card/'+ item.postId" target="_blank">
+                    <div class="post" style="background: url('../../../static/images/banner2.jpg'); background-size: 100% 210px; background-repeat:no-repeat; ">
+                      <div class="postTop">
+                        <p style="color:whitesmoke; margin: 15px; word-wrap:break-word; overflow:hidden;">
+                          {{item.title.substr(0,12)}}
+                        </p>
+                      </div>
+                      <div class="postCon animated slideInUp">
+                        <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
+                          id: {{item.postId}} <br>
+                          label: {{item.postLabel}} <br>
+                          content: <br>
+                          {{item.postContent.substr(0,75)}} ...
+                        </div>
                       </div>
                     </div>
                   </router-link>
@@ -181,6 +186,7 @@
   .post{
     height: 250px;
     position: relative;
+    cursor: pointer;
   }
   .postTop{
     width: 100%;
