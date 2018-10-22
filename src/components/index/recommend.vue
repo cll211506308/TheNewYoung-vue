@@ -14,7 +14,8 @@
                   <div style="padding: 14px;">
                     <span>{{item.title}}</span>
                     <div class="bottom clearfix">
-                      <!--<time class="time">{{ currentDate }}</time>-->
+                      <p>标签: <span style="color: orangered">{{item.articalLabel}}</span></p>
+                      <p style="margin-top: 15px"><i class="el-icon-view"> {{item.pageViews}}</i></p>
                       <router-link :to="'/artical/'+item.articalId" target="_blank"><el-button type="primary" class="button">know more</el-button></router-link>
                     </div>
                   </div>
@@ -30,11 +31,12 @@
             <el-row :gutter="20">
               <el-col :span="8" v-for="item in oneDiet">
                 <el-card shadow="hover">
-                  <img src="../../../static/images/banner1.jpg" class="image" style="width: 100%;height: 250px;">
+                  <img src="../../../static/images/banner2.jpg" class="image" style="width: 100%;height: 250px;">
                   <div style="padding: 14px;">
                     <span>{{item.title}}</span>
                     <div class="bottom clearfix">
-                      <time class="time">{{ currentDate }}</time>
+                      <p>标签: <span style="color: orangered">{{item.articallabel}}</span></p>
+                      <p style="margin-top: 15px"><i class="el-icon-view"> {{item.pageViews}}</i></p>
                       <router-link :to="'/artical/'+item.articalId" target="_blank"><el-button type="primary" class="button">know more</el-button></router-link>
                     </div>
                   </div>
@@ -50,11 +52,12 @@
             <el-row :gutter="20">
               <el-col :span="8" v-for="item in oneFit">
                 <el-card shadow="hover">
-                  <img src="../../../static/images/banner1.jpg" class="image" style="width: 100%;height: 250px;">
+                  <img src="../../../static/images/banner4.jpg" class="image" style="width: 100%;height: 250px;">
                   <div style="padding: 14px;">
                     <span>{{item.title}}</span>
                     <div class="bottom clearfix">
-                      <time class="time">{{ currentDate }}</time>
+                      <p>标签: <span style="color: orangered">{{item.articallabel}}</span></p>
+                      <p style="margin-top: 15px"><i class="el-icon-view"> {{item.pageViews}}</i></p>
                       <router-link :to="'/artical/'+item.articalId" target="_blank"><el-button type="primary" class="button">know more</el-button></router-link>
                     </div>
                   </div>
@@ -69,7 +72,7 @@
 
 <script>
     export default {
-        name: "recommend",
+        name: "recommend1",
       data() {
         return {
           activeName: '1',
@@ -155,5 +158,14 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  p{
+    height: 20px;
+    width: 50%;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 600;
+    color:#000009;
   }
 </style>
