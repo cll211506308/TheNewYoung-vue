@@ -13,14 +13,14 @@
 </template>
 
 <script>
-    export default {
-        name: "artical",
-      data(){
-          return {
-            id:this.$route.params.id
-          }
+  export default {
+    name: "artical",
+    data(){
+      return {
+        id:this.$route.params.id
       }
     }
+  }
 </script>
 
 <style scoped>

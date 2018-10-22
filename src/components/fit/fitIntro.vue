@@ -21,9 +21,9 @@
 </template>
 
 <script>
-    export default {
-        name: "fitIntro"
-    }
+  export default {
+    name: "fitIntro"
+  }
 </script>
 
 <style scoped>

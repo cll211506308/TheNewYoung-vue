@@ -3,7 +3,6 @@
       <index-banner></index-banner>
       <index-recommend></index-recommend>
       <index-hot-post></index-hot-post>
-      <index-bottom-con></index-bottom-con>
     </div>
 </template>
 
@@ -18,7 +17,6 @@ export default {
     'index-banner': banner,
     'index-recommend': recommend,
     'index-hot-post': hotPost,
-    'index-bottom-con': bottomCon
   }
 }
 </script>

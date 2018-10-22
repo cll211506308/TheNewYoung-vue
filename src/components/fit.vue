@@ -10,14 +10,14 @@
   import fitIntro from './fit/fitIntro'
   import fitRank from './fit/fitRank'
   import sowingMap from './fit/sowingMap'
-    export default {
-        name: "fit",
-      components:{
-          'fit-intro':fitIntro,
-          'fit-rank':fitRank,
-          'sowing-map':sowingMap
-      }
+  export default {
+    name: "fit",
+    components:{
+      'fit-intro':fitIntro,
+      'fit-rank':fitRank,
+      'sowing-map':sowingMap
     }
+  }
 </script>
 
 <style scoped>

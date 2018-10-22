@@ -27,9 +27,9 @@
 </template>
 
 <script>
-    export default {
-        name: "foodsClass"
-    }
+  export default {
+    name: "foodsClass"
+  }
 </script>
 
 <style scoped>

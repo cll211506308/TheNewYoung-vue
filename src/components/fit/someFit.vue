@@ -36,14 +36,14 @@
 </template>
 
 <script>
-    export default {
-        name: "someFit",
-      // data () {
-      //     return {
-      //       sort:this.$route.params.sort
-      //     }
-      //   }
-      }
+  export default {
+    name: "someFit",
+    // data () {
+    //     return {
+    //       sort:this.$route.params.sort
+    //     }
+    //   }
+  }
 </script>
 
 <style scoped>

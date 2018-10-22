@@ -40,24 +40,24 @@
 </template>
 
 <script>
-    export default {
-        name: "allFoods",
-      data(){
-        return{
-          result:[]
-        }
-      },
-      created(){
-        this.$axios.get("http://localhost:3000/foods")
-          .then((res) => {
-            console.log(res.data.data);
-            this.result = res.data.data;
-          })
-          .catch((err) => {
-            console.log(err)
-          })
+  export default {
+    name: "allFoods",
+    data(){
+      return{
+        result:[]
       }
+    },
+    created(){
+      this.$axios.get("http://localhost:3000/foods")
+        .then((res) => {
+          console.log(res.data.data);
+          this.result = res.data.data;
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     }
+  }
 </script>
 
 <style scoped>
