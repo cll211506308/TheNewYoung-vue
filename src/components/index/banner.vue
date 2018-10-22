@@ -11,19 +11,19 @@
 </template>
 
 <script>
-    export default {
-        name: "banner1",
-      data(){
-          return {
-            dating:[
-              {src:'../../../static/images/banner1.jpg'},
-              {src:'../../../static/images/banner2.jpg'},
-              {src:'../../../static/images/banner3.jpg'},
-              {src:'../../../static/images/banner4.jpg'}
-            ]
-          }
+  export default {
+    name: "banner1",
+    data(){
+      return {
+        dating:[
+          {src:'../../../static/images/banner1.jpg'},
+          {src:'../../../static/images/banner2.jpg'},
+          {src:'../../../static/images/banner3.jpg'},
+          {src:'../../../static/images/banner4.jpg'}
+        ]
       }
     }
+  }
 </script>
 
 <style scoped>

@@ -39,6 +39,7 @@
     max-height: 120px;
     max-width: 120px;
   }
+
   .banner{
     background: center  no-repeat;
     background-image: url("../../../static/images/userbanner3.jpg");
@@ -49,4 +50,3 @@
 
 
 </style>
-

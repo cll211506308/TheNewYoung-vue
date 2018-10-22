@@ -1,7 +1,7 @@
 <template>
     <div>
       <el-row>
-        <el-col :span="24" v-for="u in showData" class="post">
+        <el-col :span="24" v-for="(u,index) in showData" class="post" :key="index">
           <el-card shadow="always">
 
             <el-row>

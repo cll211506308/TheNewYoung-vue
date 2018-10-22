@@ -17,11 +17,11 @@
           <router-link tag="li" to="/friends">Young友圈</router-link>
         </el-col>
         <el-col :md="5" style="position:absolute; left:61%; top: -2px;" class="hidden-md-and-down">
-            <el-input
-              placeholder="search for..."
-              v-model="input10"
-              clearable>
-            </el-input>
+          <el-input
+            placeholder="search for..."
+            v-model="input10"
+            clearable>
+          </el-input>
           <router-link :to="'/search/'+input10" target="_blank">
             <i class="header-icon el-icon-search" style="color:whitesmoke; font-weight:bold;position:absolute;top:50%;margin-top: -8px; right: -38px"></i>
           </router-link>

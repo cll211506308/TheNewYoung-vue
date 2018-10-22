@@ -38,7 +38,7 @@
 
       <el-row>
         <el-col :span="18" :offset="3"><div>
-          <el-card shadow="always" v-for="u in showData">
+          <el-card shadow="always" v-for="(u,index) in showData" :key="index">
             <div> 内容：{{u.comContent}}<br/>
               评论者:{{u.userName}}&nbsp;&nbsp;&nbsp;
               时间：{{u.comTime.slice(0,19).replace(/T/, "  ")}}
@@ -85,7 +85,9 @@
             tiao:10,
             dis1:false,
             dis2:false,
-            post:'',
+            post:[
+              {postLabel:'',postTime:'{title:\'\'}'}
+            ],
             textarea: '',
             dialogVisible: false
           }

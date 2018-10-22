@@ -54,25 +54,25 @@
 </template>
 
 <script>
-    export default {
-        name: "search1",
-      data(){
-        return {
-          keys:this.$route.params.keys,
-          data:[],
-          activeName: 'first'
-        }
-      },
-      created(){
-        this.$axios.get('/search/'+this.keys).then(
-          ((res) => {
-            this.data = res.data.data.search1
-          })
-        ).catch(err => {
-          console.log(err)
+  export default {
+    name: "search1",
+    data(){
+      return {
+        keys:this.$route.params.keys,
+        data:[],
+        activeName: 'first'
+      }
+    },
+    created(){
+      this.$axios.get('/search/'+this.keys).then(
+        ((res) => {
+          this.data = res.data.data.search1
         })
-      },
-    }
+      ).catch(err => {
+        console.log(err)
+      })
+    },
+  }
 </script>
 
 <style scoped>
