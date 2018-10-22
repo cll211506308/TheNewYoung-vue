@@ -10,12 +10,12 @@
         </div>
       </div>
       <div id="content">
-        <router-link tag="li" to="/youngLife/allYoungLife">全部</router-link>
-        <router-link tag="li" to="/youngLife/someYoungLife/1">婴幼儿</router-link>
-        <router-link tag="li" to="/youngLife/someYoungLife/2">青少年</router-link>
-        <router-link tag="li" to="/youngLife/someYoungLife/3">中老年</router-link>
-        <router-link tag="li" to="/youngLife/someYoungLife/4">男性专区</router-link>
-        <router-link tag="li" to="/youngLife/someYoungLife/5">女性专区</router-link>
+        <router-link tag="li" to="/youngLife/allYoungLife" exact>全部</router-link>
+        <router-link tag="li" to="/youngLife/someYoungLife">婴幼儿</router-link>
+        <router-link tag="li" to="/youngLife/someYoungLife">青少年</router-link>
+        <router-link tag="li" to="/youngLife/someYoungLife">中老年</router-link>
+        <router-link tag="li" to="/youngLife/someYoungLife">男性专区</router-link>
+        <router-link tag="li" to="/youngLife/someYoungLife">女性专区</router-link>
       </div>
       <div id="show"><router-view></router-view></div>
     </div>

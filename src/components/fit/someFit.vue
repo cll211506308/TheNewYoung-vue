@@ -1,21 +1,36 @@
 <template>
   <div>
-    <h2>这是关于{{sort}}的健康饮食的文章</h2>
-    <div class="content">
-      <img src="http://img3.imgtn.bdimg.com/it/u=3971964603,2168204668&fm=26&gp=0.jpg">
-    </div>
-    <div class="content">
-      <img src="http://img3.imgtn.bdimg.com/it/u=3971964603,2168204668&fm=26&gp=0.jpg">
-    </div>
-    <div class="content">
-      <img src="http://img3.imgtn.bdimg.com/it/u=3971964603,2168204668&fm=26&gp=0.jpg">
-    </div>
-    <div class="content">
-      <img src="http://img3.imgtn.bdimg.com/it/u=3971964603,2168204668&fm=26&gp=0.jpg">
-    </div>
-    <div class="content">
-      <img src="http://img3.imgtn.bdimg.com/it/u=3971964603,2168204668&fm=26&gp=0.jpg">
-    </div>
+    <!--<h2>这是关于{{sort}}的健康饮食的文章</h2>-->
+    <router-link to="/artical/4">
+      <div class="content">
+        <img src="http://img3.imgtn.bdimg.com/it/u=3971964603,2168204668&fm=26&gp=0.jpg">
+        <p></p>
+      </div>
+    </router-link>
+    <router-link to="/artical/4">
+      <div class="content">
+        <img src="http://img3.imgtn.bdimg.com/it/u=3971964603,2168204668&fm=26&gp=0.jpg">
+        <p></p>
+      </div>
+    </router-link>
+    <router-link to="/artical/4">
+      <div class="content">
+        <img src="http://img3.imgtn.bdimg.com/it/u=3971964603,2168204668&fm=26&gp=0.jpg">
+        <p></p>
+      </div>
+    </router-link>
+    <router-link to="/artical/4">
+      <div class="content">
+        <img src="http://img3.imgtn.bdimg.com/it/u=3971964603,2168204668&fm=26&gp=0.jpg">
+        <p></p>
+      </div>
+    </router-link>
+    <router-link to="/artical/4">
+      <div class="content">
+        <img src="http://img3.imgtn.bdimg.com/it/u=3971964603,2168204668&fm=26&gp=0.jpg">
+        <p></p>
+      </div>
+    </router-link>
     <el-pagination class="page" background layout="prev, pager, next" :total="1000"></el-pagination>
   </div>
 </template>
@@ -23,11 +38,11 @@
 <script>
     export default {
         name: "someFit",
-      data () {
-          return {
-            sort:this.$route.params.sort
-          }
-        }
+      // data () {
+      //     return {
+      //       sort:this.$route.params.sort
+      //     }
+      //   }
       }
 </script>
 

@@ -9,12 +9,12 @@
         </div>
       </div>
       <div id="content">
-        <router-link tag="li" to="/foods/allFoods">全部</router-link>
-        <router-link tag="li" to="/foods/someFoods/1">热门菜谱</router-link>
-        <router-link tag="li" to="/foods/someFoods/2">常见食材</router-link>
-        <router-link tag="li" to="/foods/someFoods/3">营养搭配</router-link>
-        <router-link tag="li" to="/foods/someFoods/4">三餐</router-link>
-        <router-link tag="li" to="/foods/someFoods/5">素食者专区</router-link>
+        <router-link tag="li" to="/foods/allFoods" exact>全部</router-link>
+        <router-link tag="li" to="/foods/someFoods">热门菜谱</router-link>
+        <router-link tag="li" to="/foods/someFoods">常见食材</router-link>
+        <router-link tag="li" to="/foods/someFoods">营养搭配</router-link>
+        <router-link tag="li" to="/foods/someFoods">三餐</router-link>
+        <router-link tag="li" to="/foods/someFoods">素食者专区</router-link>
       </div>
       <div id="show"><router-view></router-view></div>
     </div>

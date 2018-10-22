@@ -1,43 +1,62 @@
 <template>
   <div>
-    <h2>这是全部的养生堂文章</h2>
-    <div class="content">
-      <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
-    </div>
-    <div class="content">
-      <img src="http://https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
-    </div>
-    <div class="content">
-      <img src="http://https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
-    </div>
-    <div class="content">
-      <img src="http://https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
-    </div>
-    <div class="content">
-      <img src="http://https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
-    </div>
+    <router-link :to="'/artical/' + articalId">
+      <div class="content">
+        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
+        <p style="font-size: 13px">{{result[0].title}}</p><br>
+        <i class="el-icon-view">{{result[0].pageViews}}</i>
+      </div>
+    </router-link>
+    <router-link :to="'/artical/' + articalId">
+      <div class="content">
+        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
+        <p>{{result[1].title}}</p><br>
+        <i class="el-icon-view">{{result[1].pageViews}}</i>
+      </div>
+    </router-link>
+    <router-link :to="'/artical/' + articalId">
+      <div class="content">
+        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
+        <p>{{result[2].title}}</p><br>
+        <i class="el-icon-view">{{result[2].pageViews}}</i>
+      </div>
+    </router-link>
+    <router-link :to="'/artical/' + articalId">
+      <div class="content">
+        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
+        <p>{{result[3].title}}</p><br>
+        <i class="el-icon-view">{{result[3].pageViews}}</i>
+      </div>
+    </router-link>
+    <router-link :to="'/artical/' + articalId">
+      <div class="content">
+        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
+        <p>{{result[3].title}}</p><br>
+        <i class="el-icon-view">{{result[3].pageViews}}</i>
+      </div>
+    </router-link>
     <el-pagination class="page" background layout="prev, pager, next" :total="1000"></el-pagination>
   </div>
 </template>
 
 <script>
     export default {
-        name: "allYoungLIfe",
-      // data(){
-      //     return{
-      //       result:[]
-      //     }
-      // },
-      // created(){
-      //     this.$axios.get("http://127.0.0.1:3000/allYoungLife")
-      //       .then((res)=>{
-      //         console.log(res.data.data);
-      //         this.result=res.data.data;
-      //       })
-      //       .catch((err)=>{
-      //         console.log(err)
-      //       })
-      // }
+        name: "allYoungLife",
+      data(){
+          return{
+            result:[]
+          }
+      },
+      created(){
+          this.$axios.get("http://localhost:3000/youngLife")
+            .then((res)=>{
+              console.log(res.data.data);
+              this.result=res.data.data;
+            })
+            .catch((err)=>{
+              console.log(err)
+            })
+      }
     }
 </script>
 
@@ -49,7 +68,14 @@
     float: left;
     margin-top: 10px;
   }
-  img{width: 50%;height: 100%;}
+  img{
+    width: 50%;
+    height: 100%;
+    float: left;
+  }
+  p{
+    float: left;
+  }
   .page{
     margin-left:auto;
     width: 82%;

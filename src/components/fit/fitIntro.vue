@@ -9,12 +9,12 @@
       </div>
     </div>
     <div id="content">
-      <router-link tag="li" to="/fit/allFit">全部</router-link>
-      <router-link tag="li" to="/fit/someFit/1">减脂</router-link>
-      <router-link tag="li" to="/fit/someFit/2">增肌</router-link>
-      <router-link tag="li" to="/fit/someFit/3">力量</router-link>
-      <router-link tag="li" to="/fit/someFit/4">塑形</router-link>
-      <router-link tag="li" to="/fit/someFit/5">核心</router-link>
+      <router-link tag="li" to="/fit/allFit" exact>全部</router-link>
+      <router-link tag="li" to="/fit/someFit">减脂</router-link>
+      <router-link tag="li" to="/fit/someFit">增肌</router-link>
+      <router-link tag="li" to="/fit/someFit">力量</router-link>
+      <router-link tag="li" to="/fit/someFit">塑形</router-link>
+      <router-link tag="li" to="/fit/someFit">核心</router-link>
     </div>
     <div id="show"><router-view></router-view></div>
   </div>

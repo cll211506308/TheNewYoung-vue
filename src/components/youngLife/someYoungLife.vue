@@ -1,21 +1,36 @@
 <template>
   <div>
-    <h2>这是关于{{sort}}的养生堂的文章</h2>
-    <div class="content">
-      <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=423278704,2694633106&fm=26&gp=0.jpg">
-    </div>
-    <div class="content">
-      <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=423278704,2694633106&fm=26&gp=0.jpg">
-    </div>
-    <div class="content">
-      <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=423278704,2694633106&fm=26&gp=0.jpg">
-    </div>
-    <div class="content">
-      <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=423278704,2694633106&fm=26&gp=0.jpg">
-    </div>
-    <div class="content">
-      <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=423278704,2694633106&fm=26&gp=0.jpg">
-    </div>
+    <!--<h2>这是关于{{sort}}的养生堂的文章</h2>-->
+    <router-link to="/artical/6">
+      <div class="content">
+        <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=423278704,2694633106&fm=26&gp=0.jpg">
+        <p></p>
+      </div>
+    </router-link>
+    <router-link to="/artical/6">
+      <div class="content">
+        <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=423278704,2694633106&fm=26&gp=0.jpg">
+        <p></p>
+      </div>
+    </router-link>
+    <router-link to="/artical/6">
+      <div class="content">
+        <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=423278704,2694633106&fm=26&gp=0.jpg">
+        <p></p>
+      </div>
+    </router-link>
+    <router-link to="/artical/6">
+      <div class="content">
+        <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=423278704,2694633106&fm=26&gp=0.jpg">
+        <p></p>
+      </div>
+    </router-link>
+    <router-link to="/artical/6">
+      <div class="content">
+        <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=423278704,2694633106&fm=26&gp=0.jpg">
+        <p></p>
+      </div>
+    </router-link>
     <el-pagination class="page" background layout="prev, pager, next" :total="1000"></el-pagination>
   </div>
 </template>
@@ -23,11 +38,11 @@
 <script>
 export default {
   name: 'someYoungLife',
-  data () {
-    return {
-      sort: this.$route.params.sort
-    }
-  }
+  // data () {
+  //   return {
+  //     sort: this.$route.params.sort
+  //   }
+  // }
 }
 </script>
 
