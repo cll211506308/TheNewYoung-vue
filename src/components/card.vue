@@ -25,7 +25,7 @@
 
               </div>
               <div class="post-bottom">
-                作者：{{post[0].userName}}&nbsp;&nbsp;&nbsp;浏览量：{{post[0].pageViews}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{(post[0].postTime.slice(0,19).replace(/T/, "  "))}}
+                作者：{{post[0].userName}}&nbsp;&nbsp;&nbsp;浏览量：{{post[0].pageViews}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{(post[0].postTime)}}
               </div>
             </div></el-col>
           </el-row>
@@ -41,7 +41,8 @@
           <el-card shadow="always" v-for="(u,index) in showData" :key="index">
             <div> 内容：{{u.comContent}}<br/>
               评论者:{{u.userName}}&nbsp;&nbsp;&nbsp;
-              时间：{{u.comTime.slice(0,19).replace(/T/, "  ")}}
+              时间：{{u.comTime}}
+              <button v-if="u.userId == userId" @click="delcom(u.commentsId)">删除</button>
             </div>
           </el-card>
           <div v-if="show">暂时还没有评论</div>
@@ -89,7 +90,8 @@
               {postLabel:'',postTime:'{title:\'\'}'}
             ],
             textarea: '',
-            dialogVisible: false
+            dialogVisible: false,
+            userId:this.$store.state.data1
           }
       },
      created(){
@@ -229,6 +231,19 @@
             done();
           })
           .catch(_ => {});
+      },
+      delcom(comid){
+        this.$axios.get('friends/deleteComment/'+ comid).then(
+          ((res)=>{
+            this.$message({
+              message: '删除成功',
+              type: 'success'
+            });
+            setTimeout(() => {
+              location.reload()
+            }, 500);
+          })
+        ).catch(err=>{console.log(err)})
       }
     },
       computed:{

@@ -54,7 +54,6 @@ export default new Router({
     },
     {
       path: '/fit',
-      name: 'fit',
       component: fit,
       children: [
         {
@@ -71,7 +70,6 @@ export default new Router({
     },
     {
       path: '/friends',
-      name: 'friends',
       component: friends,
       children: [
         {
@@ -99,7 +97,6 @@ export default new Router({
 
     {
       path: '/foods',
-      name: 'foods',
       component: foods,
       children: [
         {
@@ -116,7 +113,6 @@ export default new Router({
     },
     {
       path: '/youngLife',
-      name: 'youngLife',
       component: youngLife,
       children: [
         {
@@ -134,7 +130,6 @@ export default new Router({
     // 个人中心界面
     {
       path: '/users',
-      name: 'users',
       component: users,
       children: [
         {
