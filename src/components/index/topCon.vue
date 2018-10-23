@@ -1,6 +1,6 @@
 <template>
   <el-row
-    style="height: 80px; line-height: 80px; background: url('../../../static/images/nav4.jpg');background-size: 100% 80px">
+    style="height: 80px; line-height: 80px; background: url('../../../static/images/nav2.jpg');height: 80px;">
     <el-col
       :span="18"
       :offset="3"
@@ -28,16 +28,16 @@
         </el-col>
         <el-col :md="1" :offset="1" class="hidden-sm-and-down">
           <div v-if="isLogin">
-            <router-link tag="li" to="/login">Login</router-link>
+            <router-link tag="li" to="/login"><img src="../../../static/images/login.png" alt="" class="login"></router-link>
           </div>
           <div v-if="!isLogin">
             <el-row>
               <el-col :span="18" class="dropdown1">
-                <router-link tag="li" to="/users"><img src="../../../static/images/person.png" style="width: 21px;height: 21px; position: relative;top: 5px;" alt=""></router-link>
+                <router-link tag="li" :to="'/usershome/' + userId"><img src="../../../static/images/person.png" style="width: 21px;height: 21px; position: relative;top: 5px;" alt=""></router-link>
                 <div class="dropdown-content1">
                   <p style="height: 90px;line-height: 90px"><img src="../../../static/images/user1.jpg" alt="" style="height: 80px;width: 80px;border-radius: 40px;margin-top: 10px;margin-bottom: 10px;color: whitesmoke"></p>
                   <p>Hi,{{userName}}!</p>
-                  <router-link tag="p" to="/users" style="cursor: pointer" class="pg">个人中心</router-link>
+                  <router-link tag="p" :to="'/usershome/' + userId" style="cursor: pointer" class="pg">个人中心</router-link>
                   <hr style="color:darkgray; width: 150px;margin:auto auto">
                   <p style="cursor: pointer" @click="tuichu" class="pg">退出登录</p>
                 </div>
@@ -48,8 +48,7 @@
         <el-col :span="2" :offset="22" class="hidden-md-and-up">
           <el-row>
             <el-col :span="18" class="dropdown1">
-              <i class="el-icon-menu" style="position: absolute; top: 31px;left: -25px"></i>
-              <router-link tag="li" to="" > nav</router-link>
+              <router-link tag="li" to="" ><img src="../../../static/images/navicon.png" alt="导航" class="navicon"></router-link>
               <div class="dropdown-content2">
                 <router-link tag="p" to="/youngLife" style="cursor: pointer" class="pg">养生堂</router-link>
                 <router-link tag="p" to="/foods" style="cursor: pointer" class="pg">营养饮食</router-link>
@@ -57,10 +56,10 @@
                 <router-link tag="p" to="/friends" style="cursor: pointer" class="pg">Young友圈</router-link>
                 <hr style="color:darkgray; width: 100px;margin:auto auto">
                 <div v-if="isLogin">
-                  <router-link tag="p" to="/login" style="cursor: pointer" class="pg">Login</router-link>
+                  <router-link tag="p" to="/login" style="cursor: pointer" class="pg"><img src="../../../static/images/login.png" alt="" class="login"></router-link>
                 </div>
                 <div v-if="!isLogin">
-                  <router-link tag="p" to="/users" style="cursor: pointer" class="pg"><img src="../../../static/images/person.png" style="width: 21px;height: 21px; position: relative;top: 5px;" alt=""></router-link>
+                  <router-link tag="p" :to="'/usershome/' + userId" style="cursor: pointer" class="pg"><img src="../../../static/images/person.png" style="width: 21px;height: 21px; position: relative;top: 5px;" alt=""></router-link>
                 </div>
               </div>
             </el-col>
@@ -126,6 +125,18 @@
   .pg:hover{
     color:white;
     transform: scale(1.05);
+  }
+
+  .login{
+    width: 22px;
+    height: 22px;
+    position: relative;
+    top: 4px;
+  }
+
+  .navicon{
+    position: relative;
+    top: 10px;
   }
 
   li {
