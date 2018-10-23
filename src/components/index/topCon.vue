@@ -6,17 +6,17 @@
       :offset="3"
       style="font-size: 1.25em; font-weight:bold; color: #2c2c2c">
       <el-row>
-        <el-col :span="2">
-          <li>LOGO</li>
+        <el-col :span="3">
+          <img src="../../../static/images/LOGO.png" alt="" class="LOGO">
         </el-col>
-        <el-col :md="16" :sm="20" class="hidden-sm-and-down">
+        <el-col :md="18" :sm="22" :offset="4" class="hidden-sm-and-down">
           <router-link tag="li" to="/">首 页</router-link>
           <router-link tag="li" to="/youngLife">养生堂</router-link>
           <router-link tag="li" to="/foods">营养饮食</router-link>
           <router-link tag="li" to="/fit">健身课堂</router-link>
           <router-link tag="li" to="/friends">Young友圈</router-link>
         </el-col>
-        <el-col :md="5" style="position:absolute; left:61%; top: -2px;" class="hidden-md-and-down">
+        <el-col :md="5" :offset="2" style="position:absolute; left:61%; top: -2px;" class="hidden-md-and-down">
           <el-input
             placeholder="search for..."
             v-model="input10"
@@ -26,7 +26,7 @@
             <i class="header-icon el-icon-search" style="color:#2c2c2c; font-weight:bold;position:absolute;top:50%;margin-top: -8px; right: -38px"></i>
           </router-link>
         </el-col>
-        <el-col :md="1" :offset="4" class="hidden-sm-and-down">
+        <el-col :md="1" :offset="1" class="hidden-sm-and-down">
           <div v-if="isLogin">
             <router-link tag="li" to="/login">Login</router-link>
           </div>
@@ -45,7 +45,7 @@
             </el-row>
           </div>
         </el-col>
-        <el-col :span="2" :offset="20" class="hidden-md-and-up">
+        <el-col :span="2" :offset="22" class="hidden-md-and-up">
           <el-row>
             <el-col :span="18" class="dropdown1">
               <i class="el-icon-menu" style="position: absolute; top: 31px;left: -25px"></i>
@@ -180,5 +180,12 @@
   .dropdown1:hover .dropdown-content2 {
     display: block;
   }
+  .LOGO{
+    height: 53px;
+    width: 180px;
+    position:absolute;
+    top: 12px;
+    left: -50px;
 
+  }
 </style>
