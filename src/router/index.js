@@ -129,11 +129,11 @@ export default new Router({
     },
     // 个人中心界面
     {
-      path: '/usershome/:id',
+      path: '/usershome',
       component: users,
       children: [
         {
-          path: '',
+          path: ':id',
           name: 'userhome',
           component: userhome,
         },
