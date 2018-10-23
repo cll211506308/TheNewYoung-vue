@@ -50,6 +50,7 @@
             <el-col :span="18" class="dropdown1">
               <router-link tag="li" to="" ><img src="../../../static/images/navicon.png" alt="导航" class="navicon"></router-link>
               <div class="dropdown-content2">
+                <router-link tag="p" to="/" style="cursor: pointer" class="pg">首 页</router-link>
                 <router-link tag="p" to="/youngLife" style="cursor: pointer" class="pg">养生堂</router-link>
                 <router-link tag="p" to="/foods" style="cursor: pointer" class="pg">营养饮食</router-link>
                 <router-link tag="p" to="/fit" style="cursor: pointer" class="pg">健身课堂</router-link>
