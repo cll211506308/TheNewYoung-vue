@@ -6,7 +6,10 @@
           <el-col :span="18" class="datas">
             <el-row>
               <el-col :span="4" class="datas"><img src="../../../static/images/userpic1.jpg" class="photo"></el-col>
-              <el-col :span="20" class="datas">用户名：{{username}}</el-col>
+              <el-col :span="20" class="datas"><span class="username">您好！{{username}}
+                <!--<el-button icon="el-icon-edit" style="width: 25px;height: 25px"></el-button>-->
+              </span>
+              </el-col>
             </el-row>
           </el-col>
         </el-row>
@@ -41,11 +44,12 @@
   }
 
   .banner{
-    background: center  no-repeat;
-    background-image: url("../../../static/images/userbanner3.jpg");
+    background-image: url("../../../static/images/userbanner4.jpg");
+    background-size: 100% 200%;
   }
-  .datas{
-    color: white;
+  .username{
+    position: absolute;
+    top: 40%;
   }
 
 

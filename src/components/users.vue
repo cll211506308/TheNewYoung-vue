@@ -3,7 +3,6 @@
     <el-row type="flex" justify="center"><el-col :span="24"><user-basicdata></user-basicdata></el-col></el-row>
     <el-row type="flex" justify="center"><el-col :span="18"><users-alldatas></users-alldatas></el-col></el-row>
   </div>
-
 </template>
 
 <script>

@@ -32,7 +32,7 @@
           </div>
         </el-card>
         <div class="score">得分：{{total}}</div>
-        <el-button type="primary" @click="submit">提交</el-button>
+        <el-button type="primary" @click="submit" class="btn">提交</el-button>
       </div>
     </el-col>
   </el-row>
@@ -339,5 +339,9 @@
   }
   .box-card {
     width: 100%;
+  }
+  .btn{
+    float: right;
+    margin-bottom: 10px;
   }
 </style>
