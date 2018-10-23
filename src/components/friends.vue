@@ -134,7 +134,6 @@
 
         this.$axios.get('users/username/'+this.$store.state.data1).then(
           ((res)=>{
-            console.log(res.data.data[0])
             this.data2 = res.data.data[0].username;
           })
         ).catch(err=>{console.log(err)})

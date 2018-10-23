@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-row>
-      <el-col :span="24" v-for="u in showData" class="post" :key="index">
+      <el-col :span="24" v-for="(u,index) in showData" class="post" :key="index">
         <el-card shadow="always">
 
           <el-row>
@@ -23,7 +23,7 @@
                 </router-link>
               </div>
               <div class="post-bottom">
-                作者：{{u.userName}}&nbsp;&nbsp;&nbsp;浏览量：{{u.pageViews}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{(u.postTime.slice(0,19).replace(/T/, "  "))}}
+                作者：{{u.userName}}&nbsp;&nbsp;&nbsp;浏览量：{{u.pageViews}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{(u.postTime)}}
               </div>
             </div></el-col>
           </el-row>

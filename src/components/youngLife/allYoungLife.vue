@@ -1,20 +1,11 @@
 <template>
   <div>
-    <h2>这是全部的养生堂文章</h2>
-    <div class="content">
-      <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
-    </div>
-    <div class="content">
-      <img src="http://https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
-    </div>
-    <div class="content">
-      <img src="http://https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
-    </div>
-    <div class="content">
-      <img src="http://https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
-    </div>
-    <div class="content">
-      <img src="http://https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2414834993,24188519&fm=26&gp=0.jpg">
+    <div class="content" v-for="(item,index) in result" :key="index">
+      <router-link :to="{path:'/artical/' + item.articalId}">
+
+        <p>{{item.title}}</p><br>
+        <i class="el-icon-view">{{item.pageViews}}</i>
+      </router-link>
     </div>
     <el-pagination class="page" background layout="prev, pager, next" :total="1000"></el-pagination>
   </div>
@@ -22,22 +13,19 @@
 
 <script>
     export default {
-        name: "allYoungLIfe",
-      // data(){
-      //     return{
-      //       result:[]
-      //     }
-      // },
-      // created(){
-      //     this.$axios.get("http://127.0.0.1:3000/allYoungLife")
-      //       .then((res)=>{
-      //         console.log(res.data.data);
-      //         this.result=res.data.data;
-      //       })
-      //       .catch((err)=>{
-      //         console.log(err)
-      //       })
-      // }
+        name: "allYoungLife",
+      data(){
+        return{
+          result:[],
+        }
+      }, created(){
+        this.$axios.get("/youngLife")
+          .then((res) => {
+            this.result = res.data.data;
+          }).catch((err) => {
+          console.log(err)
+        })
+      }
     }
 </script>
 
@@ -49,7 +37,14 @@
     float: left;
     margin-top: 10px;
   }
-  img{width: 50%;height: 100%;}
+  img{
+    width: 50%;
+    height: 100%;
+    float: left;
+  }
+  p{
+    float: left;
+  }
   .page{
     margin-left:auto;
     width: 82%;

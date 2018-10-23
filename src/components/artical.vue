@@ -2,9 +2,9 @@
   <el-row>
     <el-col :span="18" :offset="3" id="content">
       <h1>这是id为{{id}}的文章</h1>
-      <h3>作者：</h3>
+      <h3>作者：{{result.title}}</h3>
       <div id="text">
-        <p>我是正文</p>
+        <p>{{result.content}}</p>
         <el-button type="primary" icon="el-icon-star-off">添加收藏</el-button>
         <!--<el-button type="primary" icon="el-icon-star-on">取消收藏</el-button>-->
       </div>
@@ -17,8 +17,16 @@
     name: "artical",
     data(){
       return {
-        id:this.$route.params.id
+        id:this.$route.params.id,
+        result:[]
       }
+    },created(){
+      this.$axios.get("/fit/relativeEssay/" + id)
+        .then((res) => {
+          this.result = res.data.data;
+        }).catch((err) => {
+        console.log(err)
+      })
     }
   }
 </script>

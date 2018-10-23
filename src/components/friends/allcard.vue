@@ -23,7 +23,8 @@
                   </router-link>
                 </div>
                 <div class="post-bottom">
-                  作者：{{u.userName}}&nbsp;&nbsp;&nbsp;浏览量：{{u.pageViews}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{(u.postTime.slice(0,19).replace(/T/, "  "))}}
+                  作者：{{u.userName}}&nbsp;&nbsp;&nbsp;浏览量：{{u.pageViews}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{(u.postTime)}}
+                  <button v-if="u.userId == id" @click="open2(u.postId)">删除</button>
                 </div>
               </div></el-col>
             </el-row>
@@ -47,7 +48,8 @@
           pag:1,
           tiao:5,
           dis1:false,
-          dis2:false
+          dis2:false,
+          id:this.$store.state.data1
         }
       },created(){
         this.$axios.get('friends').then(
@@ -122,6 +124,32 @@
                 console.log(error);
               });
           }
+        },
+        open2(postid) {
+          this.$confirm('此操作将永久删除该帖子, 是否继续?', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+          }).then(() => {
+
+            this.$axios.get('friends/deletePost/'+ postid).then(
+              ((res)=>{
+                this.$message({
+                  message: '删除成功',
+                  type: 'success'
+                });
+                setTimeout(() => {
+                  location.reload()
+                }, 500);
+              })
+            ).catch(err=>{console.log(err)})
+
+          }).catch(() => {
+            this.$message({
+              type: 'info',
+              message: '已取消删除'
+            });
+          });
         }
       },
       mounted(){

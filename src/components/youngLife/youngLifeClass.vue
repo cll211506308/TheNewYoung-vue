@@ -3,24 +3,24 @@
     <h2>热门标签</h2><br>
     <div style="margin-left: 5px">
       <el-row>
-        <el-button round>血糖</el-button>
-        <el-button round>血压</el-button>
-        <el-button round>血脂</el-button>
+        <router-link to="/youngLife/allYoungLife"><el-button round>血糖</el-button></router-link>
+        <router-link to="/youngLife/someYoungLife"><el-button round>血压</el-button></router-link>
+        <router-link to="/youngLife/allYoungLife"><el-button round>血脂</el-button></router-link>
       </el-row>
       <el-row>
-        <el-button round>阴阳</el-button>
-        <el-button round>止咳</el-button>
-        <el-button round>消食</el-button>
+        <router-link to="/youngLife/allYoungLife"><el-button round>阴阳</el-button></router-link>
+        <router-link to="/youngLife/someYoungLife"><el-button round>止咳</el-button></router-link>
+        <router-link to="/youngLife/allYoungLife"><el-button round>消食</el-button></router-link>
       </el-row>
       <el-row>
-        <el-button round>防脱</el-button>
-        <el-button round>补气</el-button>
-        <el-button round>安神</el-button>
+        <router-link to="/youngLife/allYoungLife"><el-button round>防脱</el-button></router-link>
+        <router-link to="/youngLife/someYoungLife"><el-button round>补气</el-button></router-link>
+        <router-link to="/youngLife/allYoungLife"><el-button round>安神</el-button></router-link>
       </el-row>
       <el-row>
-        <el-button round>活血</el-button>
-        <el-button round>排毒</el-button>
-        <el-button round>清热</el-button>
+        <router-link to="/youngLife/allYoungLife"><el-button round>活血</el-button></router-link>
+        <router-link to="/youngLife/someYoungLife"><el-button round>排毒</el-button></router-link>
+        <router-link to="/youngLife/allYoungLife"><el-button round>清热</el-button></router-link>
       </el-row>
     </div>
   </div>

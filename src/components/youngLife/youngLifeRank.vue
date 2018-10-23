@@ -1,31 +1,33 @@
 <template>
   <div id="container">
     <br><h2>热门排行</h2><br>
-    <div>
-      <router-link tag="li" to="/artical/1">热门第1文章</router-link>
-      <router-link tag="li" to="/artical/2">热门第2文章</router-link>
-      <router-link tag="li" to="/artical/3">热门第3文章</router-link>
-      <router-link tag="li" to="/artical/4">热门第4文章</router-link>
-      <router-link tag="li" to="/artical/5">热门第5文章</router-link>
-      <router-link tag="li" to="/artical/6">热门第6文章</router-link>
-      <router-link tag="li" to="/artical/7">热门第7文章</router-link>
-      <router-link tag="li" to="/artical/8">热门第8文章</router-link>
-      <router-link tag="li" to="/artical/9">热门第9文章</router-link>
-      <router-link tag="li" to="/artical/10">热门第10文章</router-link>
-    </div>
+    <router-link tag="li" v-for="(item,index) in result" :key="index" v-if="index<10"
+                 :to="{path:'/artical/' + item.articalId}">{{item.title}}</router-link>
   </div>
 </template>
 
 <script>
     export default {
-        name: "youngLifeRank"
+        name: "youngLifeRank",
+      data(){
+        return{
+          result:[]
+        }
+      }, created(){
+        this.$axios.get("/youngLife/youngrank")
+          .then((res) => {
+            this.result = res.data.data;
+          }).catch((err) => {
+          console.log(err)
+        })
+      }
     }
 </script>
 
 <style scoped>
   #container{
     width: 100%;
-    height: 485px;
+    height: 100%;
     border: 2px solid gray;
     border-radius: 20px;
     margin-top: 40px;
