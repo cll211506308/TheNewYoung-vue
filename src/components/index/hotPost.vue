@@ -18,8 +18,8 @@
                   <router-link :to="'/card/'+ item.postId" target="_blank">
                     <div class="post" style="background: url('../../../static/images/abcd.png'); background-size: 100% 210px; background-repeat:no-repeat; ">
                       <div class="postTop">
-                        <p style="color:whitesmoke; margin: 15px; overflow:hidden; z-index:999">
-                          {{item.title.substr(0,10)}}
+                        <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
+                          {{item.title}}
                         </p>
                       </div>
                       <div class="postCon animated slideInUp">
@@ -27,7 +27,7 @@
                           id: {{item.postId}} <br>
                           label: {{item.postLabel}} <br>
                           content: <br>
-                          {{item.postContent.substr(0,65)}} ...
+                          {{item.postContent.substr(0,65)}}
                         </div>
                       </div>
                     </div>
@@ -44,8 +44,8 @@
                   <router-link :to="'/card/'+ item.postId" target="_blank">
                     <div class="post" style="background: url('../../../static/images/banner1.jpg'); background-size: 100% 210px; background-repeat:no-repeat; ">
                       <div class="postTop">
-                        <p style="color:whitesmoke; margin: 15px; word-wrap:break-word; overflow:hidden;">
-                          {{item.title.substr(0,10)}}
+                        <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
+                          {{item.title}}
                         </p>
                       </div>
                       <div class="postCon animated slideInUp">
@@ -53,7 +53,7 @@
                           id: {{item.postId}} <br>
                           label: {{item.postLabel}}  <br>
                           content: <br>
-                          {{item.postContent.substr(0,65)}} ...
+                          {{item.postContent.substr(0,65)}}
                         </div>
                       </div>
                     </div>
@@ -70,8 +70,8 @@
                   <router-link :to="'/card/'+ item.postId" target="_blank">
                     <div class="post" style="background: url('../../../static/images/banner4.jpg'); background-size: 100% 210px; background-repeat:no-repeat; ">
                       <div class="postTop">
-                        <p style="color:whitesmoke; margin: 15px; word-wrap:break-word; overflow:hidden;">
-                          {{item.title.substr(0,10)}}
+                        <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
+                          {{item.title}}
                         </p>
                       </div>
                       <div class="postCon animated slideInUp">
@@ -79,7 +79,7 @@
                           id: {{item.postId}} <br>
                           label: {{item.postLabel}} <br>
                           content: <br>
-                          {{item.postContent.substr(0,65)}} ...
+                          {{item.postContent.substr(0,65)}}
                         </div>
                       </div>
                     </div>
@@ -96,8 +96,8 @@
                   <router-link :to="'/card/'+ item.postId" target="_blank">
                     <div class="post" style="background: url('../../../static/images/banner2.jpg'); background-size: 100% 210px; background-repeat:no-repeat; ">
                       <div class="postTop">
-                        <p style="color:whitesmoke; margin: 15px; word-wrap:break-word; overflow:hidden;">
-                          {{item.title.substr(0,10)}}
+                        <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
+                          {{item.title}}
                         </p>
                       </div>
                       <div class="postCon animated slideInUp">
@@ -105,7 +105,7 @@
                           id: {{item.postId}} <br>
                           label: {{item.postLabel}} <br>
                           content: <br>
-                          {{item.postContent.substr(0,65)}} ...
+                          {{item.postContent.substr(0,65)}}
                         </div>
                       </div>
                     </div>
