@@ -5,18 +5,18 @@
         <el-collapse-item name="1">
           <template slot="title">
             <h2>养生堂
-              <small> Health is not everything, no health, no everything</small></h2>
+              <small class="hidden-sm-and-down"> 心乱则百病生，心乱则万病息。---《卫生宝鉴》</small></h2>
           </template>
           <el-row :gutter="20">
             <el-col :span="8" v-for="(item,index) in oneYang" :key="index">
               <el-card shadow="hover">
-                <img src="../../../static/images/banner1.jpg" class="image" style="width: 100%;height: 250px;">
+                <img src="../../../static/images/banner1.jpg" class="image">
                 <div style="padding: 14px;">
-                  <span>{{item.title}}</span>
+                  <p class="pT">{{item.title}}</p>
                   <div class="bottom clearfix">
-                    <p>标签: <span style="color: orangered">{{item.articalLabel}}</span></p>
-                    <p style="margin-top: 15px"><i class="el-icon-view"> {{item.pageViews}}</i></p>
-                    <router-link :to="'/artical/'+item.articalId" target="_blank"><el-button type="primary" class="button">know more</el-button></router-link>
+                    <p class="hidden-sm-and-down">标签: <span style="color: orangered">{{item.articalLabel}}</span></p>
+                    <p style="margin-top: 15px" class="hidden-sm-and-down"><i class="el-icon-view"> {{item.pageViews}}</i></p>
+                    <router-link :to="'/artical/'+item.articalId" target="_blank"><el-button type="primary" class="button">了解更多</el-button></router-link>
                   </div>
                 </div>
               </el-card>
@@ -26,18 +26,18 @@
         <el-collapse-item name="2">
           <template slot="title">
             <h2>营养饮食
-              <small>Radish and ginger keep away from doctor</small></h2>
+              <small class="hidden-sm-and-down">体欲常劳，食欲常少，劳无过极，少无过滤。---《养性延命录》</small></h2>
           </template>
           <el-row :gutter="20">
             <el-col :span="8" v-for="(item,index) in oneDiet" :key="index">
               <el-card shadow="hover">
-                <img src="../../../static/images/banner2.jpg" class="image" style="width: 100%;height: 250px;">
+                <img src="../../../static/images/banner2.jpg" class="image">
                 <div style="padding: 14px;">
-                  <span>{{item.title}}</span>
+                  <p class="pT">{{item.title}}</p>
                   <div class="bottom clearfix">
-                    <p>标签: <span style="color: orangered">{{item.articallabel}}</span></p>
-                    <p style="margin-top: 15px"><i class="el-icon-view"> {{item.pageViews}}</i></p>
-                    <router-link :to="'/artical/'+item.articalId" target="_blank"><el-button type="primary" class="button">know more</el-button></router-link>
+                    <p class="hidden-sm-and-down">标签: <span style="color: orangered">{{item.articallabel}}</span></p>
+                    <p style="margin-top: 15px" class="hidden-sm-and-down"><i class="el-icon-view"> {{item.pageViews}}</i></p>
+                    <router-link :to="'/artical/'+item.articalId" target="_blank"><el-button type="primary" class="button">了解更多</el-button></router-link>
                   </div>
                 </div>
               </el-card>
@@ -47,18 +47,18 @@
         <el-collapse-item name="3">
           <template slot="title" >
             <h2>健身课堂
-              <small>The power of the brain lies in the movement</small></h2>
+              <small class="hidden-sm-and-down">人生如天地，和煦则春，惨郁则秋。---《医 述》</small></h2>
           </template>
           <el-row :gutter="20">
             <el-col :span="8" v-for="(item,index) in oneFit" :key="index">
               <el-card shadow="hover">
-                <img src="../../../static/images/banner4.jpg" class="image" style="width: 100%;height: 250px;">
+                <img src="../../../static/images/banner4.jpg" class="image">
                 <div style="padding: 14px;">
-                  <span>{{item.title}}</span>
+                  <div class="pT">{{item.title}}</div>
                   <div class="bottom clearfix">
-                    <p>标签: <span style="color: orangered">{{item.articallabel}}</span></p>
-                    <p style="margin-top: 15px"><i class="el-icon-view"> {{item.pageViews}}</i></p>
-                    <router-link :to="'/artical/'+item.articalId" target="_blank"><el-button type="primary" class="button">know more</el-button></router-link>
+                    <p class="hidden-sm-and-down">标签: <span style="color: orangered">{{item.articallabel}}</span></p>
+                    <p style="margin-top: 15px" class="hidden-sm-and-down"><i class="el-icon-view"> {{item.pageViews}}</i></p>
+                    <router-link :to="'/artical/'+item.articalId" target="_blank"><el-button type="primary" class="button">了解更多</el-button></router-link>
                   </div>
                 </div>
               </el-card>
@@ -109,10 +109,6 @@
 </script>
 
 <style scoped>
-  .time {
-    font-size: 13px;
-    color: #999;
-  }
 
   .bottom {
     margin-top: 13px;
@@ -124,10 +120,13 @@
     float: right;
     height: 40px;
     width: 85px;
+    font-weight: bold;
   }
 
   .image {
     width: 100%;
+    min-height: 100px;
+    max-height: 215px;
     display: block;
   }
 
@@ -147,25 +146,32 @@
   }
 
   small {
-    margin-left: 40px;
-    color:darkgray;
+    margin-left: 100px;
+    color:sienna;
+    font-size: 18px;
+    text-indent: 10em;
   }
 
-  span{
-    font-size: 16px;
+  .pT{
+    font-size: 18px;
     font-weight: 600;
     color: #000009;
-    overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow: hidden;
+    white-space:nowrap;
+    width: 100%;
+    margin-top: 10px;
   }
 
   p{
     height: 20px;
-    width: 50%;
+    width: 100%;
     font-size: 15px;
     line-height: 20px;
     font-weight: 600;
     color:#000009;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
   }
 </style>
