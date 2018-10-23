@@ -161,7 +161,7 @@
   .dropdown-content1 {
     display: none;
     position: absolute;
-    top: 82px;
+    top: 80px;
     left: -78px;
     background: linear-gradient(to top, rgba(232, 223, 181, 1) 0%,rgba(232, 223, 181, 0.6) 100%);
     width: 190px;
@@ -177,7 +177,7 @@
   .dropdown-content2 {
     display: none;
     position: absolute;
-    top: 82px;
+    top: 80px;
     left: -45px;
     background: linear-gradient(to top, rgba(232, 223, 181, 1) 0%,rgba(232, 223, 181, 0.6) 100%);
     width: 120px;
