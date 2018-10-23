@@ -11,7 +11,7 @@
               <el-input type="password" v-model="ruleForm2.pass" autocomplete="off"></el-input>
             </el-form-item>
             <el-form-item>
-              <el-button type="primary" @click="submitForm()">登陆</el-button>
+              <el-button type="primary" @click="submitForm()">登录</el-button>
               <el-button @click="resetForm('ruleForm2')">重置</el-button>
               <el-button type="primary"><router-link to="setUp">还没账号？去注册</router-link></el-button>
             </el-form-item>
@@ -21,7 +21,7 @@
 
       <el-row v-if="show1">
         <el-col :span="18" :offset="3"><div>
-          <div v-if="show2" @click="tuichu">您已登陆,点击退出</div>
+          <div v-if="show2" @click="tuichu">您已登录,点击退出</div>
         </div></el-col>
       </el-row>
 
@@ -73,7 +73,7 @@
             }
             else {
               that.$message({
-                message: '登陆成功,即将跳转',
+                message: '登录成功,即将跳转',
                 type: 'success'
               });
               sessionStorage.setItem('userId',data.data[0].userid);//设置session
