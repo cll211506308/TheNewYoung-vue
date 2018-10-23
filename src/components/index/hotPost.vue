@@ -1,5 +1,5 @@
 <template>
-  <el-row>
+  <el-row style="margin-bottom: 40px">
     <el-col :span="20" :offset="2">
       <el-row style="margin-bottom: 20px">
       </el-row>

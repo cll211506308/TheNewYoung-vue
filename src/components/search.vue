@@ -1,6 +1,6 @@
 <template>
   <el-row>
-    <el-col :span="18" :offset="3" style="margin-top: 20px; background: aliceblue; border-radius: 5px">
+    <el-col :span="18" :offset="3" style="margin-top: 20px;margin-bottom: 20px; background: aliceblue; border-radius: 5px">
       <el-col :span="20" :offset="2">
         <el-row>
           <el-col :span="16" style="margin-bottom: 20px; margin-top: 20px;">
@@ -27,8 +27,7 @@
                   :page-size="20"
                   :pager-count="11"
                   layout="prev, pager, next"
-                  :total="1000"
-                  style="background:aliceblue ">
+                  :total="1000">
                 </el-pagination>
               </el-tab-pane>
             </el-tabs>
