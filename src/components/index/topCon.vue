@@ -18,7 +18,7 @@
         </el-col>
         <el-col :md="5" :offset="2" style="position:absolute; left:61%; top: -2px;" class="hidden-md-and-down">
           <el-input
-            placeholder="search for..."
+            placeholder="请输入内容..."
             v-model="input10"
             clearable>
           </el-input>
@@ -123,7 +123,6 @@
   }
 
   .pg:hover{
-    color:white;
     transform: scale(1.05);
   }
 
@@ -151,7 +150,6 @@
   }
 
   li:hover{
-    color:white;
     transform: scale(1.05);
   }
 
@@ -165,7 +163,7 @@
     position: absolute;
     top: 82px;
     left: -78px;
-    background: linear-gradient(to top, rgba(209, 176, 118, 1) 0%,rgba(209, 176, 118, 0.6) 100%);
+    background: linear-gradient(to top, rgba(232, 223, 181, 1) 0%,rgba(232, 223, 181, 0.6) 100%);
     width: 190px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 99999;
@@ -181,7 +179,7 @@
     position: absolute;
     top: 82px;
     left: -45px;
-    background: linear-gradient(to top, rgba(209, 176, 118, 1) 0%,rgba(209, 176, 118, 0.6) 100%);
+    background: linear-gradient(to top, rgba(232, 223, 181, 1) 0%,rgba(232, 223, 181, 0.6) 100%);
     width: 120px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 99999;

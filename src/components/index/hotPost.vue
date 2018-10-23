@@ -22,7 +22,7 @@
                           {{item.title}}
                         </p>
                       </div>
-                      <div class="postCon animated slideInUp">
+                      <div class="postCon animated slideInUp hidden-sm-and-down">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
                           id: {{item.postId}} <br>
                           label: {{item.postLabel}} <br>
@@ -48,7 +48,7 @@
                           {{item.title}}
                         </p>
                       </div>
-                      <div class="postCon animated slideInUp">
+                      <div class="postCon animated slideInUp hidden-sm-and-down">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
                           id: {{item.postId}} <br>
                           label: {{item.postLabel}}  <br>
@@ -74,7 +74,7 @@
                           {{item.title}}
                         </p>
                       </div>
-                      <div class="postCon animated slideInUp">
+                      <div class="postCon animated slideInUp hidden-sm-and-down">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
                           id: {{item.postId}} <br>
                           label: {{item.postLabel}} <br>
@@ -100,7 +100,7 @@
                           {{item.title}}
                         </p>
                       </div>
-                      <div class="postCon animated slideInUp">
+                      <div class="postCon animated slideInUp hidden-sm-and-down">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
                           id: {{item.postId}} <br>
                           label: {{item.postLabel}} <br>
