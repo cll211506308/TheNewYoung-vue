@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <el-container>
-      <el-aside width="60%">
+  <div >
+      <div class="formdatas">
         <el-form ref="form" :model="form" label-width="80px" status-icon :rules="rules2">
           <el-form-item label="用户名">
             <el-input v-model="form.name"></el-input>
@@ -35,8 +34,8 @@
             <el-button>取消</el-button>
           </el-form-item>
         </el-form>
-      </el-aside>
-      <el-main>
+      </div>
+      <div class="photo">
           <el-upload
           class="avatar-uploader"
           action="https://jsonplaceholder.typicode.com/posts/"
@@ -46,8 +45,7 @@
           <img v-if="imageUrl" :src="imageUrl" class="avatar">
           <i v-else class="el-icon-plus avatar-uploader-icon"></i>
         </el-upload>
-      </el-main>
-    </el-container>
+      </div>
   </div>
 </template>
 <script>
@@ -123,15 +121,20 @@
 
 </script>
 <style scoped>
+  .formdatas{
+    width: 60%;
+    float: left;
+  }
+  .photo{
+    position: relative;
+    left: 10%;
+  }
   .avatar-uploader .el-upload {
     border: 1px dashed #d9d9d9;
     border-radius: 6px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-  }
-  .avatar-uploader .el-upload:hover {
-    border-color: #409EFF;
   }
   .avatar-uploader-icon {
     font-size: 28px;
