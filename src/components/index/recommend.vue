@@ -1,6 +1,6 @@
 <template>
-  <el-row style="margin-top: 20px;margin-bottom: 20px">
-    <el-col :span="18" :offset="3">
+  <el-row style="margin-top: 40px;margin-bottom: 20px">
+    <el-col :span="20" :offset="2">
       <el-collapse v-model="activeName" accordion>
         <el-collapse-item name="1">
           <template slot="title">
@@ -143,6 +143,9 @@
   h2 {
     font-weight: bold;
     font-size: 22px;
+    width: 100%;
+    text-indent: 2em;
+    /*background: url("../../../static/images/navbg1.jpg");*/
   }
 
   small {
