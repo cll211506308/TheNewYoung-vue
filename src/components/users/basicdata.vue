@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <el-row type="flex"  justify="center">
       <el-col :xs="24" :sm="22" :md="20" :lg="20" :xl="20" >
          <div class="banner">
@@ -8,22 +8,6 @@
       </el-col>
     </el-row>
   </div>
-  <!--<div>
-    <el-row>
-      <el-col :span="24" class="banner">
-        <el-row type="flex"  justify="center">
-          <el-col :span="18" class="datas">
-            <el-row>
-              <el-col :span="4" class="datas"><img src="../../../static/images/user1.jpg" class="photo"></el-col>
-              <el-col :span="20" class="datas"><span class="username">您好！{{username}}
-              </span>
-              </el-col>
-            </el-row>
-          </el-col>
-        </el-row>
-      </el-col>
-    </el-row>
-  </div>-->
 </template>
 
 <script>
@@ -49,6 +33,7 @@
     background-image: url("../../../static/images/userbanner4.jpg");
     width: 100%;
     height: 200px;
+    margin-top: 15px;
   }
   .userphoto{
     position: relative;

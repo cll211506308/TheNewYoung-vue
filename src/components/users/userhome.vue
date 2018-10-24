@@ -1,29 +1,31 @@
 <template>
   <div>
-    <el-container>
-      <el-aside width="40%">折线图</el-aside>
-      <el-main>
-        <el-card class="box-card">
-          <div slot="header" class="clearfix">
-            <span>您的体质：{{bodyClass}}</span>
-          </div>
-          <div class="text item">
-            {{bodyclassContent }}
-          </div>
+    <div class="cards12">
+       <div class="tu">折线图</div>
+      <div class="kong1"></div>
+       <div class="bodyclass">
+          <el-card class="box-card2">
+            <div slot="header" class="clearfix">
+              <span>您的体质：{{bodyClass}}</span>
+            </div>
+            <div class="text item">
+              {{bodyclassContent }}
+            </div>
         </el-card>
-      </el-main>
-    </el-container>
-    <el-card class="box-card"  >
-      <div slot="header" class="clearfix">
-        <span>中医建议：</span>
       </div>
-      <div class="sug"  v-for="i in sugcontent">
-        {{ i.sugcontent}}
-      </div>
-    </el-card>
+    </div>
+    <div class="kong"></div>
+    <div class="suggestions" style="margin-bottom: 20px">
+      <el-card class="box-card3"  >
+        <div slot="header" class="clearfix">
+          <span>中医建议：</span>
+        </div>
+        <div class="sug"  v-for="i in sugcontent">
+          {{ i.sugcontent}}
+        </div>
+      </el-card>
+    </div>
   </div>
-
-
 </template>
 
 <script>
@@ -69,4 +71,57 @@
 </script>
 
 <style scoped>
+  .box-card2 {
+    border-radius: 15px;
+  }
+  .box-card3{
+    border-radius: 15px;
+  }
+
+  .suggestions{
+    clear: both;
+  }
+  @media only screen and (min-width: 900px){
+    .tu{
+    width: 55%;
+    height: 400px;
+    background: burlywood;
+    float: left;
+  }
+    .bodyclass{
+      width: 40%;
+      height: 400px;
+      float: right;
+    }
+    .box-card2{
+      height: 400px;
+    }
+    .kong{
+      width: 100%;
+      height: 30px;
+      clear: both;
+    }
+
+  }
+  @media only screen and (max-width: 900px){
+    .tu{
+    width: 100%;
+    height: 400px;
+    background: burlywood;
+  }
+    .box-card2{
+      width: 100%;
+      height:300px;
+    }
+    .kong{
+      width: 100%;
+      height: 20px;
+      clear: both;
+    }
+    .kong1{
+      width: 100%;
+      height: 20px;
+    }
+  }
+
 </style>

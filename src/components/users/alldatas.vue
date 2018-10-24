@@ -1,29 +1,20 @@
 <template>
-  <div >
+  <div>
     <el-row>
-      <el-col :xs="24" :sm="22" :md="20" :lg="20" :xl="20">
-<!--        <ul id="menu">
-          <li>我的主页</li>
-          <li>测试体质</li>
-          <li>我的收藏</li>
-          <li>我的贴子</li>
-          <li>我的信息</li>
-        </ul>-->
-        <el-button-group >
-        <el-button type="primary" icon="el-icon-date" @click="usershome">我的主页</el-button>
-        <el-button type="primary" icon="el-icon-edit" @click="usersbodydata">测试体质</el-button>
-        <el-button type="primary" icon="el-icon-star-on" @click="userscollections">我的收藏</el-button>
-        <el-button type="primary" icon="el-icon-message" @click="userscards">我的贴子</el-button>
-        <el-button type="primary" icon="el-icon-tickets" @click="usersarticals">我的文章</el-button>
-        <el-button type="primary" icon="el-icon-plus" @click="usersidentity">我的信息</el-button>
-      </el-button-group>
+      <el-col :span="24" id="menu">
+        <el-row type="flex" justify="center">
+          <el-col :span="22" class="menuli">
+            <router-link tag="li" to="/usershome/' + this.$store.state.data1">我的主页</router-link>
+            <router-link tag="li" to="/usershome/userbodydata/' + this.$store.state.data1">测试体质</router-link>
+            <router-link tag="li" to="/usershome/usercollection/' + this.$store.state.data1">我的收藏</router-link>
+            <router-link tag="li" to="/usershome/userscards/' + this.$store.state.data1">我的贴子</router-link>
+            <router-link tag="li" to="/usershome/useridentity/' + this.$store.state.data1">我的信息</router-link>
+          </el-col>
+        </el-row>
       </el-col>
     </el-row>
-
-    <div class="xian"></div>
     <router-view class="myself"></router-view>
   </div>
-
 </template>
 
 <script>
@@ -35,43 +26,35 @@
       };
     },
     methods: {
-      usershome() {
-        this.$router.push({ path: '/usershome/' + this.$store.state.data1})
-      },
-      usersarticals() {
-        this.$router.push({ path: '/usershome/usersarticals/' + this.$store.state.data1})
-      },
-      userscards() {
-        this.$router.push({ path: '/usershome/userscards/' + this.$store.state.data1})
-      },
-      userscollections() {
-        this.$router.push({ path: '/usershome/usercollection/' + this.$store.state.data1})
-      },
-      usersbodydata() {
-        this.$router.push({ path: '/usershome/userbodydata/' + this.$store.state.data1})
-      },
-      usersidentity() {
-        this.$router.push({ path: '/usershome/useridentity/' + this.$store.state.data1})
-      }
+
     }
   }
 
 
 </script>
-
 <style scoped>
-  .xian{
-    width: 100%;
-    height: 30px;
-  }
   #menu{
-    font-size: 18px;
-    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 15px;
+    width: 100%;
+    height: 60px;
+    background: url("../../../static/images/fenge5.png") no-repeat;
+    background-size: 100% 215%;
   }
   #menu li {
     text-decoration: none;
     list-style: none;
     float: left;
-
+    width: 20%;
+    text-align: center;
+    line-height: 60px;
+  }
+ .menuli  :hover{
+    color: white;
+  }
+ .menuli li :visited{
+    color: white;
   }
 </style>
