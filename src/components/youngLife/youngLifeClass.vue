@@ -1,27 +1,16 @@
 <template>
   <div>
-    <h2>热门标签</h2><br>
-    <div style="margin-left: 5px">
-      <el-row>
-        <router-link to="/youngLife/allYoungLife"><el-button round>血糖</el-button></router-link>
-        <router-link to="/youngLife/someYoungLife"><el-button round>血压</el-button></router-link>
-        <router-link to="/youngLife/allYoungLife"><el-button round>血脂</el-button></router-link>
-      </el-row>
-      <el-row>
-        <router-link to="/youngLife/allYoungLife"><el-button round>阴阳</el-button></router-link>
-        <router-link to="/youngLife/someYoungLife"><el-button round>止咳</el-button></router-link>
-        <router-link to="/youngLife/allYoungLife"><el-button round>消食</el-button></router-link>
-      </el-row>
-      <el-row>
-        <router-link to="/youngLife/allYoungLife"><el-button round>防脱</el-button></router-link>
-        <router-link to="/youngLife/someYoungLife"><el-button round>补气</el-button></router-link>
-        <router-link to="/youngLife/allYoungLife"><el-button round>安神</el-button></router-link>
-      </el-row>
-      <el-row>
-        <router-link to="/youngLife/allYoungLife"><el-button round>活血</el-button></router-link>
-        <router-link to="/youngLife/someYoungLife"><el-button round>排毒</el-button></router-link>
-        <router-link to="/youngLife/allYoungLife"><el-button round>清热</el-button></router-link>
-      </el-row>
+    <h2 style="text-align: center">热门标签<small style="color: red">HOT</small></h2>
+    <div style="margin-top: 20px">
+      <router-link to="/search/血糖"><el-button>血糖</el-button></router-link>
+      <router-link to="/search/血压"><el-button>血压</el-button></router-link>
+      <router-link to="/search/血脂"><el-button>血脂</el-button></router-link>
+      <router-link to="/search/止咳润肺"><el-button>止咳润肺</el-button></router-link>
+      <router-link to="/search/消食"><el-button>消食</el-button></router-link>
+      <router-link to="/search/脱发"><el-button>防脱固发</el-button></router-link>
+      <router-link to="/search/补气安神"><el-button>补气安神</el-button></router-link>
+      <router-link to="/search/活血化瘀"><el-button>活血化瘀</el-button></router-link>
+      <router-link to="/search/排毒"><el-button>排毒养颜</el-button></router-link>
     </div>
   </div>
 </template>
@@ -33,17 +22,13 @@
 </script>
 
 <style scoped>
-  h2{
-    margin-top: 40px;
-    margin-left: 30px;
-  }
   button{
-    width: 90px;
-    height: 40px;
-    color: cornflowerblue;
-    background-color: aliceblue;
-    float: left;
-    margin-top: 10px;
-    margin-left: 15px;
+    margin-top: 2px;
+    border-color: orangered;
+    color: darkred;
+  }
+  button:hover{
+    background-color: orangered;
+    color: white;
   }
 </style>

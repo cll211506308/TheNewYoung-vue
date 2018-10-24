@@ -1,27 +1,19 @@
 <template>
   <div>
-    <h2>热门标签</h2><br>
-    <div style="margin-left: 5px">
-      <el-row>
-        <router-link to="/foods/allFoods"><el-button round>减肥</el-button></router-link>
-        <router-link to="/foods/allFoods"><el-button round>丰胸</el-button></router-link>
-        <router-link to="/foods/allFoods"><el-button round>清真</el-button></router-link>
-      </el-row>
-      <el-row>
-        <router-link to="/foods/allFoods"><el-button round>补血</el-button></router-link>
-        <router-link to="/foods/allFoods"><el-button round>补钙</el-button></router-link>
-        <router-link to="/foods/allFoods"><el-button round>补维</el-button></router-link>
-      </el-row>
-      <el-row>
-        <router-link to="/foods/allFoods"><el-button round>食疗</el-button></router-link>
-        <router-link to="/foods/allFoods"><el-button round>烘焙</el-button></router-link>
-        <router-link to="/foods/allFoods"><el-button round>汤粥</el-button></router-link>
-      </el-row>
-      <el-row>
-        <router-link to="/foods/allFoods"><el-button round>甜品</el-button></router-link>
-        <router-link to="/foods/allFoods"><el-button round>火锅</el-button></router-link>
-        <router-link to="/foods/allFoods"><el-button round>烧烤</el-button></router-link>
-      </el-row>
+    <h2 style="text-align: center">热门标签<small style="color: red">HOT</small></h2>
+    <div style="margin-top: 20px">
+      <router-link to="/search/减肥"><el-button>减肥</el-button></router-link>
+      <router-link to="/search/丰胸"><el-button>丰胸</el-button></router-link>
+      <router-link to="/search/清真"><el-button>清真</el-button></router-link>
+      <router-link to="/search/补血"><el-button>补血</el-button></router-link>
+      <router-link to="/search/补钙"><el-button>补钙</el-button></router-link>
+      <router-link to="/search/补维生素"><el-button>补维生素</el-button></router-link>
+      <router-link to="/search/食疗"><el-button>食疗</el-button></router-link>
+      <router-link to="/search/汤粥"><el-button>汤粥</el-button></router-link>
+      <router-link to="/search/甜品"><el-button>甜品</el-button></router-link>
+      <router-link to="/search/火锅"><el-button>火锅</el-button></router-link>
+      <router-link to="/search/烧烤"><el-button>烧烤</el-button></router-link>
+      <router-link to="/search/异国料理"><el-button>异国料理</el-button></router-link>
     </div>
   </div>
 </template>
@@ -33,17 +25,13 @@
 </script>
 
 <style scoped>
-  h2{
-    margin-top: 40px;
-    margin-left: 30px;
-  }
   button{
-    width: 90px;
-    height: 40px;
-    color: cornflowerblue;
-    background-color: aliceblue;
-    float: left;
-    margin-top: 10px;
-    margin-left: 15px;
+    margin-top: 2px;
+    border-color: orangered;
+    color: darkred;
+  }
+  button:hover{
+    background-color: orangered;
+    color: white;
   }
 </style>
