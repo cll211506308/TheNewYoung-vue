@@ -2,7 +2,6 @@
   <div>
     <div class="content" v-for="(item,index) in result" :key="index">
       <router-link :to="{path:'/artical/' + item.articalId}">
-
         <p>{{item.title}}</p><br>
         <i class="el-icon-view">{{item.pageViews}}</i>
       </router-link>

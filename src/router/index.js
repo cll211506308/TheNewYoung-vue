@@ -57,7 +57,7 @@ export default new Router({
       component: fit,
       children: [
         {
-          path: 'allFit',
+          path: '',
           name: 'allFit',
           component: allFit
         },
@@ -100,7 +100,7 @@ export default new Router({
       component: foods,
       children: [
         {
-          path: 'allFoods',
+          path: '',
           name: 'allFoods',
           component: allFoods
         },
@@ -116,7 +116,7 @@ export default new Router({
       component: youngLife,
       children: [
         {
-          path: 'allYoungLife',
+          path: '',
           name: 'allYoungLife',
           component: allYoungLife
         },

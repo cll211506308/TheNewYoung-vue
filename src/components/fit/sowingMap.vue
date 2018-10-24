@@ -1,7 +1,7 @@
 <template>
-  <div style="margin-top: 40px">
-    <h2>最强Young友</h2><br>
-    <el-carousel :interval="4000" type="card" height="300px">
+  <div>
+    <h2>最强Young友</h2>
+    <el-carousel :interval="4000" type="card" style="margin-top: 30px">
       <el-carousel-item v-for="item in imgList" :key="item.id">
         <img :src=item.idView>
       </el-carousel-item>
@@ -27,5 +27,7 @@
 </script>
 
 <style scoped>
-
+  h2{
+    text-align: center;
+  }
 </style>
