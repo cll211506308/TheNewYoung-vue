@@ -1,15 +1,15 @@
 <template>
   <el-row
-    style="height: 80px; line-height: 80px; background: url('../../../static/images/nav2.jpg');height: 80px;">
+    style="height: 80px; line-height: 80px; background: url('../../../static/images/nav2.jpg');">
     <el-col
-      :span="18"
-      :offset="3"
+      :span="20"
+      :offset="2"
       style="font-size: 1.25em; font-weight:bold; color: #2c2c2c">
       <el-row>
         <el-col :span="3">
           <img src="../../../static/images/LOGO.png" alt="" class="LOGO">
         </el-col>
-        <el-col :md="18" :sm="22" :offset="4" class="hidden-sm-and-down">
+        <el-col :md="18" :sm="22" :offset="5" class="hidden-sm-and-down">
           <router-link tag="li" to="/">首 页</router-link>
           <router-link tag="li" to="/youngLife">养生堂</router-link>
           <router-link tag="li" to="/foods">营养饮食</router-link>
@@ -26,14 +26,14 @@
             <i class="header-icon el-icon-search" style="color:#2c2c2c; font-weight:bold;position:absolute;top:50%;margin-top: -8px; right: -38px"></i>
           </router-link>
         </el-col>
-        <el-col :md="1" :offset="1" class="hidden-sm-and-down">
+        <el-col :md="1" class="hidden-sm-and-down">
           <div v-if="isLogin">
-            <router-link tag="li" to="/login"><img src="../../../static/images/login.png" alt="" class="login"></router-link>
+            <router-link tag="li" to="/login"><img src="../../../static/images/login1.png" alt="" class="login"></router-link>
           </div>
           <div v-if="!isLogin">
             <el-row>
               <el-col :span="18" class="dropdown1">
-                <router-link tag="li" :to="'/usershome/' + userId"><img src="../../../static/images/person.png" style="width: 21px;height: 21px; position: relative;top: 5px;" alt=""></router-link>
+                <router-link tag="li" :to="'/usershome/' + userId"><img src="../../../static/images/person.png" style="width: 21px;height: 21px; position: relative;top: 3px;" alt=""></router-link>
                 <div class="dropdown-content1">
                   <p style="height: 90px;line-height: 90px"><img src="../../../static/images/user1.jpg" alt="" style="height: 80px;width: 80px;border-radius: 40px;margin-top: 10px;margin-bottom: 10px;color: whitesmoke"></p>
                   <p>Hi,{{userName}}!</p>
@@ -128,10 +128,10 @@
   }
 
   .login{
-    width: 22px;
-    height: 22px;
+    width: 25px;
+    height: 25px;
     position: relative;
-    top: 4px;
+    top: 6px;
   }
 
   .navicon{
@@ -140,7 +140,7 @@
   }
 
   li {
-    margin-right: 22px;
+    margin-right: 25px;
     text-align: center;
     list-style: none;
     float: left;
@@ -195,7 +195,6 @@
     width: 180px;
     position:absolute;
     top: 12px;
-    left: -50px;
 
   }
 </style>

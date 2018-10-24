@@ -1,15 +1,31 @@
 <template>
-  <el-row>
-    <el-col :span="18" :offset="3" id="content">
-      <h1>这是id为{{id}}的文章</h1>
-      <h3>作者：{{result.title}}</h3>
-      <div id="text">
-        <p>{{result.content}}</p>
-        <el-button type="primary" icon="el-icon-star-off">添加收藏</el-button>
-        <!--<el-button type="primary" icon="el-icon-star-on">取消收藏</el-button>-->
-      </div>
+  <el-row style="padding-top: 20px; padding-bottom: 20px;background: whitesmoke">
+    <el-col :span="20" :offset="2">
+      <el-col :span="16">
+        <el-card class="box-card" shadow="hover" style="border-radius: 15px">
+          <el-col :span="20" :offset="2">
+            {{result}}
+          </el-col>
+        </el-card>
+      </el-col>
+      <el-col :span="7" :offset="1">
+        <el-card class="box-card" shadow="hover">
+           <div class="paiHang"></div>
+        </el-card>
+      </el-col>
     </el-col>
   </el-row>
+  <!--<el-row>-->
+    <!--<el-col :span="20" :offset="2">-->
+      <!--<h1>这是id为{{id}}的文章</h1>-->
+      <!--<h3>作者：{{result.title}}</h3>-->
+      <!--<div id="text">-->
+        <!--<p>{{result.content}}</p>-->
+        <!--<el-button type="primary" icon="el-icon-star-off">添加收藏</el-button>-->
+        <!--&lt;!&ndash;<el-button type="primary" icon="el-icon-star-on">取消收藏</el-button>&ndash;&gt;-->
+      <!--</div>-->
+    <!--</el-col>-->
+  <!--</el-row>-->
 </template>
 
 <script>
@@ -21,7 +37,7 @@
         result:[]
       }
     },created(){
-      this.$axios.get("/fit/relativeEssay/" + id)
+      this.$axios.get("/relativeEssay/" + this.id)
         .then((res) => {
           this.result = res.data.data;
         }).catch((err) => {
@@ -32,22 +48,10 @@
 </script>
 
 <style scoped>
-  #content{
-    background-color: lightblue;
+  .paiHang{
+    width: 100%;
+    height: 60px;
+    background: sienna;
   }
-  h1{
-    text-align: center;
-    margin-top: 50px;
-  }
-  h3{
-    text-align: center;
-    margin-top: 50px;
-  }
-  #text{
-    text-align: center;
-    margin-top: 50px;
-  }
-  button{
-    margin-top: 50px;
-  }
+
 </style>
