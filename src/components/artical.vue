@@ -34,7 +34,10 @@
              <h3>排行榜</h3>
            </div>
             <div class="paiMing" v-for="(item,index) in oneRecommend">
-                {{index+1}}
+                <span style="margin-right: 8px" v-if="index==0"><img src="../../static/images/gold.png" class="gold"></span>
+                <span style="margin-right: 8px" v-if="index==1"><img src="../../static/images/yin.png" class="yin"></span>
+                <span style="margin-right: 8px" v-if="index==2"><img src="../../static/images/tong.png" class="tong"></span>
+                <span style="margin-right: 8px" v-if="index>2">{{index+1}}.</span>
                 <router-link :to="'/artical/'+item.articalId" target="_blank">{{item.title}}</router-link>
             </div>
       </el-col>
@@ -82,6 +85,12 @@
     font-size: 20px;
     text-align: center;
     line-height: 60px;
+  }
+
+  .gold,.yin,.tong{
+    position: relative;
+    top: 13px;
+    margin-left: -8px;
   }
 
   .paiHang{

@@ -1,31 +1,71 @@
 <template>
-    <div class="login">
+  <el-row class="login">
+      <el-col span="10" :offset="7" class="loginCard animated slideInLeft" style="padding: 15px">
+        <el-row>
+          <p class="log">登 录</p>
+        </el-row>
+        <el-row v-if="show1">
+          <el-col :span="20">
+              <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px"
+                       class="demo-ruleForm">
+                <el-form-item label="用户名"  prop="age">
+                  <el-input v-model.number="ruleForm2.age"></el-input>
+                </el-form-item>
+                <el-form-item label="密码" prop="pass">
+                  <el-input type="password" v-model="ruleForm2.pass" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item>
+                  <el-button type="primary" @click="submitForm()">登录</el-button>
+                  <!--<el-button @click="resetForm('ruleForm2')">重置</el-button>-->
+                  <el-button type="primary">
+                    <router-link to="setUp">还没账号？去注册</router-link>
+                  </el-button>
+                </el-form-item>
+              </el-form>
+          </el-col>
+        </el-row>
 
-      <el-row v-if="show1">
-        <el-col :span="18" :offset="3"><div>
-          <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
-            <el-form-item label="用户名" prop="age">
-              <el-input v-model.number="ruleForm2.age"></el-input>
-            </el-form-item>
-            <el-form-item label="密码" prop="pass">
-              <el-input type="password" v-model="ruleForm2.pass" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item>
-              <el-button type="primary" @click="submitForm()">登录</el-button>
-              <el-button @click="resetForm('ruleForm2')">重置</el-button>
-              <el-button type="primary"><router-link to="setUp">还没账号？去注册</router-link></el-button>
-            </el-form-item>
-          </el-form>
-        </div></el-col>
-      </el-row>
+        <el-row v-if="show1">
+          <el-col >
+            <div>
+              <div v-if="show2" @click="tuichu">您已登录,点击退出</div>
+            </div>
+          </el-col>
+        </el-row>
+      </el-col>
+  </el-row>
 
-      <el-row v-if="show1">
-        <el-col :span="18" :offset="3"><div>
-          <div v-if="show2" @click="tuichu">您已登录,点击退出</div>
-        </div></el-col>
-      </el-row>
 
-    </div>
+
+
+
+    <!--<div class="login">-->
+
+      <!--<el-row v-if="show1">-->
+        <!--<el-col :span="18" :offset="3"><div>-->
+          <!--<el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">-->
+            <!--<el-form-item label="用户名" prop="age">-->
+              <!--<el-input v-model.number="ruleForm2.age"></el-input>-->
+            <!--</el-form-item>-->
+            <!--<el-form-item label="密码" prop="pass">-->
+              <!--<el-input type="password" v-model="ruleForm2.pass" autocomplete="off"></el-input>-->
+            <!--</el-form-item>-->
+            <!--<el-form-item>-->
+              <!--<el-button type="primary" @click="submitForm()">登录</el-button>-->
+              <!--<el-button @click="resetForm('ruleForm2')">重置</el-button>-->
+              <!--<el-button type="primary"><router-link to="setUp">还没账号？去注册</router-link></el-button>-->
+            <!--</el-form-item>-->
+          <!--</el-form>-->
+        <!--</div></el-col>-->
+      <!--</el-row>-->
+
+      <!--<el-row v-if="show1">-->
+        <!--<el-col :span="18" :offset="3"><div>-->
+          <!--<div v-if="show2" @click="tuichu">您已登录,点击退出</div>-->
+        <!--</div></el-col>-->
+      <!--</el-row>-->
+
+    <!--</div>-->
 </template>
 
 <script>
@@ -111,5 +151,30 @@
 </script>
 
 <style scoped>
+  .log{
+    font-weight: bold;
+    font-size: 20px;
+    position: relative;
+    left: 60px;
+    margin-bottom: 20px;
 
+  }
+
+  .login{
+    height: 530px;
+    width: 100%;
+    background: url("../../static/images/loginbg1.jpg");
+    background-size: 100% 100%;
+  }
+
+  .loginCard{
+    border-radius: 15px;
+    background:gainsboro;
+    opacity: 0.8;
+    margin-top: 30px;
+  }
+
+  .loginCard:hover{
+    box-shadow:0px 0px  10px 2px #aaa;
+  }
 </style>
