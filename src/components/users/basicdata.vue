@@ -1,13 +1,21 @@
 <template>
   <div>
+    <el-row type="flex"  justify="center">
+      <el-col :xs="24" :sm="22" :md="20" :lg="20" :xl="20" >
+         <div class="banner">
+             <div class="userphoto"><img src="../../../static/images/user1.jpg" alt=""><span>&nbsp;&nbsp;&nbsp;您好！{{username}}</span></div>
+        </div>
+      </el-col>
+    </el-row>
+  </div>
+  <!--<div>
     <el-row>
       <el-col :span="24" class="banner">
         <el-row type="flex"  justify="center">
           <el-col :span="18" class="datas">
             <el-row>
-              <el-col :span="4" class="datas"><img src="../../../static/images/userpic1.jpg" class="photo"></el-col>
+              <el-col :span="4" class="datas"><img src="../../../static/images/user1.jpg" class="photo"></el-col>
               <el-col :span="20" class="datas"><span class="username">您好！{{username}}
-                <!--<el-button icon="el-icon-edit" style="width: 25px;height: 25px"></el-button>-->
               </span>
               </el-col>
             </el-row>
@@ -15,7 +23,7 @@
         </el-row>
       </el-col>
     </el-row>
-  </div>
+  </div>-->
 </template>
 
 <script>
@@ -35,22 +43,22 @@
 </script>
 
 <style scoped>
-  .photo{
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    max-height: 120px;
-    max-width: 120px;
-  }
-
   .banner{
+    background: center;
+    background-size: 100% 200px;
     background-image: url("../../../static/images/userbanner4.jpg");
-    background-size: 100% 200%;
+    width: 100%;
+    height: 200px;
   }
-  .username{
-    position: absolute;
-    top: 40%;
+  .userphoto{
+    position: relative;
+    left: 5%;
+    top:20%
   }
-
+  .userphoto img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
 
 </style>
