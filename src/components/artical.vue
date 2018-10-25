@@ -15,7 +15,8 @@
                   <span>作者: {{result.userName}}</span>
                   <span style="float:right"><i class="el-icon-view"></i> <span style="color: darkgrey">{{result.pageViews}}</span></span>
                 </p>
-                <el-button type="primary" round size="small" class="btn hidden-sm-and-down">+ 收 藏</el-button>
+                <el-button v-if="!isCol" type="primary" round size="small" class="btn hidden-sm-and-down" @click="col">+ 收 藏</el-button>
+                <el-button v-if="isCol" round size="small" class="btn hidden-sm-and-down" @click="delCol">已 收 藏</el-button>
               </el-col>
             </el-row>
             <el-row style="margin-bottom: 25px;background: url('../../static/images/border3.jpg');background-size: 100% 100%">
@@ -53,9 +54,11 @@
         id:this.$route.params.id,
         result:[],
         recommend:[],
-        oneRecommend:[]
+        oneRecommend:[],
+        length:''
       }
-    },created(){
+    },
+    created(){
       this.$axios.get("/relativeEssay/" + this.id)
         .then((res) => {
           this.result = res.data.data[0];
@@ -72,6 +75,87 @@
         }).catch((err) => {
         console.log(err)
       });
+
+      //更新浏览量
+      this.$axios.get('/upPv/'+this.id).then(
+        ((res)=>{})
+      ).catch(err=>{console.log(err)});
+
+      //判断是否已收藏
+      this.$axios.get('/getCol', {
+        params: {
+          userId:this.$store.state.data1,articalId: this.id
+        }
+      }).then((res) => {
+        this.length = res.data.data.length
+      })
+        .catch( (error) => {
+          console.log(error);
+        });
+    },
+    methods:{
+      col(){
+        if(this.$store.state.data1 == null){
+          this.$message({
+            message: '您还没登陆，请先登陆！',
+            type: 'warning'
+          });
+        }
+        else {
+          let that = this
+          this.$axios.get('/addCol', {
+            params: {
+              userId:this.$store.state.data1,articalId:this.id
+            }
+          })
+            .then(function (res) {
+              if(res.data.code == 200){
+                that.$message({
+                  message: '收藏成功！',
+                  type: 'success'
+                });
+                window.location.reload();
+              }
+            })
+            .catch(function (error) {
+              console.log(error);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        }
+      },
+      delCol(){
+        let that = this
+        this.$axios.get('/delCol', {
+          params: {
+            userId:this.$store.state.data1,articalId: this.id
+          }
+        })
+          .then(function (res) {
+            if(res.data.code == 200){
+              that.$message({
+                message: '已取消关注!',
+                type: 'success'
+              });
+              window.location.reload();
+            }
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+
+    },
+    computed:{
+      isCol: function () {
+        if (this.length == 0) {
+          return false
+        }
+        else {
+          return true
+        }
+      },
     }
   }
 </script>
