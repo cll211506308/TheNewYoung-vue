@@ -129,8 +129,6 @@
   .post-content{
     margin: 16px 0;
     text-align: center;
-    background: #cdeddf;
-
   }
   .post-bottom{
 

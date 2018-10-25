@@ -4,7 +4,7 @@
       <el-col :span="18" :offset="3" class="header"><div>
         <el-row :gutter="20">
           <el-col :span="8" class="header-left"><div>
-            <img src="../../static/images/user1.jpg"/>
+            <img v-bind:src="this.$store.state.picurl+data2.headPic"/>
             <div>{{username}}</div>
           </div></el-col>
           <el-col :span="12" :offset="2" class="header-right"><div>
@@ -92,8 +92,8 @@
       </el-form>
 
 
-    <el-button @click="dialogVisible = false">取 消</el-button>
-    <el-button type="primary" @click="Submit">发 表</el-button>
+      <el-button @click="dialogVisible = false">取 消</el-button>
+      <el-button type="primary" @click="Submit">发 表</el-button>
 
     </el-dialog>
 
@@ -102,144 +102,144 @@
 
 <script>
 
-    export default {
-        name: "friends",
-      data(){
-          return{
-            userCount:null,
-            postCount:null,
-            tabPosition: 'top',
-            input:null,
-            dialogVisible: false,
-            data2:'',
-            form: {
-              name: '',
-              region: '',
-              desc: ''
-            }
-          }
+  export default {
+    name: "friends",
+    data(){
+      return{
+        userCount:null,
+        postCount:null,
+        tabPosition: 'top',
+        input:null,
+        dialogVisible: false,
+        data2:'',
+        form: {
+          name: '',
+          region: '',
+          desc: ''
+        }
+      }
+    },
+    created(){
+      this.$axios.get('friends/count').then(
+        ((res)=>{
+          this.postCount = res.data.data[0].count
+        })
+      ).catch(err=>{console.log(err)})
+
+      this.$axios.get('users/count').then(
+        ((res)=>{
+          this.userCount = res.data.data[0].count
+        })
+      ).catch(err=>{console.log(err)})
+
+      this.$axios.get('users/username/'+this.$store.state.data1).then(
+        ((res)=>{
+          this.data2 = res.data.data[0];
+        })
+      ).catch(err=>{console.log(err)})
+    },
+    methods:{
+      allCard(){
+        this.$router.push({ path:'/friends' })
       },
-      created(){
-        this.$axios.get('friends/count').then(
-          ((res)=>{
-            this.postCount = res.data.data[0].count
-          })
-        ).catch(err=>{console.log(err)})
-
-        this.$axios.get('users/count').then(
-          ((res)=>{
-            this.userCount = res.data.data[0].count
-          })
-        ).catch(err=>{console.log(err)})
-
-        this.$axios.get('users/username/'+this.$store.state.data1).then(
-          ((res)=>{
-            this.data2 = res.data.data[0].username;
-          })
-        ).catch(err=>{console.log(err)})
-      },
-      methods:{
-          allCard(){
-            this.$router.push({ path:'/friends' })
-          },
-        likeCard(){
-            if(this.$store.state.data1 == null){
-              this.$message({
-                message: '您还没登陆，请先登陆',
-                type: 'warning'
-              });
-            }
-            else {
-              this.$router.push({ path:'/friends/likeuser/'+ this.$store.state.data1})
-            }
-        },
-        handleClose(done) {
-          this.$confirm('确认关闭？')
-            .then(_ => {
-              done();
-            })
-            .catch(_ => {});
-        },
-        publish(){
-            if(this.$store.state.data1 == null){
-              this.$message({
-                showClose: true,
-                message: '您还没登陆，请先登陆',
-                type: 'warning'
-              });
-            }
-            else {
-              this.dialogVisible = true
-            }
-        },
-        Submit() {
-            if(this.form.name == ''){
-              this.$message({
-                message: '标题不能为空，请输入',
-                type: 'warning'
-              });
-            }
-            else if(this.form.region == ''){
-              this.$message({
-                message: '请选择类别',
-                type: 'warning'
-              });
-            }
-            else if(this.form.desc == ''){
-              this.$message({
-                message: '内容不能为空，请输入',
-                type: 'warning'
-              });
-            }
-            else {
-              let that = this
-              this.$axios.get('/friends/submit', {
-                params: {
-                  userId:this.$store.state.data1,title:this.form.name,postLabel:this.form.region,postContent:this.form.desc
-                }
-              })
-                .then(function (response) {
-                  if(response.data.code == 200){
-                    that.$message({
-                      message: '恭喜你，发表成功',
-                      type: 'success'
-                    });
-                    setTimeout(() => {
-                      window.location.href = '/friends'
-                    }, 500)
-
-                  }
-                })
-                .catch(function (error) {
-                  console.log(error);
-                });
-
-            }
-
+      likeCard(){
+        if(this.$store.state.data1 == null){
+          this.$message({
+            message: '您还没登陆，请先登陆',
+            type: 'warning'
+          });
+        }
+        else {
+          this.$router.push({ path:'/friends/likeuser/'+ this.$store.state.data1})
         }
       },
-      components:{
-
+      handleClose(done) {
+        this.$confirm('确认关闭？')
+          .then(_ => {
+            done();
+          })
+          .catch(_ => {});
       },
-      computed:{
-        show1:function () {
-          if(this.$store.state.data1 === null){
-            return true
-          }
-          else {
-            return false
-          }
-        },
-        username:function () {
-          if(this.$store.state.data1 == null){
-            return '您好，请登录'
-          }
-          else {
-            return this.data2
-          }
+      publish(){
+        if(this.$store.state.data1 == null){
+          this.$message({
+            showClose: true,
+            message: '您还没登陆，请先登陆',
+            type: 'warning'
+          });
+        }
+        else {
+          this.dialogVisible = true
+        }
+      },
+      Submit() {
+        if(this.form.name == ''){
+          this.$message({
+            message: '标题不能为空，请输入',
+            type: 'warning'
+          });
+        }
+        else if(this.form.region == ''){
+          this.$message({
+            message: '请选择类别',
+            type: 'warning'
+          });
+        }
+        else if(this.form.desc == ''){
+          this.$message({
+            message: '内容不能为空，请输入',
+            type: 'warning'
+          });
+        }
+        else {
+          let that = this
+          this.$axios.get('/friends/submit', {
+            params: {
+              userId:this.$store.state.data1,title:this.form.name,postLabel:this.form.region,postContent:this.form.desc
+            }
+          })
+            .then(function (response) {
+              if(response.data.code == 200){
+                that.$message({
+                  message: '恭喜你，发表成功',
+                  type: 'success'
+                });
+                setTimeout(() => {
+                  window.location.href = '/friends'
+                }, 500)
+
+              }
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+
+        }
+
+      }
+    },
+    components:{
+
+    },
+    computed:{
+      show1:function () {
+        if(this.$store.state.data1 === null){
+          return true
+        }
+        else {
+          return false
+        }
+      },
+      username:function () {
+        if(this.$store.state.data1 == null){
+          return '您好，请登录'
+        }
+        else {
+          return this.data2.userName
         }
       }
     }
+  }
 </script>
 
 <style scoped>
@@ -247,6 +247,9 @@
     height: 246px;
     background: url("../../static/images/friendsBg.jpg") 0px -50px;
     padding-top: 40px;
+  }
+  .header img{
+    border-radius: 50%;
   }
   .header-left{
     text-align: center;
