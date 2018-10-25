@@ -6,7 +6,7 @@
 
           <el-row>
             <el-col class="post-left" :xs="4" :sm="4" :md="6" :lg="6" :xl="6"><div>
-              <img src="../../../static/images/userPic2.jpg"/>
+              <img v-bind:src="'http://127.0.0.1:3000/'+u.headPic"/>
               <div>
                 <button @click="att(u.userId)">取消关注</button>
               </div>
@@ -43,74 +43,74 @@
 </template>
 
 <script>
-    export default {
-      data () {
-        return {
-          data: [],
-          pag:1,
-          tiao:5,
-          dis1:false,
-          dis2:false
+  export default {
+    data () {
+      return {
+        data: [],
+        pag:1,
+        tiao:5,
+        dis1:false,
+        dis2:false
+      }
+    },
+    created(){
+      this.$axios.get('friends/likeUser/'+this.$store.state.data1).then(
+        ((res)=>{
+          this.data = res.data.data;
+        })
+      ).catch(err=>{console.log(err)})
+    },
+    methods:{
+      pre(){
+        if(this.pag == 1){
+          this.dis1 = true
+        }
+        else {
+          this.pag--
+          this.dis2 = false
         }
       },
-      created(){
-        this.$axios.get('friends/likeUser/'+this.$store.state.data1).then(
-          ((res)=>{
-            this.data = res.data.data;
-          })
-        ).catch(err=>{console.log(err)})
+      //下一页
+      next(){
+        if(this.pag >= this.data.length/this.tiao){
+          this.dis2 = true
+        }
+        else {
+          this.pag++
+          this.dis1 = false
+        }
       },
-      methods:{
-        pre(){
-          if(this.pag == 1){
-            this.dis1 = true
+      att(attid){
+        let that = this
+        this.$axios.get('/friends/delAttention', {
+          params: {
+            userId:this.$store.state.data1,attentioneduserid:attid
           }
-          else {
-            this.pag--
-            this.dis2 = false
-          }
-        },
-        //下一页
-        next(){
-          if(this.pag >= this.data.length/this.tiao){
-            this.dis2 = true
-          }
-          else {
-            this.pag++
-            this.dis1 = false
-          }
-        },
-        att(attid){
-          let that = this
-          this.$axios.get('/friends/delAttention', {
-            params: {
-              userId:this.$store.state.data1,attentioneduserid:attid
+        })
+          .then(function (response) {
+            if(response.data.code == 200){
+              that.$message({
+                message: '恭喜你，取消关注成功',
+                type: 'success'
+              });
             }
           })
-            .then(function (response) {
-              if(response.data.code == 200){
-                that.$message({
-                  message: '恭喜你，取消关注成功',
-                  type: 'success'
-                });
-              }
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
+          .catch(function (error) {
+            console.log(error);
+          });
 
-        }
-      },
-      mounted(){
+      }
+    },
+    mounted(){
 
-      },
-      computed:{
-        //数据分页
-        showData:function() {
-          return this.data.slice((this.pag-1)*this.tiao,(this.pag-1)*this.tiao+this.tiao)
-        }
+    },
+    computed:{
+      //数据分页
+      showData:function() {
+        return this.data.slice((this.pag-1)*this.tiao,(this.pag-1)*this.tiao+this.tiao)
       }
     }
+  }
 </script>
 
 <style scoped>
@@ -122,8 +122,9 @@
     text-align: center;
   }
   .post-left img{
-    width: 75%;
-    height: 75%;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
   }
   .post-content{
     margin: 16px 0;
