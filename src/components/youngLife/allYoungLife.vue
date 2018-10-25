@@ -11,21 +11,21 @@
 </template>
 
 <script>
-    export default {
-        name: "allYoungLife",
-      data(){
-        return{
-          result:[],
-        }
-      }, created(){
-        this.$axios.get("/youngLife")
-          .then((res) => {
-            this.result = res.data.data;
-          }).catch((err) => {
-          console.log(err)
-        })
+  export default {
+    name: "allYoungLife",
+    data(){
+      return{
+        result:[],
       }
+    }, created(){
+      this.$axios.get("/youngLife")
+        .then((res) => {
+          this.result = res.data.data;
+        }).catch((err) => {
+        console.log(err)
+      })
     }
+  }
 </script>
 
 <style scoped>
