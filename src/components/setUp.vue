@@ -27,7 +27,7 @@
             <el-input v-model.number="ruleForm2.age" placeholder="请输入用户名"></el-input>
           </el-form-item>
           <el-form-item label="密码" prop="pass">
-            <el-input type="password" v-model="ruleForm2.pass" autocomplete="off" placeholder="请输入密码"></el-input>
+            <el-input type="password" v-model="ruleForm2.pass" autocomplete="off" placeholder="请输入密码,至少6位"></el-input>
           </el-form-item>
           <el-form-item label="确认密码" prop="checkPass">
             <el-input type="password" v-model="ruleForm2.checkPass" autocomplete="off" placeholder="请确认密码"></el-input>
@@ -78,8 +78,8 @@
         }, 1);
       };
       var validatePass = (rule, value, callback) => {
-        if (value <= 5) {
-          callback(new Error('请输入密码,至少6位'));
+        if (value === '') {
+          callback(new Error('请输入密码'));
         } else {
           if (this.ruleForm2.checkPass !== '') {
             this.$refs.ruleForm2.validateField('checkPass');
@@ -129,6 +129,12 @@
             if (!this.upath) {
               this.$message({
                 message: '请上传头像',
+                type: 'warning'
+              });
+            }
+            else if(this.ruleForm2.pass.length <= 5){
+              this.$message({
+                message: '密码至少6位',
                 type: 'warning'
               });
             }

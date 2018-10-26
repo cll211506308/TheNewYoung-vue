@@ -15,8 +15,15 @@
         </el-col>
       </el-row>
       <el-row style="margin-top: 20px" class="">
-        <span @click="allCard"><el-radio-button label="top">全部帖子</el-radio-button></span>
-        <span @click="likeCard"><el-radio-button label="right">我的关注</el-radio-button></span>
+
+        <template>
+          <el-radio-group v-model="tabPosition" style="margin-bottom: 30px;">
+            <span @click="allCard"><el-radio-button label="top">全部帖子</el-radio-button></span>
+            <span @click="likeCard"><el-radio-button label="right">我的关注</el-radio-button></span>
+          </el-radio-group>
+        </template>
+
+
         <div class="Publish">
           <el-button type="primary" @click="publish">发表帖子</el-button>
         </div>
