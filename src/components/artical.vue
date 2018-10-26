@@ -135,7 +135,7 @@
           .then(function (res) {
             if(res.data.code == 200){
               that.$message({
-                message: '已取消关注!',
+                message: '已取消收藏!',
                 type: 'success'
               });
               window.location.reload();
