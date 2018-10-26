@@ -9,7 +9,8 @@
           <div style="margin-top: 20px; font-weight: bold">中国最大的养生类社区</div>
         </el-col>
         <el-col :span="5">
-          <img v-bind:src="this.$store.state.picurl+data2.headPic" class="head"/>
+          <img v-bind:src="this.$store.state.picurl+data2.headPic" class="head" v-if="!show1"/>
+          <img src="../../static/images/userTouxiang.png" class="head" v-if="show1"/>
           <div class="name">Hi,{{username}}!</div>
         </el-col>
       </el-row>
@@ -196,6 +197,7 @@
       }
     },
     created() {
+      sessionStorage.setItem("url", (window.location.pathname).slice(1));
       this.$axios.get('friends/count').then(
         ((res) => {
           this.postCount = res.data.data[0].count

@@ -8,7 +8,7 @@
 
           <el-row class="post">
             <el-col class="post-left" :xs="4" :sm="4" :md="6" :lg="6" :xl="6"><div>
-              <img src="../../static/images/userPic2.jpg"/>
+              <img v-bind:src="this.$store.state.picurl+post[0].headPic"/>
               <div>
                 <button @click="att(post[0].userId)">关注此人</button>
               </div>
@@ -87,7 +87,7 @@
             dis1:false,
             dis2:false,
             post:[
-              {postLabel:'',postTime:'{title:\'\'}'}
+              {postLabel:'',userId:'',title:''}
             ],
             textarea: '',
             dialogVisible: false,
@@ -266,17 +266,17 @@
     text-decoration: none;
     color: black;
   }
+  .post img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
   .post-left{
     text-align: center;
-  }
-  .post-left img{
-    width: 75%;
-    height: 75%;
   }
   .post-content{
     margin: 16px 0;
     text-align: center;
-    background: #cdeddf;
   }
 
 </style>

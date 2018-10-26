@@ -78,8 +78,8 @@
         }, 1);
       };
       var validatePass = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('请输入密码'));
+        if (value <= 5) {
+          callback(new Error('请输入密码,至少6位'));
         } else {
           if (this.ruleForm2.checkPass !== '') {
             this.$refs.ruleForm2.validateField('checkPass');
@@ -98,8 +98,8 @@
       };
       return {
         active: 0,
-        dis: false,
-        dis1: true,
+        dis: true,
+        dis1: false,
         ruleForm2: {
           pass: '',
           checkPass: '',

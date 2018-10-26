@@ -8,6 +8,7 @@
             <el-col class="post-left" :xs="4" :sm="4" :md="6" :lg="6" :xl="6"><div>
               <img v-bind:src="'http://127.0.0.1:3000/'+u.headPic"/>
               <div>
+                <button v-if="u.userId == attUsers">已关注</button>
                 <button @click="att(u.userId)">关注此人</button>
               </div>
             </div></el-col>
@@ -49,7 +50,8 @@
         tiao:5,
         dis1:false,
         dis2:false,
-        id:this.$store.state.data1
+        id:this.$store.state.data1,
+        attUsers:[]
       }
     },created(){
       this.$axios.get('friends').then(
@@ -57,6 +59,16 @@
           this.data = res1.data.data;
         })
       ).catch(err=>{console.log(err)})
+
+      this.$axios.get('users/att/'+this.$store.state.data1).then(
+        ((res1)=>{
+         for(var i = 0 ; i<res1.data.data.length;i++){
+           this.attUsers.push(res1.data.data[i].attentionedUserId)
+         }
+         console.log(this.attUsers)
+        })
+      ).catch(err=>{console.log(err)})
+
     },
     methods:{
       pre(){
