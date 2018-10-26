@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="cards12">
-       <div class="tu">折线图</div>
+       <el-card class="box-card1"><div id="myChart" :style="{width: '100%', height: '400px'}"></div></el-card>
       <div class="kong1"></div>
        <div class="bodyclass">
           <el-card class="box-card2">
@@ -36,10 +36,19 @@
       return {
         bodyClass: null,
         bodyclassContent: null,
-        suggestions: null
+        suggestions: null,
+        bodydata:[],
+        userweightArr:[],
+        userheightArr:[],
+        usertotalArr:[],
+        BMIArr:[]
       }
     },
+
     mounted() {
+
+      this.getdata();
+      this.drawLine();
       let _this = this;
       this.$axios.get('users/bodyclass/' + this.$store.state.data1).then(
         ((res) => {
@@ -64,11 +73,170 @@
       ).catch(err => {
         console.log(err)
       })
+    },
+    methods:{
+      getdata(){
+            /*"userweight": 60,
+      "userheight": 160,
+      "usertotal": 4,
+      "BMI": 18.49,
+            * */
+       let userweightArr=[]
+      let  userheightArr=[]
+        let usertotalArr=[]
+        let BMIArr=[]
+        let _this=this;
+        this.$axios.get('users/weight/' + this.$store.state.data1).then(
+          ((res) => {
+            _this.bodydata = res.data.data;
+            for(let i=0;i<_this.bodydata.length;i++){
+              if(i<4){
+                userweightArr.push(_this.bodydata[i].userweight)
+                userheightArr.push(_this.bodydata[i].userheight)
+                usertotalArr.push(_this.bodydata[i].usertotal)
+                BMIArr.push(_this.bodydata[i].BMI)
+              }else {
+                break;
+              }
+            }
+            _this.userweightArr=userweightArr
+            _this.userheightArr=userheightArr
+            _this.usertotalArr=usertotalArr
+            _this.BMIArr=BMIArr
+            console.log(_this.BMIArr);
+            for(var i in _this.BMIArr){
+              console.log(typeof _this.BMIArr[i]);
+            }
+            this.drawLine();
+          })
+        ).catch(err => {
+          console.log(err)
+        })
+      }  ,
+
+      drawLine(){
+        let myChart = this.$echarts.init(document.getElementById('myChart'))
+        myChart.setOption({
+          title: {
+            text: '最近体质变化',
+          },
+          tooltip: {
+            trigger: 'axis'
+          },
+          legend: {
+            data:['BMI','体重','身高','体测分数']
+          },
+          toolbox: {
+            show: true,
+            feature: {
+              magicType: {type: ['line', 'bar']},
+              restore: {},
+              saveAsImage: {}
+            }
+          },
+          xAxis:  {
+            type: 'category',
+            boundaryGap: false,
+            data: ['一','二','三','四','五','六','七']
+          },
+          yAxis: {
+            type: 'value',
+            axisLabel: {
+              formatter: '{value} '
+            }
+          },
+          series: [
+            {
+              name:'BMI',
+              type:'line',
+              data:this.BMIArr,
+              // data:[2,2,3,5],
+              markPoint: {
+                data: [
+                  {type: 'max', name: '最大值'},
+                  {type: 'min', name: '最小值'}
+                ]
+              },
+              markLine: {
+                data: [
+                  {type: 'average', name: '平均值'}
+                ]
+              }
+            },
+            {
+              name:'体重',
+              type:'line',
+              data:this.userweightArr,
+              markPoint: {
+                data: [
+                  {type: 'max', name: '最大值'},
+                  {type: 'min', name: '最小值'}
+                ]
+              },
+              markLine: {
+                data: [
+                  {type: 'average', name: '平均值'}
+                ]
+              }
+            },
+            {
+              name:'身高',
+              type:'line',
+              data:this.userheightArr,
+              markPoint: {
+                data: [
+                  {type: 'max', name: '最大值'},
+                  {type: 'min', name: '最小值'}
+                ]
+              },
+              markLine: {
+                data: [
+                  {type: 'average', name: '平均值'}
+                ]
+              }
+            },
+            {
+              name:'体测分数',
+              type:'line',
+              data:this.usertotalArr,
+              markPoint: {
+                data: [
+                  {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+                ]
+              },
+              markLine: {
+                data: [
+                  {type: 'average', name: '平均值'},
+                  [{
+                    symbol: 'none',
+                    x: '90%',
+                    yAxis: 'max'
+                  }, {
+                    symbol: 'circle',
+                    label: {
+                      normal: {
+                        position: 'start',
+                        formatter: '最大值'
+                      }
+                    },
+                    type: 'max',
+                    name: '最高点'
+                  }]
+                ]
+              }
+            }
+          ]
+        })
+      }
     }
   }
+
 </script>
 
 <style scoped>
+  .box-card1{
+    border-radius: 15px;
+  }
   .box-card2 {
     border-radius: 15px;
   }
@@ -80,7 +248,7 @@
     clear: both;
   }
   @media only screen and (min-width: 900px){
-    .tu{
+    .box-card1{
     width: 55%;
     height: 400px;
     background: burlywood;
@@ -102,7 +270,7 @@
 
   }
   @media only screen and (max-width: 900px){
-    .tu{
+    .box-card1{
     width: 100%;
     height: 400px;
     background: burlywood;
