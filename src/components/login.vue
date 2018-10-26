@@ -95,7 +95,12 @@
             });
             sessionStorage.setItem('userId', data.data[0].userid);//设置session
             setTimeout(() => {
-              window.location.href = '/'
+              if(sessionStorage.getItem('url') == null){
+                window.location.href = '/'
+              }
+              else {
+                window.location.href = '/'+sessionStorage.getItem('url')
+              }
             }, 500);
 
           }

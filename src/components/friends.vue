@@ -9,13 +9,21 @@
           <div style="margin-top: 20px; font-weight: bold">中国最大的养生类社区</div>
         </el-col>
         <el-col :span="5">
-          <img v-bind:src="this.$store.state.picurl+data2.headPic" class="head"/>
+          <img v-bind:src="this.$store.state.picurl+data2.headPic" class="head" v-if="!show1"/>
+          <img src="../../static/images/userTouxiang.png" class="head" v-if="show1"/>
           <div class="name">Hi,{{username}}!</div>
         </el-col>
       </el-row>
       <el-row style="margin-top: 20px" class="">
-        <span @click="allCard"><el-radio-button label="top">全部帖子</el-radio-button></span>
-        <span @click="likeCard"><el-radio-button label="right">我的关注</el-radio-button></span>
+
+        <template>
+          <el-radio-group v-model="tabPosition" style="margin-bottom: 30px;">
+            <span @click="allCard"><el-radio-button label="top">全部帖子</el-radio-button></span>
+            <span @click="likeCard"><el-radio-button label="right">我的关注</el-radio-button></span>
+          </el-radio-group>
+        </template>
+
+
         <div class="Publish">
           <el-button type="primary" @click="publish">发表帖子</el-button>
         </div>
@@ -196,6 +204,7 @@
       }
     },
     created() {
+      sessionStorage.setItem("url", (window.location.pathname).slice(1));
       this.$axios.get('friends/count').then(
         ((res) => {
           this.postCount = res.data.data[0].count
