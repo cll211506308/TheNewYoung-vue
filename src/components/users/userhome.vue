@@ -20,8 +20,8 @@
         <div slot="header" class="clearfix">
           <span>中医建议：</span>
         </div>
-        <div class="sug"  v-for="i in sugcontent">
-          {{ i.sugcontent}}
+        <div class="sug" >
+          {{ suggestions}}
         </div>
       </el-card>
     </div>
@@ -36,7 +36,7 @@
       return {
         bodyClass: null,
         bodyclassContent: null,
-        sugcontent: []
+        suggestions: null
       }
     },
     mounted() {
@@ -56,12 +56,10 @@
       ).catch(err => {
         console.log(err)
       })
-
-      this.$axios.get('users/suggestion/getsuggestions/平和体质').then(
+      this.$axios.get('users/suggestion/showsuggestions/' + this.$store.state.data1).then(
         ((res) => {
-          _this.sugcontent = res.data.data;
-          // console.log(_this.sugcontent);
-          // /*this.sugcontent =res.data.data*/
+          this.suggestions = res.data.data[0].suggestions;
+          console.log(_this.suggestions);
         })
       ).catch(err => {
         console.log(err)

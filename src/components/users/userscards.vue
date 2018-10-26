@@ -14,8 +14,6 @@
     </el-col>
   </el-row>
 </template>
-
-
 <script>
   export default {
     name: "userscard",
@@ -27,7 +25,12 @@
     created(){
       this.$axios.get('/friends').then(
         ((res)=>{
-          this.title1 = res.data.data;
+          for(var i = 0;i< res.data.data.length;i++){
+            if(res.data.data[i].userId == this.$store.state.data1 ){
+              this.title1.push(res.data.data[i])
+            }
+          }
+
         })
       ).catch(err=>{console.log(err)})
     }

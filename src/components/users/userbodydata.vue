@@ -2,13 +2,15 @@
   <el-row type="flex" justify="center">
     <el-col :span="24">
       <div id="app">
-        <el-form :inline="true" :model="formInline" class="demo-form-inline">
-          <el-form-item label="身高">
-            <el-input v-model="formInline.user" placeholder="身高"></el-input>
+        <el-form :model="numberValidateForm" ref="numberValidateForm" label-width="100px" class="demo-ruleForm">
+          <el-form-item label="身高" prop="height" :rules="[{ required: true, message: '身高不能为空'}, { type: 'number',
+           message: '身高必须为数字值'} ]">
+            <el-input type="age" v-model.number="numberValidateForm.height" autocomplete="off">m</el-input>
           </el-form-item>
-          <el-form-item label="体重">
-            <el-input v-model="formInline.region" placeholder="体重"></el-input>
-          </el-form-item>
+            <el-form-item label="体重" prop="weight" :rules="[{ required: true, message: '体重不能为空'}, { type: 'number',
+           message: '体重必须为数字值'} ]">
+              <el-input type="age" v-model.number="numberValidateForm.weight" autocomplete="off">m</el-input>
+            </el-form-item>
         </el-form>
         <el-card class="box-card" v-for="(item,index) in List" :key="index">
           <div slot="header" class="clearfix">
@@ -49,12 +51,13 @@
     components: {},
     data() {
       return {
-        dataList: [],
-        formInline: {
-          user: '',
-          region: ''
+        numberValidateForm: {
+         height: '',
+          weight:'',
         },
+        dataList: [],
         total: 0,
+        BMI:0,
         List: [
           //阳虚质
           {
@@ -64,7 +67,7 @@
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
           },
-          {
+    /*      {
             title: '您胃脘部、背部或腰膝部怕冷吗？',
             category: 0,
             radio: '',
@@ -98,7 +101,7 @@
             radio: '',
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
+          },*/
           /* //阴虚质
            {
              title: '您感到手脚心发热吗？',
@@ -235,6 +238,7 @@
       submit() {
         var submitContent;
         var  bodyclassContent;
+        var suggestions;
         if(this.total>=75){
           submitContent = '平和体质',
             bodyclassContent = '平和体质是一种身体和谐、自稳能力强的体质。' +
@@ -243,13 +247,18 @@
               '在长寿家族，比如五世同堂的大家族，而平常的人家四世同堂就不容易了。平' +
               '和体质通常表现为情绪稳定，生活规律，体重波动小等；得病少，对于环境和气' +
               '候的变化适应能力比较强；生病以后，对治疗的反应敏感，好治，自我康复能' +
-              '力强'
+              '力强',
+            suggestions = '应采取中庸之道，吃得不要过饱，也不能过饥，不吃冷，也不吃得过热。' +
+              '多吃五谷杂粮、蔬菜瓜果，少食过于油腻及辛辣之物。'
+
         } else{
           submitContent = '偏颇体质',
             bodyclassContent = '《中医体质分类与判断》标准将人的体质分为平和质，气虚质，阳虚质，阴' +
               '虚质，痰虚制，湿热质，血瘀质，抑郁质，特禀质等9种基本体质类型，除' +
               '了平和体质，其他8种体质都存在偏颇的倾向。不同的身体状况，不同' +
-              '的疾病风险，对应着不同的体质，同时也有不同的生活方式。'
+              '的疾病风险，对应着不同的体质，同时也有不同的生活方式。',
+            suggestions = '饮食清淡为原则，少食肥肉及甜、黏、油腻的食物。可多食葱、蒜、海藻、海带、冬瓜、' +
+              '萝卜、金橘、芥末等食物。'
         }
         let Arr = this.List.filter(item => item.score === 0)
         this.dataList = []
@@ -257,13 +266,17 @@
         if (Arr.length === 0) {
           //允许提交
           $.post("http://127.0.0.1:3000/users/insertbodydatas",{
-            userId: 1,
-            userHeight: this.formInline.user,
-            userWeight: this.formInline.region,
+            userId: this.$store.state.data1,
+            userHeight: this.numberValidateForm.height,
+            userWeight: this.numberValidateForm.weight,
             putTime: Date.now(),
             usertotal: this.total,
             bodyClass: submitContent,
             bodyclassContent : bodyclassContent,
+            BMI:this.BMI,
+            suggestions : suggestions,
+
+
           } ,function () {
 
           })
@@ -291,6 +304,8 @@
         this.total = a.reduce((total, num) => {
           return total + num
         })
+       this.BMI = this.numberValidateForm.weight/( this.numberValidateForm.height* this.numberValidateForm.height);
+        console.log(this.BMI)
       },
       scoring(index, index2) {
         switch (index2) {

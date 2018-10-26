@@ -3,7 +3,10 @@
     <el-row type="flex"  justify="center">
       <el-col :xs="24" :sm="22" :md="20" :lg="20" :xl="20" >
          <div class="banner">
-             <div class="userphoto"><img src="../../../static/images/user1.jpg" alt=""><span>&nbsp;&nbsp;&nbsp;您好！{{username}}</span></div>
+             <div class="userphoto">
+               <img v-bind:src="this.$store.state.picurl+data2.headPic" alt="">
+               <span>&nbsp;&nbsp;&nbsp;您好！{{username}}</span>
+             </div>
         </div>
       </el-col>
     </el-row>
@@ -15,13 +18,28 @@
     name: "basicdata",
     data(){
       return {
-        username:null
+        username:null,
+        data2:'',
       }
     },
     mounted(){
       this.$axios.get('users/username/'+this.$store.state.data1).then(
-        ((res)=>{this.username = res.data.data[0].username})
+        ((res)=>{
+          console.log(res.data)
+          this.username = res.data.data[0].userName
+        })
       ).catch(err=>{console.log(err)})
+      this.$axios.get('users/username/'+this.$store.state.data1).then(
+        ((res)=>{
+          this.data2 = res.data.data[0];
+        })
+      ).catch(err=>{console.log(err)}),
+        this.$axios.get('users/username/'+this.$store.state.data1).then(
+          ((res)=>{
+            this.data2 = res.data.data[0];
+            console.log(this.data2)
+          })
+        ).catch(err=>{console.log(err)})
     }
   }
 </script>

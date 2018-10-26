@@ -6,7 +6,7 @@
           <div class="text item">
             {{item.title}}
             {{item.colTime}}
-            <!--<el-button style="float: right; padding: 3px 0" type="text" icon="el-icon-delete" @click="del(item in title1)"></el-button>-->
+            <el-button style="float: right; padding: 3px 0" type="text" icon="el-icon-delete" @click="delCol()"></el-button>
           </div>
         </el-card>
       </div>
@@ -18,17 +18,26 @@
   export default {
     name: "usercollections",
     methods:{
-      /* del(collection){
-         this.$axios.post('fit/delCol/'+ item.title1).then(
-        console.log
-
-         ).catch(err=>{console.log(err)})
-       }*/
+      delCol(){
+        let that = this
+        this.$axios.get('/delCol',{
+          params: {
+            userId:this.$store.state.data1,articalId: this.id
+          }
+        })
+          .then(function (res) {
+            window.location.reload()
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
 
     },
     data(){
       return {
         title1:[],
+        id:this.$route.params.id
       }
     },
     created(){
