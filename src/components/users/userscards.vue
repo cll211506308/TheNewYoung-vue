@@ -4,9 +4,11 @@
       <div v-for="item in title1">
         <el-card class="box-card">
           <div class="text item">
+            <router-link tag="a" target="_blank" :to="{name:'card',params: {id: item.postId}}">
             {{item.title}}
-            {{item.colTime}}
-            <!--<el-button style="float: right; padding: 3px 0" type="text" icon="el-icon-delete"></el-button>-->
+            {{item.postTime}}
+            </router-link>
+            <el-button style="float: right; padding: 3px 0" type="text" icon="el-icon-delete" @click="delPost(item.postId)"></el-button>
           </div>
         </el-card>
       </div>
@@ -17,10 +19,26 @@
 <script>
   export default {
     name: "userscard",
+    methods:{
+      delPost(postid){
+        let that = this
+        this.$axios.get('friends/deletePost/'+ postid).then(
+          ((res)=>{
+            this.$message({
+              message: '删除成功',
+              type: 'success'
+            });
+            setTimeout(() => {
+              location.reload()
+            }, 500);
+          })
+        ).catch(err=>{console.log(err)})
+      }
+    },
     data(){
       return {
         title1:[],
-      }
+    }
     },
     created(){
       this.$axios.get('/friends').then(
@@ -29,6 +47,7 @@
             if(res.data.data[i].userId == this.$store.state.data1 ){
               this.title1.push(res.data.data[i])
             }
+            console.log(this.title1)
           }
 
         })

@@ -2,15 +2,21 @@
   <el-row type="flex" justify="center">
     <el-col :span="24">
       <div id="app">
-        <el-form :model="numberValidateForm" ref="numberValidateForm" label-width="100px" class="demo-ruleForm">
-          <el-form-item label="身高" prop="height" :rules="[{ required: true, message: '身高不能为空'}, { type: 'number',
+        <el-form :model="numberValidateForm" ref="numberValidateForm" label-width="150px" class="demo-ruleForm">
+          <el-row >
+            <el-col :span="8">
+          <el-form-item label="身高(单位：m)" prop="height" :rules="[{ required: true, message: '身高不能为空'}, { type: 'number',
            message: '身高必须为数字值'} ]">
-            <el-input type="age" v-model.number="numberValidateForm.height" autocomplete="off">m</el-input>
+            <el-input type="age" v-model.number="numberValidateForm.height" autocomplete="off"></el-input>
           </el-form-item>
-            <el-form-item label="体重" prop="weight" :rules="[{ required: true, message: '体重不能为空'}, { type: 'number',
+            </el-col>
+            <el-col :span="8">
+            <el-form-item label="体重（单位：kg）" prop="weight" :rules="[{ required: true, message: '体重不能为空'}, { type: 'number',
            message: '体重必须为数字值'} ]">
-              <el-input type="age" v-model.number="numberValidateForm.weight" autocomplete="off">m</el-input>
+              <el-input type="age" v-model.number="numberValidateForm.weight" autocomplete="off"></el-input>
             </el-form-item>
+            </el-col>
+          </el-row>
         </el-form>
         <el-card class="box-card" v-for="(item,index) in List" :key="index">
           <div slot="header" class="clearfix">
@@ -280,7 +286,7 @@
           } ,function () {
 
           })
-          this.$alert('提交成功', {
+          this.$alert('提交成功,您可以在您的主页中查看最新体质信息', {
             confirmButtonText: '确定'
           })
         } else {
@@ -293,11 +299,11 @@
       },
       radioCClick2(index, index2) {
         // index-List的索引   index2-List下data的索引
-        // 这边写你的得分算法
+        // 得分算法
         console.log(index2)
         this.scoring(index, index2)
         // this.List[index].score = (index2 === 0) ? 5 : 4
-        // 这边是遍历赋值，得总分
+        // 遍历赋值，得总分
         let a = this.List.map(item => {
           return item.score
         })
