@@ -1,51 +1,57 @@
 <template>
   <div >
-      <div class="formdatas">
+    <el-card class="box-card" style="border-radius: 15px;margin-bottom: 20px">
         <el-form ref="form" :model="form" label-width="80px" status-icon :rules="rules2">
-          <el-form-item label="用户名">
-            <el-input v-model="form.name"></el-input>
+          <div>
+          <div class="formdatas">
+          <el-form-item label="用户名:" >
+            <el-input v-model="form.name" style="width: 200px"></el-input>
           </el-form-item>
-          <el-form-item label="密码" prop="pass">
-            <el-input type="password" v-model="form.pass" autocomplete="off"></el-input>
+          <el-form-item label="密码:" prop="pass">
+            <el-input type="password" v-model="form.pass" autocomplete="off" style="width: 250px"></el-input>
           </el-form-item>
-          <el-form-item label="确认密码" prop="checkPass">
-            <el-input type="password" v-model="form.checkPass" autocomplete="off"></el-input>
+          <el-form-item label="确认密码:" prop="checkPass">
+            <el-input type="password" v-model="form.checkPass" autocomplete="off" style="width: 250px"></el-input>
           </el-form-item>
-          <el-form-item label="性别">
+          <el-form-item label="性别:">
             <el-radio-group v-model="form.resource">
               <el-radio label="男"></el-radio>
               <el-radio label="女"></el-radio>
             </el-radio-group>
           </el-form-item>
-          <el-form-item label="出生日期">
-            <el-col :span="11">
+        </div>
+          <div class="photo">
+            <el-upload
+              class="avatar-uploader"
+              action="https://jsonplaceholder.typicode.com/posts/"
+              :show-file-list="false"
+              :on-success="handleAvatarSuccess"
+              :before-upload="beforeAvatarUpload">
+              <img v-if="imageUrl" :src="imageUrl" class="avatar">
+              <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+            </el-upload>
+          </div>
+          </div>
+          <div class="wei">
+          <el-form-item label="出生日期:">
+            <el-col :span="9">
               <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
             </el-col>
-            <el-col class="line" :span="2">-</el-col>
-            <el-col :span="11">
+            <el-col class="line" :span="2" :offset="2">-</el-col>
+            <el-col :span="9">
               <el-time-picker type="fixed-time" placeholder="选择时间" v-model="form.date2" style="width: 100%;"></el-time-picker>
             </el-col>
           </el-form-item>
-          <el-form-item label="个性签名">
-            <el-input type="textarea" v-model="form.desc"></el-input>
+          <el-form-item label="个性签名:">
+            <el-input type="textarea" v-model="form.desc" style="width: 100%"></el-input>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="onSubmit">保存修改</el-button>
             <el-button>取消</el-button>
           </el-form-item>
+          </div>
         </el-form>
-      </div>
-      <div class="photo">
-          <el-upload
-          class="avatar-uploader"
-          action="https://jsonplaceholder.typicode.com/posts/"
-          :show-file-list="false"
-          :on-success="handleAvatarSuccess"
-          :before-upload="beforeAvatarUpload">
-          <img v-if="imageUrl" :src="imageUrl" class="avatar">
-          <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-        </el-upload>
-      </div>
+    </el-card>
   </div>
 </template>
 <script>
@@ -126,8 +132,10 @@
     float: left;
   }
   .photo{
-    position: relative;
-    left: 10%;
+    position:relative ;
+  }
+  .wei{
+    clear: both;
   }
   .avatar-uploader .el-upload {
     border: 1px dashed #d9d9d9;

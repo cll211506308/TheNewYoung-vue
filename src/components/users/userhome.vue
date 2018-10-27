@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="cards12">
-       <el-card class="box-card1"><div id="myChart" :style="{width: '100%', height: '400px'}"></div></el-card>
+       <el-card class="box-card1" shadow="hover"><div id="myChart" :style="{width: '100%', height: '400px'}"></div></el-card>
       <div class="kong1"></div>
        <div class="bodyclass">
-          <el-card class="box-card2">
+          <el-card class="box-card2" shadow="hover">
             <div slot="header" class="clearfix">
               <span>您的体质：{{bodyClass}}</span>
             </div>
-            <div class="text item">
+            <div class="text item" style="line-height: 35px">
               {{bodyclassContent }}
             </div>
         </el-card>
@@ -16,7 +16,7 @@
     </div>
     <div class="kong"></div>
     <div class="suggestions" style="margin-bottom: 20px">
-      <el-card class="box-card3"  >
+      <el-card class="box-card3"  shadow="hover">
         <div slot="header" class="clearfix">
           <span>中医建议：</span>
         </div>
@@ -68,7 +68,6 @@
       this.$axios.get('users/suggestion/showsuggestions/' + this.$store.state.data1).then(
         ((res) => {
           this.suggestions = res.data.data[0].suggestions;
-          console.log(_this.suggestions);
         })
       ).catch(err => {
         console.log(err)
@@ -76,13 +75,8 @@
     },
     methods:{
       getdata(){
-            /*"userweight": 60,
-      "userheight": 160,
-      "usertotal": 4,
-      "BMI": 18.49,
-            * */
-       let userweightArr=[]
-      let  userheightArr=[]
+        let  userweightArr=[]
+        let  userheightArr=[]
         let usertotalArr=[]
         let BMIArr=[]
         let _this=this;
@@ -90,7 +84,7 @@
           ((res) => {
             _this.bodydata = res.data.data;
             for(let i=0;i<_this.bodydata.length;i++){
-              if(i<4){
+              if(i<7){
                 userweightArr.push(_this.bodydata[i].userweight)
                 userheightArr.push(_this.bodydata[i].userheight)
                 usertotalArr.push(_this.bodydata[i].usertotal)
@@ -99,14 +93,10 @@
                 break;
               }
             }
-            _this.userweightArr=userweightArr
-            _this.userheightArr=userheightArr
-            _this.usertotalArr=usertotalArr
-            _this.BMIArr=BMIArr
-            console.log(_this.BMIArr);
-            for(var i in _this.BMIArr){
-              console.log(typeof _this.BMIArr[i]);
-            }
+            _this.userweightArr=userweightArr.reverse()
+            _this.userheightArr=userheightArr.reverse()
+            _this.usertotalArr=usertotalArr.reverse()
+            _this.BMIArr=BMIArr.reverse()
             this.drawLine();
           })
         ).catch(err => {
@@ -251,7 +241,7 @@
     .box-card1{
     width: 55%;
     height: 400px;
-    background: burlywood;
+ /*   background: burlywood;*/
     float: left;
   }
     .bodyclass{
@@ -273,7 +263,7 @@
     .box-card1{
     width: 100%;
     height: 400px;
-    background: burlywood;
+   /* background: burlywood;*/
   }
     .box-card2{
       width: 100%;

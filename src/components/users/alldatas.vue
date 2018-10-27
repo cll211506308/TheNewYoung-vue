@@ -50,9 +50,12 @@
     width: 20%;
     text-align: center;
     line-height: 60px;
+    color: white;
+    cursor: pointer;
   }
  .menuli  :hover{
-    color: white;
+    color: greenyellow;
+
   }
  .menuli li :visited{
     color: white;
