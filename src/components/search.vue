@@ -1,7 +1,7 @@
 <template>
   <el-row style="padding-top: 20px; padding-bottom: 20px;background: whitesmoke">
     <el-col :span="20" :offset="2">
-      <el-col :span="16">
+      <el-col :md="16" :sm="24">
         <el-card class="box-card" shadow="hover" style="border-radius: 15px">
           <el-col :span="20" :offset="2" style="margin-bottom: 20px;">
             <el-tabs v-model="activeName">
@@ -40,7 +40,7 @@
 
         </el-card>
       </el-col>
-      <el-col :span="7" :offset="1">
+      <el-col :span="7" :offset="1" class="hidden-sm-and-down">
         <el-card class="box-card fixed" shadow="hover">
           <h3 style="margin-bottom: 20px;text-align: center">热门标签 <small style="color: red;">HOT</small></h3>
           <router-link to="/search/养生" target="_blank"><el-tag class="hotLabel">养生</el-tag></router-link>

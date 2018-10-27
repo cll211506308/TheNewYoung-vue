@@ -2,40 +2,45 @@
   <el-row style="background: whitesmoke;padding-bottom: 20px">
     <el-col :span="20" :offset="2">
       <el-row class="fBg">
-        <el-col :span="5" :offset="8" style="margin-top: 80px">
+        <el-col :span="5" :offset="6" >
+          <img v-bind:src="this.$store.state.picurl+data2.headPic" class="head" v-if="!show1"/>
+          <img src="../../static/images/userTouxiang.png" class="head" v-if="show1"/>
+          <div class="name">Hi,{{username}}!</div>
+        </el-col>
+        <el-col :span="5" :offset="2" style="margin-top: 80px; margin-left: 130px" class="hidden-sm-and-down">
           <h2 style="margin-bottom: 20px">Young友圈</h2>
           <div style="font-weight: bold">用户：<span style="color: orangered">{{userCount}}</span> 帖子：<span
             style="color: orangered">{{postCount}}</span></div>
           <div style="margin-top: 20px; font-weight: bold">中国最大的养生类社区</div>
         </el-col>
-        <el-col :span="5">
-          <img v-bind:src="this.$store.state.picurl+data2.headPic" class="head" v-if="!show1"/>
-          <img src="../../static/images/userTouxiang.png" class="head" v-if="show1"/>
-          <div class="name">Hi,{{username}}!</div>
-        </el-col>
       </el-row>
-      <el-row style="margin-top: 20px" class="">
-
-        <template>
-          <el-radio-group v-model="tabPosition" style="margin-bottom: 30px;">
-            <span @click="allCard"><el-radio-button label="top">全部帖子</el-radio-button></span>
-            <span @click="likeCard"><el-radio-button label="right">我的关注</el-radio-button></span>
-          </el-radio-group>
-        </template>
+      <el-row class="fNav">
+        <el-col :span="20" :offset="2">
+          <p @click="allCard" class="fT">全部帖子</p>
+          <p @click="likeCard" class="fT">我的关注</p>
+          <p @click="publish" class="fT" style="float:right"><img src="../../static/images/publish.png" alt="" class="publish"> 发表帖子</p>
+        </el-col>
 
 
-        <div class="Publish">
-          <el-button type="primary" @click="publish">发表帖子</el-button>
-        </div>
+
+          <!--<el-radio-group v-model="tabPosition" style="margin-bottom: 30px;">-->
+            <!--<span @click="allCard"><el-radio-button label="top">全部帖子</el-radio-button></span>-->
+            <!--<span @click="likeCard"><el-radio-button label="right">我的关注</el-radio-button></span>-->
+          <!--</el-radio-group>-->
+
+
+        <!--<div class="Publish">-->
+          <!--<el-button type="primary" @click="publish">发表帖子</el-button>-->
+        <!--</div>-->
         <!--<div class="Publish-1">-->
           <!--<el-input v-model="input" placeholder="请输入内容"></el-input>-->
         <!--</div>-->
       </el-row>
       <el-row>
-        <el-col :span="16">
+        <el-col :sm="24" :md="16">
           <router-view></router-view>
         </el-col>
-        <el-col :span="7" :offset="1">
+        <el-col :span="7" :offset="1" class="hidden-sm-and-down">
           <el-card class="box-card fixed" shadow="hover">
             <h3 style="margin-bottom: 20px;text-align: center">热门标签 <small style="color: red;">HOT</small></h3>
             <router-link to="/search/养生" target="_blank"><el-tag class="hotLabel">养生</el-tag></router-link>
@@ -325,7 +330,7 @@
       },
       username: function () {
         if (this.$store.state.data1 == null) {
-          return '您好，请登录'
+          return '请先登录'
         }
         else {
           return this.data2.userName
@@ -390,19 +395,44 @@
 
   }
 
+  .fNav{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 15px;
+    width: 100%;
+    height: 60px;
+    background: url("../../static/images/fenge5.png") no-repeat;
+    background-size: 100% 215%;
+  }
+
+  .fT{
+    width: 20%;
+    height: 60px;
+    line-height: 60px;
+    float:left;
+    cursor: pointer;
+    font-size: 17px;
+    color: whitesmoke;
+  }
+
+  .fT:hover {
+
+  }
+
   .head {
-    height: 150px;
-    width: 150px;
+    height: 140px;
+    width: 140px;
     border-radius: 50%;
-    margin-top: 50px;
-    margin-left: 40px;
+    margin-top: 55px;
+    margin-left: 60px;
   }
 
   .name {
     font-size: 18px;
     font-weight: bold;
-    margin-top: 15px;
-    margin-left: 90px;
+    margin-top: 12px;
+    margin-left: 95px;
   }
 
   .fixed{
@@ -418,5 +448,10 @@
   .hotLabel{
     margin-right: 5px;
     margin-bottom: 15px;
+  }
+
+  .publish{
+    position: relative;
+    top: 10px;
   }
 </style>

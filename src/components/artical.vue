@@ -1,7 +1,7 @@
 <template>
   <el-row style="padding-top: 20px; padding-bottom: 20px;background: whitesmoke">
     <el-col :span="20" :offset="2">
-      <el-col :span="16">
+      <el-col :sm="24" :md="16">
         <el-card class="box-card" shadow="hover" style="border-radius: 15px">
           <el-col :span="22" :offset="1">
             <el-row :gutter="20" style="margin-top: 10px;margin-bottom: 25px">
@@ -29,7 +29,7 @@
           </el-col>
         </el-card>
       </el-col>
-      <el-col :span="7" :offset="1" style="border-radius: 5px;background: white">
+      <el-col :span="7" :offset="1" style="border-radius: 5px;background: white" class="hidden-sm-and-down">
            <div class="paiHang">
              <img class="hidden-sm-and-down" src="../../static/images/lebel.png" alt="" style="position: absolute;top:50%;margin-top: -16px; left:30%">
              <h3>排行榜</h3>
