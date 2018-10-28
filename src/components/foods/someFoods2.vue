@@ -10,18 +10,16 @@
         </div>
       </router-link>
     </div>
-    <el-row style="margin-top: 20px; margin-bottom: 10px;margin-left: 40px">
-      <div class="block">
-        <span class="demonstration"></span>
-        <el-pagination ref="elpage"
-                       @current-change="change()"
-                       :current-page.sync="pageIndex"
-                       layout="prev, pager, next"
-                       :total="pageCount"
-                       :page-size = "pagesize">
-        </el-pagination>
-      </div>
-    </el-row>
+    <div class="block">
+      <span class="demonstration"></span>
+      <el-pagination ref="elpage"
+                     @current-change="change()"
+                     :current-page.sync="pageIndex"
+                     layout="prev, pager, next"
+                     :total="pageCount"
+                     :page-size = "pagesize">
+      </el-pagination>
+    </div>
   </div>
 </template>
 
