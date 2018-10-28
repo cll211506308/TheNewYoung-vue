@@ -10,7 +10,7 @@
           <el-row :gutter="20">
             <el-col :span="8" v-for="(item,index) in oneYang" :key="index">
               <el-card shadow="hover">
-                <img src="../../../static/images/banner1.jpg" class="image">
+                <img v-bind:src="'http://127.0.0.1:3000/'+ item.coverPic" class="image">
                 <div style="padding: 14px;">
                   <p class="pT">{{item.title}}</p>
                   <div class="bottom clearfix">
@@ -31,7 +31,7 @@
           <el-row :gutter="20">
             <el-col :span="8" v-for="(item,index) in oneDiet" :key="index">
               <el-card shadow="hover">
-                <img src="../../../static/images/banner2.jpg" class="image">
+                <img v-bind:src="'http://127.0.0.1:3000/'+ item.coverPic" class="image">
                 <div style="padding: 14px;">
                   <p class="pT">{{item.title}}</p>
                   <div class="bottom clearfix">
@@ -52,7 +52,7 @@
           <el-row :gutter="20">
             <el-col :span="8" v-for="(item,index) in oneFit" :key="index">
               <el-card shadow="hover">
-                <img src="../../../static/images/banner4.jpg" class="image">
+                <img v-bind:src="'http://127.0.0.1:3000/'+ item.coverPic" class="image">
                 <div style="padding: 14px;">
                   <div class="pT">{{item.title}}</div>
                   <div class="bottom clearfix">
