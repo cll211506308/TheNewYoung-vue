@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="position: relative">
     <div class="content" v-for="(item,index) in myActData1" :key="index">
       <img src="../../../static/images/abcd.png">
       <router-link :to="{path:'/artical/' + item.articalId}" tagret="_blank">
@@ -26,50 +26,50 @@
 </template>
 
 <script>
-export default {
-  name: "allFoods",
-  data(){
-    return{
-      data:'',
-      pageIndex: 1,
-      pagesize: 3,
-      pageCount:0,
-      myActData:[],
-      activitys:[]
-    }
-  },
-  methods: {
-    loadData() {
-      this.activitys = [];
-      let start = (this.pageIndex-1) * this.pagesize;
-      let end = start + this.pagesize;
-      console.log(this.myActData[1]);
-      if(end>=this.pageCount){
-        end=this.pageCount
-      }
-      for (var i = start; i < end; i++) {
-        this.activitys.push(this.myActData[i])
+  export default {
+    name: "someFit4",
+    data(){
+      return{
+        data:'',
+        pageIndex: 1,
+        pagesize: 3,
+        pageCount:0,
+        myActData:[],
+        activitys:[]
       }
     },
-    change(){
-      return this.loadData();
-    }
-  },
-  mounted() {
-    let _this=this
-    this.$axios.get("/fit").then((result) =>{
-      _this.myActData= result.data.data.Diet;
-      console.log(result.data)
-      _this.pageCount=_this.myActData.length
-      _this.loadData()
-    })
-  },
-  computed:{
-    myActData1() {
-      return this.activitys
+    methods: {
+      loadData() {
+        this.activitys = [];
+        let start = (this.pageIndex-1) * this.pagesize;
+        let end = start + this.pagesize;
+        console.log(this.myActData[1]);
+        if(end>=this.pageCount){
+          end=this.pageCount
+        }
+        for (var i = start; i < end; i++) {
+          this.activitys.push(this.myActData[i])
+        }
+      },
+      change(){
+        return this.loadData();
+      }
+    },
+    mounted() {
+      let _this=this
+      this.$axios.get("/fit/fitclass").then((result) =>{
+        _this.myActData= result.data.data.fit4;
+        console.log(result.data)
+        _this.pageCount=_this.myActData.length
+        _this.loadData()
+      })
+    },
+    computed:{
+      myActData1() {
+        return this.activitys
+      }
     }
   }
-}
 </script>
 
 <style scoped>
@@ -108,7 +108,7 @@ export default {
   .block{
     margin-top: 20px;
     margin-bottom: 30px;
-    margin-left: 35%;
+    padding-left: 35%;
     float: left;
   }
 </style>

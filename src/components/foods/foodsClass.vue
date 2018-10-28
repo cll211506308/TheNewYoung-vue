@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 style="text-align: center">热门标签<small style="color: red">HOT</small></h2>
+    <h2 style="text-align: center;color: #696969;">热门标签<small style="color: red">HOT</small></h2>
     <div style="margin-top: 20px">
       <router-link to="/search/减肥"><el-button>减肥</el-button></router-link>
       <router-link to="/search/丰胸"><el-button>丰胸</el-button></router-link>
@@ -19,9 +19,9 @@
 </template>
 
 <script>
-  export default {
-    name: "foodsClass"
-  }
+export default {
+  name: "foodsClass"
+}
 </script>
 
 <style scoped>
