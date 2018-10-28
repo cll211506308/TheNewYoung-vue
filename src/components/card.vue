@@ -42,6 +42,7 @@
             <div> 内容：{{u.comContent}}<br/>
               评论者:{{u.userName}}&nbsp;&nbsp;&nbsp;
               时间：{{u.comTime}}
+              <img v-bind:src="'http://127.0.0.1:3000/'+u.headPic"/>
               <button v-if="u.userId == userId" @click="delcom(u.commentsId)">删除</button>
             </div>
           </el-card>
