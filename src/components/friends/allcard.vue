@@ -11,7 +11,6 @@
                 <img v-bind:src="'http://127.0.0.1:3000/'+u.headPic"/>
               </el-row>
               <el-row style="margin-top: 10px">
-                <el-button type="primary" round size="mini" v-if="u.userId == attUsers">已关注</el-button>
                 <el-button type="primary" round size="mini" @click="att(u.userId)">关注此人</el-button>
               </el-row>
             </el-col>

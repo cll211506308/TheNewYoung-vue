@@ -107,9 +107,6 @@
 
           }
         })
-      },
-      resetForm(formName) {
-        this.$refs[formName].resetFields();
       }
     },
     computed: {
