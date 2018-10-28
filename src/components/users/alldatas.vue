@@ -53,11 +53,8 @@
     color: white;
     cursor: pointer;
   }
- .menuli  :hover{
-    color: greenyellow;
+  #menu li:active{
+    color: black;
+  }
 
-  }
- .menuli li :visited{
-    color: white;
-  }
 </style>

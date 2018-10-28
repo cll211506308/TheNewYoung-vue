@@ -1,41 +1,43 @@
 <template>
   <el-row class="login">
-    <el-col :span="10" :offset="7" class="loginCard animated slideInLeft" style="padding: 15px">
-      <el-row>
-        <p class="log">登 录</p>
-        <router-link to="setUp" class="toSet">还没账号？去<span style="color:orangered;">注册</span></router-link>
-      </el-row>
-      <el-row>
-        <div class="heng"></div>
-      </el-row>
-      <el-row v-if="show1">
-        <el-col :span="20">
-          <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px"
-                   class="demo-ruleForm">
-            <el-form-item label="用户名" prop="name">
-              <el-input v-model="ruleForm2.name" placeholder="请输入用户名"></el-input>
-            </el-form-item>
-            <el-form-item label="密码" prop="pass" style="margin-bottom: 30px">
-              <el-input type="password" v-model="ruleForm2.pass" autocomplete="off" placeholder="请输入密码"></el-input>
-            </el-form-item>
-            <el-form-item>
-              <el-col :span="8" :offset="8">
-                <el-button type="primary" @click="submitForm()" class="btn">登 录</el-button>
-              </el-col>
-              <!--<el-button @click="resetForm('ruleForm2')">重置</el-button>-->
-            </el-form-item>
-          </el-form>
-        </el-col>
-      </el-row>
+    <el-row type="flex" justify="center">
+      <el-col :md="10" :sm="20" class="loginCard animated slideInLeft" style="padding: 15px;">
+        <el-row>
+          <p class="log">登 录</p>
+          <router-link to="setUp" class="toSet">还没账号？去<span style="color:orangered;">注册</span></router-link>
+        </el-row>
+        <el-row>
+          <div class="heng"></div>
+        </el-row>
+        <el-row v-if="show1">
+          <el-col :span="20">
+            <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px"
+                     class="demo-ruleForm">
+              <el-form-item label="用户名" prop="name">
+                <el-input v-model="ruleForm2.name" placeholder="请输入用户名"></el-input>
+              </el-form-item>
+              <el-form-item label="密码" prop="pass" style="margin-bottom: 30px">
+                <el-input type="password" v-model="ruleForm2.pass" autocomplete="off" placeholder="请输入密码"></el-input>
+              </el-form-item>
+              <el-form-item>
+                <el-col :span="8" :offset="8">
+                  <el-button type="primary" @click="submitForm()" class="btn">登 录</el-button>
+                </el-col>
+                <!--<el-button @click="resetForm('ruleForm2')">重置</el-button>-->
+              </el-form-item>
+            </el-form>
+          </el-col>
+        </el-row>
 
-      <el-row>
-        <el-col>
-          <div>
-            <div v-if="show2" @click="tuichu">您已登录,点击退出</div>
-          </div>
-        </el-col>
-      </el-row>
-    </el-col>
+        <el-row>
+          <el-col>
+            <div>
+              <div v-if="show2" @click="tuichu">您已登录,点击退出</div>
+            </div>
+          </el-col>
+        </el-row>
+      </el-col>
+    </el-row>
   </el-row>
 
 

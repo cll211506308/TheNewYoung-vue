@@ -2,10 +2,12 @@
   <el-row type="flex" justify="center">
     <el-col :span="24">
       <div v-for="item in title1">
-        <el-card class="box-card">
+        <el-card class="box-card" shadow="hover" style="margin-bottom: 6px;" >
           <div class="text item">
-            <router-link :to="'/artical/'+item.articalId" target="_blank">
+            <router-link tag="a" :to="'/artical/'+item.articalId" target="_blank"
+                         style="width: 90%;float: left;text-decoration: none;color: black;">
             {{item.title}}
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {{item.colTime}}
             </router-link>
             <el-button style="float: right; padding: 3px 0" type="text" icon="el-icon-delete" @click="delCol(item.articalId)"></el-button>
@@ -60,15 +62,16 @@
 
 <style scoped>
   .text {
-    font-size: 14px;
+    font-size: 16px;
   }
-
-  .item {
-    margin-bottom: 18px;
+  .item :link{
+    color: black;
   }
   .box-card {
     width: 100%;
     padding: 0;
+    height: 61px;
   }
+
 </style>
 

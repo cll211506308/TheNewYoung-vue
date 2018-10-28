@@ -1,54 +1,57 @@
 <template>
   <el-row class="setUp">
-    <el-col :span="10" :offset="7" class="loginCard animated slideInLeft" style="padding: 15px">
-      <el-row>
-        <p class="log">注 册</p>
-        <router-link to="login" class="toSet">已有账号？去<span style="color:orangered;">登录</span></router-link>
-      </el-row>
-      <el-row>
-        <div class="heng"></div>
-      </el-row>
-      <el-col :span="20" v-if="dis">
-        <el-row style="margin-bottom: 25px">
-          <el-col :span="20" :offset="2">
-            <span style="margin-right: 40px">请上传头像</span>
-            <img src="../../static/images/keys.png" alt="" class="keys">
-            <input type="file" name="avatar"
-                   @change="changeImage($event)"
-                   accept="image/gif,image/jpeg,image/jpg,image/png"
-                   ref="avatarInput"
-                   multiple>
-          </el-col>
+    <el-row type="flex" justify="center">
+      <el-col :md="10" :sm="20" class="loginCard animated slideInLeft" style="padding: 15px">
+        <el-row>
+          <p class="log">注 册</p>
+          <router-link to="login" class="toSet">已有账号？去<span style="color:orangered;">登录</span></router-link>
         </el-row>
-
-        <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px"
-                 class="demo-ruleForm">
-          <el-form-item label="用户名" prop="age">
-            <el-input v-model.number="ruleForm2.age" placeholder="请输入用户名"></el-input>
-          </el-form-item>
-          <el-form-item label="密码" prop="pass">
-            <el-input type="password" v-model="ruleForm2.pass" autocomplete="off" placeholder="请输入密码,至少6位"></el-input>
-          </el-form-item>
-          <el-form-item label="确认密码" prop="checkPass">
-            <el-input type="password" v-model="ruleForm2.checkPass" autocomplete="off" placeholder="请确认密码"></el-input>
-          </el-form-item>
-          <el-form-item>
-            <el-col :span="8" :offset="8">
-              <el-button type="primary" @click="submitForm('ruleForm2')" class="btn">提 交</el-button>
-              <!--<el-button @click="resetForm('ruleForm2')">重置</el-button>-->
+        <el-row>
+          <div class="heng"></div>
+        </el-row>
+        <el-col :span="20" v-if="dis">
+          <el-row style="margin-bottom: 25px">
+            <el-col :span="20" :offset="2">
+              <span style="margin-right: 40px">请上传头像</span>
+              <img src="../../static/images/keys.png" alt="" class="keys">
+              <input type="file" name="avatar"
+                     @change="changeImage($event)"
+                     accept="image/gif,image/jpeg,image/jpg,image/png"
+                     ref="avatarInput"
+                     multiple>
             </el-col>
-          </el-form-item>
-        </el-form>
-      </el-col>
-      <el-col :span="18" :offset="3" v-if="dis1" style="margin-bottom: 30px">
-            <div style="font-size: 18px; font-weight: bold">
-              <img src="../../static/images/success.png" alt="" class="success">
-              注册成功！欢迎加入新Young生！
-            </div>
-      </el-col>
+          </el-row>
+
+          <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px"
+                   class="demo-ruleForm">
+            <el-form-item label="用户名" prop="age">
+              <el-input v-model.number="ruleForm2.age" placeholder="请输入用户名"></el-input>
+            </el-form-item>
+            <el-form-item label="密码" prop="pass">
+              <el-input type="password" v-model="ruleForm2.pass" autocomplete="off" placeholder="请输入密码,至少6位"></el-input>
+            </el-form-item>
+            <el-form-item label="确认密码" prop="checkPass">
+              <el-input type="password" v-model="ruleForm2.checkPass" autocomplete="off" placeholder="请确认密码"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-col :span="8" :offset="8">
+                <el-button type="primary" @click="submitForm('ruleForm2')" class="btn">提 交</el-button>
+                <!--<el-button @click="resetForm('ruleForm2')">重置</el-button>-->
+              </el-col>
+            </el-form-item>
+          </el-form>
+        </el-col>
+        <el-col :span="18" :offset="3" v-if="dis1" style="margin-bottom: 30px">
+          <div style="font-size: 18px; font-weight: bold">
+            <img src="../../static/images/success.png" alt="" class="success">
+            注册成功！欢迎加入新Young生！
+          </div>
+        </el-col>
 
 
-    </el-col>
+      </el-col>
+    </el-row>
+
 
   </el-row>
 

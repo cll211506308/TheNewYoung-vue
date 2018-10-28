@@ -5,7 +5,7 @@
         <el-collapse-item name="1">
           <template slot="title">
             <h2>养生堂
-              <small class="hidden-sm-and-down"> 心乱则百病生，心乱则万病息。---《卫生宝鉴》</small></h2>
+              <small class="hidden-sm-and-down"> 心乱则百病生，心静则万病息。---《卫生宝鉴》</small></h2>
           </template>
           <el-row :gutter="20">
             <el-col :span="8" v-for="(item,index) in oneYang" :key="index">

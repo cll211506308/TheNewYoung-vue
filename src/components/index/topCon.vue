@@ -28,14 +28,14 @@
         </el-col>
         <el-col :md="1" class="hidden-sm-and-down">
           <div v-if="isLogin">
-            <router-link tag="li" to="/login"><img src="../../../static/images/login1.png" alt="" class="login"></router-link>
+            <router-link tag="li" to="/login" style="font-size: 15px">登 录</router-link>
           </div>
           <div v-if="!isLogin">
             <el-row>
               <el-col :span="18" class="dropdown1">
                 <router-link tag="li" :to="'/usershome/' + userId"><img src="../../../static/images/person.png" style="width: 21px;height: 21px; position: relative;top: 3px;" alt=""></router-link>
                 <div class="dropdown-content1">
-                  <p style="height: 90px;line-height: 90px"><img src="../../../static/images/user1.jpg" alt="" style="height: 80px;width: 80px;border-radius: 40px;margin-top: 10px;margin-bottom: 10px;color: whitesmoke"></p>
+                  <p style="height: 90px;line-height: 90px"><img v-bind:src="this.$store.state.picurl+data2.headPic" alt="" style="height: 80px;width: 80px;border-radius: 40px;margin-top: 10px;margin-bottom: 10px;color: whitesmoke"></p>
                   <p>Hi,{{userName}}!</p>
                   <router-link tag="p" :to="'/usershome/' + userId" style="cursor: pointer" class="pg">个人中心</router-link>
                   <hr style="color:darkgray; width: 150px;margin:auto auto">
@@ -57,7 +57,7 @@
                 <router-link tag="p" to="/friends" style="cursor: pointer" class="pg">Young友圈</router-link>
                 <hr style="color:darkgray; width: 100px;margin:auto auto">
                 <div v-if="isLogin">
-                  <router-link tag="p" to="/login" style="cursor: pointer" class="pg"><img src="../../../static/images/login.png" alt="" class="login"></router-link>
+                  <router-link tag="p" to="/login" style="cursor: pointer;font-size: 15px" class="pg">登 录</router-link>
                 </div>
                 <div v-if="!isLogin">
                   <router-link tag="p" :to="'/usershome/' + userId" style="cursor: pointer" class="pg"><img src="../../../static/images/person.png" style="width: 21px;height: 21px; position: relative;top: 5px;" alt=""></router-link>
@@ -79,14 +79,23 @@
         input10: '',
         userName: '',
         data: [],
-        userId :this.$store.state.data1
+        userId :this.$store.state.data1,
+        data2:''
 
       };
     },
     created() {
       this.$axios.get('users/username/'+this.userId).then(
         ((res) => {
-          this.userName = res.data.data[0].username
+          this.userName = res.data.data[0].userName
+        })
+      ).catch(err => {
+        console.log(err)
+      });
+
+      this.$axios.get('users/username/' + this.$store.state.data1).then(
+        ((res) => {
+          this.data2 = res.data.data[0];
         })
       ).catch(err => {
         console.log(err)

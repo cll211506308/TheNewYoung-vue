@@ -1,10 +1,11 @@
 <template>
   <el-row style="margin-bottom: 40px">
     <el-col :span="20" :offset="2">
-      <el-row style="margin-bottom: 20px">
+      <el-row style="margin-bottom: 20px" >
       </el-row>
+      <!--//样式1-->
       <el-row
-        style="background: url('../../../static/images/bg1.png'); width: 100%; height: 400px; background-size:100% 400px; ">
+        style="background: url('../../../static/images/bg1.png'); width: 100%; height: 400px; background-size:100% 400px; " class="hidden-sm-and-down">
         <el-col :span="20" :offset="2" style="margin-top: 40px">
           <el-tabs>
             <el-tab-pane>
@@ -116,6 +117,112 @@
           </el-tabs>
         </el-col>
       </el-row>
+      <!--//样式2-->
+      <el-row
+        style="background: url('../../../static/images/bg1.png'); width: 100%; height: 280px; background-size:100% 280px; " class="hidden-md-and-up">
+        <el-col :span="20" :offset="2" style="margin-top: 20px">
+          <el-tabs>
+            <el-tab-pane>
+              <template slot="label">
+                <h3 class="ph3">热门帖子
+                  <small style="color: red;margin-left: 0;">HOT</small>
+                </h3>
+              </template>
+              <el-row :gutter="20">
+                <el-col :span="6" v-for="(item,index) in oneRecommend" :key="index">
+                  <router-link :to="'/card/'+ item.postId" target="_blank">
+                    <div class="post1" style="background: url('../../../static/images/abcd.png'); background-size: 100% 210px; background-repeat:no-repeat; ">
+                      <div class="postTop1">
+                        <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
+                          {{item.title}}
+                        </p>
+                      </div>
+                      <div class="postCon1 animated slideInUp">
+                        <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 10px;">
+                          id: {{item.postId}} <br>
+                          label: {{item.postLabel}} <br>
+                        </div>
+                      </div>
+                    </div>
+                  </router-link>
+                </el-col>
+              </el-row>
+            </el-tab-pane>
+            <el-tab-pane label="养 生">
+              <template slot="label">
+                <h3 class="ph3"> 养 生 </h3>
+              </template>
+              <el-row :gutter="20">
+                <el-col :span="6" v-for="(item,index) in oneYang" :key="index">
+                  <router-link :to="'/card/'+ item.postId" target="_blank">
+                    <div class="post1" style="background: url('../../../static/images/banner1.jpg'); background-size: 100% 210px; background-repeat:no-repeat; ">
+                      <div class="postTop1">
+                        <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
+                          {{item.title}}
+                        </p>
+                      </div>
+                      <div class="postCon1 animated slideInUp">
+                        <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
+                          id: {{item.postId}} <br>
+                          label: {{item.postLabel}}  <br>
+                        </div>
+                      </div>
+                    </div>
+                  </router-link>
+                </el-col>
+              </el-row>
+            </el-tab-pane>
+            <el-tab-pane label="美 食">
+              <template slot="label">
+                <h3 class="ph3"> 美 食 </h3>
+              </template>
+              <el-row :gutter="20">
+                <el-col :span="6" v-for="(item,index) in oneDiet" :key="index">
+                  <router-link :to="'/card/'+ item.postId" target="_blank">
+                    <div class="post1" style="background: url('../../../static/images/banner4.jpg'); background-size: 100% 210px; background-repeat:no-repeat; ">
+                      <div class="postTop1">
+                        <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
+                          {{item.title}}
+                        </p>
+                      </div>
+                      <div class="postCon1 animated slideInUp">
+                        <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
+                          id: {{item.postId}} <br>
+                          label: {{item.postLabel}} <br>
+                        </div>
+                      </div>
+                    </div>
+                  </router-link>
+                </el-col>
+              </el-row>
+            </el-tab-pane>
+            <el-tab-pane label="健 身">
+              <template slot="label">
+                <h3 class="ph3"> 健 身 </h3>
+              </template>
+              <el-row :gutter="20">
+                <el-col :span="6" v-for="(item,index) in oneFit" :key="index">
+                  <router-link :to="'/card/'+ item.postId" target="_blank">
+                    <div class="post1" style="background: url('../../../static/images/banner2.jpg'); background-size: 100% 210px; background-repeat:no-repeat; ">
+                      <div class="postTop1">
+                        <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
+                          {{item.title}}
+                        </p>
+                      </div>
+                      <div class="postCon1 animated slideInUp">
+                        <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
+                          id: {{item.postId}} <br>
+                          label: {{item.postLabel}} <br>
+                        </div>
+                      </div>
+                    </div>
+                  </router-link>
+                </el-col>
+              </el-row>
+            </el-tab-pane>
+          </el-tabs>
+        </el-col>
+      </el-row>
     </el-col>
   </el-row>
 
@@ -188,7 +295,21 @@
     position: relative;
     cursor: pointer;
   }
+
+  .post1{
+    height: 180px;
+    position: relative;
+    cursor: pointer;
+  }
   .postTop{
+    width: 100%;
+    height: 50px;
+    background: black;
+    opacity: 0.9;
+    position: absolute;
+    bottom: 0;
+  }
+  .postTop1{
     width: 100%;
     height: 50px;
     background: black;
@@ -205,8 +326,23 @@
     top: 0;
     display: none;
   }
+  .postCon1{
+    width: 100%;
+    height: 130px;
+    background: black;
+    opacity: 0.7;
+    position:absolute;
+    top: 0;
+    display: none;
+  }
   .post:hover .postCon{
     display: block;
   }
+  .post1:hover .postCon1{
+    display: block;
+  }
 
+  .ph3{
+    font-size: 16px;
+  }
 </style>

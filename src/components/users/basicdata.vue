@@ -6,6 +6,7 @@
              <div class="userphoto">
                <img v-bind:src="this.$store.state.picurl+data2.headPic" alt="">
                <span>&nbsp;&nbsp;&nbsp;您好！{{username}}</span>
+               <span>&nbsp;&nbsp;&nbsp;{{autograph}}</span>
              </div>
         </div>
       </el-col>
@@ -20,6 +21,7 @@
       return {
         username:null,
         data2:'',
+        autograph:null
       }
     },
     mounted(){
@@ -27,6 +29,12 @@
         ((res)=>{
           console.log(res.data)
           this.username = res.data.data[0].userName
+        })
+      ).catch(err=>{console.log(err)})
+      this.$axios.get('users/username/'+this.$store.state.data1).then(
+        ((res)=>{
+          console.log(res.data)
+          this.autograph = res.data.data[0].autograph
         })
       ).catch(err=>{console.log(err)})
       this.$axios.get('users/username/'+this.$store.state.data1).then(
