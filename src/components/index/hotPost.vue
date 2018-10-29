@@ -25,9 +25,9 @@
                       </div>
                       <div class="postCon animated slideInUp hidden-sm-and-down">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
-                          id: {{item.postId}} <br>
-                          label: {{item.postLabel}} <br>
-                          content: <br>
+                        <!--  id: {{item.postId}} <br>-->
+                          标签: {{item.postLabel}} <br>
+                         主要内容: <br>
                           {{item.postContent.substr(0,65)}}
                         </div>
                       </div>
@@ -51,9 +51,9 @@
                       </div>
                       <div class="postCon animated slideInUp hidden-sm-and-down">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
-                          id: {{item.postId}} <br>
-                          label: {{item.postLabel}}  <br>
-                          content: <br>
+                        <!--  id: {{item.postId}} <br>-->
+                         标签: {{item.postLabel}}  <br>
+                          主要内容: <br>
                           {{item.postContent.substr(0,65)}}
                         </div>
                       </div>
@@ -77,9 +77,9 @@
                       </div>
                       <div class="postCon animated slideInUp hidden-sm-and-down">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
-                          id: {{item.postId}} <br>
-                          label: {{item.postLabel}} <br>
-                          content: <br>
+                        <!--  id: {{item.postId}} <br>-->
+                         标签: {{item.postLabel}} <br>
+                         主要内容: <br>
                           {{item.postContent.substr(0,65)}}
                         </div>
                       </div>
@@ -103,9 +103,9 @@
                       </div>
                       <div class="postCon animated slideInUp hidden-sm-and-down">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
-                          id: {{item.postId}} <br>
-                          label: {{item.postLabel}} <br>
-                          content: <br>
+                          <!--id: {{item.postId}} <br>-->
+                         标签: {{item.postLabel}} <br>
+                          主要内容: <br>
                           {{item.postContent.substr(0,65)}}
                         </div>
                       </div>
@@ -139,8 +139,8 @@
                       </div>
                       <div class="postCon1 animated slideInUp">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 10px;">
-                          id: {{item.postId}} <br>
-                          label: {{item.postLabel}} <br>
+                         <!-- id: {{item.postId}} <br>-->
+                          标签: {{item.postLabel}} <br>
                         </div>
                       </div>
                     </div>
@@ -163,8 +163,8 @@
                       </div>
                       <div class="postCon1 animated slideInUp">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
-                          id: {{item.postId}} <br>
-                          label: {{item.postLabel}}  <br>
+                        <!--  id: {{item.postId}} <br>-->
+                          标签: {{item.postLabel}}  <br>
                         </div>
                       </div>
                     </div>
@@ -187,8 +187,8 @@
                       </div>
                       <div class="postCon1 animated slideInUp">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
-                          id: {{item.postId}} <br>
-                          label: {{item.postLabel}} <br>
+                         <!-- id: {{item.postId}} <br>-->
+                          标签: {{item.postLabel}} <br>
                         </div>
                       </div>
                     </div>
@@ -211,8 +211,8 @@
                       </div>
                       <div class="postCon1 animated slideInUp">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
-                          id: {{item.postId}} <br>
-                          label: {{item.postLabel}} <br>
+                          <!--id: {{item.postId}} <br>-->
+                         标签: {{item.postLabel}} <br>
                         </div>
                       </div>
                     </div>

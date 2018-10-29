@@ -1,7 +1,7 @@
 <template>
   <el-row style="margin-top: 20px">
     <el-col :span="20" :offset="2">
-      <el-carousel height="320px">
+      <el-carousel :interval="3000" height="320px">
         <el-carousel-item v-for="(item,index) in dating" :key="index">
           <img :src="item.src" class="banners">
         </el-carousel-item>
