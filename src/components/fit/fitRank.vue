@@ -4,7 +4,7 @@
       <img src="../../../static/images/lebel.png" style="float: left;margin-left: 30%;margin-top: 15px">
       <h2 style="float: left;padding-left: 4%;margin-top: 12px;color: #696969;">排行榜</h2>
     </div>
-    <div class="rank" v-for="(item,index) in result" :key="index">
+    <div class="rank" v-for="(item,index) in oneFit" :key="index">
       <span v-if="index==0"><img src="../../../static/images/gold.png" class="pic"></span>
       <span v-if="index==1"><img src="../../../static/images/yin.png" class="pic"></span>
       <span v-if="index==2"><img src="../../../static/images/tong.png" class="pic"></span>
@@ -16,21 +16,25 @@
 </template>
 
 <script>
-export default {
-  name: "fitRank",
-  data(){
-    return{
-      result:[]
+  export default {
+    name: "fitRank",
+    data(){
+      return{
+        data:[],
+        oneFit:[],
+      }
+    },
+    created(){
+      this.$axios.get("/fit").then((res) => {
+        this.data = res.data.data.Fit
+        for(let i =0; i<6;i++){
+          this.oneFit.push(this.data[i])
+        }
+      }).catch((err) => {
+        console.log(err)
+      })
     }
-  },
-  created(){
-    this.$axios.get("/fit").then((res) => {
-      this.result = res.data.data.Fit
-    }).catch((err) => {
-      console.log(err)
-    })
   }
-}
 </script>
 
 <style scoped>
@@ -56,5 +60,8 @@ export default {
   .pic{
     position: relative;
     top: 11px;
+  }
+  a{
+    color: dimgrey;
   }
 </style>

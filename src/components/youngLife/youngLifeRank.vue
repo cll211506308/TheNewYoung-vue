@@ -4,11 +4,11 @@
       <img src="../../../static/images/lebel.png" style="float: left;margin-left: 30%;margin-top: 15px">
       <h2 style="float: left;padding-left: 4%;margin-top: 12px;color: #696969;">排行榜</h2>
     </div>
-    <div class="rank" v-for="(item,index) in result" :key="index">
+    <div class="rank" v-for="(item,index) in oneYang" :key="index">
       <span v-if="index==0"><img src="../../../static/images/gold.png" class="pic"></span>
       <span v-if="index==1"><img src="../../../static/images/yin.png" class="pic"></span>
       <span v-if="index==2"><img src="../../../static/images/tong.png" class="pic"></span>
-      <span v-if="index>2&&index<6" style="margin-left: 5%">{{index+1}}.</span>
+      <span v-if="index>2" style="margin-left: 5%">{{index+1}}.</span>
       <router-link :to="{path:'/artical/' + item.articalId}" style="text-decoration: none;">
         {{item.title}}</router-link>
     </div>
@@ -16,21 +16,25 @@
 </template>
 
 <script>
-export default {
-  name: "youngLifeRank",
-  data(){
-    return{
-      result:[]
+  export default {
+    name: "youngLifeRank",
+    data(){
+      return{
+        data:[],
+        oneYang:[],
+      }
+    },
+    created(){
+      this.$axios.get("/youngLife").then((res) => {
+        this.data = res.data.data.Yang
+        for(let i =0; i<6;i++){
+          this.oneYang.push(this.data[i])
+        }
+      }).catch((err) => {
+        console.log(err)
+      })
     }
-  },
-  created(){
-    this.$axios.get("/youngLife").then((res) => {
-      this.result = res.data.data.Yang
-    }).catch((err) => {
-      console.log(err)
-    })
   }
-}
 </script>
 
 <style scoped>
@@ -56,5 +60,8 @@ export default {
   .pic{
     position: relative;
     top: 11px;
+  }
+  a{
+    color: dimgrey;
   }
 </style>

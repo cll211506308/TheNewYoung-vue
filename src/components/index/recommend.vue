@@ -10,7 +10,7 @@
           <el-row :gutter="20">
             <el-col :span="8" v-for="(item,index) in oneYang" :key="index">
               <el-card shadow="hover">
-                <img src="../../../static/images/banner1.jpg" class="image">
+                <img v-bind:src="'http://127.0.0.1:3000/'+ item.coverPic" class="image">
                 <div style="padding: 14px;">
                   <p class="pT">{{item.title}}</p>
                   <div class="bottom clearfix">
@@ -31,11 +31,11 @@
           <el-row :gutter="20">
             <el-col :span="8" v-for="(item,index) in oneDiet" :key="index">
               <el-card shadow="hover">
-                <img src="../../../static/images/banner2.jpg" class="image">
+                <img v-bind:src="'http://127.0.0.1:3000/'+ item.coverPic" class="image">
                 <div style="padding: 14px;">
                   <p class="pT">{{item.title}}</p>
                   <div class="bottom clearfix">
-                    <p class="hidden-sm-and-down">标签: <span style="color: orangered">{{item.articallabel}}</span></p>
+                    <p class="hidden-sm-and-down">标签: <span style="color: orangered">{{item.articalLabel}}</span></p>
                     <p style="margin-top: 15px" class="hidden-sm-and-down"><i class="el-icon-view"> {{item.pageViews}}</i></p>
                     <router-link :to="'/artical/'+item.articalId" target="_blank"><el-button type="primary" class="button">了解更多</el-button></router-link>
                   </div>
@@ -52,11 +52,11 @@
           <el-row :gutter="20">
             <el-col :span="8" v-for="(item,index) in oneFit" :key="index">
               <el-card shadow="hover">
-                <img src="../../../static/images/banner4.jpg" class="image">
+                <img v-bind:src="'http://127.0.0.1:3000/'+ item.coverPic" class="image">
                 <div style="padding: 14px;">
                   <div class="pT">{{item.title}}</div>
                   <div class="bottom clearfix">
-                    <p class="hidden-sm-and-down">标签: <span style="color: orangered">{{item.articallabel}}</span></p>
+                    <p class="hidden-sm-and-down">标签: <span style="color: orangered">{{item.articalLabel}}</span></p>
                     <p style="margin-top: 15px" class="hidden-sm-and-down"><i class="el-icon-view"> {{item.pageViews}}</i></p>
                     <router-link :to="'/artical/'+item.articalId" target="_blank"><el-button type="primary" class="button">了解更多</el-button></router-link>
                   </div>

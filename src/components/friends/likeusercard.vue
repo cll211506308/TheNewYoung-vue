@@ -159,6 +159,7 @@
                 message: '恭喜你，取消关注成功',
                 type: 'success'
               });
+              window.location.reload();
             }
           })
           .catch(function (error) {

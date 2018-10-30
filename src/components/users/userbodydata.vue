@@ -287,14 +287,18 @@
             bodyclassContent : bodyclassContent,
             BMI:this.BMI,
             suggestions : suggestions,
-
-
           } ,function () {
 
           })
-          this.$alert('提交成功,您可以在您的主页中查看最新体质信息', {
-            confirmButtonText: '确定'
-          })
+
+          this.$message({
+            message: '提交成功,即将跳转到我的主页',
+            type: 'success'
+          });
+          setTimeout(() => {
+              window.location.href = '/usershome/5'
+          }, 500);
+
         } else {
           this.$alert('您有未完成的题目，请检查！', {
             confirmButtonText: '确定'
@@ -306,7 +310,6 @@
       radioCClick2(index, index2) {
         // index-List的索引   index2-List下data的索引
         // 得分算法
-        console.log(index2)
         this.scoring(index, index2)
         // this.List[index].score = (index2 === 0) ? 5 : 4
         // 遍历赋值，得总分
@@ -317,7 +320,7 @@
           return total + num
         })
        this.BMI = this.numberValidateForm.weight/( this.numberValidateForm.height* this.numberValidateForm.height);
-        console.log(this.BMI)
+
       },
       scoring(index, index2) {
         switch (index2) {

@@ -241,7 +241,7 @@
     .box-card1{
     width: 55%;
     height: 400px;
-    background: bisque;
+   /* background: bisque;*/
     float: left;
   }
     .bodyclass{

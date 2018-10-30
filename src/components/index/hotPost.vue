@@ -17,7 +17,7 @@
               <el-row :gutter="20">
                 <el-col :span="6" v-for="(item,index) in oneRecommend" :key="index">
                   <router-link :to="'/card/'+ item.postId" target="_blank">
-                    <div class="post" style="background: url('../../../static/images/abcd.png'); background-size: 100% 210px; background-repeat:no-repeat; ">
+                    <div class="post" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}" >
                       <div class="postTop">
                         <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
                           {{item.title}}
@@ -25,9 +25,9 @@
                       </div>
                       <div class="postCon animated slideInUp hidden-sm-and-down">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
-                          id: {{item.postId}} <br>
-                          label: {{item.postLabel}} <br>
-                          content: <br>
+                        <!--  id: {{item.postId}} <br>-->
+                          标签: {{item.postLabel}} <br>
+                         主要内容: <br>
                           {{item.postContent.substr(0,65)}}
                         </div>
                       </div>
@@ -43,7 +43,7 @@
               <el-row :gutter="20">
                 <el-col :span="6" v-for="(item,index) in oneYang" :key="index">
                   <router-link :to="'/card/'+ item.postId" target="_blank">
-                    <div class="post" style="background: url('../../../static/images/banner1.jpg'); background-size: 100% 210px; background-repeat:no-repeat; ">
+                    <div class="post" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop">
                         <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
                           {{item.title}}
@@ -51,9 +51,9 @@
                       </div>
                       <div class="postCon animated slideInUp hidden-sm-and-down">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
-                          id: {{item.postId}} <br>
-                          label: {{item.postLabel}}  <br>
-                          content: <br>
+                        <!--  id: {{item.postId}} <br>-->
+                         标签: {{item.postLabel}}  <br>
+                          主要内容: <br>
                           {{item.postContent.substr(0,65)}}
                         </div>
                       </div>
@@ -69,7 +69,7 @@
               <el-row :gutter="20">
                 <el-col :span="6" v-for="(item,index) in oneDiet" :key="index">
                   <router-link :to="'/card/'+ item.postId" target="_blank">
-                    <div class="post" style="background: url('../../../static/images/banner4.jpg'); background-size: 100% 210px; background-repeat:no-repeat; ">
+                    <div class="post" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop">
                         <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
                           {{item.title}}
@@ -77,9 +77,9 @@
                       </div>
                       <div class="postCon animated slideInUp hidden-sm-and-down">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
-                          id: {{item.postId}} <br>
-                          label: {{item.postLabel}} <br>
-                          content: <br>
+                        <!--  id: {{item.postId}} <br>-->
+                         标签: {{item.postLabel}} <br>
+                         主要内容: <br>
                           {{item.postContent.substr(0,65)}}
                         </div>
                       </div>
@@ -95,7 +95,7 @@
               <el-row :gutter="20">
                 <el-col :span="6" v-for="(item,index) in oneFit" :key="index">
                   <router-link :to="'/card/'+ item.postId" target="_blank">
-                    <div class="post" style="background: url('../../../static/images/banner2.jpg'); background-size: 100% 210px; background-repeat:no-repeat; ">
+                    <div class="post" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop">
                         <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
                           {{item.title}}
@@ -103,9 +103,9 @@
                       </div>
                       <div class="postCon animated slideInUp hidden-sm-and-down">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
-                          id: {{item.postId}} <br>
-                          label: {{item.postLabel}} <br>
-                          content: <br>
+                          <!--id: {{item.postId}} <br>-->
+                         标签: {{item.postLabel}} <br>
+                          主要内容: <br>
                           {{item.postContent.substr(0,65)}}
                         </div>
                       </div>
@@ -131,7 +131,7 @@
               <el-row :gutter="20">
                 <el-col :span="6" v-for="(item,index) in oneRecommend" :key="index">
                   <router-link :to="'/card/'+ item.postId" target="_blank">
-                    <div class="post1" style="background: url('../../../static/images/abcd.png'); background-size: 100% 210px; background-repeat:no-repeat; ">
+                    <div class="post1" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop1">
                         <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
                           {{item.title}}
@@ -139,8 +139,8 @@
                       </div>
                       <div class="postCon1 animated slideInUp">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 10px;">
-                          id: {{item.postId}} <br>
-                          label: {{item.postLabel}} <br>
+                         <!-- id: {{item.postId}} <br>-->
+                          标签: {{item.postLabel}} <br>
                         </div>
                       </div>
                     </div>
@@ -155,7 +155,7 @@
               <el-row :gutter="20">
                 <el-col :span="6" v-for="(item,index) in oneYang" :key="index">
                   <router-link :to="'/card/'+ item.postId" target="_blank">
-                    <div class="post1" style="background: url('../../../static/images/banner1.jpg'); background-size: 100% 210px; background-repeat:no-repeat; ">
+                    <div class="post1" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop1">
                         <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
                           {{item.title}}
@@ -163,8 +163,8 @@
                       </div>
                       <div class="postCon1 animated slideInUp">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
-                          id: {{item.postId}} <br>
-                          label: {{item.postLabel}}  <br>
+                        <!--  id: {{item.postId}} <br>-->
+                          标签: {{item.postLabel}}  <br>
                         </div>
                       </div>
                     </div>
@@ -179,7 +179,7 @@
               <el-row :gutter="20">
                 <el-col :span="6" v-for="(item,index) in oneDiet" :key="index">
                   <router-link :to="'/card/'+ item.postId" target="_blank">
-                    <div class="post1" style="background: url('../../../static/images/banner4.jpg'); background-size: 100% 210px; background-repeat:no-repeat; ">
+                    <div class="post1" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop1">
                         <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
                           {{item.title}}
@@ -187,8 +187,8 @@
                       </div>
                       <div class="postCon1 animated slideInUp">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
-                          id: {{item.postId}} <br>
-                          label: {{item.postLabel}} <br>
+                         <!-- id: {{item.postId}} <br>-->
+                          标签: {{item.postLabel}} <br>
                         </div>
                       </div>
                     </div>
@@ -203,7 +203,7 @@
               <el-row :gutter="20">
                 <el-col :span="6" v-for="(item,index) in oneFit" :key="index">
                   <router-link :to="'/card/'+ item.postId" target="_blank">
-                    <div class="post1" style="background: url('../../../static/images/banner2.jpg'); background-size: 100% 210px; background-repeat:no-repeat; ">
+                    <div class="post1" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop1">
                         <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
                           {{item.title}}
@@ -211,8 +211,8 @@
                       </div>
                       <div class="postCon1 animated slideInUp">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
-                          id: {{item.postId}} <br>
-                          label: {{item.postLabel}} <br>
+                          <!--id: {{item.postId}} <br>-->
+                         标签: {{item.postLabel}} <br>
                         </div>
                       </div>
                     </div>
@@ -294,12 +294,16 @@
     height: 250px;
     position: relative;
     cursor: pointer;
+    background-size: 100% 210px;
+    background-repeat:no-repeat;
   }
 
   .post1{
     height: 180px;
     position: relative;
     cursor: pointer;
+    background-size: 100% 210px;
+    background-repeat:no-repeat;
   }
   .postTop{
     width: 100%;

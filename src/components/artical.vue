@@ -6,11 +6,11 @@
           <el-col :span="22" :offset="1">
             <el-row :gutter="20" style="margin-top: 10px;margin-bottom: 25px">
               <el-col :span="10">
-                <img src="../../static/images/banner1.jpg" alt="" style="width: 100%;min-height: 100px;max-height: 250px">
+                <img v-bind:src="this.$store.state.picurl+ result.coverPic" alt="" style="width: 100%;min-height: 100px;max-height: 250px">
               </el-col>
               <el-col :span="14">
                 <p class="articalT">{{result.title}}</p>
-                <p class="articalL">标签: <span style="color: orangered">{{result.articallabel}}</span></p>
+                <p class="articalL">标签: <span style="color: orangered">{{result.articalLabel}}</span></p>
                 <p class="articalL hidden-sm-and-down">
                   <span>作者: {{result.userName}}</span>
                   <span style="float:right"><i class="el-icon-view"></i> <span style="color: darkgrey">{{result.pageViews}}</span></span>

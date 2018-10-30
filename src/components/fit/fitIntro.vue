@@ -15,19 +15,19 @@
 </template>
 
 <script>
-export default {
-  name: "fitIntro",
-  data() {
-    return {
-      activeIndex: '1'
-    }
-  },
-  methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath)
+  export default {
+    name: "fitIntro",
+    data() {
+      return {
+        activeIndex: '1'
+      }
+    },
+    methods: {
+      handleSelect(key, keyPath) {
+        console.log(key, keyPath)
+      }
     }
   }
-}
 </script>
 
 <style scoped>
