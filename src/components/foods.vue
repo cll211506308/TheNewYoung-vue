@@ -2,7 +2,7 @@
   <el-row style="padding-top: 20px; padding-bottom: 20px;background: whitesmoke">
     <el-col :span="20" :offset="2">
       <el-col :span="16">
-        <el-card id="intro" class="box-card" shadow="hover">
+        <el-card id="intro" class="box-card" shadow="hover" style="margin-bottom: 20px">
           <h1>营养饮食</h1>
           <p>新young生营养美食频道为您介绍各类食物、食材的功效与作用，
             让您了解它们的营养价值，提供药膳食疗，达到科学营养搭配饮食，吃出健康。</p>

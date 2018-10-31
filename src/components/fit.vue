@@ -2,7 +2,7 @@
   <el-row style="padding-top: 20px; padding-bottom: 20px;background: whitesmoke">
     <el-col :span="20" :offset="2">
       <el-col :span="16">
-        <el-card id="intro" class="box-card" shadow="hover">
+        <el-card id="intro" class="box-card" shadow="hover" style="margin-bottom: 20px">
           <h1>健身课堂</h1>
           <p>新Young生网站健身课堂为您提供健康、有效的训练方法以及个人案例，从减脂、
             增肌、力量、塑形、核心等方面为您提供专业的讲解，以便于调理出健康、强健的体魄。</p>

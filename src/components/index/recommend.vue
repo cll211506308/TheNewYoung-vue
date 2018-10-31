@@ -1,5 +1,5 @@
 <template>
-  <el-row style="margin-top: 40px;margin-bottom: 20px">
+  <el-row style="margin-top: 20px;margin-bottom: 20px">
     <el-col :span="20" :offset="2">
       <el-collapse v-model="activeName" accordion>
         <el-collapse-item name="1">

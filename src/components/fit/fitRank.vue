@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="background: white">
     <div id="title">
       <img src="../../../static/images/lebel.png" style="float: left;margin-left: 30%;margin-top: 15px">
       <h2 style="float: left;padding-left: 4%;margin-top: 12px;color: #696969;">排行榜</h2>
@@ -46,17 +46,18 @@
     position:relative;
   }
   .rank{
-    background-color: white;
     height: 60px;
     line-height: 60px;
+    font-size: 16px;
     font-weight: bold;
     width: 100%;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     text-indent: 1em;
+
   }
-  .rank:hover{box-shadow:0px 0px 10px 2px #aaa;}
+  .rank:hover {box-shadow:0px 0px 10px 2px #aaa;}
   .pic{
     position: relative;
     top: 11px;

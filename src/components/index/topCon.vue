@@ -9,7 +9,7 @@
         <el-col :span="3">
           <img src="../../../static/images/LOGO.png" alt="" class="LOGO">
         </el-col>
-        <el-col :md="18" :sm="22" :offset="5" class="hidden-sm-and-down">
+        <el-col :md="18" :sm="22" :offset="5" class="hidden-sm-and-down nav">
           <router-link tag="li" to="/">首 页</router-link>
           <router-link tag="li" to="/youngLife">养生堂</router-link>
           <router-link tag="li" to="/foods">营养饮食</router-link>
@@ -136,13 +136,6 @@
     transform: scale(1.05);
   }
 
-  .login{
-    width: 25px;
-    height: 25px;
-    position: relative;
-    top: 6px;
-  }
-
   .navicon{
     position: relative;
     top: 10px;
@@ -157,6 +150,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
   }
 
   li:hover{
