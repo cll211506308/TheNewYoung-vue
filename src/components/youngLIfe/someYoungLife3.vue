@@ -1,7 +1,7 @@
 <template>
   <div style="position: relative">
     <div class="content" v-for="(item,index) in myActData1" :key="index">
-      <img src="../../../static/images/abcd.png">
+      <img v-bind:src="'http://127.0.0.1:3000/'+ item.coverPic">
       <router-link :to="{path:'/artical/' + item.articalId}" tagret="_blank">
         <div id="title">
           <h3>{{item.title}}</h3><br>
@@ -10,8 +10,7 @@
         </div>
       </router-link>
     </div>
-    <div class="block">
-      <span class="demonstration"></span>
+    <div class="block" >
       <el-pagination ref="elpage"
                      @current-change="change()"
                      :current-page.sync="pageIndex"
@@ -30,7 +29,7 @@
       return{
         data:'',
         pageIndex: 1,
-        pagesize: 3,
+        pagesize: 4,
         pageCount:0,
         myActData:[],
         activitys:[]
@@ -108,5 +107,8 @@
     margin-bottom: 30px;
     padding-left: 35%;
     float: left;
+  }
+  a{
+    color: dimgrey;
   }
 </style>

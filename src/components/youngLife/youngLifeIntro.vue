@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-top: -20px">
     <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect" active-text-color="#FF7F24">
       <el-menu-item index="1"><router-link to="/youngLife" style="text-decoration: none">全部</router-link></el-menu-item>
       <el-menu-item index="2"><router-link to="/youngLife/someYoungLife1" style="text-decoration: none">婴幼儿</router-link></el-menu-item>

@@ -1,5 +1,5 @@
 <template>
-  <el-row style="margin-top: 40px;margin-bottom: 20px">
+  <el-row style="margin-top: 20px;margin-bottom: 20px">
     <el-col :span="20" :offset="2">
       <el-collapse v-model="activeName" accordion>
         <el-collapse-item name="1">
@@ -35,7 +35,7 @@
                 <div style="padding: 14px;">
                   <p class="pT">{{item.title}}</p>
                   <div class="bottom clearfix">
-                    <p class="hidden-sm-and-down">标签: <span style="color: orangered">{{item.articallabel}}</span></p>
+                    <p class="hidden-sm-and-down">标签: <span style="color: orangered">{{item.articalLabel}}</span></p>
                     <p style="margin-top: 15px" class="hidden-sm-and-down"><i class="el-icon-view"> {{item.pageViews}}</i></p>
                     <router-link :to="'/artical/'+item.articalId" target="_blank"><el-button type="primary" class="button">了解更多</el-button></router-link>
                   </div>
@@ -56,7 +56,7 @@
                 <div style="padding: 14px;">
                   <div class="pT">{{item.title}}</div>
                   <div class="bottom clearfix">
-                    <p class="hidden-sm-and-down">标签: <span style="color: orangered">{{item.articallabel}}</span></p>
+                    <p class="hidden-sm-and-down">标签: <span style="color: orangered">{{item.articalLabel}}</span></p>
                     <p style="margin-top: 15px" class="hidden-sm-and-down"><i class="el-icon-view"> {{item.pageViews}}</i></p>
                     <router-link :to="'/artical/'+item.articalId" target="_blank"><el-button type="primary" class="button">了解更多</el-button></router-link>
                   </div>

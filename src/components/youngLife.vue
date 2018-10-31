@@ -2,7 +2,7 @@
   <el-row style="padding-top: 20px; padding-bottom: 20px;background: whitesmoke">
     <el-col :span="20" :offset="2">
       <el-col :span="16">
-        <el-card id="intro" class="box-card" shadow="hover">
+        <el-card id="intro" class="box-card" shadow="hover" style="margin-bottom: 20px">
           <h1>养生堂</h1>
           <p>新young生网站养生堂板块为您提供最全面的中医养生知识，随时查找实用的中药偏方秘方，
             借鉴名人养生方法，了解养生保健知识，让您远离疾病，保持身体健康。</p>

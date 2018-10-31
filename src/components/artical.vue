@@ -10,7 +10,7 @@
               </el-col>
               <el-col :span="14">
                 <p class="articalT">{{result.title}}</p>
-                <p class="articalL">标签: <span style="color: orangered">{{result.articallabel}}</span></p>
+                <p class="articalL">标签: <span style="color: orangered">{{result.articalLabel}}</span></p>
                 <p class="articalL hidden-sm-and-down">
                   <span>作者: {{result.userName}}</span>
                   <span style="float:right"><i class="el-icon-view"></i> <span style="color: darkgrey">{{result.pageViews}}</span></span>

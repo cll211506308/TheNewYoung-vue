@@ -6,7 +6,7 @@
              <div class="userphoto">
                <img v-bind:src="this.$store.state.picurl+data2.headPic" alt="">
                <span>&nbsp;&nbsp;&nbsp;您好！{{username}}</span>
-               <span>&nbsp;&nbsp;&nbsp;{{autograph}}</span>
+              <!-- <span>&nbsp;&nbsp;&nbsp;{{autograph}}</span>-->
              </div>
         </div>
       </el-col>
