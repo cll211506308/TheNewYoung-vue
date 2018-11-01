@@ -10,11 +10,11 @@
           <img src="../../../static/images/LOGO.png" alt="" class="LOGO">
         </el-col>
         <el-col :md="18" :sm="22" :offset="5" class="hidden-sm-and-down nav">
-          <router-link tag="li" to="/" active-class="active" exact>首 页</router-link>
-          <router-link tag="li" to="/youngLife" active-class="active">养生堂</router-link>
-          <router-link tag="li" to="/foods" active-class="active">营养饮食</router-link>
-          <router-link tag="li" to="/fit" active-class="active">健身课堂</router-link>
-          <router-link tag="li" to="/friends" active-class="active">Young友圈</router-link>
+          <router-link tag="li" to="/" active-class="active123" exact>首 页</router-link>
+          <router-link tag="li" to="/youngLife" active-class="active123">养生堂</router-link>
+          <router-link tag="li" to="/foods" active-class="active123">营养饮食</router-link>
+          <router-link tag="li" to="/fit" active-class="active123">健身课堂</router-link>
+          <router-link tag="li" to="/friends" active-class="active123">Young友圈</router-link>
         </el-col>
         <el-col :md="5" :offset="2" style="position:absolute; left:61%; top: -2px;" class="hidden-md-and-down">
           <el-input
@@ -206,7 +206,7 @@
 
   }
 
-  .active{
+  .active123{
     border-bottom: 4px solid orangered;
     color:orangered;
   }
