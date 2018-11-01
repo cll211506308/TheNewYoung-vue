@@ -41,7 +41,8 @@
         userweightArr:[],
         userheightArr:[],
         usertotalArr:[],
-        BMIArr:[]
+        BMIArr:[],
+        putTime:[]
       }
     },
 
@@ -79,16 +80,18 @@
         let  userheightArr=[]
         let usertotalArr=[]
         let BMIArr=[]
+        let putTime=[]
         let _this=this;
         this.$axios.get('users/weight/' + this.$store.state.data1).then(
           ((res) => {
             _this.bodydata = res.data.data;
             for(let i=0;i<_this.bodydata.length;i++){
-              if(i<7){
+              if(i<5){
                 userweightArr.push(_this.bodydata[i].userweight)
                 userheightArr.push(_this.bodydata[i].userheight)
                 usertotalArr.push(_this.bodydata[i].usertotal)
                 BMIArr.push(_this.bodydata[i].BMI)
+                putTime.push(_this.bodydata[i].puttime)
               }else {
                 break;
               }
@@ -97,6 +100,8 @@
             _this.userheightArr=userheightArr.reverse()
             _this.usertotalArr=usertotalArr.reverse()
             _this.BMIArr=BMIArr.reverse()
+            _this.putTime=putTime.reverse()
+
             this.drawLine();
           })
         ).catch(err => {
@@ -125,22 +130,23 @@
             }
           },
           xAxis:  {
+            name:'日期',
             type: 'category',
             boundaryGap: false,
-            data: ['一','二','三','四','五','六','七']
+            data: this.putTime,
           },
           yAxis: {
             type: 'value',
-            axisLabel: {
+             axisLabel: {
               formatter: '{value} '
-            }
+            },
+           /* splitNumber: 10*/
           },
           series: [
             {
               name:'BMI',
               type:'line',
               data:this.BMIArr,
-              // data:[2,2,3,5],
               markPoint: {
                 data: [
                   {type: 'max', name: '最大值'},
@@ -217,6 +223,11 @@
             }
           ]
         })
+        setTimeout(function (){
+          window.onresize = function () {
+           myChart.resize();
+          }
+        },200)
       }
     }
   }
@@ -239,9 +250,9 @@
   }
   @media only screen and (min-width: 900px){
     .box-card1{
-    width: 55%;
+    width: 57%;
     height: 400px;
-   /* background: bisque;*/
+    background: bisque;
     float: left;
   }
     .bodyclass{
@@ -263,7 +274,7 @@
     .box-card1{
     width: 100%;
     height: 400px;
-   /* background: burlywood;*/
+    background: burlywood;
   }
     .box-card2{
       width: 100%;
