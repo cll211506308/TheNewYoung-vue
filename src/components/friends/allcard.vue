@@ -320,11 +320,11 @@
     margin-bottom: 25px;
   }
 
- .pT{
-   font-size: 18px;
-   font-weight: bold;
-   margin-bottom: 10px;
- }
+  .pT{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
 
 
 </style>
