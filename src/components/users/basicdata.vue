@@ -55,11 +55,11 @@
 <style scoped>
   .banner{
     background: center;
-    background-size: 100% 200px;
-    background-image: url("../../../static/images/userbanner4.jpg");
+    background-size: 100% 280px;
+    background-image: url("../../../static/images/userbg18.jpg");
     width: 100%;
-    height: 200px;
-    margin-top: 15px;
+    height: 280px;
+    margin-top: 20px;
   }
   .userphoto{
     position: relative;

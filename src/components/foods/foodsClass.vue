@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 style="text-align: center;color: #696969;">热门标签<small style="color: red">HOT</small></h2>
+    <h2 style="text-align: center;color: #2c2c2c;">热门标签 <small style="color: red">HOT</small></h2>
     <div style="margin-top: 20px">
       <router-link to="/search/减肥" target="_blank"><el-tag class="hotLabel">减肥</el-tag></router-link>
       <router-link to="/search/丰胸" target="_blank"><el-tag type="success" class="hotLabel">丰胸</el-tag></router-link>

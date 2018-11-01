@@ -37,17 +37,22 @@ export default {
 <style scoped>
   @media only screen and (min-width: 1000px){
     #intro{
-      background: url("../../static/images/youngPic.jpg");
-      background-size: cover;
+      background: url("../../static/images/foodbg.jpg");
+      background-size: 100% 100%;
+      height: 300px;
     }
     h1{
-      color: #696969;
+      color: #2c2c2c;
       text-align: center;
-      padding-top: 30px;
+      padding-top: 20px;
     }
     p{
-      color: #696969;
-      padding: 25px 30% 35px 30%;
+      color: dimgrey;
+      padding: 20px 25% 20px 25%;
+      line-height: 30px;
+      text-indent: 2em;
+      font-size: 17px;
+      font-weight: bold;
     }
     .fixed{
       border-radius: 20px;
@@ -64,18 +69,23 @@ export default {
   }
   @media only screen and (max-width: 1000px){
     #intro{
-      background: url("../../static/images/youngPic.jpg");
-      background-size: cover;
+      background: url("../../static/images/foodbg.jpg");
+      background-size: 100% 100%;
       width: 150%;
+      height: 280px;
     }
     h1{
       color: #696969;
       text-align: center;
-      padding-top: 30px;
+      padding-top: 20px;
     }
     p{
       color: #696969;
-      padding: 25px 30% 35px 30%;
+      padding: 20px 25% 20px 25%;
+      line-height: 30px;
+      text-indent: 2em;
+      font-size: 17px;
+      font-weight: bold;
     }
     .fixed{
       border-radius: 20px;
