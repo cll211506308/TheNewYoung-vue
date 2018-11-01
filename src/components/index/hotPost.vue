@@ -16,7 +16,7 @@
               </template>
               <el-row :gutter="20">
                 <el-col :span="6" v-for="(item,index) in oneRecommend" :key="index">
-                  <router-link :to="'/card/'+ item.postId" target="_blank">
+                  <router-link :to="'/card/'+ item.postId">
                     <div class="post" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}" >
                       <div class="postTop">
                         <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
@@ -42,7 +42,7 @@
               </template>
               <el-row :gutter="20">
                 <el-col :span="6" v-for="(item,index) in oneYang" :key="index">
-                  <router-link :to="'/card/'+ item.postId" target="_blank">
+                  <router-link :to="'/card/'+ item.postId">
                     <div class="post" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop">
                         <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
@@ -68,7 +68,7 @@
               </template>
               <el-row :gutter="20">
                 <el-col :span="6" v-for="(item,index) in oneDiet" :key="index">
-                  <router-link :to="'/card/'+ item.postId" target="_blank">
+                  <router-link :to="'/card/'+ item.postId">
                     <div class="post" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop">
                         <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
@@ -94,7 +94,7 @@
               </template>
               <el-row :gutter="20">
                 <el-col :span="6" v-for="(item,index) in oneFit" :key="index">
-                  <router-link :to="'/card/'+ item.postId" target="_blank">
+                  <router-link :to="'/card/'+ item.postId">
                     <div class="post" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop">
                         <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
@@ -130,7 +130,7 @@
               </template>
               <el-row :gutter="20">
                 <el-col :span="6" v-for="(item,index) in oneRecommend" :key="index">
-                  <router-link :to="'/card/'+ item.postId" target="_blank">
+                  <router-link :to="'/card/'+ item.postId">
                     <div class="post1" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop1">
                         <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
@@ -154,7 +154,7 @@
               </template>
               <el-row :gutter="20">
                 <el-col :span="6" v-for="(item,index) in oneYang" :key="index">
-                  <router-link :to="'/card/'+ item.postId" target="_blank">
+                  <router-link :to="'/card/'+ item.postId">
                     <div class="post1" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop1">
                         <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
@@ -178,7 +178,7 @@
               </template>
               <el-row :gutter="20">
                 <el-col :span="6" v-for="(item,index) in oneDiet" :key="index">
-                  <router-link :to="'/card/'+ item.postId" target="_blank">
+                  <router-link :to="'/card/'+ item.postId">
                     <div class="post1" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop1">
                         <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
@@ -202,7 +202,7 @@
               </template>
               <el-row :gutter="20">
                 <el-col :span="6" v-for="(item,index) in oneFit" :key="index">
-                  <router-link :to="'/card/'+ item.postId" target="_blank">
+                  <router-link :to="'/card/'+ item.postId">
                     <div class="post1" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop1">
                         <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">

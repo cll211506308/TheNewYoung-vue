@@ -17,9 +17,9 @@
       return {
         dating: [
           {src: '../../../static/images/banner5.jpg'},
-          {src: '../../../static/images/banner6.jpg'},
-          {src: '../../../static/images/banner7.jpg'},
-          {src: '../../../static/images/banner9.jpg'}
+          {src: '../../../static/images/userbg17.jpg'},
+          {src: '../../../static/images/userbg8.jpg'},
+          {src: '../../../static/images/fbg1.jpg'}
         ]
       }
     }

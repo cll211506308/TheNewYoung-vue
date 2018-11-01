@@ -10,11 +10,11 @@
           <img src="../../../static/images/LOGO.png" alt="" class="LOGO">
         </el-col>
         <el-col :md="18" :sm="22" :offset="5" class="hidden-sm-and-down nav">
-          <router-link tag="li" to="/">首 页</router-link>
-          <router-link tag="li" to="/youngLife">养生堂</router-link>
-          <router-link tag="li" to="/foods">营养饮食</router-link>
-          <router-link tag="li" to="/fit">健身课堂</router-link>
-          <router-link tag="li" to="/friends">Young友圈</router-link>
+          <router-link tag="li" to="/" active-class="active123" exact>首 页</router-link>
+          <router-link tag="li" to="/youngLife" active-class="active123">养生堂</router-link>
+          <router-link tag="li" to="/foods" active-class="active123">营养饮食</router-link>
+          <router-link tag="li" to="/fit" active-class="active123">健身课堂</router-link>
+          <router-link tag="li" to="/friends" active-class="active123">Young友圈</router-link>
         </el-col>
         <el-col :md="5" :offset="2" style="position:absolute; left:61%; top: -2px;" class="hidden-md-and-down">
           <el-input
@@ -22,9 +22,9 @@
             v-model="input10"
             clearable>
           </el-input>
-          <router-link :to="'/search/'+input10" target="_blank">
+          <a :href="'/search/'+input10">
             <i class="header-icon el-icon-search" style="color:#2c2c2c; font-weight:bold;position:absolute;top:50%;margin-top: -8px; right: -38px"></i>
-          </router-link>
+          </a>
         </el-col>
         <el-col :md="1" class="hidden-sm-and-down">
           <div v-if="isLogin">
@@ -33,11 +33,11 @@
           <div v-if="!isLogin">
             <el-row>
               <el-col :span="18" class="dropdown1">
-                <router-link tag="li" :to="'/usershome/' + userId"><img src="../../../static/images/person.png" style="width: 21px;height: 21px; position: relative;top: 3px;" alt=""></router-link>
+                <router-link tag="li" to="/usershome"><img src="../../../static/images/person.png" style="width: 21px;height: 21px; position: relative;top: 3px;" alt=""></router-link>
                 <div class="dropdown-content1">
                   <p style="height: 90px;line-height: 90px"><img v-bind:src="this.$store.state.picurl+data2.headPic" alt="" style="height: 80px;width: 80px;border-radius: 40px;margin-top: 10px;margin-bottom: 10px;color: whitesmoke"></p>
                   <p>Hi,{{userName}}!</p>
-                  <router-link tag="p" :to="'/usershome/' + userId" style="cursor: pointer" class="pg">个人中心</router-link>
+                  <router-link tag="p" to="/usershome" style="cursor: pointer" class="pg">个人中心</router-link>
                   <hr style="color:darkgray; width: 150px;margin:auto auto">
                   <p style="cursor: pointer" @click="tuichu" class="pg">退出登录</p>
                 </div>
@@ -60,7 +60,7 @@
                   <router-link tag="p" to="/login" style="cursor: pointer;font-size: 15px" class="pg">登 录</router-link>
                 </div>
                 <div v-if="!isLogin">
-                  <router-link tag="p" :to="'/usershome/' + userId" style="cursor: pointer" class="pg"><img src="../../../static/images/person.png" style="width: 21px;height: 21px; position: relative;top: 5px;" alt=""></router-link>
+                  <router-link tag="p" to="/usershome" style="cursor: pointer" class="pg"><img src="../../../static/images/person.png" style="width: 21px;height: 21px; position: relative;top: 5px;" alt=""></router-link>
                 </div>
               </div>
             </el-col>
@@ -106,6 +106,9 @@
       tuichu() {
         sessionStorage.clear();
         window.location.href = '/login'
+      },
+      change(){
+        let lis = document.getElementById()
       }
 
     },
@@ -118,6 +121,7 @@
           return false
         }
       },
+
 
     },
 
@@ -150,6 +154,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    height: 77px;
 
   }
 
@@ -199,5 +204,10 @@
     position:absolute;
     top: 12px;
 
+  }
+
+  .active123{
+    border-bottom: 4px solid orangered;
+    color:orangered;
   }
 </style>
