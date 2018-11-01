@@ -14,6 +14,12 @@
 
   export default {
     name: 'users',
+    created(){
+      if(this.$store.state.data1 == null){
+        alert('非法进入，请登录')
+        window.location.href = '/'
+      }
+    },
     components: {
       'user-basicdata': basicdata,
       'users-alldatas': alldatas,

@@ -204,38 +204,38 @@ export default new Router({
       component: users,
       children: [
         {
-          path: ':id',
+          path: '',
           name: 'userhome',
           component: userhome,
         },
         {
-          path: 'alldatas/:id',
+          path: 'alldatas',
           name: 'alldatas',
           component: alldatas,
         },
 
         {
-          path: 'userscards/:id',
+          path: 'userscards',
           name: 'userscards',
           component: userscards,
         },
         {
-          path: 'usersarticals/:id',
+          path: 'usersarticals',
           name: 'usersarticals',
           component: usersarticals,
         },
         {
-          path: 'usercollection/:id',
+          path: 'usercollection',
           name: 'usercollection',
           component: usercollections,
         },
         {
-          path: 'userbodydata/:id',
+          path: 'userbodydata',
           name: 'userbodydata',
           component: userbodydata,
         },
         {
-          path: 'useridentity/:id',
+          path: 'useridentity',
           name: 'useridentity',
           component: useridentity,
         }

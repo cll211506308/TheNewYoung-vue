@@ -5,11 +5,11 @@
       <el-col :span="24" id="menu">
         <el-row type="flex" justify="center">
           <el-col :span="22" class="menuli">
-            <router-link tag="li" to="/usershome/' + this.$store.state.data1" exact>我的主页</router-link>
-            <router-link tag="li" to="/usershome/userbodydata/' + this.$store.state.data1" active-class = "active"><a>测试体质</a></router-link>
-            <router-link tag="li" to="/usershome/usercollection/' + this.$store.state.data1" active-class = "active">我的收藏</router-link>
-            <router-link tag="li" to="/usershome/userscards/' + this.$store.state.data1" active-class = "active">我的贴子</router-link>
-            <router-link tag="li" to="/usershome/useridentity/' + this.$store.state.data1" active-class = "active">我的信息</router-link>
+            <router-link tag="li" to="/usershome/" exact>我的主页</router-link>
+            <router-link tag="li" to="/usershome/userbodydata/" active-class = "active"><a>测试体质</a></router-link>
+            <router-link tag="li" to="/usershome/usercollection/" active-class = "active">我的收藏</router-link>
+            <router-link tag="li" to="/usershome/userscards/" active-class = "active">我的贴子</router-link>
+            <router-link tag="li" to="/usershome/useridentity/" active-class = "active">我的信息</router-link>
           </el-col>
         </el-row>
       </el-col>
