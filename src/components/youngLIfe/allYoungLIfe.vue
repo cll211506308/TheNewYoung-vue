@@ -5,8 +5,8 @@
       <router-link :to="{path:'/artical/' + item.articalId}" tagret="_blank">
         <div id="title">
           <h3>{{item.title}}</h3><br>
-          <p>标签：{{item.articalLabel}}</p>
-          <span><i class="el-icon-view">{{item.pageViews}}</i></span>
+          <p>标签：<span style="color: orangered">{{item.articalLabel}}</span></p>
+          <span class="liulan"><i class="el-icon-view"> {{item.pageViews}}</i></span>
         </div>
       </router-link>
     </div>
@@ -91,23 +91,22 @@
     float: left;
     margin-left: 5%;
     margin-right: 5%;
+    margin-top: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   p{
     float: left;
     margin-left: 8%;
-    margin-top: 30px;
+    margin-top: 45px;
+    font-weight: bold;
   }
-  span{
+  .liulan{
     float: left;
-    margin-top: 30px;
-    margin-left: 15%;
-  }
-  .block{
-    margin-left:auto;
-    width: 82%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    float: left;
+    margin-top: 45px;
+    margin-left: 25%;
+    color:darkgrey;
   }
   .block{
     margin-top: 20px;
@@ -115,6 +114,6 @@
     float: left;
   }
   a{
-    color: dimgrey;
+    color: #2c2c2c;
   }
 </style>
