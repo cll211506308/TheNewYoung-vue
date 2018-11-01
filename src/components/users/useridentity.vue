@@ -53,9 +53,14 @@
         callback();
       };
       var validatePass = (rule, value, callback) => {
+        var pattern = /^\S{6,12}$/g
         if (value === '') {
           callback(new Error('请输入密码'));
-        } else {
+        }
+        else if (!pattern.test(value)) {
+          callback(new Error('请输入6-12个非空白字符'))
+        }
+        else {
           if (this.ruleForm2.checkPass !== '') {
             this.$refs.ruleForm2.validateField('checkPass');
           }
