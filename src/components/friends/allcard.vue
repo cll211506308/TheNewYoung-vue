@@ -60,44 +60,6 @@
     </el-col>
 
   </el-row>
-  <!--<div>-->
-  <!--<el-row>-->
-  <!--<el-col :span="24" v-for="(u,index) in showData" class="post" :key="index">-->
-  <!--<el-card shadow="hover">-->
-  <!--<el-row>-->
-  <!--<el-col class="post-left" :xs="4" :sm="4" :md="6" :lg="6" :xl="6">-->
-  <!--<img v-bind:src="'http://127.0.0.1:3000/'+u.headPic"/>-->
-  <!--<button v-if="u.userId == attUsers">已关注</button>-->
-  <!--<button @click="att(u.userId)">关注此人</button>-->
-  <!--</el-col>-->
-  <!--<el-col class="post-right" :xs="20" :sm="20" :md="18" :lg="18" :xl="18"><div>-->
-  <!--<div>-->
-  <!--<router-link tag="a" target="_blank" :to="{name:'card',params: {id: u.postId}}">-->
-  <!--【{{u.postLabel}}】{{u.title}}-->
-  <!--</router-link>-->
-  <!--</div>-->
-  <!--<div class="post-content">-->
-  <!--<router-link tag="a" target="_blank" :to="{name:'card',params: {id: u.postId}}">-->
-  <!--{{u.postContent}}-->
-  <!--</router-link>-->
-  <!--</div>-->
-  <!--<div class="post-bottom">-->
-  <!--作者：{{u.userName}}&nbsp;&nbsp;&nbsp;浏览量：{{u.pageViews}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{(u.postTime)}}-->
-  <!--<button v-if="u.userId == id" @click="open2(u.postId)">删除</button>-->
-  <!--</div>-->
-  <!--</div></el-col>-->
-  <!--</el-row>-->
-  <!--</el-card>-->
-  <!--</el-col>-->
-  <!--</el-row>-->
-
-  <!--<el-row>-->
-  <!--<el-button type="primary"  @click="pre" :disabled="dis1">上一页</el-button>-->
-  <!--<el-button type="primary">{{pag}}/{{ Math.ceil(data.length/tiao) }}</el-button>-->
-  <!--<el-button type="primary" @click="next" :disabled="dis2">下一页</el-button>-->
-  <!--</el-row>-->
-  <!--</div>-->
-
 
 </template>
 
@@ -120,20 +82,13 @@
       }
     },
     created() {
-      // this.$axios.get('friends').then(
-      //   ((res1) => {
-      //     this.data = res1.data.data;
-      //   })
-      // ).catch(err => {
-      //   console.log(err)
-      // })
 
       this.$axios.get('users/att/' + this.$store.state.data1).then(
         ((res1) => {
           for (var i = 0; i < res1.data.data.length; i++) {
             this.attUsers.push(res1.data.data[i].attentionedUserId)
           }
-          console.log(this.attUsers)
+
         })
       ).catch(err => {
         console.log(err)
@@ -141,25 +96,7 @@
 
     },
     methods: {
-      // pre() {
-      //   if (this.pag == 1) {
-      //     this.dis1 = true
-      //   }
-      //   else {
-      //     this.pag--
-      //     this.dis2 = false
-      //   }
-      // },
-      // //下一页
-      // next() {
-      //   if (this.pag >= this.data.length / this.tiao) {
-      //     this.dis2 = true
-      //   }
-      //   else {
-      //     this.pag++
-      //     this.dis1 = false
-      //   }
-      // },
+
       att(attId) {
         if (this.$store.state.data1 == null) {
           this.$message({
@@ -225,12 +162,9 @@
                 let _this=this
                 this.$axios.get("/friends").then((result) =>{
                   _this.myActData= result.data.data;
-                  console.log(result.data)
                   _this.pageCount=_this.myActData.length
                   _this.loadData()
-                  // for(var i = 0 ; i < 6; i++){
-                  //   this.activitys.push(this.myActData[i])
-                  // }
+
                 })
 
 
@@ -251,7 +185,6 @@
         this.activitys = [];
         let start = (this.pageIndex-1) * this.pagesize;
         let end = start + this.pagesize;
-        console.log(this.myActData[1]);
         if(end>=this.pageCount){
           end=this.pageCount
         }
@@ -267,12 +200,8 @@
       let _this=this
       this.$axios.get("/friends").then((result) =>{
         _this.myActData= result.data.data;
-        console.log(result.data)
         _this.pageCount=_this.myActData.length
         _this.loadData()
-        // for(var i = 0 ; i < 6; i++){
-        //   this.activitys.push(this.myActData[i])
-        // }
       })
     },
     computed:{
@@ -281,12 +210,6 @@
       }
 
     },
-    // computed: {
-    //   //数据分页
-    //   showData: function () {
-    //     return this.data.slice((this.pag - 1) * this.tiao, (this.pag - 1) * this.tiao + this.tiao)
-    //   }
-    // }
   }
 </script>
 

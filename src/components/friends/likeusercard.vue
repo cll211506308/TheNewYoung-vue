@@ -33,11 +33,6 @@
                     <el-col :span="6"><span>浏览量：{{u.pageViews}}</span></el-col>
                     <el-col :span="12"><span class="hidden-sm-and-down">{{(u.postTime)}}</span></el-col>
                   </el-row>
-                  <el-row style="margin-top: 20px">
-                    <el-col :span="8" :offset="8">
-                      <el-button type="primary" round size="mini" v-if="u.userId == id" @click="open2(u.postId)">删除</el-button>
-                    </el-col>
-                  </el-row>
                 </div>
               </div>
             </el-col>
@@ -60,47 +55,7 @@
     </el-col>
 
   </el-row>
-  <!--<div>-->
-    <!--<el-row>-->
-      <!--<el-col :span="24" v-for="(u,index) in showData" class="post" :key="index">-->
-        <!--<el-card shadow="always">-->
 
-          <!--<el-row>-->
-            <!--<el-col class="post-left" :xs="4" :sm="4" :md="6" :lg="6" :xl="6"><div>-->
-              <!--<img v-bind:src="'http://127.0.0.1:3000/'+u.headPic"/>-->
-              <!--<div>-->
-                <!--<button @click="att(u.userId)">取消关注</button>-->
-              <!--</div>-->
-            <!--</div></el-col>-->
-            <!--<el-col class="post-right" :xs="20" :sm="20" :md="18" :lg="18" :xl="18"><div>-->
-              <!--<div>-->
-                <!--<router-link tag="a" target="_blank" :to="{name:'card',params: {id: u.postId}}">-->
-                  <!--【{{u.postLabel}}】{{u.title}}-->
-                <!--</router-link>-->
-              <!--</div>-->
-              <!--<div class="post-content">-->
-                <!--<router-link tag="a" target="_blank" :to="{name:'card',params: {id: u.postId}}">-->
-                  <!--{{u.postContent}}-->
-                <!--</router-link>-->
-              <!--</div>-->
-              <!--<div class="post-bottom">-->
-                <!--作者：{{u.userName}}&nbsp;&nbsp;&nbsp;浏览量：{{u.pageViews}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{(u.postTime)}}-->
-              <!--</div>-->
-            <!--</div></el-col>-->
-          <!--</el-row>-->
-
-
-        <!--</el-card>-->
-      <!--</el-col>-->
-    <!--</el-row>-->
-
-
-    <!--<el-row>-->
-      <!--<el-button type="primary"  @click="pre" :disabled="dis1">上一页</el-button>-->
-      <!--<el-button type="primary">{{pag}}/{{ Math.ceil(data.length/tiao) }}</el-button>-->
-      <!--<el-button type="primary" @click="next" :disabled="dis2">下一页</el-button>-->
-    <!--</el-row>-->
-  <!--</div>-->
 </template>
 
 <script>
@@ -108,10 +63,6 @@
     data () {
       return {
         data: [],
-        // pag:1,
-        // tiao:5,
-        // dis1:false,
-        // dis2:false
         pageIndex: 1,
         pagesize: 6,
         pageCount:0,
@@ -119,33 +70,7 @@
         activitys:[]
       }
     },
-    // created(){
-    //   this.$axios.get('friends/likeUser/'+this.$store.state.data1).then(
-    //     ((res)=>{
-    //       this.data = res.data.data;
-    //     })
-    //   ).catch(err=>{console.log(err)})
-    // },
     methods:{
-      // pre(){
-      //   if(this.pag == 1){
-      //     this.dis1 = true
-      //   }
-      //   else {
-      //     this.pag--
-      //     this.dis2 = false
-      //   }
-      // },
-      // //下一页
-      // next(){
-      //   if(this.pag >= this.data.length/this.tiao){
-      //     this.dis2 = true
-      //   }
-      //   else {
-      //     this.pag++
-      //     this.dis1 = false
-      //   }
-      // },
       att(attid){
         let that = this
         this.$axios.get('/friends/delAttention', {
@@ -159,7 +84,13 @@
                 message: '恭喜你，取消关注成功',
                 type: 'success'
               });
-              window.location.reload();
+
+              that.$axios.get("/friends/likeUser/"+that.$store.state.data1).then((result) =>{
+                that.myActData= result.data.data;
+                that.pageCount=that.myActData.length
+                that.loadData()
+              })
+
             }
           })
           .catch(function (error) {
@@ -170,7 +101,6 @@
         this.activitys = [];
         let start = (this.pageIndex-1) * this.pagesize;
         let end = start + this.pagesize;
-        console.log(this.myActData[1]);
         if(end>=this.pageCount){
           end=this.pageCount
         }
@@ -186,19 +116,11 @@
       let _this=this
       this.$axios.get("/friends/likeUser/"+this.$store.state.data1).then((result) =>{
         _this.myActData= result.data.data;
-        console.log(result.data)
         _this.pageCount=_this.myActData.length
         _this.loadData()
-        // for(var i = 0 ; i < 6; i++){
-        //   this.activitys.push(this.myActData[i])
-        // }
       })
     },
     computed:{
-      // //数据分页
-      // showData:function() {
-      //   return this.data.slice((this.pag-1)*this.tiao,(this.pag-1)*this.tiao+this.tiao)
-      // }
       myActData1() {
         return this.activitys
       }
