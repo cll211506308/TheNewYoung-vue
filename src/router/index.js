@@ -43,6 +43,7 @@ import someYoungLife5 from '@/components/youngLife/someYoungLife5'
 
 export default new Router({
   mode: 'history',
+  linkExactActiveClass:'active',
   routes: [
     {
       path: '/',

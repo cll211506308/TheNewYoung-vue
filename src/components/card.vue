@@ -216,6 +216,7 @@
       }
     },
     created() {
+      sessionStorage.setItem("url", (window.location.pathname).slice(1));
       // //获取评论
       // this.$axios.get('/friends/getCom/' + this.id).then(
       //   ((res) => {

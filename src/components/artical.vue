@@ -59,6 +59,7 @@
       }
     },
     created(){
+      sessionStorage.setItem("url", (window.location.pathname).slice(1));
       this.$axios.get("/relativeEssay/" + this.id)
         .then((res) => {
           this.result = res.data.data[0];
