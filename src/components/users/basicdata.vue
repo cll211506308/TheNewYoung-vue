@@ -3,11 +3,15 @@
     <el-row type="flex"  justify="center">
       <el-col :xs="24" :sm="22" :md="20" :lg="20" :xl="20" >
          <div class="banner">
+           <div class="users">
              <div class="userphoto">
-               <img v-bind:src="this.$store.state.picurl+data2.headPic" alt="">
-               <span>&nbsp;&nbsp;&nbsp;您好！{{username}}</span>
-              <!-- <span>&nbsp;&nbsp;&nbsp;{{autograph}}</span>-->
+             <img v-bind:src="this.$store.state.picurl+data2.headPic" alt="">
+           </div>
+             <div class="datas">
+               <span>&nbsp;&nbsp;&nbsp;您好！{{username}}</span><br>
              </div>
+           </div>
+
         </div>
       </el-col>
     </el-row>
@@ -60,16 +64,31 @@
     width: 100%;
     height: 280px;
     margin-top: 20px;
+    position: relative;
   }
   .userphoto{
-    position: relative;
-    left: 5%;
-    top:20%
+    width: 140px;
+    height: 140px;
+    float: left;
+
   }
   .userphoto img{
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
   }
+  .datas{
+    width: 200px;
+    height: 140px;
+    font-size: 18px;
+    float: left;
+    text-align: center;
+    line-height: 140px;
+  }
+.users{
+  position:absolute;
+  top: 30%;
+  left: 15%;
+}
 
 </style>

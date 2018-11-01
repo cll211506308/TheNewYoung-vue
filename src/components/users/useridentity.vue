@@ -133,8 +133,8 @@
         ((res)=>{
           this.ruleForm2.age = res.data.data[0].userName
           this.ruleForm2.name1 = res.data.data[0].userName
-          // this.ruleForm2.pass = res.data.data[0].userPwd
-          // this.ruleForm2.checkPass = res.data.data[0].userPwd
+/*          this.ruleForm2.pass = res.data.data[0].userPwd
+          this.ruleForm2.checkPass = res.data.data[0].userPwd*/
           this.ruleForm2.name = res.data.data[0].autograph
         })
       ).catch(err=>{console.log(err)})

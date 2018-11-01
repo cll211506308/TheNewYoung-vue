@@ -296,7 +296,7 @@
             type: 'success'
           });
           setTimeout(() => {
-              window.location.href = '/usershome/5'
+              window.location.href = '/usershome/'
           }, 500);
 
         } else {

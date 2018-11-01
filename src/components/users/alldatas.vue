@@ -1,17 +1,18 @@
 <template>
   <div>
-    <span></span>
     <el-row>
       <el-col :span="24" id="menu">
         <el-row type="flex" justify="center">
           <el-col :span="22" class="menuli">
-            <router-link tag="li" to="/usershome/" exact>我的主页</router-link>
-            <router-link tag="li" to="/usershome/userbodydata/" active-class = "active"><a>测试体质</a></router-link>
-            <router-link tag="li" to="/usershome/usercollection/" active-class = "active">我的收藏</router-link>
-            <router-link tag="li" to="/usershome/userscards/" active-class = "active">我的贴子</router-link>
-            <router-link tag="li" to="/usershome/useridentity/" active-class = "active">我的信息</router-link>
-          </el-col>
+    <el-row>
+            <router-link tag="li" to="/usershome/" active-class = "active2" exact>我的主页</router-link>
+            <router-link tag="li" to="/usershome/userbodydata/" active-class = "active2" >测试体质</router-link>
+            <router-link tag="li" to="/usershome/usercollection/" active-class = "active2" >我的收藏</router-link>
+            <router-link tag="li" to="/usershome/userscards/" active-class = "active2"  >我的贴子</router-link>
+            <router-link tag="li" to="/usershome/useridentity/" active-class = "active2" >我的信息</router-link>
         </el-row>
+      </el-col>
+    </el-row>
       </el-col>
     </el-row>
     <router-view class="myself"></router-view>
@@ -23,7 +24,8 @@
     name: "alldatas",
     data() {
       return {
-        tabPosition: 'top'
+        tabPosition: 'top',
+        activeClass:0
       };
     },
     methods: {
@@ -53,27 +55,16 @@
     color: white;
     cursor: pointer;
   }
-  #menu a{
-    text-decoration: none;
-    color: white;
-  }
-  #menu a:active{
+  .menuli{
+    line-height: 60px;
     color: black;
+    font-size: 17px;
+    cursor: pointer;
   }
-  span{
-    display: block;
-    height: 40px;
-    width: 80px;
-    background-image: url(../../../static/images/leaf.png);
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-a{
-  width: 80px;
-  height: 40px;
-  background-image: url("../../../static/images/leaf.png");
+.active2{
+  background: url("../../../static/images/leaf.png") no-repeat;
+  background-position: 50% 5px;
+  background-size:90px;
 }
-
 
 </style>
