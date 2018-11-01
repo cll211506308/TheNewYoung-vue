@@ -63,7 +63,7 @@ export default {
       padding: 10px 5% 10px 5%;
     }
     .fixed2{
-      background: url('../../static/images/bgrank.jpg') no-repeat;
+      background: url('../../static/images/you2.jpg') no-repeat;
       background-size: 100% 100%;
       border-radius: 20px;
       padding-top: 10px;

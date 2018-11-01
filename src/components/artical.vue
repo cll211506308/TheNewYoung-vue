@@ -6,7 +6,7 @@
           <el-col :span="22" :offset="1">
             <el-row :gutter="20" style="margin-top: 10px;margin-bottom: 25px">
               <el-col :span="10">
-                <img v-bind:src="this.$store.state.picurl+ result.coverPic" alt="" style="width: 100%;min-height: 100px;max-height: 250px">
+                <img v-bind:src="this.$store.state.picurl+ result.coverPic" alt="" style="width: 100%;min-height: 100px;max-height: 200px">
               </el-col>
               <el-col :span="14">
                 <p class="articalT">{{result.title}}</p>
@@ -39,7 +39,7 @@
                 <span style="margin-right: 8px" v-if="index==1"><img src="../../static/images/yin.png" class="yin"></span>
                 <span style="margin-right: 8px" v-if="index==2"><img src="../../static/images/tong.png" class="tong"></span>
                 <span style="margin-right: 8px" v-if="index>2">{{index+1}}.</span>
-                <router-link :to="'/artical/'+item.articalId" target="_blank">{{item.title}}</router-link>
+                <a :href="'/artical/'+item.articalId">{{item.title}}</a>
             </div>
       </el-col>
     </el-col>
