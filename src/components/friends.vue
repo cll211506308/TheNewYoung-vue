@@ -16,8 +16,8 @@
       </el-row>
       <el-row class="fNav">
         <el-col :span="20" :offset="2">
-          <p @click="allCard" class="fT">全部帖子</p>
-          <p @click="likeCard" class="fT">我的关注</p>
+          <router-link tag="p" class="fT" to="/friends" active-class="active3" exact><span @click="allCard">全部帖子</span></router-link>
+          <router-link tag="p" class="fT" :to="'/friends/likeuser/' + this.$store.state.data1" active-class="active3"><span @click="likeCard">我的关注</span></router-link>
           <p @click="publish" class="fT" style="float:right"><img src="../../static/images/publish.png" alt="" class="publish"> 发表帖子</p>
         </el-col>
 
@@ -263,10 +263,7 @@
     cursor: pointer;
     font-size: 17px;
     color: whitesmoke;
-  }
-
-  .fT:hover {
-
+    text-align: center;
   }
 
   .head {
@@ -303,5 +300,11 @@
   .publish{
     position: relative;
     top: 10px;
+  }
+
+  .active3{
+    background: url("../../static/images/leaf.png") no-repeat;
+    background-size: 65% 68%;
+    background-position: 36px 9px;
   }
 </style>

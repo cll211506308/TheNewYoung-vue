@@ -1,46 +1,66 @@
 <template>
-  <div>
-    <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
+  <el-row style="margin-bottom: 30px" :gutter="40" type="flex" justify="center">
+    <!--<el-col :md="12" :sm="24">-->
+      <!--<div class="block">-->
+        <!--<el-carousel :interval="3000" height="300px">-->
+          <!--<el-carousel-item v-for="(item,index) in dating" :key="index">-->
+            <!--<img :src="item.src" class="banners">-->
+          <!--</el-carousel-item>-->
+        <!--</el-carousel>-->
+      <!--</div>-->
+    <!--</el-col>-->
+    <el-col :md="18" :sm="24">
+      <el-card shadow="hover" style="border-radius: 15px">
+        <el-col :span="22">
+          <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
+            <el-row style="margin-bottom: 25px; margin-top: 10px">
+              <el-col :span="20" :offset="2">
+                <span style="margin-right: 20px">更改头像：</span><input type="file" name="avatar"
+                                        @change="changeImage($event)"
+                                        accept="image/gif,image/jpeg,image/jpg,image/png"
+                                        ref="avatarInput"
+                                        multiple>
+              </el-col>
+            </el-row>
 
-      <span>更改头像：</span><input type="file" name="avatar"
-                               @change="changeImage($event)"
-                               accept="image/gif,image/jpeg,image/jpg,image/png"
-                               ref="avatarInput"
-                               multiple>
 
-      <el-form-item label="用户名" prop="age">
-        <el-input v-model="ruleForm2.age"></el-input>
-      </el-form-item>
-      <el-form-item label="密码" prop="pass">
-        <el-input type="password" v-model="ruleForm2.pass" autocomplete="off"></el-input>
-      </el-form-item>
-      <el-form-item label="确认密码" prop="checkPass">
-        <el-input type="password" v-model="ruleForm2.checkPass" autocomplete="off"></el-input>
-      </el-form-item>
+            <el-form-item label="用户名" prop="age">
+              <el-input v-model="ruleForm2.age"></el-input>
+            </el-form-item>
+            <el-form-item label="密码" prop="pass">
+              <el-input type="password" v-model="ruleForm2.pass" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="确认密码" prop="checkPass">
+              <el-input type="password" v-model="ruleForm2.checkPass" autocomplete="off"></el-input>
+            </el-form-item>
 
-      <el-form-item label="性别" prop="resource">
-        <el-radio-group v-model="ruleForm2.resource">
-          <el-radio label="男"></el-radio>
-          <el-radio label="女"></el-radio>
-        </el-radio-group>
-      </el-form-item>
+            <el-form-item label="性别" prop="resource">
+              <el-radio-group v-model="ruleForm2.resource">
+                <el-radio label="男"></el-radio>
+                <el-radio label="女"></el-radio>
+              </el-radio-group>
+            </el-form-item>
 
-      <el-form-item label="出生日期">
-        <el-col :span="11">
-          <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm2.date1" style="width: 100%;"></el-date-picker>
+            <el-form-item label="出生日期">
+              <el-col :span="11">
+                <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm2.date1" style="width: 100%;"></el-date-picker>
+              </el-col>
+            </el-form-item>
+
+            <el-form-item label="个性签名">
+              <el-input v-model="ruleForm2.name"></el-input>
+            </el-form-item>
+
+
+            <el-form-item>
+              <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
+            </el-form-item>
+          </el-form>
         </el-col>
-      </el-form-item>
+      </el-card>
+    </el-col>
 
-      <el-form-item label="个性签名">
-        <el-input v-model="ruleForm2.name"></el-input>
-      </el-form-item>
-
-
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
-      </el-form-item>
-    </el-form>
-  </div>
+  </el-row>
 </template>
 <script>
   import $ from 'jquery'
@@ -85,8 +105,15 @@
           name:'',
           data1:'',
           upath:'',
-          name1:''
+          name1:'',
+
         },
+        dating: [
+          {src: '../../../static/images/banner5.jpg'},
+          {src: '../../../static/images/userbg17.jpg'},
+          {src: '../../../static/images/userbg8.jpg'},
+          {src: '../../../static/images/fbg1.jpg'}
+        ],
         rules2: {
           pass: [
             { validator: validatePass, trigger: 'blur' }
@@ -270,5 +297,9 @@
   }
 </script>
 <style scoped>
+  .banners {
+    width: 100%;
+    height: 100%;
+  }
 
 </style>
