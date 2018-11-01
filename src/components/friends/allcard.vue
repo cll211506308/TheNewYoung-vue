@@ -221,8 +221,20 @@
                 type: 'success'
               });
               setTimeout(() => {
-                location.reload()
-              }, 500);
+
+                let _this=this
+                this.$axios.get("/friends").then((result) =>{
+                  _this.myActData= result.data.data;
+                  console.log(result.data)
+                  _this.pageCount=_this.myActData.length
+                  _this.loadData()
+                  // for(var i = 0 ; i < 6; i++){
+                  //   this.activitys.push(this.myActData[i])
+                  // }
+                })
+
+
+              }, 1);
             })
           ).catch(err => {
             console.log(err)

@@ -1,8 +1,8 @@
 <template>
-  <el-row style="padding-top: 20px; padding-bottom: 20px;background: whitesmoke">
+  <el-row style="padding-top: 20px; padding-bottom: 30px;background: whitesmoke">
     <el-col :span="20" :offset="2">
       <el-col :span="16">
-        <el-card id="intro" class="box-card" shadow="hover" style="margin-bottom: 20px">
+        <el-card id="intro" class="box-card" shadow="hover" style="margin-bottom: 28px">
           <el-col :span="12" :offset="12">
             <h1>健身课堂</h1>
             <p>新Young生网站健身课堂为您提供健康、有效的训练方法以及个人案例，从减脂、
