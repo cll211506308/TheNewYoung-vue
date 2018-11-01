@@ -1,8 +1,8 @@
 <template>
-  <el-row style="padding-top: 20px; padding-bottom: 20px;background: whitesmoke">
+  <el-row style="padding-top: 20px; padding-bottom: 30px;background: whitesmoke">
     <el-col :span="20" :offset="2">
       <el-col :span="16">
-        <el-card id="intro" class="box-card" shadow="hover" style="margin-bottom: 20px">
+        <el-card id="intro" class="box-card" shadow="hover" style="margin-bottom: 28px">
           <el-col :span="14" :offset="5">
             <h1>营养饮食</h1>
             <p>新young生营养美食频道为您介绍各类食物、食材的功效与作用，
