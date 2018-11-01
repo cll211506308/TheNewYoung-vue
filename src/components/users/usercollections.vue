@@ -37,6 +37,14 @@
                   message: '删除成功',
                   type: 'success'
                 });
+              setTimeout(() => {
+                this.$axios.get('users/collections/'+this.$store.state.data1).then(
+                  ((res)=>{
+                    this.title1 = res.data.data;
+                  })
+                ).catch(err=>{console.log(err)})
+              }, 1);
+
               })
             ).catch(function (error) {
             console.log(error);

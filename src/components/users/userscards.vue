@@ -36,6 +36,20 @@
                 message: '删除成功',
                 type: 'success'
               });
+              setTimeout(() => {
+                this.$axios.get('/friends').then(
+                  ((res)=>{
+                    this.title1=[]
+                    for(var i = 0;i< res.data.data.length;i++){
+                      if(res.data.data[i].userId == this.$store.state.data1 ){
+                        this.title1.push(res.data.data[i])
+                      }
+                      console.log(this.title1)
+                    }
+                  })
+                ).catch(err=>{console.log(err)})
+              }, 1);
+
             })
           ).catch(err=>{console.log(err)})
         }).catch(() => {
