@@ -22,19 +22,28 @@
   export default {
     name: "userscard",
     methods:{
+
       delPost(postid){
-        let that = this
-        this.$axios.get('friends/deletePost/'+ postid).then(
-          ((res)=>{
-            this.$message({
-              message: '删除成功',
-              type: 'success'
-            });
-            setTimeout(() => {
-              location.reload()
-            }, 500);
-          })
-        ).catch(err=>{console.log(err)})
+        let that = this;
+        this.$confirm('此操作将永久删除该贴子, 是否继续?', '提示',{
+          confirmButtonText: '确定',
+          cancelButtonClass: '取消',
+          type: 'waring'
+        }).then(()=>{
+          this.$axios.get('friends/deletePost/'+ postid).then(
+            ((res)=>{
+              this.$message({
+                message: '删除成功',
+                type: 'success'
+              });
+            })
+          ).catch(err=>{console.log(err)})
+        }).catch(() => {
+          that.$message({
+            message: '已取消删除',
+            type: 'info'
+          });
+        });
       }
     },
     data(){

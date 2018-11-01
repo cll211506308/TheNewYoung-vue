@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 style="text-align: center;color: #696969;">热门标签<small style="color: red">HOT</small></h2>
+    <h2 style="text-align: center;color: #2c2c2c;">热门标签 <small style="color: red">HOT</small></h2>
     <div style="margin-top: 20px">
       <router-link to="/search/血糖" target="_blank"><el-tag class="hotLabel">血糖</el-tag></router-link>
       <router-link to="/search/血压" target="_blank"><el-tag type="success" class="hotLabel">血压</el-tag></router-link>

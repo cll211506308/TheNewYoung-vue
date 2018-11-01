@@ -6,9 +6,9 @@
           <div class="text item">
             <router-link tag="a" :to="'/artical/'+item.articalId" target="_blank"
                          style="width: 90%;float: left;text-decoration: none;color: black;">
-            {{item.title}}
+              {{item.title}}
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            {{item.colTime}}
+              {{item.colTime}}
             </router-link>
             <el-button style="float: right; padding: 3px 0" type="text" icon="el-icon-delete" @click="delCol(item.articalId)"></el-button>
           </div>
@@ -21,27 +21,32 @@
 <script>
   export default {
     name: "usercollections",
-
     methods:{
-     delCol(id){
-        let that = this
-        this.$axios.get('/delCol', {
-          params: {
-            userId:this.$store.state.data1,articalId:id
-          }
-        })
-          .then(function (res) {
-            that.$message({
-              message: '删除成功',
-              type: 'success'
-            });
-            setTimeout(() => {
-              location.reload()
-            }, 500);
+      delCol(id) {
+        let that = this;
+        this.$confirm('此操作将永久删除该收藏, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonClass: '取消',
+          type: 'waring'
+        }).then(() => {
+          this.$axios.get('/delCol', {
+            params: {userId: this.$store.state.data1, articalId: id}
           })
-          .catch(function (error) {
+            .then((res => {
+                that.$message({
+                  message: '删除成功',
+                  type: 'success'
+                });
+              })
+            ).catch(function (error) {
             console.log(error);
+          })
+        }).catch(() => {
+          that.$message({
+            message: '已取消删除',
+            type: 'info'
           });
+        });
       }
     },
     data(){

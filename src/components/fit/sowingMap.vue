@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>最强Young友</h2>
+    <h2>最强<span style="color: orangered">Young</span>友</h2>
     <el-carousel :interval="4000" type="card" style="margin-top: 10px">
       <el-carousel-item v-for="item in imgList" :key="item.id">
         <img :src=item.idView>
@@ -29,7 +29,7 @@ export default {
 <style scoped>
   h2{
     text-align: center;
-    color: #696969;
+    color: #2c2c2c;
     width: 100%;
     height: 50px;
   }
