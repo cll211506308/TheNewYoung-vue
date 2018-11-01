@@ -2,10 +2,12 @@
   <el-row style="padding-top: 20px; padding-bottom: 20px;background: whitesmoke">
     <el-col :span="20" :offset="2">
       <el-col :span="16">
-        <el-card id="intro" class="box-card" shadow="hover">
-          <h1>营养饮食</h1>
-          <p>新young生营养美食频道为您介绍各类食物、食材的功效与作用，
-            让您了解它们的营养价值，提供药膳食疗，达到科学营养搭配饮食，吃出健康。</p>
+        <el-card id="intro" class="box-card" shadow="hover" style="margin-bottom: 20px">
+          <el-col :span="14" :offset="5">
+            <h1>营养饮食</h1>
+            <p>新young生营养美食频道为您介绍各类食物、食材的功效与作用，
+              让您了解它们的营养价值，提供药膳食疗，达到科学营养搭配饮食，吃出健康。</p>
+          </el-col>
         </el-card>
         <el-card class="box-card fixed" shadow="hover">
           <foods-intro></foods-intro>
@@ -38,17 +40,22 @@ export default {
 <style scoped>
   @media only screen and (min-width: 1000px){
     #intro{
-      background: url("../../static/images/foodsPic.jpg");
-      background-size: cover;
+      background: url("../../static/images/foodbg4.jpg");
+      background-size: 100% 100%;
+      height: 300px;
     }
     h1{
-      color: #696969;
+      color: #2c2c2c;
       text-align: center;
-      padding-top: 30px;
+      padding-top: 28px;
     }
     p{
-      color: #696969;
-      padding: 25px 26% 35px 34%;
+      padding: 15px 10% 15px 10%;
+      line-height: 30px;
+      font-size: 17px;
+      font-weight: bold;
+      color: dimgrey;
+      text-indent: 2em;
     }
     .fixed{
       border-radius: 20px;
@@ -65,18 +72,23 @@ export default {
   }
   @media only screen and (max-width: 1000px){
     #intro{
-      background: url("../../static/images/foodsPic.jpg");
-      background-size: cover;
+      background: url("../../static/images/foodbg4.jpg");
+      background-size: 100% 100%;
       width: 150%;
+      height: 280px;
     }
     h1{
-      color: #696969;
+      color: #2c2c2c;
       text-align: center;
-      padding-top: 30px;
+      padding-top: 28px;
     }
     p{
-      color: #696969;
-      padding: 25px 26% 35px 34%;
+      color: dimgrey;
+      padding: 15px 10% 15px 10%;
+      font-size: 17px;
+      font-weight: bold;
+      text-indent: 2em;
+      line-height: 30px;
     }
     .fixed{
       border-radius: 20px;

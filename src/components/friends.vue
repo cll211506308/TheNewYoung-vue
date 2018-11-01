@@ -433,6 +433,7 @@
     font-weight: bold;
     margin-top: 12px;
     margin-left: 95px;
+    white-space: nowrap;
   }
 
   .fixed{

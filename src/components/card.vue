@@ -516,8 +516,8 @@
   .del {
     font-size: 20px;
     color: orangered;
-    margin-top: 50%;
-    margin-left: 10px;
+    margin-top: 60%;
+    margin-left: 28px;
     cursor: pointer;
   }
 

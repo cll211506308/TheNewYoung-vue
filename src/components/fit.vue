@@ -2,10 +2,12 @@
   <el-row style="padding-top: 20px; padding-bottom: 20px;background: whitesmoke">
     <el-col :span="20" :offset="2">
       <el-col :span="16">
-        <el-card id="intro" class="box-card" shadow="hover">
-          <h1>健身课堂</h1>
-          <p>新Young生网站健身课堂为您提供健康、有效的训练方法以及个人案例，从减脂、
-            增肌、力量、塑形、核心等方面为您提供专业的讲解，以便于调理出健康、强健的体魄。</p>
+        <el-card id="intro" class="box-card" shadow="hover" style="margin-bottom: 20px">
+          <el-col :span="12" :offset="12">
+            <h1>健身课堂</h1>
+            <p>新Young生网站健身课堂为您提供健康、有效的训练方法以及个人案例，从减脂、
+              增肌、力量、塑形、核心等方面为您提供专业的讲解，以便于调理出健康、强健的体魄。</p>
+          </el-col>
         </el-card>
         <el-card class="box-card fixed" shadow="hover">
           <fit-intro></fit-intro>
@@ -38,17 +40,22 @@ export default {
 <style scoped>
   @media only screen and (min-width: 1000px){
     #intro{
-      background: url("../../static/images/fitPic.jpg");
+      background: url("../../static/images/fitbg.jpg");
       background-size: cover;
+      height: 300px;
     }
     h1{
-      color: #696969;
+      color: #2c2c2c;
       text-align: center;
-      padding-top: 30px;
+      margin-top: 28px;
     }
     p{
-      color: #696969;
-      padding: 25px 30% 35px 30%;
+      color: dimgrey;
+      padding: 15px 5% 15px 5%;
+      line-height: 28px;
+      font-size: 17px;
+      font-weight: bold;
+      text-indent: 2em;
     }
     .fixed{
       border-radius: 20px;
@@ -65,18 +72,23 @@ export default {
   }
   @media only screen and (max-width: 1000px){
     #intro{
-      background: url("../../static/images/fitPic.jpg");
+      background: url("../../static/images/fitbg.jpg");
       background-size: cover;
       width: 150%;
+      height: 280px;
     }
     h1{
-      color: #696969;
+      color: #2c2c2c;
       text-align: center;
-      padding-top: 30px;
+      margin-top: 20px;
     }
     p{
-      color: #696969;
-      padding: 25px 30% 35px 30%;
+      color: dimgrey;
+      padding: 15px 5% 15px 5%;
+      line-height: 28px;
+      font-size: 17px;
+      font-weight: bold;
+      text-indent: 2em;
     }
     .fixed{
       border-radius: 20px;

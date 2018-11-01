@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div style="background: white">
     <div id="title">
       <img src="../../../static/images/lebel.png" style="float: left;margin-left: 30%;margin-top: 15px">
-      <h2 style="float: left;padding-left: 4%;margin-top: 12px;color: #696969;">排行榜</h2>
+      <h2 style="float: left;padding-left: 4%;margin-top: 12px;color: #2c2c2c;">排行榜</h2>
     </div>
     <div class="rank" v-for="(item,index) in oneDiet" :key="index">
       <span v-if="index==0"><img src="../../../static/images/gold.png" class="pic"></span>
@@ -46,9 +46,9 @@
     position:relative;
   }
   .rank{
-    background-color: white;
     height: 60px;
     line-height: 60px;
+    font-size: 16px;
     font-weight: bold;
     width: 100%;
     text-overflow: ellipsis;
@@ -62,6 +62,6 @@
     top: 11px;
   }
   a{
-    color: dimgrey;
+    color: #2c2c2c;
   }
 </style>
