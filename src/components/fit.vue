@@ -29,6 +29,9 @@ import fitRank from './fit/fitRank'
 import sowingMap from './fit/sowingMap'
 export default {
   name: "fit",
+  created(){
+    sessionStorage.setItem("url", (window.location.pathname).slice(1));
+  },
   components:{
     'fit-intro':fitIntro,
     'fit-rank':fitRank,

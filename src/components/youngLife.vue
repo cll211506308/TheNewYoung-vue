@@ -26,6 +26,9 @@ import youngLifeRank from './youngLife/youngLifeRank'
 import youngLifeClass from './youngLife/youngLifeClass'
 export default {
   name: "youngLife",
+  created(){
+    sessionStorage.setItem("url", (window.location.pathname).slice(1));
+  },
   components:{
     'younglife-intro':youngLifeIntro,
     'younglife-rank':youngLifeRank,

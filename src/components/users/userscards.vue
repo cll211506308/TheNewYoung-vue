@@ -44,7 +44,6 @@
                       if(res.data.data[i].userId == this.$store.state.data1 ){
                         this.title1.push(res.data.data[i])
                       }
-                      console.log(this.title1)
                     }
                   })
                 ).catch(err=>{console.log(err)})
@@ -72,7 +71,6 @@
             if(res.data.data[i].userId == this.$store.state.data1 ){
               this.title1.push(res.data.data[i])
             }
-            console.log(this.title1)
           }
 
         })

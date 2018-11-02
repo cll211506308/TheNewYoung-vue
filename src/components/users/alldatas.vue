@@ -5,11 +5,17 @@
         <el-row type="flex" justify="center">
           <el-col :span="22" class="menuli">
     <el-row>
+<!--      <div v-if="newuser">
+        <router-link tag="li" to="/usershome/userbodydata/" active-class = "active2" >测试体质</router-link>
+      </div>-->
+ <!--     <div v-if="!newuser">
+        <router-link tag="li" to="/usershome/" active-class = "active2" exact>我的主页</router-link>
+      </div>-->
             <router-link tag="li" to="/usershome/" active-class = "active2" exact>我的主页</router-link>
             <router-link tag="li" to="/usershome/userbodydata/" active-class = "active2" >测试体质</router-link>
             <router-link tag="li" to="/usershome/usercollection/" active-class = "active2" >我的收藏</router-link>
             <router-link tag="li" to="/usershome/userscards/" active-class = "active2"  >我的贴子</router-link>
-            <router-link tag="li" to="/usershome/useridentity/" active-class = "active2" >我的信息</router-link>
+            <router-link tag="li" to="/usershome/useridentity/" active-class = "active2" >编辑信息</router-link>
         </el-row>
       </el-col>
     </el-row>
@@ -25,12 +31,31 @@
     data() {
       return {
         tabPosition: 'top',
-        activeClass:0
+        activeClass:0,
+        bodyClass: null,
       };
     },
-    methods: {
+    mounted() {
+      this.$axios.get('users/bodyclass/' + this.$store.state.data1).then(
+      ((res) => {
+        this.bodyClass = res.data.data[0].bodyclass
+      })
+    ).catch(err => {
+      console.log(err)
+    })
+    },
+    computed: {
+      newuser: function () {
+        if ( bodyClass === null) {
+          return true
+        }
+        else {
+          return false
+        }
+      },
 
-    }
+
+    },
   }
 </script>
 <style scoped>
@@ -63,8 +88,8 @@
   }
 .active2{
   background: url("../../../static/images/leaf.png") no-repeat;
-  background-position: 50% 5px;
-  background-size:90px;
+  background-position: 50% 8px;
+  background-size:60% 68%;
 }
 
 </style>

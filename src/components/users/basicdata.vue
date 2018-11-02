@@ -31,13 +31,11 @@
     mounted(){
       this.$axios.get('users/username/'+this.$store.state.data1).then(
         ((res)=>{
-          console.log(res.data)
           this.username = res.data.data[0].userName
         })
       ).catch(err=>{console.log(err)})
       this.$axios.get('users/username/'+this.$store.state.data1).then(
         ((res)=>{
-          console.log(res.data)
           this.autograph = res.data.data[0].autograph
         })
       ).catch(err=>{console.log(err)})
@@ -49,7 +47,6 @@
         this.$axios.get('users/username/'+this.$store.state.data1).then(
           ((res)=>{
             this.data2 = res.data.data[0];
-            console.log(this.data2)
           })
         ).catch(err=>{console.log(err)})
     }

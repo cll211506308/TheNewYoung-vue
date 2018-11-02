@@ -29,6 +29,9 @@ import foodsRank from './foods/foodsRank'
 import foodsClass from './foods/foodsClass'
 export default {
   name: "foods",
+  created(){
+    sessionStorage.setItem("url", (window.location.pathname).slice(1));
+  },
   components:{
     'foods-intro':foodsIntro,
     'foods-rank':foodsRank,

@@ -98,7 +98,7 @@
       col(){
         if(this.$store.state.data1 == null){
           this.$message({
-            message: '您还没登陆，请先登陆！',
+            message: '您还没登录，请先登录！',
             type: 'warning'
           });
         }
