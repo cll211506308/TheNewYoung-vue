@@ -172,7 +172,7 @@
       att(attId) {
         if (this.$store.state.data1 == null) {
           this.$message({
-            message: '您还没登陆，请先登陆',
+            message: '您还没登录，请先登录',
             type: 'warning'
           });
         }
@@ -221,7 +221,7 @@
         if (this.$store.state.data1 == null) {
           this.$message({
             showClose: true,
-            message: '您还没登陆，请先登陆',
+            message: '您还没登录，请先登录',
             type: 'warning'
           });
         }
@@ -251,6 +251,7 @@
                 type: 'success'
               });
 
+              this.textarea = ''
                 this.dialogVisible = false
                 that.$axios.get('/friends/getCom/' + that.id).then((result) => {
                   that.myActData = result.data.data;

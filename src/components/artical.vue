@@ -16,7 +16,7 @@
                   <span style="float:right"><i class="el-icon-view"></i> <span style="color: darkgrey">{{result.pageViews}}</span></span>
                 </p>
                 <el-button v-if="!isCol" type="primary" round size="small" class="btn hidden-sm-and-down" @click="col">+ 收 藏</el-button>
-                <el-button v-if="isCol" round size="small" class="btn hidden-sm-and-down" @click="delCol">已 收 藏</el-button>
+                <el-button v-if="isCol" round size="small" class="btn hidden-sm-and-down" @click="delCol">取 消 收 藏</el-button>
               </el-col>
             </el-row>
             <el-row style="margin-bottom: 25px;background: url('../../static/images/border3.jpg');background-size: 100% 100%">
@@ -55,7 +55,7 @@
         result:[],
         recommend:[],
         oneRecommend:[],
-        length:''
+        length1:''
       }
     },
     created(){
@@ -88,7 +88,7 @@
           userId:this.$store.state.data1,articalId: this.id
         }
       }).then((res) => {
-        this.length = res.data.data.length
+        this.length1 = res.data.data.length
       })
         .catch( (error) => {
           console.log(error);
@@ -115,7 +115,19 @@
                   message: '收藏成功！',
                   type: 'success'
                 });
-                window.location.reload();
+
+                //判断是否已收藏
+                that.$axios.get('/getCol', {
+                  params: {
+                    userId:that.$store.state.data1,articalId: that.id
+                  }
+                }).then((res) => {
+                  that.length1 = res.data.data.length
+                })
+                  .catch( (error) => {
+                    console.log(error);
+                  });
+
               }
             })
             .catch(function (error) {
@@ -139,7 +151,19 @@
                 message: '已取消收藏!',
                 type: 'success'
               });
-              window.location.reload();
+
+              //判断是否已收藏
+              that.$axios.get('/getCol', {
+                params: {
+                  userId:that.$store.state.data1,articalId: that.id
+                }
+              }).then((res) => {
+                that.length1 = res.data.data.length
+              })
+                .catch( (error) => {
+                  console.log(error);
+                });
+
             }
           })
           .catch(function (error) {
@@ -150,7 +174,7 @@
     },
     computed:{
       isCol: function () {
-        if (this.length == 0) {
+        if (this.length1 == 0) {
           return false
         }
         else {

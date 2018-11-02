@@ -130,7 +130,7 @@
       likeCard() {
         if (this.$store.state.data1 == null) {
           this.$message({
-            message: '您还没登陆，请先登陆',
+            message: '您还没登录，请先登录',
             type: 'warning'
           });
         }
@@ -150,7 +150,7 @@
         if (this.$store.state.data1 == null) {
           this.$message({
             showClose: true,
-            message: '您还没登陆，请先登陆',
+            message: '您还没登录，请先登录',
             type: 'warning'
           });
         }
@@ -193,6 +193,9 @@
                   message: '恭喜你，发表成功',
                   type: 'success'
                 });
+                that.form.name = ''
+                that.form.region = ''
+                that.form.desc = ''
                 that.dialogVisible = false
                 setTimeout(() => {
                   that.$router.push({path: '/friends/likeuser/1', replace: true})
