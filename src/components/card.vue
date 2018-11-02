@@ -138,6 +138,7 @@
       }
     },
     created() {
+      sessionStorage.setItem("url", (window.location.pathname).slice(1));
       //获取帖子信息
       this.$axios.get('/friends/postId/', {
         params: {
