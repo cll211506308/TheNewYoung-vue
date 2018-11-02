@@ -17,13 +17,13 @@
             <el-col class="post-right" :span="16" >
               <div>
                 <div>
-                  <router-link tag="a" target="_blank" :to="{name:'card',params: {id: u.postId}}">
+                  <router-link tag="a" :to="{name:'card',params: {id: u.postId}}">
                     <p class="pT">{{u.title}}</p>
                     <p class="pD">标签: <span style="color:orangered">{{u.postLabel}}</span></p>
                   </router-link>
                 </div>
                 <div class="post-content">
-                  <router-link tag="a" target="_blank" :to="{name:'card',params: {id: u.postId}}">
+                  <router-link tag="a" :to="{name:'card',params: {id: u.postId}}">
                     "{{u.postContent}}"
                   </router-link>
                 </div>

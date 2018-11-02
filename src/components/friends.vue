@@ -30,16 +30,16 @@
         <el-col :span="7" :offset="1" class="hidden-sm-and-down">
           <el-card class="box-card fixed" shadow="hover">
             <h3 style="margin-bottom: 20px;text-align: center">热门标签 <small style="color: red;">HOT</small></h3>
-            <router-link to="/search/养生" target="_blank"><el-tag class="hotLabel">养生</el-tag></router-link>
-            <router-link to="/search/健身" target="_blank"><el-tag type="success" class="hotLabel">健身</el-tag></router-link>
-            <router-link to="/search/营养" target="_blank"><el-tag type="info" class="hotLabel">营养</el-tag></router-link>
-            <router-link to="/search/瘦身" target="_blank"><el-tag type="warning" class="hotLabel">瘦身</el-tag></router-link>
-            <router-link to="/search/增肌" target="_blank"><el-tag type="danger" class="hotLabel">增肌</el-tag></router-link>
-            <router-link to="/search/健康作息" target="_blank"><el-tag class="hotLabel">健康作息</el-tag></router-link>
-            <router-link to="/search/消食" target="_blank"><el-tag type="success" class="hotLabel">消食</el-tag></router-link>
-            <router-link to="/search/降血压" target="_blank"><el-tag type="info" class="hotLabel">降血压</el-tag></router-link>
-            <router-link to="/search/抗癌" target="_blank"><el-tag type="warning" class="hotLabel">抗癌</el-tag></router-link>
-            <router-link to="/search/止咳润肺" target="_blank"><el-tag type="danger" class="hotLabel">止咳润肺</el-tag></router-link>
+            <router-link to="/search/养生" ><el-tag class="hotLabel">养生</el-tag></router-link>
+            <router-link to="/search/健身" ><el-tag type="success" class="hotLabel">健身</el-tag></router-link>
+            <router-link to="/search/营养" ><el-tag type="info" class="hotLabel">营养</el-tag></router-link>
+            <router-link to="/search/瘦身" ><el-tag type="warning" class="hotLabel">瘦身</el-tag></router-link>
+            <router-link to="/search/增肌" ><el-tag type="danger" class="hotLabel">增肌</el-tag></router-link>
+            <router-link to="/search/健康作息" ><el-tag class="hotLabel">健康作息</el-tag></router-link>
+            <router-link to="/search/消食" ><el-tag type="success" class="hotLabel">消食</el-tag></router-link>
+            <router-link to="/search/降血压" ><el-tag type="info" class="hotLabel">降血压</el-tag></router-link>
+            <router-link to="/search/抗癌" ><el-tag type="warning" class="hotLabel">抗癌</el-tag></router-link>
+            <router-link to="/search/止咳润肺" ><el-tag type="danger" class="hotLabel">止咳润肺</el-tag></router-link>
           </el-card>
         </el-col>
       </el-row>
@@ -307,7 +307,7 @@
 
   .active3{
     background: url("../../static/images/leaf.png") no-repeat;
-    background-size: 65% 68%;
-    background-position: 36px 9px;
+    background-size: 60% 68%;
+    background-position: 50% 9px;
   }
 </style>

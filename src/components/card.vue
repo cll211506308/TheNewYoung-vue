@@ -89,7 +89,7 @@
           <span style="margin-right: 8px" v-if="index==1"><img src="../../static/images/yin.png" class="yin"></span>
           <span style="margin-right: 8px" v-if="index==2"><img src="../../static/images/tong.png" class="tong"></span>
           <span style="margin-right: 8px" v-if="index>2">{{index+1}}.</span>
-          <router-link :to="'/artical/'+item.articalId" target="_blank">{{item.title}}</router-link>
+          <router-link :to="'/artical/'+item.articalId">{{item.title}}</router-link>
         </div>
       </el-col>
     </el-col>
