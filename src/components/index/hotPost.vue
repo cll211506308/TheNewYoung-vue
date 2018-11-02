@@ -26,9 +26,9 @@
                       <div class="postCon animated slideInUp hidden-sm-and-down">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
                         <!--  id: {{item.postId}} <br>-->
-                          <p style="margin-bottom: 5px">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
+                          <p style="margin-bottom: 5px;overflow: hidden;text-overflow: ellipsis;height: 20px;">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
                          <p style="margin-bottom: 5px">主要内容:</p>
-                          <p style="text-indent: 2em">{{item.postContent.substr(0,65)}}</p>
+                          <div style="text-indent: 2em;overflow: hidden;text-overflow: ellipsis;height: 125px;">{{item.postContent}}</div>
                         </div>
                       </div>
                     </div>
@@ -52,9 +52,9 @@
                       <div class="postCon animated slideInUp hidden-sm-and-down">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
                         <!--  id: {{item.postId}} <br>-->
-                          <p style="margin-bottom: 5px">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
+                          <p style="margin-bottom: 5px;overflow: hidden;text-overflow: ellipsis;height: 20px;">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
                           <p style="margin-bottom: 5px">主要内容:</p>
-                          <p style="text-indent: 2em">{{item.postContent.substr(0,65)}}</p>
+                          <div style="text-indent: 2em;overflow: hidden;text-overflow: ellipsis;height: 125px;">{{item.postContent}}</div>
                         </div>
                       </div>
                     </div>
@@ -78,9 +78,9 @@
                       <div class="postCon animated slideInUp hidden-sm-and-down">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
                         <!--  id: {{item.postId}} <br>-->
-                          <p style="margin-bottom: 5px">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
+                          <p style="margin-bottom: 5px;overflow: hidden;text-overflow: ellipsis;height: 20px;">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
                           <p style="margin-bottom: 5px">主要内容:</p>
-                          <p style="text-indent: 2em">{{item.postContent.substr(0,65)}}</p>
+                          <div style="text-indent: 2em;overflow: hidden;text-overflow: ellipsis;height: 125px;">{{item.postContent}}</div>
                         </div>
                       </div>
                     </div>
@@ -104,9 +104,9 @@
                       <div class="postCon animated slideInUp hidden-sm-and-down">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
                           <!--id: {{item.postId}} <br>-->
-                          <p style="margin-bottom: 5px">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
+                          <p style="margin-bottom: 5px;overflow: hidden;text-overflow: ellipsis;height: 20px;">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
                           <p style="margin-bottom: 5px">主要内容:</p>
-                          <p style="text-indent: 2em">{{item.postContent.substr(0,65)}}</p>
+                          <div style="text-indent: 2em;overflow: hidden;text-overflow: ellipsis;height: 125px;">{{item.postContent}}</div>
                         </div>
                       </div>
                     </div>
