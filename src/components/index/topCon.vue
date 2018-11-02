@@ -55,12 +55,14 @@
                 <router-link tag="p" to="/foods" style="cursor: pointer" class="pg">营养饮食</router-link>
                 <router-link tag="p" to="/fit" style="cursor: pointer" class="pg">健身课堂</router-link>
                 <router-link tag="p" to="/friends" style="cursor: pointer" class="pg">Young友圈</router-link>
-                <hr style="color:darkgray; width: 100px;margin:auto auto">
+
                 <div v-if="isLogin">
                   <router-link tag="p" to="/login" style="cursor: pointer;font-size: 15px" class="pg">登 录</router-link>
                 </div>
                 <div v-if="!isLogin">
-                  <router-link tag="p" to="/usershome" style="cursor: pointer" class="pg"><img src="../../../static/images/person.png" style="width: 21px;height: 21px; position: relative;top: 5px;" alt=""></router-link>
+                  <router-link tag="p" to="/usershome" style="cursor: pointer" class="pg"><img src="../../../static/images/person.png" style="width: 21px;height: 21px;" alt=""></router-link>
+                  <hr style="color:darkgray; width: 100px;margin:auto auto">
+                  <p style="cursor: pointer" @click="tuichu" class="pg">退出登录</p>
                 </div>
               </div>
             </el-col>
