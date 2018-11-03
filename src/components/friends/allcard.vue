@@ -10,9 +10,7 @@
               <el-row>
                 <img v-bind:src="'http://127.0.0.1:3000/'+u.headPic"/>
               </el-row>
-              <el-row style="margin-top: 10px">
-                <el-button type="primary" round size="mini" @click="att(u.userId)">关注此人</el-button>
-              </el-row>
+            <att :fm="u.userId"></att>
             </el-col>
             <el-col class="post-right" :span="16" >
               <div>
@@ -64,6 +62,7 @@
 </template>
 
 <script>
+  import att from './att';
   export default {
     data() {
       return {
@@ -81,69 +80,10 @@
         activitys:[]
       }
     },
-    created() {
 
-      this.$axios.get('users/att/' + this.$store.state.data1).then(
-        ((res1) => {
-          for (var i = 0; i < res1.data.data.length; i++) {
-            this.attUsers.push(res1.data.data[i].attentionedUserId)
-          }
-
-        })
-      ).catch(err => {
-        console.log(err)
-      })
-
-    },
     methods: {
 
-      att(attId) {
-        if (this.$store.state.data1 == null) {
-          this.$message({
-            message: '您还没登陆，请先登陆',
-            type: 'warning'
-          });
-        }
-        else {
-          let that = this
-          this.$axios.get('/friends/getAtt', {
-            params: {
-              userId: this.$store.state.data1, attentioneduserid: attId
-            }
-          })
-            .then(function (response1) {
-              if (response1.data.data.length == 1) {
-                that.$message({
-                  message: '您已关注',
-                  type: 'success'
-                });
-              }
-              else {
-                that.$axios.get('/friends/attention', {
-                  params: {
-                    userId: that.$store.state.data1, attentioneduserid: attId
-                  }
-                })
-                  .then(function (response2) {
-                    if (response2.data.code == 200) {
-                      that.$message({
-                        message: '关注成功',
-                        type: 'success'
-                      });
-                    }
-                  })
-                  .catch(function (error) {
-                    console.log(error);
-                  });
 
-              }
-
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
-        }
-      },
       open2(postid) {
         this.$confirm('此操作将永久删除该帖子, 是否继续?', '提示', {
           confirmButtonText: '确定',
@@ -210,6 +150,9 @@
       }
 
     },
+    components:{
+      'att':att
+    }
   }
 </script>
 
