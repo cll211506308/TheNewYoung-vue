@@ -37,4 +37,8 @@ export default {
     margin-right: 5px;
     margin-bottom: 15px;
   }
+
+  .hotLabel:hover{
+    transform: scale(1.1);
+  }
 </style>

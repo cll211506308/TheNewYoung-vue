@@ -132,6 +132,11 @@
     margin-right: 5px;
     margin-bottom: 15px;
   }
+
+  .hotLabel:hover{
+    transform: scale(1.1);
+  }
+
   .search1{
     margin-bottom: 10px;
     cursor: pointer;

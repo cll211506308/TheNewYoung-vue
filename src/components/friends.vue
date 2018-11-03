@@ -300,6 +300,10 @@
     margin-bottom: 15px;
   }
 
+  .hotLabel:hover{
+    transform: scale(1.1);
+  }
+
   .publish{
     position: relative;
     top: 10px;
