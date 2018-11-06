@@ -12,7 +12,7 @@
                 <div class="search1" v-for="item in myActData1">
                   <el-row>
                     <el-col :span="8">
-                      <router-link :to="'/artical/'+ item.articalId" target="_blank"><img v-bind:src="'http://127.0.0.1:3000/'+ item.coverPic" alt="" style="width: 100%;min-height: 100px;max-height: 200px"></router-link>
+                      <router-link :to="'/artical/'+ item.articalId" target="_blank"><img v-bind:src="'http://127.0.0.1:3000/'+ item.coverPic" alt="" style="width: 100%;min-height: 120px;max-height: 200px"></router-link>
                     </el-col>
                     <el-col :span="14" :offset="2">
                       <router-link :to="'/artical/'+ item.articalId" target="_blank"><p class="sT">{{item.title}}</p></router-link>

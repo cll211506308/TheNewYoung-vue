@@ -17,11 +17,10 @@
           <router-link tag="li" to="/friends" active-class="active123">Young友圈</router-link>
         </el-col>
         <el-col :md="5" :offset="2" style="position:absolute; left:61%; top: -2px;" class="hidden-md-and-down">
-          <el-input
-            placeholder="请输入内容..."
-            v-model="input10"
-            clearable>
-          </el-input>
+            <input
+              placeholder="请输入内容..."
+              v-model="input10"
+              @keyup.13="searchOne" class="input"/>
           <a :href="'/search/'+input10">
             <i class="header-icon el-icon-search" style="color:#2c2c2c; font-weight:bold;position:absolute;top:50%;margin-top: -8px; right: -38px"></i>
           </a>
@@ -111,6 +110,9 @@
       },
       change(){
         let lis = document.getElementById()
+      },
+      searchOne(){
+        window.location.href = '/search/'+ this.input10;
       }
 
     },
@@ -131,6 +133,22 @@
 </script>
 
 <style scoped>
+  .input{
+    height: 38px;
+    width: 97%;
+    -webkit-appearance:none;
+    -moz-appearance: none;
+    text-indent: 2em;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: 0;
+    border:1.5px solid #c8cccf;
+  }
+
+  .input:focus{
+    border:1px solid rgb(64,158,255);
+  }
+
   p {
     height: 45px;
     line-height: 45px;
