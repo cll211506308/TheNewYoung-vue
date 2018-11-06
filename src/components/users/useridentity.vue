@@ -6,7 +6,7 @@
           <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
             <el-row style="margin-bottom: 25px; margin-top: 10px">
               <el-col :span="23" :offset="1">
-                <span style="font-size: 14px;color: #606266;">更改头像</span>
+                <span style="font-size: 14px;color: #606266;margin-right: 40px;">更改头像</span>
                 <input  type="file" name="avatar"
                                         @change="changeImage($event)"
                                         accept="image/gif,image/jpeg,image/jpg,image/png"

@@ -6,7 +6,7 @@
        <div class="bodyclass">
           <el-card class="box-card2" shadow="hover">
             <div slot="header" class="clearfix">
-              <span>您的体质：{{bodyClass}}</span>
+              <span>您的体质：<span style="font-weight: bold; color: orangered">{{bodyClass}}</span></span>
             </div>
             <div class="text item" style="line-height: 35px">
               {{bodyclassContent }}
@@ -18,7 +18,8 @@
     <div class="suggestions" style="margin-bottom: 20px">
       <el-card class="box-card3"  shadow="hover">
         <div slot="header" class="clearfix">
-          <span>中医建议：</span>
+          <img src="../../../static/images/keys.png" alt="" style="height: 22px;width: 22px;position: absolute;">
+          <span style="margin-left: 30px">中医建议：</span>
         </div>
         <div class="sug" >
           {{ suggestions}}
@@ -237,12 +238,16 @@
 <style scoped>
   .box-card1{
     border-radius: 15px;
+    padding: 10px;
   }
   .box-card2 {
     border-radius: 15px;
+    padding: 10px;
+
   }
   .box-card3{
     border-radius: 15px;
+    padding: 10px;
   }
 
   .suggestions{

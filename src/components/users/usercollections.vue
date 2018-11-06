@@ -1,5 +1,5 @@
 <template>
-  <el-row type="flex" justify="center">
+  <el-row type="flex" justify="center" style="margin-bottom: 20px">
     <el-col :span="24">
       <div v-for="item in title1">
         <el-card class="box-card" shadow="hover" style="margin-bottom: 6px;" >
