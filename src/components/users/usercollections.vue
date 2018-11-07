@@ -1,17 +1,17 @@
 <template>
-  <el-row :gutter="20">
+  <el-row :gutter="10">
     <el-col  :xs="12" :sm="12" :md="8" :lg="6" :xl="6" v-for="item in title1">
       <el-card shadow="hover" class="cards">
+        <el-button icon="el-icon-error"circle @click="delCol(item.articalId)" class="buttons"></el-button>
         <router-link tag="a" target="_blank" :to="'/artical/'+item.articalId"
                      style="width: 90%;float: left;text-decoration: none;color: black;">
-        <img v-bind:src="'http://127.0.0.1:3000/'+ item.coverPic" class="image">
+          <div class="test"> <img v-bind:src="'http://127.0.0.1:3000/'+ item.coverPic" class="image"></div>
           <div class="title">{{item.title}}</div>
             <div class="able">标签: <span style="color: orangered">{{item.articalLabel}}</span></div>
             <div style="margin-top: 15px;margin-bottom: 20px" >
               <i class="el-icon-view coltime"> {{item.colTime}}</i></div>
         </router-link>
            <!-- <el-button type="primary" @click="delCol(item.articalId)" class="">删除</el-button>-->
-        <el-button icon="el-icon-error"circle @click="delCol(item.articalId)" style="width: 25px;height: 25px;text-align: center"></el-button>
       </el-card>
     </el-col>
   </el-row>
@@ -79,39 +79,46 @@
   .item :link{
     color: black;
   }
-  .image{
-    width: 100%;
-    height: 150px;
-  }
   .cards{
-    height: 350px;
+    height: 310px;
     margin-bottom: 15px;
-  /*  text-align: center;
-    margin: 0 auto;*/
+    position: relative;
+  }
+  .image{
+    width: 110%;
+    height: 150px;
   }
   .title{
     text-overflow: ellipsis;
     overflow: hidden;
     white-space:nowrap;
-    width:100% ;
-    height: 30px;
+    width:110% ;
+    height: 40px;
     text-align: left;
     margin-top:10px;
     font-size: 18px;
   }
   .able{
-    width: 100%;
-    height: 15px;
+    width: 110%;
+    height: 25px;
   }
   .coltime{
-    width: 100%;
-    height: 20px;
+    width: 110%;
+    height: 30px;
   }
-  /*@media only screen and (max-width: 800px){*/
-/*.cards{*/
-  /*width: 100%;*/
-  /*height:350px;*/
-/*}*/
-    /*}*/
+.buttons{
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  /*display: none;*/
+}
+/*  .buttons:hover .buttons{
+    display: block;
+  }*/
 </style>
 
