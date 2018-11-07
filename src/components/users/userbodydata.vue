@@ -75,7 +75,7 @@
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
           },
-          // {
+ /*         // {
           //   title: '您胃脘部、背部或腰膝部怕冷吗？',
           //   category: 0,
           //   radio: '',
@@ -103,13 +103,13 @@
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
           },
-          /*{
+          /!*{
             title: '你受凉或吃（喝）凉的东西后，容易腹泻（拉肚子）吗？',
             category: 0,
             radio: '',
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },*/
+          },*!/
           //阴虚质
           {
             title: '您感到手脚心发热吗？',
@@ -118,13 +118,13 @@
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
           },
-          /*           {
+          /!*           {
                        title: '您感觉身体、脸上发热吗？',
                        category: 0,
                        radio: '',
                        score: 0,
                        data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-                     },*/
+                     },*!/
           {
             title: '您皮肤或口唇干吗？',
             category: 0,
@@ -132,13 +132,13 @@
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
           },
-          /*           {
+          /!*           {
                        title: '您口唇的颜色比一般人红吗？',
                        category: 0,
                        radio: '',
                        score: 0,
                        data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-                     },*/
+                     },*!/
           {
             title: '您面部两潮红或偏红吗？',
             category: 0,
@@ -175,13 +175,13 @@
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
           },
-          /*           {
+          /!*           {
                        title: '您容易心慌吗？',
                        category: 0,
                        radio: '',
                        score: 0,
                        data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-                     },*/
+                     },*!/
           {
             title: '您容易头晕或站起时晕眩吗？',
             category: 0,
@@ -189,21 +189,21 @@
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
           },
-          /*           {
+          /!*           {
                        title: '您比别人容易患感冒吗？',
                        category: 0,
                        radio: '',
                        score: 0,
                        data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-                     },*/
+                     },*!/
           //平和质
-          /*           {
+          /!*           {
                        title: '您精力充沛吗？',
                        category: 0,
                        radio: '',
                        score: 0,
                        data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-                     },*/
+                     },*!/
           {
             title: '您说话声音无力吗？',
             category: 0,
@@ -218,13 +218,13 @@
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
           },
-          /*           {
+          /!*           {
                        title: '您能适应外界自然和社会环境的变化吗？',
                        category: 0,
                        radio: '',
                        score: 0,
                        data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-                     },*/
+                     },*!/
           {
             title: '您容易失眠吗？',
             category: 0,
@@ -238,7 +238,7 @@
             radio: '',
             score: 0,
             data: [{content: '没有'}, {content: '很少'}, {content: '有时'}, {content: '经常'}, {content: '总是'}]
-          },
+          },*/
         ]
       }
     },
@@ -276,7 +276,24 @@
         }
         let Arr = this.List.filter(item => item.score === 0)
         this.dataList = []
-        this.dataList.push()
+        this.dataList.push();
+        if(Arr.length !== 0 ){
+            this.$alert('您有未完成的题目，请检查！', {
+            confirmButtonText: '确定'
+          })
+        }else{
+          if(this.numberValidateForm.height <=0 || this.numberValidateForm.height >2){
+            this.$alert('请输入正确的身高，请检查！', {
+              confirmButtonText: '确定'
+            })
+          }else{
+            if (this.numberValidateForm.weight <=0 || this.numberValidateForm.weight >100)  {
+              this.$alert('请输入正确的体重，请检查！', {
+                confirmButtonText: '确定'
+              })
+            }
+          }
+        }
         if (Arr.length === 0) {
           //允许提交
           $.post("http://127.0.0.1:3000/users/insertbodydatas", {
@@ -306,6 +323,35 @@
             confirmButtonText: '确定'
           })
         }
+/*        if (Arr.length === 0) {
+          //允许提交
+          $.post("http://127.0.0.1:3000/users/insertbodydatas", {
+            userId: this.$store.state.data1,
+            userHeight: this.numberValidateForm.height,
+            userWeight: this.numberValidateForm.weight,
+            putTime: Date.now(),
+            usertotal: this.total,
+            bodyClass: submitContent,
+            bodyclassContent: bodyclassContent,
+            BMI: this.BMI,
+            suggestions: suggestions,
+          }, function () {
+
+          })
+
+          this.$message({
+            message: '提交成功,即将跳转到我的主页',
+            type: 'success'
+          });
+          setTimeout(() => {
+            window.location.href = '/usershome/'
+          }, 500);
+
+        } else {
+          this.$alert('您有未完成的题目，请检查！', {
+            confirmButtonText: '确定'
+          })
+        }*/
       },
       radioCClick() {
         // console.log(123)

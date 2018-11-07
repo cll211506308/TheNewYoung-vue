@@ -61,7 +61,7 @@
 <style scoped>
   #menu{
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 16px;
     border-radius: 15px;
     width: 100%;
