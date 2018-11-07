@@ -1,22 +1,29 @@
 <template>
+  <div>
   <el-row type="flex" justify="center">
     <el-col :span="24">
       <div v-for="item in title1">
-        <el-card class="box-card" shadow="hover" style="margin-bottom: 6px;">
+        <el-card class="box-card" shadow="hover" style="margin-bottom: 5px;">
           <div class="text item">
             <router-link tag="a" target="_blank" :to="{name:'card',params: {id: item.postId}}"
                          style="width: 90%;float: left;text-decoration: none;color: black;">
-            {{item.title}}
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            {{item.postTime}}
+              <div class="userphoto">
+                <img v-bind:src="picSrc+data2.headPic" alt="">
+                <p class="username">{{item.userName}}</p>
+              </div>
+              <div class="datas">
+                <span class="title">{{item.title}}</span><br><br>
+                <span class="content">{{item.postContent}}</span><br>
+                <span class="posttime">发布于：{{item.postTime}}</span>
+              </div>
             </router-link>
             <el-button style="float: right; padding: 3px 0" type="text" icon="el-icon-delete" @click="delPost(item.postId)"></el-button>
           </div>
         </el-card>
       </div>
-
     </el-col>
   </el-row>
+  </div>
 </template>
 <script>
   export default {
@@ -62,6 +69,8 @@
     data(){
       return {
         title1:[],
+        data2:'',
+        picSrc:this.$store.state.picurl,
     }
     },
     created(){
@@ -74,6 +83,11 @@
           }
 
         })
+      ).catch(err=>{console.log(err)});
+      this.$axios.get('users/username/'+this.$store.state.data1).then(
+        ((res)=>{
+          this.data2 = res.data.data[0];
+        })
       ).catch(err=>{console.log(err)})
     }
   }
@@ -85,6 +99,38 @@
   }
   .box-card {
     width: 100%;
-    height: 61px;
+    height:150px;
+  }
+  .userphoto{
+    width: 140px;
+    height: 140px;
+    float: left;
+    text-align: center;
+   /* line-height: 140px;*/
+  }
+  .userphoto img{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+
+  }
+  .title{
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  .content{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp:1;
+    -webkit-box-orient:vertical;
+  }
+  .posttime{
+      color: gray;
+  }
+  .username{
+     font: 16px bolder;
+    margin-top: 10px;
   }
 </style>

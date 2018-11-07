@@ -277,21 +277,21 @@
   }
   @media only screen and (max-width: 900px){
     .box-card1{
-    width: 100%;
-    height: 400px;
-    background: burlywood;
+      width: 96%;
+      height: 400px;
+      background: bisque;
   }
     .box-card2{
-      width: 100%;
+      width: 96%;
       height:300px;
     }
     .kong{
-      width: 100%;
+      width: 96%;
       height: 20px;
       clear: both;
     }
     .kong1{
-      width: 100%;
+      width: 96%;
       height: 20px;
     }
   }
