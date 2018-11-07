@@ -28,7 +28,7 @@
                         <!--  id: {{item.postId}} <br>-->
                           <p style="margin-bottom: 5px;overflow: hidden;text-overflow: ellipsis;height: 20px;">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
                          <p style="margin-bottom: 5px">主要内容:</p>
-                          <div style="text-indent: 2em;overflow: hidden;text-overflow: ellipsis;height: 125px;">{{item.postContent}}</div>
+                          <div style="text-indent: 2em;overflow: hidden;text-overflow: ellipsis;height: 125px; line-height: 25px">{{item.postContent}}</div>
                         </div>
                       </div>
                     </div>
@@ -54,7 +54,7 @@
                         <!--  id: {{item.postId}} <br>-->
                           <p style="margin-bottom: 5px;overflow: hidden;text-overflow: ellipsis;height: 20px;">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
                           <p style="margin-bottom: 5px">主要内容:</p>
-                          <div style="text-indent: 2em;overflow: hidden;text-overflow: ellipsis;height: 125px;">{{item.postContent}}</div>
+                          <div style="text-indent: 2em;overflow: hidden;text-overflow: ellipsis;height: 125px;line-height: 25px">{{item.postContent}}</div>
                         </div>
                       </div>
                     </div>
@@ -80,7 +80,7 @@
                         <!--  id: {{item.postId}} <br>-->
                           <p style="margin-bottom: 5px;overflow: hidden;text-overflow: ellipsis;height: 20px;">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
                           <p style="margin-bottom: 5px">主要内容:</p>
-                          <div style="text-indent: 2em;overflow: hidden;text-overflow: ellipsis;height: 125px;">{{item.postContent}}</div>
+                          <div style="text-indent: 2em;overflow: hidden;text-overflow: ellipsis;height: 125px;line-height: 25px">{{item.postContent}}</div>
                         </div>
                       </div>
                     </div>
@@ -106,7 +106,7 @@
                           <!--id: {{item.postId}} <br>-->
                           <p style="margin-bottom: 5px;overflow: hidden;text-overflow: ellipsis;height: 20px;">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
                           <p style="margin-bottom: 5px">主要内容:</p>
-                          <div style="text-indent: 2em;overflow: hidden;text-overflow: ellipsis;height: 125px;">{{item.postContent}}</div>
+                          <div style="text-indent: 2em;overflow: hidden;text-overflow: ellipsis;height: 125px;line-height: 25px">{{item.postContent}}</div>
                         </div>
                       </div>
                     </div>
@@ -133,14 +133,14 @@
                   <router-link :to="'/card/'+ item.postId">
                     <div class="post1" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop1">
-                        <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
+                        <p style="color:whitesmoke; margin: 10px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
                           {{item.title}}
                         </p>
                       </div>
                       <div class="postCon1 animated slideInUp">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 10px;">
                          <!-- id: {{item.postId}} <br>-->
-                          <p style="margin-top: 40px">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
+                          <p style="margin-top: 45px">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
                         </div>
                       </div>
                     </div>
@@ -157,14 +157,14 @@
                   <router-link :to="'/card/'+ item.postId">
                     <div class="post1" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop1">
-                        <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
+                        <p style="color:whitesmoke; margin: 10px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
                           {{item.title}}
                         </p>
                       </div>
                       <div class="postCon1 animated slideInUp">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
                         <!--  id: {{item.postId}} <br>-->
-                          <p style="margin-top: 40px">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
+                          <p style="margin-top: 45px">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
                         </div>
                       </div>
                     </div>
@@ -181,14 +181,14 @@
                   <router-link :to="'/card/'+ item.postId">
                     <div class="post1" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop1">
-                        <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
+                        <p style="color:whitesmoke; margin: 10px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
                           {{item.title}}
                         </p>
                       </div>
                       <div class="postCon1 animated slideInUp">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
                          <!-- id: {{item.postId}} <br>-->
-                          <p style="margin-top: 40px">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
+                          <p style="margin-top: 45px">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
                         </div>
                       </div>
                     </div>
@@ -205,14 +205,14 @@
                   <router-link :to="'/card/'+ item.postId">
                     <div class="post1" :style="{backgroundImage: 'url(' + ('http://127.0.0.1:3000/'+item.postPic1) + ')'}">
                       <div class="postTop1">
-                        <p style="color:whitesmoke; margin: 15px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
+                        <p style="color:whitesmoke; margin: 10px; overflow:hidden; text-overflow: ellipsis;word-break: keep-all;white-space: nowrap">
                           {{item.title}}
                         </p>
                       </div>
                       <div class="postCon1 animated slideInUp">
                         <div style="color:whitesmoke;word-wrap:break-word; overflow:hidden; margin: 15px;">
                           <!--id: {{item.postId}} <br>-->
-                          <p style="margin-top: 40px">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
+                          <p style="margin-top: 45px">标签: <span style="color:orangered">{{item.postLabel}}</span></p>
                         </div>
                       </div>
                     </div>
@@ -299,7 +299,7 @@
   }
 
   .post1{
-    height: 180px;
+    height: 170px;
     position: relative;
     cursor: pointer;
     background-size: 100% 210px;
@@ -315,11 +315,12 @@
   }
   .postTop1{
     width: 100%;
-    height: 50px;
+    height: 40px;
     background: black;
     opacity: 0.9;
     position: absolute;
     bottom: 0;
+    font-size: 15px;
   }
   .postCon{
     width: 100%;
@@ -349,4 +350,5 @@
   .ph3{
     font-size: 16px;
   }
+
 </style>

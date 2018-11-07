@@ -12,7 +12,7 @@
                 <div class="search1" v-for="item in myActData1">
                   <el-row>
                     <el-col :span="8">
-                      <router-link :to="'/artical/'+ item.articalId" target="_blank"><img v-bind:src="'http://127.0.0.1:3000/'+ item.coverPic" alt="" style="width: 100%;min-height: 120px;max-height: 200px"></router-link>
+                      <router-link :to="'/artical/'+ item.articalId" target="_blank"><img v-bind:src="'http://127.0.0.1:3000/'+ item.coverPic" alt="" class="image"></router-link>
                     </el-col>
                     <el-col :span="14" :offset="2">
                       <router-link :to="'/artical/'+ item.articalId" target="_blank"><p class="sT">{{item.title}}</p></router-link>
@@ -41,7 +41,7 @@
         </el-card>
       </el-col>
       <el-col :span="7" :offset="1" class="hidden-sm-and-down">
-        <el-card class="box-card fixed" shadow="hover">
+        <el-card class="box-card fixed" shadow="hover" style="margin-bottom: 290px">
           <h3 style="margin-bottom: 20px;text-align: center">热门标签 <small style="color: red;">HOT</small></h3>
           <a href="/search/养生" ><el-tag class="hotLabel">养生</el-tag></a>
           <a href="/search/健身" ><el-tag type="success" class="hotLabel">健身</el-tag></a>
@@ -124,6 +124,11 @@
 </script>
 
 <style scoped>
+  .image{
+    height: 200px;
+    width: 100%;
+  }
+
   h2{
     font-size: 22px;
   }
@@ -155,7 +160,7 @@
   .sT{
     position: absolute;
     font-size: 18px;
-    top: 25px;
+    top: 30px;
     font-weight: bold;
     color: #000009;
     width: 100%;
@@ -175,6 +180,32 @@
     position:absolute;
     bottom: 42px;
     right: 50px;
+
+  }
+
+  @media only screen and (max-width: 1300px){
+    .image{
+      height: 160px;
+    }
+  }
+
+  @media only screen and (max-width: 900px){
+    .image{
+      height: 120px;
+    }
+
+    h2{
+      height: 20px;
+    }
+
+    .sT{
+      top: 25px;
+      font-size: 16px;
+    }
+
+    .sA{
+      font-size: 15px;
+    }
 
   }
 

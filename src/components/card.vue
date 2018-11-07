@@ -78,7 +78,7 @@
           </el-col>
         </el-row>
       </el-col>
-      <el-col :span="7" :offset="1" style="border-radius: 5px;background: white" class="hidden-sm-and-down">
+      <el-col :span="7" :offset="1" style="border-radius: 5px;background: white;margin-bottom: 140px" class="hidden-sm-and-down">
         <div class="paiHang">
           <img class="hidden-sm-and-down" src="../../static/images/lebel.png" alt=""
                style="position: absolute;top:50%;margin-top: -16px; left:30%">
