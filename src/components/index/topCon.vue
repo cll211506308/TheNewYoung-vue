@@ -49,11 +49,11 @@
             <el-col :span="18" class="dropdown1">
               <router-link tag="li" to="" ><img src="../../../static/images/navicon.png" alt="导航" class="navicon"></router-link>
               <div class="dropdown-content2">
-                <router-link tag="p" to="/" style="cursor: pointer" class="pg">首 页</router-link>
-                <router-link tag="p" to="/youngLife" style="cursor: pointer" class="pg">养生堂</router-link>
-                <router-link tag="p" to="/foods" style="cursor: pointer" class="pg">营养饮食</router-link>
-                <router-link tag="p" to="/fit" style="cursor: pointer" class="pg">健身课堂</router-link>
-                <router-link tag="p" to="/friends" style="cursor: pointer" class="pg">Young友圈</router-link>
+                <router-link tag="p" to="/" style="cursor: pointer" class="pg" active-class="active22" exact>首 页</router-link>
+                <router-link tag="p" to="/youngLife" style="cursor: pointer" class="pg" active-class="active22">养生堂</router-link>
+                <router-link tag="p" to="/foods" style="cursor: pointer" class="pg" active-class="active22">营养饮食</router-link>
+                <router-link tag="p" to="/fit" style="cursor: pointer" class="pg" active-class="active22">健身课堂</router-link>
+                <router-link tag="p" to="/friends" style="cursor: pointer" class="pg" active-class="active22">Young友圈</router-link>
 
                 <div v-if="isLogin">
                   <router-link tag="p" to="/login" style="cursor: pointer;font-size: 15px" class="pg">登 录</router-link>
@@ -142,7 +142,21 @@
     border-radius: 5px;
     font-size: 15px;
     outline: 0;
-    border:1.5px solid #c8cccf;
+    border:1.5px solid rgb(232, 223, 181);
+    color: #2c2c2c;
+  }
+
+  input::-webkit-input-placeholder { /* WebKit browsers */
+    color: darkgrey;
+  }
+  input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: darkgrey;
+  }
+  input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: darkgrey;
+  }
+  input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: darkgrey;
   }
 
   .input:focus{
@@ -229,5 +243,9 @@
   .active123{
     border-bottom: 4px solid orangered;
     color:orangered;
+  }
+
+  .active22{
+    color: orangered;
   }
 </style>

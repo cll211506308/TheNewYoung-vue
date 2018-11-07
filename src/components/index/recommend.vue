@@ -125,8 +125,7 @@
 
   .image {
     width: 100%;
-    min-height: 150px;
-    max-height: 215px;
+    height: 215px;
     display: block;
   }
 
@@ -176,5 +175,31 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space:nowrap;
+  }
+
+  @media only screen and (max-width: 1300px){
+    .image{
+      height: 160px;
+    }
+  }
+
+  @media only screen and (max-width: 900px){
+    h2{
+      font-size: 18px;
+    }
+
+    .pT{
+      font-size: 15px;
+    }
+
+    .image{
+      height: 120px;
+    }
+
+    .button{
+      height: 30px;
+      width: 70px;
+    }
+
   }
 </style>

@@ -6,7 +6,7 @@
           <el-col :span="22" :offset="1">
             <el-row :gutter="20" style="margin-top: 10px;margin-bottom: 25px">
               <el-col :span="10">
-                <img v-bind:src="this.$store.state.picurl+ result.coverPic" alt="" style="width: 100%;min-height: 100px;max-height: 200px">
+                <img v-bind:src="this.$store.state.picurl+ result.coverPic" alt="" class="image">
               </el-col>
               <el-col :span="14">
                 <p class="articalT">{{result.title}}</p>
@@ -186,6 +186,11 @@
 </script>
 
 <style scoped>
+  .image{
+    width: 100%;
+    height: 200px;
+  }
+
   a{
     text-decoration: none;
     color:black;
@@ -257,6 +262,18 @@
     /*font-weight: ;*/
     color: #2c2c2c;
     font-size: 17px;
+  }
+
+  @media only screen and (max-width: 1300px){
+    .image{
+      height: 180px;
+    }
+  }
+
+  @media only screen and (max-width: 900px){
+    .image{
+      height: 120px;
+    }
   }
 
 </style>
