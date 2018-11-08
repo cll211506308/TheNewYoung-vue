@@ -1,6 +1,7 @@
 <template>
   <el-row :gutter="10">
     <el-col  :xs="12" :sm="12" :md="8" :lg="6" :xl="6" v-for="item in title1">
+      <div id="tests">
       <el-card shadow="hover" class="cards">
         <el-button icon="el-icon-error"circle @click="delCol(item.articalId)" class="buttons"></el-button>
         <router-link tag="a" target="_blank" :to="'/artical/'+item.articalId"
@@ -11,13 +12,15 @@
             <div style="margin-top: 15px;margin-bottom: 20px" >
               <i class="el-icon-view coltime"> {{item.colTime}}</i></div>
         </router-link>
-           <!-- <el-button type="primary" @click="delCol(item.articalId)" class="">删除</el-button>-->
       </el-card>
+      </div>
     </el-col>
   </el-row>
 </template>
 
 <script>
+/*  import stroll from '../../stroll.min.js';
+  stroll.bind('#tests .cards');*/
   export default {
     name: "usercollections",
     methods:{
@@ -105,6 +108,8 @@
   .coltime{
     width: 110%;
     height: 30px;
+    color: gray;
+    font-size: 14px;
   }
 .buttons{
   width: 25px;
@@ -115,10 +120,39 @@
   position: absolute;
   top: 0;
   right: 0;
-  /*display: none;*/
+  display: none;
 }
-/*  .buttons:hover .buttons{
+  .cards:hover .buttons{
     display: block;
+    color: red;
+  }
+/*  .cards {
+    -webkit-transition: all 600ms ease;
+    -moz-transition: all 600ms ease;
+    -ms-transition: all 600ms ease;
+    -o-transition: all 600ms ease;
+    transition: all 600ms ease;
+
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+  .cards.past {
+    -webkit-transform: scale( 0.01 );
+    -moz-transform: scale( 0.01 );
+    -ms-transform: scale( 0.01 );
+    -o-transform: scale( 0.01 );
+    transform: scale( 0.01 );
+  }
+  .cards.future {
+    -webkit-transform: scale( 0.01 );
+    -moz-transform: scale( 0.01 );
+    -ms-transform: scale( 0.01 );
+    -o-transform: scale( 0.01 );
+    transform: scale( 0.01 );
   }*/
+
 </style>
 
