@@ -19,6 +19,7 @@
                      accept="image/gif,image/jpeg,image/jpg,image/png"
                      ref="avatarInput"
                      multiple>
+              <img class="img" :src="src" alt="">
             </el-col>
           </el-row>
 
@@ -105,6 +106,7 @@
         }
       };
       return {
+        src:'',
         active: 0,
         dis: true,
         dis1: false,
@@ -207,6 +209,14 @@
       },
       changeImage(e) {
         this.upath = e.target.files;
+        let _this = this
+        var files = e.target.files[0]
+        if (!e || !window.FileReader) return  // 看支持不支持FileReader
+        let reader = new FileReader()
+        reader.readAsDataURL(files) // 这里是最关键的一步，转换就在这里
+        reader.onloadend = function () {
+          _this.src = this.result
+        }
       }
     }
   }
@@ -275,5 +285,10 @@
     margin-right: 20px;
     position:relative;
     top: 10px;
+  }
+  .img{
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
   }
 </style>

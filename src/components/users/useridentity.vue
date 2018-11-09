@@ -8,11 +8,12 @@
               <el-col :span="23" :offset="1">
                 <span style="font-size: 14px;color: #606266;margin-right: 40px;">更改头像</span>
                 <input  type="file" name="avatar"
-                                        @change="changeImage($event)"
-                                        accept="image/gif,image/jpeg,image/jpg,image/png"
-                                        ref="avatarInput"
-                                        multiple>
-                </el-col>
+                        @change="changeImage($event)"
+                        accept="image/gif,image/jpeg,image/jpg,image/png"
+                        ref="avatarInput"
+                        multiple>
+                <img class="img" :src="src" alt="">
+              </el-col>
             </el-row>
             <el-form-item label="用户名：" prop="age">
               <el-input v-model="ruleForm2.age"></el-input>
@@ -33,7 +34,7 @@
             </el-form-item>
 
             <el-form-item label="出生日期：">
-                <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm2.date1" style="width: 100%;"></el-date-picker>
+              <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm2.date1" style="width: 100%;"></el-date-picker>
             </el-form-item>
 
             <el-form-item label="个性签名：">
@@ -86,6 +87,7 @@
         }
       };
       return {
+        src:'',
         ruleForm2: {
           pass: '',
           checkPass: '',
@@ -122,8 +124,8 @@
         ((res)=>{
           this.ruleForm2.age = res.data.data[0].userName
           this.ruleForm2.name1 = res.data.data[0].userName
-/*          this.ruleForm2.pass = res.data.data[0].userPwd
-          this.ruleForm2.checkPass = res.data.data[0].userPwd*/
+          /*          this.ruleForm2.pass = res.data.data[0].userPwd
+                    this.ruleForm2.checkPass = res.data.data[0].userPwd*/
           this.ruleForm2.name = res.data.data[0].autograph
         })
       ).catch(err=>{console.log(err)})
@@ -281,6 +283,15 @@
       },
       changeImage(e) {
         this.ruleForm2.upath = e.target.files;
+        let _this = this
+        var files = e.target.files[0]
+        if (!e || !window.FileReader) return  // 看支持不支持FileReader
+        let reader = new FileReader()
+        reader.readAsDataURL(files) // 这里是最关键的一步，转换就在这里
+        reader.onloadend = function () {
+          _this.src = this.result
+        }
+
       }
     }
   }
@@ -290,5 +301,9 @@
     width: 100%;
     height: 100%;
   }
-
+  .img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+  }
 </style>
