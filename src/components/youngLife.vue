@@ -100,4 +100,15 @@ export default {
       display: none;
     }
   }
+
+  @media only screen and (max-width: 600px){
+    p{
+      color: dimgrey;
+      padding: 15px 0 15px 0;
+      font-size: 17px;
+      font-weight: bold;
+      text-indent: 2em;
+      line-height: 30px;
+    }
+  }
 </style>

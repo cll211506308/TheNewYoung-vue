@@ -51,7 +51,7 @@
                   </el-col>
                   <el-col :span="16" :offset="1">
                     <div>
-                      <p style="margin-top: 10px; line-height: 25px;margin-bottom: 20px">内容: {{u.comContent}}</p>
+                      <p style="margin-top: 10px; line-height: 25px;margin-bottom: 20px"><span style="color: darkgrey">内容 :</span> {{u.comContent}}</p>
                       <span style="color: darkgrey;float:right;">{{u.comTime}}</span>
                     </div>
                   </el-col>
@@ -98,16 +98,17 @@
       title="发表评论"
       :visible.sync="dialogVisible"
       width="60%"
-      :before-close="handleClose">
+      :before-close="handleCndse">
       <el-input
         type="textarea"
         :rows="2"
         placeholder="请输入内容"
-        v-model="textarea">
+        v-model="textarea"
+        style="margin-bottom: 25px; margin-top: -20px">
       </el-input>
-      <br/> <br/> <br/>
-      <el-button @click="dialogVisible = false">取 消</el-button>
       <el-button type="primary" @click="addComment2">发表</el-button>
+      <el-button @click="dialogVisible = false">取 消</el-button>
+
 
     </el-dialog>
 
@@ -276,13 +277,19 @@
           });
       },
       delcom(comid) {
-        var that = this
-        this.$axios.get('friends/deleteComment/' + comid).then(
-          ((res) => {
-            this.$message({
-              message: '删除成功',
-              type: 'success'
-            });
+        let that = this;
+        this.$confirm('此操作将永久删除该收藏, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonClass: '取消',
+          type: 'waring'
+        }).then(() => {
+          this.$axios.get('friends/deleteComment/' + comid).then(
+            ((res) => {
+              this.$message({
+                message: '删除成功',
+                type: 'success'
+              });
+
 
               that.$axios.get('/friends/getCom/' + that.id).then((result) => {
                 that.myActData = result.data.data;
@@ -290,9 +297,10 @@
                 that.loadData()
               })
 
+            })
+          ).catch(err => {
+            console.log(err)
           })
-        ).catch(err => {
-          console.log(err)
         })
       },
       loadData() {
